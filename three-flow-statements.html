@@ -6,62 +6,13 @@
 <title>The Three Flow Statements</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
 <style>
-/* ================================================================
-   BASE
-================================================================ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: #E6E9F2; font-family: Inter, system-ui, sans-serif; color: #111; }
-.page { width: 100%; margin: 0; padding: 0; }
-
-/* ================================================================
-   TEXT BLOCKS & SECTION CARDS
-================================================================ */
-.text-block { padding: 4px 0 24px; }
-.section-card {
-  background: white; border-radius: 14px; padding: 28px;
-  margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-}
-
-.prose p { font-family: 'Open Sans', sans-serif; font-size: 1rem; color: #333; line-height: 1.8; margin-bottom: 14px; }
-.prose p:last-child { margin-bottom: 0; }
-
 .subsection-head {
   font-size: 15px; font-weight: 700; color: #111;
   margin: 20px 0 8px;
 }
 .subsection-head:first-child { margin-top: 0; }
-
-/* ================================================================
-   ACTIVITY CARD CHROME
-================================================================ */
-.activity-card {
-  background: white; border-radius: 14px; padding: 28px;
-  margin-bottom: 20px; border: 2px solid #e2e8f0;
-}
-.activity-tag {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 10px; font-weight: 700; color: #00329d;
-  letter-spacing: 0.7px; text-transform: uppercase;
-  background: #eff6ff; border-radius: 20px; padding: 3px 10px;
-  margin-bottom: 10px;
-}
-.activity-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
-.activity-desc  { font-family: Inter, sans-serif; font-size: 16px; color: #555; line-height: 1.6; margin-bottom: 20px; }
-
-.btn {
-  border: none; border-radius: 6px; padding: 9px 20px;
-  font-family: Inter, sans-serif; font-size: 13px; font-weight: 600;
-  cursor: pointer; transition: all 0.15s;
-}
-.btn-outline { background: white; color: #444; border: 1.5px solid #d1d5db; }
-.btn-outline:hover { border-color: #00329d; color: #00329d; }
-
-.act-footer {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-top: 18px; padding-top: 16px; border-top: 1px solid #f1f5f9;
-}
-.act-progress { font-size: 12px; color: #888; font-weight: 600; }
 
 /* ================================================================
    ACTIVITY — MATCH THE STATEMENT
@@ -147,7 +98,7 @@ body { background: #E6E9F2; font-family: Inter, system-ui, sans-serif; color: #1
   <!-- ============================================================
        ACTIVITY — WHICH STATEMENT IS IT?
   ============================================================ -->
-  <div class="activity-card">
+  <div class="section-card activity-card">
 <div class="activity-title">Which Statement Is It?</div>
     <div class="activity-desc">You have now seen all three flow statements and what each one tracks. For each item below, select the statement it belongs to, then click <strong>Check</strong>. The last question may have more than one correct answer.</div>
     <div class="match-list" id="matchList"></div>
