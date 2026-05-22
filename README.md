@@ -1,4 +1,4 @@
-# iframe-testing
+# Instructional-Redesign
 
 Static pages (minimal chrome) for OLI Torus **Webpage** blocks.
 
@@ -6,14 +6,19 @@ Static pages (minimal chrome) for OLI Torus **Webpage** blocks.
 
 ### Root
 - `intro-activity.html` — introductory financial statements activity (3-step: match, trace, connect)
-- `1st_activity.html` — balance sheet identity activity (5-step progressive comparison)
 - `simplified-example.html` — ExampleCo articulation exercise (3-layer, standalone; links to apple/)
 - `homework.html` — Homework I
-### two-snapshots/
-- `two-snapshots1.html` — The Balance Sheet as a Snapshot (activity: Snapshot or Explanation?)
-- `two-snapshots2.html` — What Changed Between the Two Dates (activities: Which Statement Explains the Change?, drag-and-drop)
-- `two-snapshots3.html` — Recognition, Classification, and Quantification (accordion)
-- `three-flow-statements.html` — Three Flow Statements reading page with end-of-page match activity
+
+### module-1/
+- `1.1-getting-organized.html` — Getting Organized
+
+### module-4/
+- `01-imposing-the-identity.html` — Imposing the Identity
+- `02-two-snapshots-1.html` — The Balance Sheet as a Snapshot (activity: Snapshot or Explanation?)
+- `02-two-snapshots-2.html` — What Changed Between the Two Dates (activities: Which Statement Explains the Change?, drag-and-drop)
+- `02-two-snapshots-3.html` — Recognition, Classification, and Quantification (accordion)
+- `03-three-flow-statements.html` — Three Flow Statements reading page with end-of-page match activity
+- `04-how-fit-together.html` — How They Fit Together
 
 ### apple/
 - `apple-example.html` — Apple FY2024 articulation exercise (links back to simplified-example.html)
@@ -33,17 +38,20 @@ Shared: `shared.css`, `shared.js`, `config.js`
 
 Deploy from **`main`** / **`/(root)`**, then for example:
 
-- `https://gaodeg-source.github.io/iframe-testing/intro-activity.html`
-- `https://gaodeg-source.github.io/iframe-testing/two-snapshots/two-snapshots1.html`
-- `https://gaodeg-source.github.io/iframe-testing/two-snapshots/two-snapshots2.html`
-- `https://gaodeg-source.github.io/iframe-testing/two-snapshots/two-snapshots3.html`
-- `https://gaodeg-source.github.io/iframe-testing/three-flow-statements.html`
-- `https://gaodeg-source.github.io/iframe-testing/simplified-example.html`
-- `https://gaodeg-source.github.io/iframe-testing/apple/apple-example.html`
-- `https://gaodeg-source.github.io/iframe-testing/entity-diagram/entity-diagram.html`
-- `https://gaodeg-source.github.io/iframe-testing/entity-diagram/entity-diagram-prompts.html`
-- `https://gaodeg-source.github.io/iframe-testing/reflect4/reflect4.html`
-- `https://gaodeg-source.github.io/iframe-testing/reflect4/reflect4_rick.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/intro-activity.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/module-1/1.1-getting-organized.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/module-4/01-imposing-the-identity.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/module-4/02-two-snapshots-1.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/module-4/02-two-snapshots-2.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/module-4/02-two-snapshots-3.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/module-4/03-three-flow-statements.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/module-4/04-how-fit-together.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/simplified-example.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/apple/apple-example.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/entity-diagram/entity-diagram.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/entity-diagram/entity-diagram-prompts.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/reflect4/reflect4.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/reflect4/reflect4_rick.html`
 
 ## Update
 
