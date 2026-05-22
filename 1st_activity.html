@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="color-scheme" content="light dark">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Balance Sheet Identity — Activity 1</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,27 +18,6 @@ body {
   width: 100%;
   padding: 36px clamp(16px, 5vw, 60px) 80px;
 }
-
-/* ── Page header ──────────────────────────────────── */
-.page-title { font-size: clamp(22px, 3vw, 28px); font-weight: 700; margin-bottom: 4px; font-family: 'Inter', sans-serif; }
-.page-sub   { font-size: clamp(14px, 1.7vw, 16px); color: #666; margin-bottom: 28px; }
-
-/* ── Progress dots ────────────────────────────────── */
-.progress-row { display: flex; align-items: center; gap: 8px; margin-bottom: 36px; flex-wrap: wrap; }
-.prog-dot { width: 10px; height: 10px; border-radius: 50%; background: #c5c8d4; transition: background 0.25s; flex-shrink: 0; }
-.prog-dot.active { background: #00329d; }
-.prog-dot.done   { background: #16a34a; }
-.prog-label      { font-size: 13px; color: #888; margin-left: 4px; }
-
-/* ── Screens ──────────────────────────────────────── */
-.screen { display: none; }
-.screen.active { display: block; }
-
-/* ── Step header (no card) ────────────────────────── */
-.step-header { margin-bottom: 24px; }
-.step-tag   { font-size: 12px; font-weight: 700; color: #888; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 6px; }
-.step-title { font-size: clamp(19px, 2.3vw, 23px); font-weight: 700; color: #111; margin-bottom: 6px; }
-.step-desc  { font-size: clamp(14px, 1.6vw, 16px); color: #555; line-height: 1.65; }
 
 /* ── Two-column layout ────────────────────────────── */
 .bs-two-col {
@@ -76,12 +56,6 @@ body {
   padding-right: 10px;
 }
 
-.bs-section-title {
-  font-size: 12px; font-weight: 700;
-  color: #00329d; letter-spacing: 0.8px;
-  text-transform: uppercase; margin-bottom: 10px;
-}
-
 /* ── Line items ───────────────────────────────────── */
 .bs-item {
   display: flex; justify-content: space-between; align-items: baseline;
@@ -117,10 +91,6 @@ body {
   border-radius: 12px; padding: clamp(14px, 2vw, 22px);
   margin-bottom: 24px; width: 100%;
 }
-.delta-box-label {
-  font-size: 12px; font-weight: 700; color: #00329d;
-  letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 14px;
-}
 .delta-row {
   display: flex; align-items: baseline; gap: 10px;
   font-size: clamp(14px, 1.6vw, 16px);
@@ -151,87 +121,27 @@ body {
   color: #111; line-height: 1.5; flex: 1; margin-bottom: 16px;
 }
 .mc-q-row .mc-q { margin-bottom: 0; }
-.mc-opts { display: flex; flex-direction: column; gap: 9px; margin-bottom: 18px; }
-
-.mc-opt {
-  border: 1.5px solid #e2e8f0; border-radius: 8px;
-  padding: clamp(10px, 1.5vw, 13px) clamp(12px, 1.8vw, 16px);
-  cursor: pointer; font-size: clamp(14px, 1.6vw, 15px);
-  font-weight: 500; color: #333;
-  display: flex; align-items: center; gap: 10px;
-  transition: border-color 0.15s, background 0.15s;
-  user-select: none;
-}
-.mc-opt:hover:not(.locked) { border-color: #94a3b8; background: #f8fafc; }
-.mc-opt.selected { border-color: #00329d; background: #eff6ff; color: #1d4ed8; }
-.mc-opt.correct  { border-color: #16a34a !important; background: #f0fdf4 !important; color: #14532d !important; pointer-events: none; }
-.mc-opt.wrong    { border-color: #dc2626 !important; background: #fef2f2 !important; color: #991b1b !important; }
-.mc-opt.locked   { cursor: default; pointer-events: none; }
-
-.mc-letter {
-  width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
-  border: 1.5px solid #c5c8d4; font-size: 13px; font-weight: 700; color: #888;
-  display: flex; align-items: center; justify-content: center; transition: all 0.15s;
-}
-.mc-opt.selected .mc-letter { background: #00329d; border-color: #00329d; color: white; }
-.mc-opt.correct  .mc-letter { background: #16a34a; border-color: #16a34a; color: white; }
-.mc-opt.wrong    .mc-letter { background: #dc2626; border-color: #dc2626; color: white; }
-
-/* ── Feedback ─────────────────────────────────────── */
-.feedback {
-  border-radius: 8px; padding: 12px 16px;
-  font-size: clamp(14px, 1.6vw, 15px); line-height: 1.75;
-  display: none; margin-bottom: 16px;
-}
-.feedback.show { display: block; }
-.feedback.ok  { background: #f0fdf4; color: #14532d; border: 1px solid #86efac; }
-.feedback.err { background: #fef2f2; color: #7f1d1d; border: 1px solid #fca5a5; }
-
-/* ── Buttons ──────────────────────────────────────── */
-.nav-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-
-.btn-back {
-  background: white; color: #555; border: 1.5px solid #d1d5db;
-  border-radius: 6px; padding: 10px 20px;
-  font-family: 'Inter', sans-serif; font-size: clamp(14px, 1.5vw, 15px); font-weight: 600;
-  cursor: pointer; transition: border-color 0.15s, color 0.15s;
-}
-.btn-back:hover { border-color: #00329d; color: #00329d; }
-
-.btn-check {
-  background: #00329d; color: white; border: none;
-  border-radius: 6px; padding: 10px 22px;
-  font-family: 'Inter', sans-serif; font-size: clamp(14px, 1.5vw, 15px); font-weight: 600;
-  cursor: pointer; transition: background 0.15s; display: none;
-}
-.btn-check:hover  { background: #1a4db5; }
-.btn-check.show   { display: inline-block; }
-
-.btn-next {
-  background: #16a34a; color: white; border: none;
-  border-radius: 6px; padding: 10px 22px;
-  font-family: 'Inter', sans-serif; font-size: clamp(14px, 1.5vw, 15px); font-weight: 600;
-  cursor: pointer; transition: background 0.15s; display: none;
-}
-.btn-next:hover { background: #15803d; }
-.btn-next.show  { display: inline-block; }
-
-.next-page-hint {
-  font-size: clamp(15px, 1.6vw, 17px); font-weight: 600; color: #1d4ed8; display: none;
-}
-.next-page-hint.show { display: inline-block; }
-
-.btn-hint {
-  background: #eff6ff; color: #1d4ed8; border: 1.5px solid #bfdbfe;
-  border-radius: 6px; padding: 7px 16px;
-  font-family: 'Inter', sans-serif; font-size: clamp(13px, 1.4vw, 14px); font-weight: 600;
-  cursor: pointer; transition: background 0.15s, border-color 0.15s; white-space: nowrap;
-}
-.btn-hint:hover { background: #dbeafe; border-color: #93c5fd; }
 
 /* ── Responsive ───────────────────────────────────── */
 @media (max-width: 600px) {
   .bs-two-col { grid-template-columns: 1fr; gap: 20px; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .bs-col-label { color: #c8ccd8; }
+  .bs-col-box { background: #32303c; border-color: #2a2830; }
+  .bs-section + .bs-section { border-top-color: #4a4858; }
+  .item-label { color: #c8ccd8; }
+  .item-value { color: #e8e8f0; }
+  .hint-active .item-value.hl { background: #1a2540; color: #93c5fd; }
+  .bs-item.total-row { border-top-color: #4a4858; }
+  .bs-item.total-row .item-label { color: #e8e8f0; }
+  .delta-box { background: #32303c; border-color: #2a2830; }
+  .delta-name { color: #c8ccd8; }
+  .delta-calc { color: #8a8898; }
+  .delta-result { background: #1a2540; color: #93c5fd; }
+  .mc-card { background: #32303c; box-shadow: 0 1px 4px rgba(0,0,0,0.4); }
+  .mc-q { color: #e8e8f0; }
 }
 </style>
 </head>
@@ -268,10 +178,10 @@ body {
         <div class="mc-opt"><div class="mc-letter">C</div>No — the closing balance sheet is not in balance</div>
         <div class="mc-opt"><div class="mc-letter">D</div>Neither period is in balance</div>
       </div>
-      <div class="feedback" id="fb1"></div>
+      <div class="mcq-fb" id="fb1"></div>
       <div class="nav-row">
-        <button class="btn-check" id="chk1" onclick="checkAnswer(1,2)">Check Answer</button>
-        <button class="btn-next"  id="nx1"  onclick="goTo(2)">Next &rarr;</button>
+        <button class="btn btn-primary btn-reveal" id="chk1" onclick="checkAnswer(1,2)">Check Answer</button>
+        <button class="btn btn-outline btn-reveal" id="nx1" onclick="goTo(2)">Next &rarr;</button>
       </div>
     </div>
   </div>
@@ -289,7 +199,7 @@ body {
     <div class="mc-card">
       <div class="mc-q-row">
         <div class="mc-q">What is the change in Total Assets from opening to closing?</div>
-        <button class="btn-hint" id="hint2" onclick="toggleHint(2)">Show Hint</button>
+        <button class="btn btn-hint" id="hint2" onclick="toggleHint(2)">Show Hint</button>
       </div>
       <div class="mc-opts" id="mc2">
         <div class="mc-opt"><div class="mc-letter">A</div>+12,000</div>
@@ -297,11 +207,11 @@ body {
         <div class="mc-opt"><div class="mc-letter">C</div>+18,000</div>
         <div class="mc-opt"><div class="mc-letter">D</div>No change</div>
       </div>
-      <div class="feedback" id="fb2"></div>
+      <div class="mcq-fb" id="fb2"></div>
       <div class="nav-row">
-        <button class="btn-back" onclick="goTo(1)">&larr; Back</button>
-        <button class="btn-check" id="chk2" onclick="checkAnswer(2,3)">Check Answer</button>
-        <button class="btn-next"  id="nx2"  onclick="goTo(3)">Next &rarr;</button>
+        <button class="btn btn-outline" onclick="goTo(1)">&larr; Back</button>
+        <button class="btn btn-primary btn-reveal" id="chk2" onclick="checkAnswer(2,3)">Check Answer</button>
+        <button class="btn btn-outline btn-reveal" id="nx2" onclick="goTo(3)">Next &rarr;</button>
       </div>
     </div>
   </div>
@@ -319,7 +229,7 @@ body {
     <div class="mc-card">
       <div class="mc-q-row">
         <div class="mc-q">What is the change in Total Liabilities from opening to closing?</div>
-        <button class="btn-hint" id="hint3" onclick="toggleHint(3)">Show Hint</button>
+        <button class="btn btn-hint" id="hint3" onclick="toggleHint(3)">Show Hint</button>
       </div>
       <div class="mc-opts" id="mc3">
         <div class="mc-opt"><div class="mc-letter">A</div>+56,000</div>
@@ -327,11 +237,11 @@ body {
         <div class="mc-opt" data-correct="true"><div class="mc-letter">C</div>+6,000</div>
         <div class="mc-opt"><div class="mc-letter">D</div>No change</div>
       </div>
-      <div class="feedback" id="fb3"></div>
+      <div class="mcq-fb" id="fb3"></div>
       <div class="nav-row">
-        <button class="btn-back" onclick="goTo(2)">&larr; Back</button>
-        <button class="btn-check" id="chk3" onclick="checkAnswer(3,4)">Check Answer</button>
-        <button class="btn-next"  id="nx3"  onclick="goTo(4)">Next &rarr;</button>
+        <button class="btn btn-outline" onclick="goTo(2)">&larr; Back</button>
+        <button class="btn btn-primary btn-reveal" id="chk3" onclick="checkAnswer(3,4)">Check Answer</button>
+        <button class="btn btn-outline btn-reveal" id="nx3" onclick="goTo(4)">Next &rarr;</button>
       </div>
     </div>
   </div>
@@ -349,7 +259,7 @@ body {
     <div class="mc-card">
       <div class="mc-q-row">
         <div class="mc-q">What is the change in Total Equities from opening to closing?</div>
-        <button class="btn-hint" id="hint4" onclick="toggleHint(4)">Show Hint</button>
+        <button class="btn btn-hint" id="hint4" onclick="toggleHint(4)">Show Hint</button>
       </div>
       <div class="mc-opts" id="mc4">
         <div class="mc-opt"><div class="mc-letter">A</div>+14,000</div>
@@ -357,11 +267,11 @@ body {
         <div class="mc-opt" data-correct="true"><div class="mc-letter">C</div>+24,000</div>
         <div class="mc-opt"><div class="mc-letter">D</div>No change</div>
       </div>
-      <div class="feedback" id="fb4"></div>
+      <div class="mcq-fb" id="fb4"></div>
       <div class="nav-row">
-        <button class="btn-back" onclick="goTo(3)">&larr; Back</button>
-        <button class="btn-check" id="chk4" onclick="checkAnswer(4,5)">Check Answer</button>
-        <button class="btn-next"  id="nx4"  onclick="goTo(5)">Next &rarr;</button>
+        <button class="btn btn-outline" onclick="goTo(3)">&larr; Back</button>
+        <button class="btn btn-primary btn-reveal" id="chk4" onclick="checkAnswer(4,5)">Check Answer</button>
+        <button class="btn btn-outline btn-reveal" id="nx4" onclick="goTo(5)">Next &rarr;</button>
       </div>
     </div>
   </div>
@@ -397,7 +307,7 @@ body {
     <div class="mc-card">
       <div class="mc-q-row">
         <div class="mc-q">Based only on these two balance sheets, what caused these changes?</div>
-        <button class="btn-hint" id="hint5" onclick="toggleHint(5)">Show Hint</button>
+        <button class="btn btn-hint" id="hint5" onclick="toggleHint(5)">Show Hint</button>
       </div>
       <div class="mc-opts" id="mc5">
         <div class="mc-opt"><div class="mc-letter">A</div>The company earned a profit</div>
@@ -405,10 +315,10 @@ body {
         <div class="mc-opt"><div class="mc-letter">C</div>Investors contributed more capital</div>
         <div class="mc-opt" data-correct="true"><div class="mc-letter">D</div>We can't determine the cause from the balance sheet alone</div>
       </div>
-      <div class="feedback" id="fb5"></div>
+      <div class="mcq-fb" id="fb5"></div>
       <div class="nav-row">
-        <button class="btn-back" onclick="goTo(4)">&larr; Back</button>
-        <button class="btn-check" id="chk5" onclick="checkAnswer(5,null)">Check Answer</button>
+        <button class="btn btn-outline" onclick="goTo(4)">&larr; Back</button>
+        <button class="btn btn-primary btn-reveal" id="chk5" onclick="checkAnswer(5,null)">Check Answer</button>
         <span class="next-page-hint" id="btnCont">Go to the next page to see what's the cause!</span>
       </div>
     </div>
@@ -551,7 +461,7 @@ function checkAnswer(screenNum, nextScreen) {
 
   var correct = selected.getAttribute('data-correct') === 'true';
 
-  fbEl.className = 'feedback show ' + (correct ? 'ok' : 'err');
+  fbEl.className = 'mcq-fb show ' + (correct ? 'ok' : 'err');
   fbEl.innerHTML = FB[screenNum][correct ? 'ok' : 'err'];
 
   if (correct) {
