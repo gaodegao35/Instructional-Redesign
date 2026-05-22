@@ -46,7 +46,7 @@
 .match-opt.locked  { cursor: default; }
 .match-q-feedback { font-size: 12px; color: #555; line-height: 1.6; margin-top: 7px; display: none; padding: 8px 12px; background: #f8fafc; border-radius: 6px; }
 .match-q-feedback.show { display: block; }
-.match-q-feedback.ok  { background: #f0fdf4; color: #166534; }
+.match-q-feedback.ok  { background: #f0fdf4; color: #2a5c38; }
 .match-q-feedback.inf { background: #eff6ff; color: #1e3a5f; }
 
 /* ================================================================
@@ -69,7 +69,45 @@
 .dnd-item.wrong    { border-color: #dc2626 !important; background: #fef2f2 !important; color: #991b1b !important; }
 #dndFeedbackList { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
 .dnd-fb-card { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 11px 14px; font-size: 13px; color: #78350f; line-height: 1.65; }
-.dnd-fb-label { display: block; font-weight: 700; margin-bottom: 4px; color: #92400e; }
+.dnd-fb-label { display: block; font-weight: 700; margin-bottom: 4px; color: #6a4020; }
+
+@media (prefers-color-scheme: dark) {
+  .diagram-wrap { background: #32303c; border-color: #2a2830; }
+  .pillar-date { color: #8a8898; }
+  .flow-box { background: #1a2540; border-color: #3a5080; color: #a8bcd8; }
+  .match-q-label { color: #e8e8f0; }
+  .match-opt { background: #3e3c48; color: #c8ccd8; border-color: #4a4858; }
+  .match-opt:hover:not(.locked) { border-color: #6aa3e8; color: #6aa3e8; }
+  .match-q-feedback { background: #3e3c48; color: #b0aec0; }
+  .dnd-bank-wrap { background: #32303c; border-color: #4a4858; }
+  .dnd-bank-label { color: #8a8898; }
+  .dnd-zone { background: #2a2838; border-color: #4a4858; }
+  .dnd-zone-label { color: #c8ccd8; border-bottom-color: #4a4858; }
+  .dnd-zone-empty { color: #8a8898; }
+  .dnd-item { background: #3e3c48; border-color: #4a4858; color: #c8ccd8; }
+  .dnd-item:hover:not(.checked) { border-color: #6aa3e8; color: #6aa3e8; background: #1a2540; }
+  /* Analogy box */
+  .analogy-box { background: #1c1926; border-color: #6d28d9; color: #a898c8; }
+  /* Match state colors */
+  .match-opt.correct { border-color: #2a5c38 !important; background: #192a20 !important; color: #6db890 !important; }
+  .match-opt.wrong   { border-color: #5c2a2a !important; background: #2a1818 !important; color: #c08888 !important; }
+  .match-q-feedback.ok  { background: #192a20; color: #6db890; }
+  .match-q-feedback.inf { background: #1a2540; color: #93c5fd; }
+  /* DND state colors */
+  .dnd-item.correct { border-color: #2a5c38 !important; background: #192a20 !important; color: #6db890 !important; }
+  .dnd-item.wrong   { border-color: #5c2a2a !important; background: #2a1818 !important; color: #c08888 !important; }
+  .dnd-fb-card { background: #26200e; border-color: #6a4020; color: #c8a86a; }
+  .dnd-fb-label { color: #b89455; }
+  /* Diagram pillars */
+  .pillar-label { color: #a8bcd8; }
+  .pillar { background: #4a6090; }
+  .flow-arrow { color: #6aa3e8; }
+  /* Number badge */
+  .match-q-num { background: #6aa3e8; color: #1e1e26; }
+  /* Drag-over states */
+  .dnd-bank-wrap.drag-over { border-color: #6aa3e8 !important; background: #1a2540 !important; }
+  .dnd-zone.drag-over { border-color: #6aa3e8 !important; background: #1a2540 !important; }
+}
 </style>
 </head>
 <body>

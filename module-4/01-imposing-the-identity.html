@@ -375,7 +375,7 @@
     border-top: 1px dashed #e5e7eb;
     margin: 12px 0 8px;
   }
-  .dnd-bank-label.wait-label { color: #92400e; }
+  .dnd-bank-label.wait-label { color: #6a4020; }
 
   .dnd-card.wait-card {
     border-color: #fcd34d;
@@ -389,7 +389,7 @@
   .wait-note {
     width: 100%;
     font-size: 12px;
-    color: #92400e;
+    color: #6a4020;
     background: #fef3c7;
     border: 1px solid #fcd34d;
     border-radius: 8px;
@@ -509,11 +509,11 @@
   /* press release zone — amber */
   .dnd-zone.z-press { border-color: #fcd34d; background: #fffbeb; }
   .dnd-zone.z-press.over { background: #fef3c7; border-color: #d97706; transform: scale(1.02); }
-  .dnd-zone.z-press .zone-title { color: #92400e; }
+  .dnd-zone.z-press .zone-title { color: #6a4020; }
   .dnd-zone.z-press .zone-hint { color: #b45309; }
 
   /* press release placed chip */
-  .placed-chip.press { background: #fef3c7; color: #92400e; }
+  .placed-chip.press { background: #fef3c7; color: #6a4020; }
 
   /* inline explanation that appears under each placed press-release chip */
   .press-explain-block {
@@ -550,7 +550,7 @@
     border-radius: 8px;
     padding: 10px 16px;
     font-size: 13px;
-    color: #92400e;
+    color: #6a4020;
     font-family: 'Inter', system-ui, sans-serif;
     line-height: 1.55;
     margin-bottom: 16px;
@@ -640,7 +640,7 @@
     letter-spacing: 0.8px;
   }
   .reconcile-card.ok .reconcile-card-header { background: #eff6ff; color: #1d4ed8; border-bottom: 1px solid #bfdbfe; }
-  .reconcile-card.err .reconcile-card-header { background: #fef2f2; color: #b91c1c; border-bottom: 1px solid #fecaca; }
+  .reconcile-card.err .reconcile-card-header { background: #fef2f2; color: #5c2a2a; border-bottom: 1px solid #fecaca; }
 
   .reconcile-body {
     padding: 14px 16px;
@@ -696,7 +696,7 @@
     line-height: 1.5;
   }
   .reconcile-card.ok .reconcile-verdict { background: #eff6ff; color: #1d4ed8; }
-  .reconcile-card.err .reconcile-verdict { background: #fef2f2; color: #b91c1c; }
+  .reconcile-card.err .reconcile-verdict { background: #fef2f2; color: #5c2a2a; }
 
   /* ===== DOUBLE-ENTRY VISUAL ===== */
   .de-visual {
@@ -834,6 +834,119 @@
   .rabbit-hole.open .rabbit-hole-body { display: block; }
   .rabbit-hole-body p { margin-bottom: 14px; }
   .rabbit-hole-body p:last-child { margin-bottom: 0; }
+
+  @media (prefers-color-scheme: dark) {
+    html.micro-activity body { background: #1e1e26; color: #eeebf5; }
+    h1, h2 { color: #eeebf5; }
+    .prose { color: #c8ccd8; }
+    .section-label { color: #8a8898; }
+    .eq-compare { background: #32303c; border-color: #2a2830; }
+    .eq-connector-rule { background: #2a2830; }
+    .eq-connector-label, .eq-panel-tag { color: #8a8898; }
+    .eq-panel-caption { color: #b0aec0; }
+    .eq-op { color: #b0aec0; }
+    .flip-card-front, .flip-card-back { background: #32303c; border-color: #2a2830; }
+    .def-brief, .flip-card-back p { color: #c8ccd8; }
+    .flip-hint, .flip-back-hint { color: #8a8898; }
+    .insight-box { background: #16243a; border-color: #2a3a58; }
+    .insight-label { color: #7aa8f0; }
+    .insight-box p { color: #a8bcd8; }
+    .org-card { background: #32303c; border-color: #2a2830; }
+    .org-type { color: #8a8898; }
+    .org-name { color: #e8e8f0; }
+    .org-badge { background: #1e1e26; border-color: #2a2830; color: #b0aec0; }
+    .pill-op { color: #b0aec0; }
+    .dnd-bank { background: #32303c; border-color: #4a4858; }
+    .dnd-bank-label { color: #8a8898; }
+    .dnd-progress { color: #8a8898; }
+    .zone-title { color: #6aa3e8; }
+    .dnd-card { background: #3e3c48; border-color: #4a4858; color: #d0cede; }
+    .dnd-card:hover { background: #464454; border-color: #6a6880; }
+    .dnd-card-sub { color: #8a8898; }
+    .zone-hint { color: #8a8898; }
+    .de-card { background: #32303c; border-color: #4a4858; }
+    .de-side { background: #3e3c48; border: 1px solid #4a4858; }
+    .de-side-label { color: #8a8898; }
+    .de-net { color: #c8ccd8; border-top-color: #2a2830; }
+    .de-op { color: #b0aec0; }
+    .de-event { color: #ffffff; }
+    .de-delta.up   { color: #88b8f0; }
+    .de-delta.down { color: #b0aec0; }
+    .de-delta.none { color: #8a8898; }
+    .reconcile-card { background: #32303c; border-color: #2a2830; }
+    .reconcile-side-label { color: #8a8898; }
+    .reconcile-item { color: #c8ccd8; }
+    .reconcile-item span { color: #ffffff; }
+    .reconcile-total { color: #ffffff; border-top-color: #2a2830; }
+    .interlude-card { background: #32303c; border-color: #2a2830; }
+    .interlude-intro, .interlude-row-text { color: #c8ccd8; }
+    .press-explain-block { background: #32303c; border-color: #2a2830; }
+    .press-explain-text { color: #c8ccd8; }
+    .btn-reset { background: #32303c; color: #c8ccd8; border-color: #2a2830; }
+    .btn-reset:hover { border-color: #6aa3e8; color: #6aa3e8; }
+    .btn-continue { background: #6aa3e8; color: #1e1e26; }
+    .btn-continue:hover { background: #88b8f0; }
+    .progress-bar { background: #2a2830; }
+    .progress-fill { background: #6aa3e8; }
+    /* Equation pills */
+    .eq-term.a, .pill.a { background: #1a3040; color: #78b0cc; }
+    .eq-term.l, .pill.l { background: #1a2540; color: #7090c8; }
+    .eq-term.e, .pill.e, .pill.na { background: #20224a; color: #9090c8; }
+    /* Flip card border-top overrides (light mode colors bleed through at lower specificity) */
+    .flip-card.a .flip-card-front, .flip-card.a .flip-card-back { border-top-color: #78b0cc; }
+    .flip-card.l .flip-card-front, .flip-card.l .flip-card-back { border-top-color: #7090c8; }
+    .flip-card.e .flip-card-front, .flip-card.e .flip-card-back { border-top-color: #9090c8; }
+    /* Flip card def titles */
+    .flip-card.a .def-title, .flip-card.a .flip-back-title { color: #78b0cc; }
+    .flip-card.l .def-title, .flip-card.l .flip-back-title { color: #7090c8; }
+    .flip-card.e .def-title, .flip-card.e .flip-back-title { color: #9090c8; }
+    /* DND zones */
+    .dnd-zone.z-assets, .dnd-zone.z-liab, .dnd-zone.z-equity { background: #1a2540; border-color: #3a5080; }
+    .dnd-zone.z-press { background: #26200e; border-color: #6a4020; }
+    .dnd-zone.z-press .zone-title { color: #c8a86a; }
+    .dnd-zone.z-press .zone-hint { color: #7a5a28; }
+    .dnd-zone.over { background: #1e2d4a; border-color: #6aa3e8; }
+    .dnd-zone.z-press.over { background: #2c2416; border-color: #5a4828; transform: scale(1.02); }
+    /* Wait cards & notes */
+    .dnd-card.wait-card, .dnd-card.wait-card:hover { background: #26200e; border-color: #6a4020; color: #c8a86a; }
+    .wait-note { background: #26200e; border-color: #6a4020; color: #c8a86a; }
+    .dnd-bank-label.wait-label { color: #c8a86a; }
+    /* Drag card states */
+    .dnd-card.wrong { border-color: #5c2a2a; background: #2a1818; color: #c08888; }
+    .dnd-card.selected { background: #1a2540; border-color: #6aa3e8; color: #93c5fd; }
+    /* Placed chips */
+    .placed-chip { background: #0f1828; color: #7090c8; }
+    .placed-chip.press { background: #181208; color: #c8a86a; }
+    /* Stage note */
+    .stage-note { background: #26200e; border-color: #6a4020; color: #c8a86a; }
+    /* DND result */
+    .dnd-result.done { background: #192a20; border-color: #2a5c38; color: #6db890; }
+    /* Double-entry visual */
+    .de-num { background: #1a2540; color: #6aa3e8; }
+    .de-verdict { background: #1a2540; color: #7090c8; }
+    /* Reconcile card headers & verdicts */
+    .reconcile-card.ok .reconcile-card-header { background: #1a2540; color: #7090c8; border-bottom-color: #2a3a58; }
+    .reconcile-card.err .reconcile-card-header { background: #2a1818; color: #c08888; border-bottom-color: #5a2020; }
+    .reconcile-card.ok .reconcile-verdict { background: #1a2540; color: #7090c8; }
+    .reconcile-card.err .reconcile-verdict { background: #2a1818; color: #c08888; }
+    .reconcile-card.ok .reconcile-op { color: #7090c8; }
+    .reconcile-card.err .reconcile-op { color: #c08888; }
+    .reconcile-card.err .reconcile-total span.mismatch { color: #f87171; }
+    /* Interlude */
+    .interlude-card-title { color: #c8a86a; }
+    .interlude-row.why .interlude-row-label { color: #b89455; }
+    .interlude-row.when .interlude-row-label { color: #7090c8; }
+    .interlude-row.when .interlude-row-text { color: #93c5fd; }
+    /* Press explain */
+    .press-explain-row.why .press-explain-label { color: #b89455; }
+    .press-explain-row.when .press-explain-label { color: #7090c8; }
+    .press-explain-row.when .press-explain-text { color: #93c5fd; }
+    /* Rabbit hole (locally defined — overrides shared.css dark mode) */
+    .rabbit-hole { background: #2a2318; border-color: #3a2e22; }
+    .rabbit-hole-trigger:hover { background: #221a10; }
+    .rabbit-hole-trigger .rh-chevron { color: #6b5540; }
+    .rabbit-hole-body { color: #b8afa4; }
+  }
 </style>
 </head>
 <body>

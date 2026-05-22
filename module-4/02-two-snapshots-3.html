@@ -24,6 +24,19 @@
 .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 20px; background: #f8fafc; }
 .acc-body.open { max-height: 400px; padding: 16px 20px; }
 .acc-body p { font-size: 13px; color: #333; line-height: 1.75; }
+
+@media (prefers-color-scheme: dark) {
+  .accordion { border-color: #2a2830; }
+  .acc-item { border-bottom-color: #2a2830; }
+  .acc-trigger { background: #32303c; }
+  .acc-trigger:hover { background: #3a3846; }
+  .acc-term { color: #6aa3e8; }
+  .acc-tag { color: #8a8898; }
+  .acc-icon { border-color: #4a4858; color: #b0aec0; }
+  .acc-trigger[aria-expanded="true"] .acc-icon { background: #6aa3e8; border-color: #6aa3e8; color: #1e1e26; }
+  .acc-body { background: #3e3c48; border-top: 1px solid #4a4858; }
+  .acc-body p { color: #c8ccd8; }
+}
 </style>
 </head>
 <body>

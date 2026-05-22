@@ -253,6 +253,66 @@
 .rh-body.open { display: block; padding: 0 18px 18px; }
 .rh-body .prose p { font-family: 'Open Sans', sans-serif; font-size: 14px; color: #444; line-height: 1.75; margin-bottom: 14px; }
 .rh-body .prose p:last-child { margin-bottom: 0; }
+
+@media (prefers-color-scheme: dark) {
+  /* Scenario block */
+  .scenario { background: #2a2318; border-left-color: var(--accent); }
+  .scenario p { color: #b8afa4; }
+  /* Flip cards */
+  .flip-card-front { background: #32303c; border-color: #4a4858; }
+  .flip-card-front p { color: #c8ccd8; }
+  .flip-card-front .flip-hint { color: #8a8898; }
+  /* Sort grid */
+  .sort-item { background: #3e3c48; border-color: #4a4858; }
+  .sort-text { color: #e8e8f0; }
+  .sort-hint { color: #b0aec0; }
+  .sort-btn { background: #3e3c48; color: #c8ccd8; border-color: #4a4858; }
+  .sort-btn:hover:not(:disabled) { border-color: #6aa3e8; color: #6aa3e8; }
+  .sort-item.correct { background: #192a20; border-color: #2a5c38; }
+  .sort-item.wrong   { background: #2a1818; border-color: #5c2a2a; }
+  .sort-item.correct .sort-hint { color: #6db890; }
+  .sort-item.wrong   .sort-hint { color: #c08888; }
+  .sort-btn.selected-a { background: #6aa3e8; border-color: #6aa3e8; color: #1e1e26; }
+  .sort-btn.selected-b { background: #6060b0; border-color: #6060b0; color: #eeebf5; }
+  .sort-item.correct .sort-result { background: #2a5c38; }
+  .sort-item.wrong   .sort-result { background: #5c2a2a; }
+  /* DND */
+  .dnd-pool { background: #32303c; border-color: #4a4858; }
+  .dnd-bin { background: #2a2838; }
+  .dnd-bin.drag-over { background: #1a2540 !important; }
+  .dnd-divider { background: #4a4858; }
+  .dnd-bin-label { color: #8a8898; }
+  .dnd-chip { background: #3e3c48; border-color: #4a4858; color: #c8ccd8; }
+  .dnd-chip:hover { border-color: #6aa3e8; color: #6aa3e8; }
+  .dnd-chip.correct { border-color: #2a5c38; background: #192a20; color: #6db890; }
+  .dnd-chip.wrong   { border-color: #5c2a2a; background: #2a1818; color: #c08888; }
+  /* MCQ */
+  .mcq-opt { background: #3e3c48; border-color: #4a4858; color: #c8ccd8; }
+  .mcq-opt:hover:not(.locked) { border-color: #6aa3e8; background: #1a2540; color: #6aa3e8; }
+  .mcq-opt.selected:not(.locked) { border-color: #6aa3e8; background: #1a2540; color: #6aa3e8; }
+  .mcq-opt.correct { border-color: #2a5c38 !important; background: #192a20 !important; color: #6db890 !important; }
+  .mcq-opt.wrong   { border-color: #5c2a2a !important; background: #2a1818 !important; color: #c08888 !important; }
+  .mcq-fb.ok  { background: #192a20; color: #6db890; }
+  .mcq-fb.inf { background: #1a2540; color: #93c5fd; }
+  /* Accordion */
+  .accordion { border-color: #2a2830; }
+  .acc-item { border-bottom-color: #2a2830; }
+  .acc-trigger { background: #32303c; }
+  .acc-trigger:hover { background: #3a3846; }
+  .acc-term { color: #6aa3e8; }
+  .acc-tag { color: #8a8898; }
+  .acc-icon { border-color: #4a4858; color: #b0aec0; }
+  .acc-trigger[aria-expanded="true"] .acc-icon { background: #6aa3e8; border-color: #6aa3e8; color: #1e1e26; }
+  .acc-body { background: #3e3c48; border-top: 1px solid #4a4858; }
+  .acc-body p { color: #c8ccd8; }
+  /* Rabbit hole */
+  .rabbit-hole { background: #2a2318; border-color: #3a2e22; }
+  .rh-toggle { color: #e07840; }
+  .rh-toggle:hover { background: #221a10; }
+  .rh-chevron { color: #6b5540; }
+  .rh-body { color: #b8afa4; }
+  .rh-body .prose p { color: #b8afa4; }
+}
 </style>
 </head>
 <body>
