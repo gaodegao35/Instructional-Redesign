@@ -94,41 +94,7 @@
 }
 
 /* ================================================================
-   SORT GRID — exact pattern from two-snapshots1.html
-================================================================ */
-.sort-grid { display: flex; flex-direction: column; gap: 10px; }
-.sort-item {
-  display: flex; align-items: center; gap: 12px;
-  background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px;
-  padding: 13px 16px; transition: border-color 0.2s, background 0.2s;
-}
-.sort-item.correct { background: #f0fdf4; border-color: #86efac; }
-.sort-item.wrong   { background: #fef2f2; border-color: #fca5a5; }
-.sort-text { flex: 1; font-size: 13px; font-weight: 600; color: #222; line-height: 1.4; }
-.sort-hint { font-size: 12px; font-weight: 400; color: #555; margin-top: 3px; display: none; }
-.sort-item.correct .sort-hint, .sort-item.wrong .sort-hint { display: block; }
-.sort-item.correct .sort-hint { color: #166534; }
-.sort-item.wrong   .sort-hint { color: #991b1b; }
-.sort-btns { display: flex; gap: 6px; flex-shrink: 0; }
-.sort-btn {
-  border: 1.5px solid #d1d5db; border-radius: 7px; padding: 6px 14px;
-  font-family: Inter, sans-serif; font-size: 12px; font-weight: 600;
-  cursor: pointer; background: white; color: #444; transition: all 0.15s;
-  white-space: nowrap;
-}
-.sort-btn:hover:not(:disabled) { border-color: #00329d; color: #00329d; }
-.sort-btn.selected-a { background: #00329d; border-color: #00329d; color: white; }
-.sort-btn.selected-b { background: #6366f1; border-color: #6366f1; color: white; }
-.sort-btn:disabled { cursor: default; }
-.sort-result {
-  width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
-  display: none; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;
-}
-.sort-item.correct .sort-result { display: flex; background: #16a34a; color: white; }
-.sort-item.wrong   .sort-result { display: flex; background: #dc2626; color: white; }
-
-/* ================================================================
-   DRAG-AND-DROP — Activity 1
+   DRAG-AND-DROP
 ================================================================ */
 .dnd-pool {
   display: flex; flex-wrap: wrap; gap: 8px;
@@ -202,7 +168,7 @@
 .mcq-fb.inf { background: #eff6ff; color: #1e3a5f; }
 
 /* ================================================================
-   ACCORDION — exact pattern from two-snapshots3.html
+   ACCORDION — pattern from two-snapshots3.html
 ================================================================ */
 .accordion { border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
 .acc-item { border-bottom: 1px solid #e2e8f0; }
@@ -226,7 +192,7 @@
   background: #00329d; border-color: #00329d; color: white; transform: rotate(45deg);
 }
 .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 20px; background: #f8fafc; }
-.acc-body.open { max-height: 600px; padding: 16px 20px; }
+.acc-body.open { max-height: 500px; padding: 16px 20px; }
 .acc-body p { font-family: 'Open Sans', sans-serif; font-size: 13px; color: #333; line-height: 1.75; margin-bottom: 10px; }
 .acc-body p:last-child { margin-bottom: 0; }
 
@@ -253,6 +219,19 @@
 .rh-body.open { display: block; padding: 0 18px 18px; }
 .rh-body .prose p { font-family: 'Open Sans', sans-serif; font-size: 14px; color: #444; line-height: 1.75; margin-bottom: 14px; }
 .rh-body .prose p:last-child { margin-bottom: 0; }
+
+/* Tighter spacing: post-activity wrap-up through rabbit-hole */
+.close-section { padding: 0 0 8px; }
+.close-section .close-lead {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem; color: #333; line-height: 1.8;
+  margin: 0 0 12px;
+}
+.close-section .callout { margin-top: 0; margin-bottom: 14px; }
+.close-section .section-title { margin-top: 0; margin-bottom: 4px; }
+.close-section .section-sub { margin-bottom: 10px; }
+.close-section + .rabbit-hole { margin-top: 12px; }
+
 </style>
 </head>
 <body>
@@ -376,17 +355,25 @@
     <div class="mcq-fb" id="mcq1-fb"></div>
   </div>
 
+
+  <div class="text-block">
+    <div class="prose">
+      <p>The line you drew is called the <strong>entity boundary</strong>. It decides what goes into the accounting records and what stays out. Every time an accountant records something, they have already made a judgment: does this belong to the entity (the shop) or not?</p>
+      <p>The boundary isn&rsquo;t always obvious. If you use your personal car to pick up parts for the shop, did the car cross the boundary for that trip? Accounting systems handle this with rules &mdash; but those rules are built on top of the same idea you just discovered by sorting ten things into two bins.</p>
+
+    </div>
+  </div>
+
   <div class="rabbit-hole">
     <button class="rh-toggle" id="rh1Toggle" onclick="toggleRh('rh1')">
       <span class="rh-icon">&#128007;</span>
-      <span class="rh-label">Why does drawing this line matter so much to accountants?</span>
+      <span class="rh-label">Notice what isn&rsquo;t on the list.</span>
       <span class="rh-chevron">&#9660;</span>
     </button>
     <div class="rh-body" id="rh1Body">
       <div class="prose">
-        <p>The line you drew is called the <strong>entity boundary</strong>. It decides what goes into the accounting records and what stays out. Every time an accountant records something, they have already made a judgment: does this belong to the entity (the shop) or not?</p>
-        <p>The boundary isn&rsquo;t always obvious. If you use your personal car to pick up parts for the shop, did the car cross the boundary for that trip? Accounting systems handle this with rules &mdash; but those rules are built on top of the same idea you just discovered by sorting ten things into two bins.</p>
-        <p>Notice also what the entity boundary does <em>not</em> capture: you. Your knowledge of how to true a wheel, when a frame is worth fixing, which wrench to grab &mdash; that&rsquo;s arguably the most important resource the shop has. But it isn&rsquo;t a thing the boundary can hold. We&rsquo;ll return to this puzzle later.</p>
+        <p>Look at the list you made. The stand, the wrenches, the parts &mdash; all things related to your shop work. But none of it becomes shop work without <em>you</em>. You know how to true a wheel, when a frame is worth fixing, which wrench to grab. Your knowledge is what makes the shop possible.</p>
+        <p>Should you list it? It&rsquo;s arguably the most important &ldquo;thing&rdquo; about the shop. But it isn&rsquo;t a thing you can drag into a bin &mdash; and you, the person who has it, aren&rsquo;t a thing at all. Where do you and what you know fit in the picture? We&rsquo;ll come back to that question later.</p>
       </div>
     </div>
   </div>
@@ -398,72 +385,83 @@
     <div class="section-tag">Step 2</div>
     <h2 class="section-title">Things aren&rsquo;t enough &mdash; you also need promises</h2>
     <div class="prose">
-      <p>You&rsquo;ve listed what you have. But there&rsquo;s something the list of things doesn&rsquo;t capture. Last month, a <strong>customer</strong> paid a <strong>deposit</strong> for a custom build that isn&rsquo;t finished yet. Your parts <strong>supplier</strong> sent a <strong>bill</strong> you haven&rsquo;t paid. The landlord expects rent at the end of the week. These aren&rsquo;t things &mdash; they&rsquo;re <strong>promises</strong>. You owe something.</p>
-      <p>A complete picture of your shop has two sides: what you <em>have</em>, and what you <em>owe</em>. A shop that has $5,000 worth of equipment but owes $8,000 to suppliers is in a very different position than one that holds the same equipment free and clear. If you only track things, you are missing half the picture.</p>
+      <p>You&rsquo;ve listed what you have. But there&rsquo;s something the list of things doesn&rsquo;t capture. </p>
     </div>
   </div>
 
-  <!-- KEY TERMS ACCORDION -->
-  <div class="accordion" style="margin-bottom: 20px;">
-    <div class="acc-item">
-      <button class="acc-trigger" onclick="toggleAcc(this)" aria-expanded="false">
-        <div class="acc-trigger-left">
-          <span class="acc-term">Promise</span>
-          <span class="acc-tag">&mdash; something owed, paid later</span>
+  <div class="scenario">
+    <p> Senario: Last month, a <strong>customer</strong> paid a <strong>deposit</strong> for a custom build that isn&rsquo;t finished yet. Your parts <strong>supplier</strong> sent a <strong>bill</strong> you haven&rsquo;t paid. The <strong>landlord</strong> expects <strong>rent</strong> at the end of the week. </p>
+  </div>
+
+  <div class="text-block">
+    <div class="prose">
+      <p>These aren&rsquo;t things &mdash; they&rsquo;re <strong>promises</strong>. You owe something. A complete picture of your shop has two sides: what you <em>have</em>, and what you <em>owe</em>. </p>
+      <p>A shop that has $5,000 worth of equipment but owes $8,000 to suppliers is in a very different position than one that holds the same equipment free and clear. If you only track things, you are missing half the picture.</p>
+    </div>
+    <div class="accordion" style="margin-top: 18px;">
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-trigger-left">
+            <span class="acc-term">Promise</span>
+            <span class="acc-tag">&mdash; something owed, paid later</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-body">
+          <p>Something you have agreed to do or pay, where the doing or paying comes later.</p>
         </div>
-        <div class="acc-icon">+</div>
-      </button>
-      <div class="acc-body">
-        <p>Something you have agreed to do or pay, where the doing or paying comes later. When your supplier ships parts before you pay, you have made a promise. When a customer pays a deposit before you finish the work, you have made a promise to them.</p>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-trigger-left">
+            <span class="acc-term">Bill</span>
+            <span class="acc-tag">&mdash; a statement of money you owe</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-body">
+          <p>A statement of money you owe to someone.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-trigger-left">
+            <span class="acc-term">Deposit</span>
+            <span class="acc-tag">&mdash; money paid in advance</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-body">
+          <p>Money paid in advance for something you will receive or have done.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-trigger-left">
+            <span class="acc-term">Customer</span>
+            <span class="acc-tag">&mdash; someone who pays you</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-body">
+          <p>Someone who pays you for goods or services.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-trigger-left">
+            <span class="acc-term">Supplier</span>
+            <span class="acc-tag">&mdash; a business you buy from</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-body">
+          <p>A business you buy from.</p>
+        </div>
       </div>
     </div>
-    <div class="acc-item">
-      <button class="acc-trigger" onclick="toggleAcc(this)" aria-expanded="false">
-        <div class="acc-trigger-left">
-          <span class="acc-term">Bill</span>
-          <span class="acc-tag">&mdash; a statement of money you owe</span>
-        </div>
-        <div class="acc-icon">+</div>
-      </button>
-      <div class="acc-body">
-        <p>A statement from a supplier or service provider telling you how much you owe and when to pay it. Receiving a bill doesn&rsquo;t mean you&rsquo;ve paid yet &mdash; it means you now have an obligation recorded.</p>
-      </div>
-    </div>
-    <div class="acc-item">
-      <button class="acc-trigger" onclick="toggleAcc(this)" aria-expanded="false">
-        <div class="acc-trigger-left">
-          <span class="acc-term">Deposit</span>
-          <span class="acc-tag">&mdash; money paid in advance</span>
-        </div>
-        <div class="acc-icon">+</div>
-      </button>
-      <div class="acc-body">
-        <p>Money paid in advance for something to be received or done later. When a customer gives you a deposit, you have cash &mdash; but you also have an obligation. You owe the customer the completed work. Until the job is done, the deposit represents a promise you haven&rsquo;t fulfilled yet.</p>
-      </div>
-    </div>
-    <div class="acc-item">
-      <button class="acc-trigger" onclick="toggleAcc(this)" aria-expanded="false">
-        <div class="acc-trigger-left">
-          <span class="acc-term">Customer</span>
-          <span class="acc-tag">&mdash; someone who pays you</span>
-        </div>
-        <div class="acc-icon">+</div>
-      </button>
-      <div class="acc-body">
-        <p>Someone who pays you for goods or services. When a customer pays a deposit, the shop receives cash (a thing you have) but also takes on an obligation to complete the work (a promise you owe).</p>
-      </div>
-    </div>
-    <div class="acc-item">
-      <button class="acc-trigger" onclick="toggleAcc(this)" aria-expanded="false">
-        <div class="acc-trigger-left">
-          <span class="acc-term">Supplier</span>
-          <span class="acc-tag">&mdash; a business you buy from</span>
-        </div>
-        <div class="acc-icon">+</div>
-      </button>
-      <div class="acc-body">
-        <p>A business you buy from. When a supplier delivers parts before you pay, the shop has new inventory (a thing you have) and also a new obligation to pay the supplier (a promise you owe).</p>
-      </div>
+    <div class="callout">
+      Just like what we did to things, <strong>promises related to your shop work</strong> should be on the second list. Promises related to the rest of your life, like the $300 membership fee you owe to the golf club, or the $80 charges to your credit card for a family dinner, should be left off.
     </div>
   </div>
 
@@ -473,17 +471,65 @@
   <div class="section-card activity-card">
     <div class="activity-tag">&#10003; Activity 3</div>
     <div class="activity-title">Things I Have vs. Things I Owe</div>
-    <div class="activity-desc">Your shop records contain the following items. For each one, decide: is it something you <strong>have</strong>, or something you <strong>owe</strong>?</div>
-    <div class="sort-grid" id="sortGrid2"></div>
+    <div class="activity-desc">Drag each item into the correct bin &mdash; <strong>I have it</strong> if it is something you possess, or <strong>I owe it</strong> if it is a promise you still need to fulfill.</div>
+    <div class="dnd-pool" id="dndPool2"
+         ondragover="dndOver(event,this)" ondragleave="dndLeave(this)" ondrop="dndDropPool2(event)"></div>
+    <div class="dnd-bins">
+      <div class="dnd-bin" id="binHave" data-bin="a"
+           ondragover="dndOver(event,this)" ondragleave="dndLeave(this)" ondrop="dndDrop2(event,this)">
+        <div class="dnd-bin-label">&#10003; I have it</div>
+        <div class="dnd-bin-chips" id="binHaveChips"></div>
+      </div>
+      <div class="dnd-divider"></div>
+      <div class="dnd-bin" id="binOwe" data-bin="b"
+           ondragover="dndOver(event,this)" ondragleave="dndLeave(this)" ondrop="dndDrop2(event,this)">
+        <div class="dnd-bin-label">&#9888; I owe it</div>
+        <div class="dnd-bin-chips" id="binOweChips"></div>
+      </div>
+    </div>
     <div class="act-footer">
-      <span class="act-progress" id="act2Progress">0 of 6 answered</span>
-      <button class="btn btn-outline" onclick="resetSort2()">Reset</button>
+      <span class="act-progress" id="act3Progress">0 of 6 placed</span>
+      <button class="btn btn-outline" onclick="resetDnd2()">Reset</button>
     </div>
   </div>
 
-  <div class="callout">
-    <strong>Two lists. One complete picture.</strong> Every accounting system &mdash; from a small repair shop to a global corporation &mdash; is built on these two lists: what the entity <em>has</em>, and what it <em>owes</em>. Accountants call them <strong>assets</strong> and <strong>liabilities</strong>. You just built the foundation of a balance sheet.
-  </div>
+  <div class="close-section">
+
+    <div class="callout">
+      <strong>Two lists. One complete picture.</strong> Every accounting system &mdash; from a small repair shop to a global corporation &mdash; is built on these two lists: what the entity <em>has</em>, and what it <em>owes</em>. You just built the foundation of a balance sheet.
+    </div>
+
+    <h2 class="section-title">Assets and Liabilities</h2>
+    <p class="section-sub">The accountant&rsquo;s names for the two lists you just built.</p>
+    <div class="accordion">
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-trigger-left">
+            <span class="acc-term">Assets</span>
+            <span class="acc-tag">&mdash; what the entity has</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-body">
+          <p>Assets are the economic resources an entity controls &mdash; the &ldquo;I have it&rdquo; side of the picture. In your repair shop, that includes cash in the drawer, tools like your set of wrenches, and equipment like the bicycle repair stand. These are things the shop can use, sell, or collect value from.</p>
+          <p>Not everything valuable to the shop counts as an asset in accounting. Your skill at truing a wheel matters enormously, but it isn&rsquo;t something you can list on a balance sheet the way you can list a repair stand. Assets are the resources the <em>entity</em> holds, not everything the owner knows or can do.</p>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)" aria-expanded="false">
+          <div class="acc-trigger-left">
+            <span class="acc-term">Liabilities</span>
+            <span class="acc-tag">&mdash; what the entity owes</span>
+          </div>
+          <div class="acc-icon">+</div>
+        </button>
+        <div class="acc-body">
+          <p>Liabilities are the entity&rsquo;s obligations &mdash; the &ldquo;I owe it&rdquo; side of the picture. An unpaid invoice from your parts supplier, a customer deposit for work you haven&rsquo;t finished yet, and rent due at the end of the month are all liabilities. You may already have the cash or the parts, but you still owe someone something in return.</p>
+          <p>Some liabilities are straightforward promises to pay money later. Others are promises to deliver goods or services &mdash; like the custom build you owe a customer who paid a deposit. Either way, a liability means the entity has taken on an obligation that must eventually be settled.</p>
+        </div>
+      </div>
+    </div>
+  </div><!-- /close-section -->
 
   <div class="rabbit-hole">
     <button class="rh-toggle" id="rh2Toggle" onclick="toggleRh('rh2')">
@@ -638,63 +684,64 @@ renderMCQ();
 
 
 /* ================================================================
-   ACTIVITY 3 — SORT GRID: HAVE VS. OWE
-   Same pattern as Activity 1
+   ACTIVITY 3 — DRAG AND DROP: HAVE VS. OWE
 ================================================================ */
 var ITEMS_2 = [
-  { text: 'Cash in the drawer',                           label: 'a', hint: 'Money on hand &mdash; something you possess right now.' },
-  { text: 'Unpaid invoice from your parts supplier',      label: 'b', hint: 'You received parts but haven&rsquo;t paid yet &mdash; a promise to pay.' },
-  { text: 'Set of wrenches',                              label: 'a', hint: 'Equipment you own and use in the shop.' },
-  { text: 'Customer deposit for an unfinished build',     label: 'b', hint: 'The customer paid you &mdash; now you owe them the completed work.' },
-  { text: 'Bicycle repair stand',                         label: 'a', hint: 'A piece of equipment you own outright.' },
-  { text: 'Rent due at the end of the month',             label: 'b', hint: 'You&rsquo;ve used the space but haven&rsquo;t paid &mdash; a promise to the landlord.' }
+  { id: 'j0', text: 'Cash in the drawer',                       label: 'a' },
+  { id: 'j1', text: 'Unpaid invoice from your parts supplier',  label: 'b' },
+  { id: 'j2', text: 'Set of wrenches',                          label: 'a' },
+  { id: 'j3', text: 'Customer deposit for an unfinished build', label: 'b' },
+  { id: 'j4', text: 'Bicycle repair stand',                     label: 'a' },
+  { id: 'j5', text: 'Rent due at the end of the month',         label: 'b' }
 ];
-var sortState2 = new Array(ITEMS_2.length).fill(null);
 
-function renderSort2() {
-  var grid = document.getElementById('sortGrid2');
-  grid.innerHTML = '';
-  var answered = 0;
-  ITEMS_2.forEach(function(item, i) {
-    var ans = sortState2[i];
-    var isCorrect = ans !== null ? (ans === item.label) : null;
-    if (ans !== null) answered++;
-    var row = document.createElement('div');
-    row.className = 'sort-item' + (isCorrect === true ? ' correct' : isCorrect === false ? ' wrong' : '');
-    var textWrap = document.createElement('div'); textWrap.style.flex = '1';
-    var txt  = document.createElement('div'); txt.className  = 'sort-text'; txt.innerHTML = item.text;
-    var hint = document.createElement('div'); hint.className = 'sort-hint';
-    hint.innerHTML = (isCorrect === false ? '✗ ' : '✓ ') + item.hint;
-    textWrap.appendChild(txt); textWrap.appendChild(hint);
-    var btns = document.createElement('div'); btns.className = 'sort-btns';
-    [['I have it','a'],['I owe it','b']].forEach(function(pair) {
-      var b = document.createElement('button'); b.className = 'sort-btn'; b.textContent = pair[0];
-      if (ans !== null) {
-        b.disabled = true;
-        if (ans === pair[1]) b.classList.add(pair[1] === 'a' ? 'selected-a' : 'selected-b');
-      }
-      (function(v){ b.addEventListener('click', function() { sortState2[i] = v; renderSort2(); }); })(pair[1]);
-      btns.appendChild(b);
-    });
-    var result = document.createElement('div'); result.className = 'sort-result';
-    result.textContent = isCorrect ? '✓' : '✗';
-    row.appendChild(textWrap); row.appendChild(btns); row.appendChild(result);
-    grid.appendChild(row);
+function buildPool2() {
+  var pool = document.getElementById('dndPool2');
+  ITEMS_2.forEach(function(item) {
+    pool.appendChild(makeChip(item, false));
   });
-  var prog = document.getElementById('act2Progress');
-  prog.textContent = answered + ' of ' + ITEMS_2.length + ' answered';
-  if (answered === ITEMS_2.length) prog.style.color = '#16a34a';
 }
-function resetSort2() {
-  sortState2 = new Array(ITEMS_2.length).fill(null);
-  document.getElementById('act2Progress').style.color = '';
-  renderSort2();
+
+function dndDrop2(e, bin) {
+  e.preventDefault();
+  bin.classList.remove('drag-over');
+  if (!dndDragging) return;
+  var chipLabel = dndDragging.getAttribute('data-label');
+  var binLabel  = bin.getAttribute('data-bin');
+  var isCorrect = chipLabel === binLabel;
+  bin.querySelector('.dnd-bin-chips').appendChild(dndDragging);
+  dndDragging.classList.add(isCorrect ? 'correct' : 'wrong');
+  dndDragging.draggable = false;
+  updateAct3Progress();
 }
-renderSort2();
+
+function dndDropPool2(e) {
+  e.preventDefault();
+  document.getElementById('dndPool2').classList.remove('drag-over');
+}
+
+function updateAct3Progress() {
+  var placed = document.querySelectorAll('#binHaveChips .dnd-chip, #binOweChips .dnd-chip').length;
+  var prog = document.getElementById('act3Progress');
+  prog.textContent = placed + ' of ' + ITEMS_2.length + ' placed';
+  if (placed === ITEMS_2.length) prog.style.color = '#16a34a';
+}
+
+function resetDnd2() {
+  document.getElementById('dndPool2').innerHTML = '';
+  document.getElementById('binHaveChips').innerHTML = '';
+  document.getElementById('binOweChips').innerHTML = '';
+  var prog = document.getElementById('act3Progress');
+  prog.textContent = '0 of ' + ITEMS_2.length + ' placed';
+  prog.style.color = '';
+  buildPool2();
+}
+
+buildPool2();
 
 
 /* ================================================================
-   ACCORDION — exact pattern from two-snapshots3.html
+   ACCORDION — pattern from two-snapshots3.html
 ================================================================ */
 function toggleAcc(trigger) {
   var isOpen = trigger.getAttribute('aria-expanded') === 'true';
