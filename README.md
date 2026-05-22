@@ -6,6 +6,7 @@ Static pages (minimal chrome) for OLI Torus **Webpage** blocks.
 
 ### Root
 - `intro-activity.html` — introductory financial statements activity (3-step: match, trace, connect)
+- `1st_activity.html` — balance sheet identity activity (5-step progressive comparison)
 - `simplified-example.html` — ExampleCo articulation exercise (3-layer, standalone; links to apple/)
 - `homework.html` — Homework I
 
@@ -39,6 +40,7 @@ Shared: `shared.css`, `shared.js`, `config.js`
 Deploy from **`main`** / **`/(root)`**, then for example:
 
 - `https://gaodegao35.github.io/Instructional-Redesign/intro-activity.html`
+- `https://gaodegao35.github.io/Instructional-Redesign/1st_activity.html`
 - `https://gaodegao35.github.io/Instructional-Redesign/module-1/1.1-getting-organized.html`
 - `https://gaodegao35.github.io/Instructional-Redesign/module-4/01-imposing-the-identity.html`
 - `https://gaodegao35.github.io/Instructional-Redesign/module-4/02-two-snapshots-1.html`
