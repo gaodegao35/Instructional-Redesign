@@ -6,13 +6,14 @@
   --primary-light: #286dc0;
   --primary-faint: #f0f4f8;
   --accent: #bd5319;
+  --page-bg: #e6e9f2;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: Georgia, 'Times New Roman', serif;
   color: #373a44;
-  background: #f3f5f8;
+  background: var(--page-bg);
   line-height: 1.7;
 }
 
@@ -199,8 +200,17 @@ h2 {
 
 /* Prose */
 .prose {
-  margin-bottom: 18px;
-  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+.prose:last-child { margin-bottom: 0; }
+.rh-body .prose {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.75;
 }
 
 /* Divider */
@@ -721,7 +731,7 @@ h2 {
 /*           two-snapshots/two-snapshots2.html                          */
 /*           two-snapshots/two-snapshots3.html                          */
 /*           1st_activity.html                                          */
-body { background: #f3f5f8; font-family: Inter, system-ui, sans-serif; color: #373a44; }
+body { background: var(--page-bg); font-family: Inter, system-ui, sans-serif; color: #373a44; }
 .page { width: 100%; margin: 0; padding: 0; }
 
 /* ===== ACTIVITY PAGES — TEXT BLOCKS ================================= */
@@ -735,9 +745,6 @@ body { background: #f3f5f8; font-family: Inter, system-ui, sans-serif; color: #3
 }
 .section-title { font-size: 18px; font-weight: 700; margin-bottom: 4px; color: #111; }
 .section-sub   { font-size: 13px; color: #666; margin-bottom: 14px; line-height: 1.5; }
-
-.prose p { font-family: 'Open Sans', sans-serif; font-size: 1rem; color: #333; line-height: 1.8; margin-bottom: 14px; }
-.prose p:last-child { margin-bottom: 0; }
 
 .callout {
   background: #eff6ff; border-left: 3px solid #00329d;
@@ -1098,7 +1105,8 @@ body { background: #f3f5f8; font-family: Inter, system-ui, sans-serif; color: #3
   .section-tag { color: #8a8898; }
   .section-title { color: #eeebf5; }
   .section-sub { color: #b0aec0; }
-  .prose p { color: #d0cede; }
+  .prose { color: #d0cede; }
+  .rh-body .prose { color: #b8afa4; }
   .callout {
     background: #16243a;
     border-left-color: var(--primary);
