@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="color-scheme" content="light dark">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Getting Organized</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -200,6 +201,7 @@
 .mcq-fb.show { display: block; }
 .mcq-fb.ok  { background: #f0fdf4; color: #166534; }
 .mcq-fb.inf { background: #eff6ff; color: #1e3a5f; }
+.mcq-fb.err { background: #fef2f2; color: #991b1b; }
 
 /* ================================================================
    ACCORDION — exact pattern from two-snapshots3.html
@@ -272,7 +274,7 @@
   .sort-item.wrong   { background: #2a1818; border-color: #5c2a2a; }
   .sort-item.correct .sort-hint { color: #6db890; }
   .sort-item.wrong   .sort-hint { color: #c08888; }
-  .sort-btn.selected-a { background: #6aa3e8; border-color: #6aa3e8; color: #1e1e26; }
+  .sort-btn.selected-a { background: #6aa3e8; border-color: #6aa3e8; color: #1b191f; }
   .sort-btn.selected-b { background: #6060b0; border-color: #6060b0; color: #eeebf5; }
   .sort-item.correct .sort-result { background: #2a5c38; }
   .sort-item.wrong   .sort-result { background: #5c2a2a; }
@@ -294,6 +296,7 @@
   .mcq-opt.wrong   { border-color: #5c2a2a !important; background: #2a1818 !important; color: #c08888 !important; }
   .mcq-fb.ok  { background: #192a20; color: #6db890; }
   .mcq-fb.inf { background: #1a2540; color: #93c5fd; }
+  .mcq-fb.err { background: #2a1818; color: #c08888; }
   /* Accordion */
   .accordion { border-color: #2a2830; }
   .acc-item { border-bottom-color: #2a2830; }
@@ -302,7 +305,7 @@
   .acc-term { color: #6aa3e8; }
   .acc-tag { color: #8a8898; }
   .acc-icon { border-color: #4a4858; color: #b0aec0; }
-  .acc-trigger[aria-expanded="true"] .acc-icon { background: #6aa3e8; border-color: #6aa3e8; color: #1e1e26; }
+  .acc-trigger[aria-expanded="true"] .acc-icon { background: #6aa3e8; border-color: #6aa3e8; color: #1b191f; }
   .acc-body { background: #3e3c48; border-top: 1px solid #4a4858; }
   .acc-body p { color: #c8ccd8; }
   /* Rabbit hole */
@@ -688,7 +691,7 @@ function renderMCQ() {
         }
         var fb = document.getElementById('mcq1-fb');
         fb.innerHTML = (MCQ_ITEMS[idx].correct ? '&#10003; ' : '') + MCQ_ITEMS[idx].fb;
-        fb.className = 'mcq-fb show ' + (MCQ_ITEMS[idx].correct ? 'ok' : 'inf');
+        fb.className = 'mcq-fb show ' + (MCQ_ITEMS[idx].correct ? 'ok' : 'err');
       }); })(i);
     }
     list.appendChild(el);

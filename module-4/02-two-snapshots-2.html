@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="color-scheme" content="light dark">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>What Changed Between the Two Dates</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,6 +49,7 @@
 .match-q-feedback.show { display: block; }
 .match-q-feedback.ok  { background: #f0fdf4; color: #2a5c38; }
 .match-q-feedback.inf { background: #eff6ff; color: #1e3a5f; }
+.match-q-feedback.err { background: #fef2f2; color: #991b1b; }
 
 /* ================================================================
    DRAG AND DROP
@@ -93,6 +95,7 @@
   .match-opt.wrong   { border-color: #5c2a2a !important; background: #2a1818 !important; color: #c08888 !important; }
   .match-q-feedback.ok  { background: #192a20; color: #6db890; }
   .match-q-feedback.inf { background: #1a2540; color: #93c5fd; }
+  .match-q-feedback.err { background: #2a1818; color: #c08888; }
   /* DND state colors */
   .dnd-item.correct { border-color: #2a5c38 !important; background: #192a20 !important; color: #6db890 !important; }
   .dnd-item.wrong   { border-color: #5c2a2a !important; background: #2a1818 !important; color: #c08888 !important; }
@@ -103,7 +106,7 @@
   .pillar { background: #4a6090; }
   .flow-arrow { color: #6aa3e8; }
   /* Number badge */
-  .match-q-num { background: #6aa3e8; color: #1e1e26; }
+  .match-q-num { background: #6aa3e8; color: #1b191f; }
   /* Drag-over states */
   .dnd-bank-wrap.drag-over { border-color: #6aa3e8 !important; background: #1a2540 !important; }
   .dnd-zone.drag-over { border-color: #6aa3e8 !important; background: #1a2540 !important; }
@@ -285,7 +288,7 @@ function renderMatch() {
     fb.className = 'match-q-feedback';
     if (ans !== null) {
       fb.classList.add('show');
-      fb.classList.add(ans === mq.correct ? 'ok' : 'inf');
+      fb.classList.add(ans === mq.correct ? 'ok' : 'err');
       fb.textContent = (ans === mq.correct ? '✓ ' : 'Not quite — ') + mq.hint;
     }
     item.appendChild(label); item.appendChild(opts); item.appendChild(fb);

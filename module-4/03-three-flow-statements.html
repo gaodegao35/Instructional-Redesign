@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="color-scheme" content="light dark">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Three Flow Statements</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,6 +57,7 @@
 .match-fb.ok      { background: #f0fdf4; color: #2a5c38; }
 .match-fb.partial { background: #fffbeb; color: #78350f; }
 .match-fb.inf     { background: #eff6ff; color: #1e3a5f; }
+.match-fb.err     { background: #fef2f2; color: #991b1b; }
 
 @media (prefers-color-scheme: dark) {
   .subsection-head { color: #ffffff; }
@@ -71,8 +73,9 @@
   .match-fb.ok      { background: #192a20; color: #6db890; }
   .match-fb.partial { background: #26200e; color: #c8a86a; }
   .match-fb.inf     { background: #1a2540; color: #93c5fd; }
+  .match-fb.err     { background: #2a1818; color: #c08888; }
   /* Number badge */
-  .match-num { background: #6aa3e8; color: #1e1e26; }
+  .match-num { background: #6aa3e8; color: #1b191f; }
 }
 </style>
 </head>
@@ -244,12 +247,12 @@ function renderMatch() {
       fb.classList.add('show');
       if (item.type === 'single') {
         var ok = s.sel === item.correct;
-        fb.classList.add(ok ? 'ok' : 'inf');
+        fb.classList.add(ok ? 'ok' : 'err');
         fb.textContent = ok ? '✓ ' + item.hintOk : item.hintWrong;
       } else {
         var key = (s.sel[0]?'1':'0') + (s.sel[1]?'1':'0') + (s.sel[2]?'1':'0');
         var combo = item.combos[key] || { status: 'inf', text: 'Please select at least one option.' };
-        fb.classList.add(combo.status === 'correct' ? 'ok' : combo.status === 'partial' ? 'partial' : 'inf');
+        fb.classList.add(combo.status === 'correct' ? 'ok' : combo.status === 'partial' ? 'partial' : 'err');
         fb.textContent = combo.text;
       }
     }

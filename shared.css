@@ -779,7 +779,7 @@ body { background: #f3f5f8; font-family: Inter, system-ui, sans-serif; color: #3
   }
 
   body {
-    background: #1e1e26;
+    background: #1b191f;
     color: #ffffff;
   }
 
@@ -860,7 +860,7 @@ body { background: #f3f5f8; font-family: Inter, system-ui, sans-serif; color: #3
   .glossary-close:hover { color: #c0bece; }
   .glossary-search { border-bottom-color: #2a2830; }
   .glossary-search input {
-    background: #1e1e26;
+    background: #1b191f;
     border-color: #2a2830;
     color: #ffffff;
   }
