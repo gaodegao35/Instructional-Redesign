@@ -140,6 +140,7 @@
   .acct-col { margin-bottom: 0; }
   .acct-col h4 { font-size: 11px; color: #6aa3e8; border-bottom-color: #6aa3e8; }
   .bs-col-header { font-size: 11px; color: #6aa3e8; border-bottom-color: #6aa3e8; }
+  .acct-total { color: #6aa3e8; }
   .acct-line { font-size: 13px; padding: 3px 0; }
 
   .decomp-section {
@@ -457,9 +458,8 @@
     .reflect4-footnote { color: #9896a8; }
     .reveal-para { color: #6db890; }
 
-    /* Page-specific blue overrides → white borders in dark mode */
-    .acct-col h4 { border-bottom-color: white; }
-    .bs-col-header { border-bottom-color: white; }
+    /* Page-specific overrides: keep #6aa3e8 borders, white border-top on totals */
+    .acct-total { border-top-color: white; }
 
     /* Progressive reveal highlights */
     .acct-line.acct-new-pos { background-color: rgba(34, 197, 94, 0.2); }
