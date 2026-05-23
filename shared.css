@@ -89,7 +89,7 @@ h1 {
 }
 .prose:last-child { margin-bottom: 0; }
 .rh-body .prose {
-  font-size: var(--font-s);
+  font-size: var(--font-m);
   color: #444;
   line-height: 1.75;
 }
@@ -210,7 +210,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 .callout {
   background: var(--primary-faint); border-left: 3px solid var(--primary);
   border-radius: 0 8px 8px 0; padding: 13px 16px;
-  font-size: var(--font-s); color: #1e3a5f; line-height: 1.65;
+  font-size: var(--font-m); color: #1e3a5f; line-height: 1.65;
   font-family: Inter, system-ui, sans-serif;
   margin-top: 18px;
 }
@@ -233,7 +233,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 
 .btn { border: none; border-radius: 6px; padding: 9px 20px; font-family: Inter, sans-serif; font-size: var(--font-s); font-weight: 600; cursor: pointer; transition: background 0.15s, border-color 0.15s, color 0.15s; }
 .btn-outline { background: white; color: #444; border: 1.5px solid #d1d5db; }
-.btn-outline:hover { border-color: #6aa3e8; color: #6aa3e8; }
+.btn-outline:hover { border-color: var(--primary); color: var(--primary); }
 .btn-primary { background: var(--primary); color: white; }
 .btn-primary:hover { background: var(--primary-light); }
 .btn-hint {
@@ -281,8 +281,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
   align-items: center;
   gap: 10px;
   font-family: Inter, sans-serif;
-  font-size: clamp(14px, 1.6vw, 15px);
-  font-weight: 500;
+  font-size: var(--font-m);
   color: #333;
   user-select: none;
 }
@@ -584,7 +583,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 .sort-btns { display: flex; gap: 6px; flex-shrink: 0; }
 .sort-btn {
   border: 1.5px solid var(--border-strong); border-radius: 7px; padding: 6px 14px;
-  font-family: Inter, sans-serif; font-size: 12px; font-weight: 600;
+  font-family: Inter, sans-serif; font-size: var(--font-m);
   cursor: pointer; background: white; color: #444; transition: all 0.15s;
 }
 .sort-btn:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
@@ -647,7 +646,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 .match-opts { display: flex; gap: 8px; flex-wrap: wrap; }
 .match-opt {
   border: 1.5px solid var(--border); border-radius: 7px; padding: 7px 13px;
-  font-size: var(--font-s); font-weight: 600; color: #444; cursor: pointer;
+  font-size: var(--font-m); color: #444; cursor: pointer;
   background: white; transition: all 0.15s;
 }
 .match-opt:hover:not(.locked) { border-color: var(--primary); color: var(--primary); }
@@ -801,8 +800,8 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 .ms-item.revealed.wrong-pick .ms-check    { border-color: var(--error-text); background: var(--error-text); color: white; }
 .ms-item.revealed.missed-pick .ms-check   { border-color: var(--warn-text); background: var(--warn-text); color: white; }
 .ms-body { flex: 1; }
-.ms-text { font-size: var(--font-s); font-weight: 600; color: #222; line-height: 1.5; }
-.ms-hint { font-size: var(--font-s); line-height: 1.6; margin-top: 5px; display: none; }
+.ms-text { font-size: var(--font-m); color: #222; line-height: 1.5; }
+.ms-hint { font-size: var(--font-m); line-height: 1.6; margin-top: 5px; display: none; }
 .ms-item.revealed.correct-pick .ms-hint  { display: block; color: var(--success-text); }
 .ms-item.revealed.wrong-pick .ms-hint    { display: block; color: var(--error-text); }
 .ms-item.revealed.missed-pick .ms-hint   { display: block; color: var(--warn-text); }
@@ -1397,7 +1396,10 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
   /* Sort grid */
   .sort-item { background: #32303c; border-color: var(--border); }
   .sort-text { color: #c8ccd8; }
-  .sort-btn { background: #3e3c48; border-color: var(--border-strong); color: #b0aec0; }
+  .sort-btn {  background: #32303c;
+    color: #d0cede;
+    border-color: #2a2830;
+  }
   .sort-btn:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
   .sort-btn.selected-shown { background: var(--primary); border-color: var(--primary); color: #1b191f; }
   .sort-btn.selected-needs { background: var(--accent); border-color: var(--accent); color: #1b191f; }
