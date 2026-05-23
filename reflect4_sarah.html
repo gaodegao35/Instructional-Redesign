@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 <title>Accounting Pre-Work</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,7 +81,7 @@
 
   .txn-card {
     background: white;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 20px;
     min-height: 140px;
@@ -113,8 +114,8 @@
   }
   .eff-acct { color: #555; }
   .eff-amt { font-weight: 600; }
-  .eff-amt.pos { color: #16a34a; }
-  .eff-amt.neg { color: #dc2626; }
+  .eff-amt.pos { color: var(--success-text); }
+  .eff-amt.neg { color: var(--error-text); }
   .txn-tag {
     display: inline-block;
     font-size: 10px;
@@ -127,8 +128,8 @@
     margin-bottom: 4px;
   }
   .tag-is { background: #ede9fe; color: #6d28d9; }
-  .tag-cfs { background: #dcfce7; color: #166534; }
-  .tag-sce { background: #fef3c7; color: #92400e; }
+  .tag-cfs { background: var(--success-bg); color: var(--success-text); }
+  .tag-sce { background: var(--warn-bg); color: var(--warn-text); }
 
   .accounts-grid {
     display: grid;
@@ -142,7 +143,7 @@
 
   .decomp-section {
     background: white;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border);
     border-radius: 6px;
     padding: 16px;
     margin-bottom: 12px;
@@ -155,8 +156,8 @@
     margin-bottom: 8px;
   }
   .decomp-is h4 { color: #6d28d9; }
-  .decomp-cfs h4 { color: #166534; }
-  .decomp-sce h4 { color: #92400e; }
+  .decomp-cfs h4 { color: var(--success-text); }
+  .decomp-sce h4 { color: var(--warn-text); }
   .decomp-line {
     display: flex;
     justify-content: space-between;
@@ -172,7 +173,7 @@
     font-weight: 700;
     padding-top: 6px;
     margin-top: 4px;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--border);
   }
   .decomp-empty {
     font-size: 12px;
@@ -194,7 +195,7 @@
   }
   .btn-back {
     background: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border);
     color: #555;
   }
   .btn-back:disabled { color: #ccc; cursor: default; }
@@ -208,7 +209,7 @@
 
   .reveal-box {
     background: white;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 20px;
     margin: 20px 0 0 0;
@@ -221,7 +222,7 @@
 
   .prompt-card {
     background: white;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border);
     border-radius: 6px;
     padding: 24px;
     margin: 20px 0;
@@ -243,7 +244,7 @@
     width: 100%;
     min-height: 100px;
     padding: 12px 14px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border);
     border-radius: 5px;
     font-size: 15px;
     line-height: 1.6;
@@ -266,7 +267,7 @@
     isolation: isolate;
     display: flex;
     flex-direction: column;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border);
     border-radius: 8px;
     background: #fafafa;
     padding: 0;
@@ -277,7 +278,7 @@
     margin: 0;
     padding: 16px 20px;
     background-color: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--border);
     border-radius: 8px 8px 0 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   }
@@ -388,6 +389,51 @@
     .reflect4-layout .decomp-line { font-size: 15px; }
     .reflect4-layout .main-grid { gap: 4px; }
     .reflect4-layout .txn-card { padding: 12px; }
+  }
+
+  /* ===== DARK MODE ===== */
+  @media (prefers-color-scheme: dark) {
+    /* Cards and panels */
+    .txn-card,
+    .decomp-section,
+    .reveal-box,
+    .prompt-card { background: #32303c; border-color: var(--border); }
+
+    .decomp-scroll-box { background: #2c2a36; border-color: var(--border); }
+    .decomp-scroll-head { background: #32303c; border-bottom-color: var(--border); }
+
+    /* Text */
+    .txn-card .txn-desc { color: #d0cede; }
+    .txn-effects { background: var(--primary-faint); color: #c8ccd8; }
+    .eff-acct { color: #b0aec0; }
+    .decomp-line { color: #b0aec0; }
+    .decomp-line .dl-val { color: #eeebf5; }
+    .decomp-total { color: #eeebf5; border-top-color: var(--border); }
+    .decomp-scroll-box h3 { color: #8a8898; }
+    .decomp-scroll-intro { color: #8a8898; }
+    .decomp-empty { color: #6a6878; }
+    .bs-empty-msg { color: #6a6878; }
+
+    /* Statement section headers */
+    .decomp-is h4 { color: #a78bfa; }
+
+    /* Statement tags */
+    .tag-is { background: #2d1a4a; color: #a78bfa; }
+    .tag-cfs { background: var(--success-bg); color: var(--success-text); }
+    .tag-sce { background: var(--warn-bg); color: var(--warn-text); }
+
+    /* Nav buttons */
+    .btn-back { background: #3e3c48; border-color: var(--border); color: #c8ccd8; }
+    .btn-back:disabled { color: #4a4858; }
+    .btn-next:disabled { background: #4a4858; }
+
+    /* Prompt textarea */
+    .prompt-card textarea { background: #2c2a36; border-color: var(--border); color: #eeebf5; }
+    .prompt-card textarea::placeholder { color: #6a6878; }
+
+    /* Progressive reveal highlights */
+    .acct-line.acct-new-pos { background-color: rgba(34, 197, 94, 0.2); }
+    .acct-line.acct-new-neg { background-color: rgba(220, 38, 38, 0.18); }
   }
 
   /* Full width + at least one viewport tall inside the embed */
