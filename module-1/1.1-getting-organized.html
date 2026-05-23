@@ -137,7 +137,7 @@
   display: inline-flex; align-items: center;
   background: white; border: 1.5px solid #d1d5db; border-radius: 7px;
   padding: 6px 12px;
-  font-family: Inter, sans-serif; font-size: 12.5px; font-weight: 600; color: #333;
+  font-family: Inter, sans-serif; font-size: var(--font-m); font-weight: 500; color: #333;
   cursor: grab; user-select: none;
   transition: border-color 0.15s, background 0.15s, opacity 0.15s;
 }
@@ -154,7 +154,7 @@
   border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 13px 16px;
   cursor: pointer; background: white; transition: all 0.15s;
   display: flex; align-items: center; gap: 12px;
-  font-family: Inter, sans-serif; font-size: var(--font-m); font-weight: 500; color: #333;
+  font-family: Inter, sans-serif; font-size: var(--font-m); color: #333;
 }
 .mcq-opt:hover:not(.locked) { border-color: var(--primary); background: var(--primary-faint); color: var(--primary); }
 .mcq-opt.selected:not(.locked) { border-color: var(--primary); background: var(--primary-faint); color: var(--primary); }

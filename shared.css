@@ -716,15 +716,15 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 .dnd-zones { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
 .dnd-zone { border: 2px dashed var(--border-strong); border-radius: 10px; padding: 14px; min-height: 130px; transition: border-color 0.15s, background 0.15s; }
 .dnd-zone.drag-over { border-color: var(--primary); background: var(--primary-faint); }
-.dnd-zone-label { font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border); line-height: 1.4; }
+.dnd-zone-label { font-size: var(--font-m); font-weight: 700; color: #374151; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border); line-height: 1.4; }
 .dnd-zone-items { display: flex; flex-wrap: wrap; gap: 7px; min-height: 28px; }
 .dnd-zone-empty { font-size: 12px; color: #bbb; font-style: italic; }
-.dnd-item { padding: 7px 12px; background: white; border: 1.5px solid var(--border-strong); border-radius: 8px; font-size: 12px; font-weight: 500; color: #333; cursor: grab; user-select: none; transition: all 0.15s; line-height: 1.4; }
+.dnd-item { padding: 7px 12px; background: white; border: 1.5px solid var(--border-strong); border-radius: 8px; font-size: var(--font-m); font-weight: 500; color: #333; cursor: grab; user-select: none; transition: all 0.15s; line-height: 1.4; }
 .dnd-item:hover:not(.checked) { border-color: var(--primary); color: var(--primary); background: var(--primary-faint); }
 .dnd-item.dragging { opacity: 0.35; }
 .dnd-item.correct  { border-color: var(--success-border) !important; background: var(--success-bg) !important; color: var(--success-text) !important; }
 .dnd-item.wrong    { border-color: var(--error-border) !important; background: var(--error-bg) !important; color: var(--error-text) !important; }
-.dnd-fb-card { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 8px; padding: 11px 14px; font-size: var(--font-s); color: var(--warn-text); line-height: 1.65; }
+.dnd-fb-card { background: var(--warn-bg); border: 1px solid var(--warn-border); border-radius: 8px; padding: 11px 14px; font-size: var(--font-m); color: var(--warn-text); line-height: 1.65; }
 .dnd-fb-label { display: block; font-weight: 700; margin-bottom: 4px; color: #6a4020; }
 
 /* ===== DND — BANK/CARD STYLE (01-imposing) ===== */
