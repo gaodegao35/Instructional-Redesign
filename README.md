@@ -31,17 +31,16 @@ Deploy from **`main`** / **`/(root)`**, then for example:
 
 ## CSS Convention
 
-> **All pages must use `shared.css` as the single source of truth for styles.**
+> **All pages must use `shared.css` as the single source of truth for styles. Do not modify `shared.css`.**
 
-- Every page links `../shared.css` (or `./shared.css` at root level).
+- Every page links `../shared.css`.
 - **Do not** redefine colors, typography, spacing, or component styles locally if they are already in `shared.css`.
-- If a page requires inline `<style>` for page-specific layout or one-off overrides, add a comment at the top of that block explaining why it cannot live in `shared.css`. Example:
+- If a page requires inline `<style>` for page-specific layout or one-off overrides, add a comment at the top of that block explaining why. Example:
   ```css
-  /* NOTE: page-specific two-column balance sheet grid — not shared across pages */
+  /* NOTE: page-specific two-column balance sheet grid — not in shared.css */
   .bs-two-col { ... }
   ```
-- When adding a new reusable component, add it to `shared.css` first, then reference it in the page.
-- Dark mode overrides belong in `shared.css` unless they target a class that is itself page-specific.
+- Dark mode overrides for page-specific classes belong in the page's inline `<style>`, not in `shared.css`.
 
 ## Update
 
