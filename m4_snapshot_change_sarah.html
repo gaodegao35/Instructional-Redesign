@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" class="articulate-embed">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accounting Pre-Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css?v=2">
+<style>
+  html.articulate-embed,
+  html.articulate-embed body {
+    height: 100%;
+    margin: 0;
+  }
+  html.articulate-embed body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: Inter, system-ui, sans-serif;
+  }
+  .content.content-standalone {
+    max-width: none;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* ===== ACTIVITY SHELL ===== */
+  .activity-wrap {
+    padding: 22px 16px 52px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ===== HEADER ===== */
+  .activity-module-label {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--accent);
+    margin-bottom: 5px;
+  }
+  .activity-title {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0 0 10px;
+    line-height: 1.3;
+  }
+  .activity-directions {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #444;
+    margin-bottom: 24px;
+  }
+
+  /* ===== CARD POOL ===== */
+  .pool-label {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  .card-pool {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 52px;
+    padding: 12px;
+    background: #f8f9fb;
+    border-radius: 8px;
+    border: 1px solid #e4e6ec;
+    margin-bottom: 24px;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .card-pool.drag-over {
+    background: #f0f2f8;
+    border-color: #b0b8d0;
+  }
+
+  /* ===== DRAGGABLE CARDS ===== */
+  .drag-card {
+    background: white;
+    border: 1px solid #d8dce8;
+    border-radius: 6px;
+    padding: 11px 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #2a2a2a;
+    cursor: grab;
+    line-height: 1.45;
+    flex: 0 0 calc(50% - 5px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: box-shadow 0.15s, transform 0.12s;
+    user-select: none;
+  }
+  .drag-card:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+  }
+  .drag-card.is-dragging {
+    opacity: 0.35;
+    cursor: grabbing;
+  }
+
+  /* ===== BUCKETS ===== */
+  .buckets-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .bucket {
+    border-radius: 8px;
+    padding: 14px;
+    min-height: 100px;
+    border: 2px solid transparent;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .bucket-snapshot {
+    background: #eef2fc;
+    border-color: #c4d0f0;
+  }
+  .bucket-explain {
+    background: #eef2fc;
+    border-color: #c4d0f0;
+  }
+  .bucket-snapshot.drag-over {
+    background: #e0e8ff;
+    border-color: var(--primary);
+    border-style: dashed;
+  }
+  .bucket-explain.drag-over {
+    background: #e0e8ff;
+    border-color: var(--primary);
+    border-style: dashed;
+  }
+  .bucket-header {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid;
+  }
+  .bucket-snapshot .bucket-header {
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+  .bucket-explain .bucket-header {
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+  .bucket-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  /* ===== PLACED CARDS ===== */
+  .placed-card {
+    background: white;
+    border: 1px solid #d8dce8;
+    border-radius: 6px;
+    padding: 9px 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #2a2a2a;
+    line-height: 1.45;
+  }
+
+  /* ===== FEEDBACK ===== */
+  .feedback-msg {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 16px;
+    border-radius: 6px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    opacity: 0;
+    margin-bottom: 0;
+    transition: max-height 0.2s, opacity 0.2s, padding 0.2s, margin-bottom 0.2s;
+  }
+  .feedback-msg.visible {
+    max-height: 100px;
+    opacity: 1;
+    padding: 10px 16px;
+    margin-bottom: 24px;
+  }
+  .feedback-correct  { background: #f0faf3; border: 1px solid #a8d5b0; color: #1a6b2e; }
+  .feedback-incorrect { background: #fff5f5; border: 1px solid #f5a0a0; color: #b91c1c; }
+
+  /* ===== COMPLETION ===== */
+  .completion-card {
+    display: none;
+    background: #f8f9fb;
+    border: 1px solid #e4e6ec;
+    border-radius: 8px;
+    padding: 18px 22px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444;
+  }
+  .completion-heading {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .completion-card p { margin: 0 0 14px; }
+  .completion-card p:last-child { margin-bottom: 0; }
+
+  /* ===== TRY AGAIN BUTTON ===== */
+  .try-again-btn {
+    display: none;
+    margin-top: 12px;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #fff5ef;
+    border: 1px solid #f0d4bc;
+    color: #92400e;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .try-again-btn:hover { background: #ffe8d8; border-color: var(--accent); }
+  .try-again-btn.visible { display: inline-block; }
+  .completion-card.visible { display: block; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 560px) {
+    .activity-wrap { padding: 16px 14px 36px; }
+    .drag-card { flex-basis: 100%; }
+    .buckets-row { grid-template-columns: 1fr; gap: 12px; }
+    .activity-title { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="content content-standalone">
+  <div class="activity-wrap">
+
+    <h1 class="activity-title">Snapshot or Explanation?</h1>
+    <p class="activity-directions">Drag each question into the correct bucket. Some questions ask about what a balance sheet shows on a specific date. Others ask about what explains the change between two balance sheets.</p>
+
+    <div class="card-pool" id="card-pool"></div>
+
+    <div class="buckets-row">
+      <div class="bucket bucket-snapshot" id="bucket-snapshot">
+        <div class="bucket-header">Balance Sheet (Snapshot)</div>
+        <div class="bucket-cards" id="cards-snapshot"></div>
+      </div>
+      <div class="bucket bucket-explain" id="bucket-explain">
+        <div class="bucket-header">Statements that Explain the Change</div>
+        <div class="bucket-cards" id="cards-explain"></div>
+      </div>
+    </div>
+
+    <div class="feedback-msg" id="feedback-msg"></div>
+
+    <div class="completion-card" id="completion-card">
+      <div class="completion-heading">Key Idea</div>
+      <p>A balance sheet provides a <strong>snapshot of an entity&rsquo;s financial position on a specific date</strong>, showing what it owns (assets), owes (liabilities), and its net worth (equity). A balance sheet at the beginning of a period is often called the <strong>opening balance sheet</strong>. A balance sheet at the end of a period is often called the <strong>closing balance sheet</strong>.</p>
+      <p>To understand why the opening and closing balance sheets differ, we need additional statements&mdash;such as the cash flow statement, income statement, and statement of changes in equity&mdash;that explain what changed.</p>
+    </div>
+
+    <button class="try-again-btn" id="try-again-btn">Try the Activity Again</button>
+
+  </div>
+</div>
+
+<script src="config.js?v=2"></script>
+<script src="shared.js"></script>
+<script>
+  applyConfig();
+  markModuleVisited(4);
+</script>
+<script>
+const CARDS = [
+  { id: 'c1', text: 'How much cash did the entity have at the beginning of the year?',              bucket: 'snapshot' },
+  { id: 'c2', text: 'How much inventory did the entity report at the end of the year?',             bucket: 'snapshot' },
+  { id: 'c3', text: 'How much did the entity report in liabilities at the beginning of the year?',  bucket: 'snapshot' },
+  { id: 'c4', text: 'How much total equity did the entity report at the end of the year?',          bucket: 'snapshot' },
+  { id: 'c5', text: 'Why did cash increase during the year?',                                       bucket: 'explain'  },
+  { id: 'c6', text: 'Why did inventory decrease during the year?',                                  bucket: 'explain'  },
+  { id: 'c7', text: 'Why did liabilities increase during the year?',                                bucket: 'explain'  },
+  { id: 'c8', text: 'Why did total equity decrease during the year?',                               bucket: 'explain'  },
+];
+
+const FEEDBACK = {
+  correct_snapshot:  'Correct. This question asks about an amount shown on a balance sheet on a specific date.',
+  correct_explain:   'Correct. This question asks about what explains the change between two balance sheets.',
+  wrong_snapshot:    'Not quite. This question asks about an amount shown on a balance sheet on a specific date, not about what explains the change. Try again.',
+  wrong_explain:     'Not quite. This question asks about what explains the change between two balance sheets, not about an amount shown on a balance sheet on a specific date. Try again.',
+};
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+let draggedId = null;
+let placedCount = 0;
+
+function showFeedback(text, isCorrect) {
+  const msg = document.getElementById('feedback-msg');
+  msg.textContent = text;
+  msg.className = 'feedback-msg visible ' + (isCorrect ? 'feedback-correct' : 'feedback-incorrect');
+}
+
+function checkCompletion() {
+  if (placedCount === CARDS.length) {
+    document.getElementById('completion-card').classList.add('visible');
+    document.getElementById('try-again-btn').classList.add('visible');
+  }
+}
+
+function resetActivity() {
+  placedCount = 0;
+  draggedId = null;
+  document.getElementById('cards-snapshot').innerHTML = '';
+  document.getElementById('cards-explain').innerHTML = '';
+  document.getElementById('feedback-msg').className = 'feedback-msg';
+  document.getElementById('feedback-msg').textContent = '';
+  document.getElementById('completion-card').classList.remove('visible');
+  document.getElementById('try-again-btn').classList.remove('visible');
+  buildPool();
+}
+
+function buildPool() {
+  const pool = document.getElementById('card-pool');
+  shuffle(CARDS).forEach(card => {
+    const el = document.createElement('div');
+    el.className = 'drag-card';
+    el.id = 'card-' + card.id;
+    el.draggable = true;
+    el.textContent = card.text;
+    el.dataset.cardId = card.id;
+    el.addEventListener('dragstart', e => {
+      draggedId = card.id;
+      setTimeout(() => el.classList.add('is-dragging'), 0);
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    el.addEventListener('dragend', () => el.classList.remove('is-dragging'));
+    pool.appendChild(el);
+  });
+}
+
+function setupBucket(bucketEl, bucketId) {
+  bucketEl.addEventListener('dragover', e => {
+    e.preventDefault();
+    bucketEl.classList.add('drag-over');
+    e.dataTransfer.dropEffect = 'move';
+  });
+  bucketEl.addEventListener('dragleave', e => {
+    if (!bucketEl.contains(e.relatedTarget)) bucketEl.classList.remove('drag-over');
+  });
+  bucketEl.addEventListener('drop', e => {
+    e.preventDefault();
+    bucketEl.classList.remove('drag-over');
+    if (!draggedId) return;
+
+    const card = CARDS.find(c => c.id === draggedId);
+    draggedId = null;
+    if (!card) return;
+
+    if (card.bucket === bucketId) {
+      const cardEl = document.getElementById('card-' + card.id);
+      if (cardEl) cardEl.remove();
+      placedCount++;
+      const placed = document.createElement('div');
+      placed.className = 'placed-card';
+      placed.textContent = card.text;
+      document.getElementById('cards-' + bucketId).appendChild(placed);
+      showFeedback(FEEDBACK['correct_' + bucketId], true);
+      checkCompletion();
+    } else {
+      const cardEl = document.getElementById('card-' + card.id);
+      if (cardEl) cardEl.classList.remove('is-dragging');
+      showFeedback(FEEDBACK['wrong_' + card.bucket], false);
+    }
+  });
+}
+
+buildPool();
+setupBucket(document.getElementById('bucket-snapshot'), 'snapshot');
+setupBucket(document.getElementById('bucket-explain'),  'explain');
+document.getElementById('try-again-btn').addEventListener('click', resetActivity);
+</script>
+
+</body>
+</html>
