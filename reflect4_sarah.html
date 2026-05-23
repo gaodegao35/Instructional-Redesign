@@ -177,6 +177,7 @@
     color: #555;
   }
   .decomp-line .dl-val { font-weight: 600; color: #333; }
+  .decomp-line-hl { background: var(--primary-faint); border-radius: 3px; padding: 3px 6px; margin: 2px -6px; cursor: default; }
   .decomp-total {
     display: flex;
     justify-content: space-between;
@@ -460,6 +461,7 @@
 
     /* Page-specific overrides: keep #6aa3e8 borders, white border-top on totals */
     .acct-total { border-top-color: white; }
+    .decomp-line-hl { background: #1b191f; }
 
     /* Progressive reveal highlights */
     .acct-line.acct-new-pos { background-color: rgba(34, 197, 94, 0.2); }
@@ -800,13 +802,9 @@ function TipLine({ label, val, tip }) {
   return (
     <div ref={rowRef}>
       <div
-        className="decomp-line"
+        className="decomp-line decomp-line-hl"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={() => setOpen(false)}
-        style={{
-          background: 'var(--primary-faint)', borderRadius: 3,
-          padding: '3px 6px', margin: '2px -6px', cursor: 'default',
-        }}
       >
         <span>&ensp;{label}</span>
         <span className="dl-val">{fmt(val)}</span>
