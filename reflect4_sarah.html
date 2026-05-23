@@ -190,6 +190,7 @@
     font-style: italic;
     padding: 4px 0;
   }
+  .reveal-para { font-size: 15px; line-height: 1.7; color: #333; margin-bottom: 12px; }
 
   .nav-buttons {
     display: flex;
@@ -453,6 +454,7 @@
 
     /* Footnote */
     .reflect4-footnote { color: #9896a8; }
+    .reveal-para { color: #6db890; }
 
     /* Progressive reveal highlights */
     .acct-line.acct-new-pos { background-color: rgba(34, 197, 94, 0.2); }
@@ -1141,10 +1143,10 @@ function TransactionSequencer() {
         {stage.type === 'reveal' && (
           <div className="reveal-box">
             <h3>The Statements Emerge</h3>
-            <p style={{ fontSize: 15, lineHeight: 1.7, color: '#333', marginBottom: 12 }}>
+            <p className="reveal-para">
               Every transaction you stepped through changed the balance sheet on the right. The flow statements below are not new information. They reorganize those same transactions to explain different parts of the difference between the opening and closing balance sheets.
             </p>
-            <p style={{ fontSize: 15, lineHeight: 1.7, color: '#333', marginBottom: 12 }}>
+            <p className="reveal-para">
               Notice that Net Income is $24,000, while Cash from Operations is $22,000. These amounts differ because revenue, expenses, and cash do not always move at the same time. Of the $43,000 in revenue, only $25,000 was collected in cash when the revenue was earned. Another $12,000 of cash collected this period came from amounts customers already owed. In addition, the $4,000 depreciation expense reduced net income without reducing cash.
             </p>
           </div>

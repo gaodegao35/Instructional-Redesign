@@ -9,7 +9,7 @@ const SITE_CONFIG = {
     "title": "William S. Beinecke Professor of Accounting"
   },
   "colors": {
-    "primary": "#6aa3e8",
+    "primary": "#00329d",
     "primaryLight": "#286dc0",
     "accent": "#bd5319",
     "faint": "#f0f4f8"
