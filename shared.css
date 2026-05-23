@@ -261,7 +261,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 .act-progress { font-size: var(--font-xs); color: #888; font-weight: 600; }
 
 /* ===== MCQ — multiple choice options & feedback ======================= */
-/* Used by: 1st_activity.html, module-1/1.1-getting-organized.html */
+/* Used by: Module-3/05-1st_activity.html, Module-1/1.1-getting-organized.html */
 .mcq-list,
 .mc-opts {
   display: flex;
