@@ -68,7 +68,7 @@ function renderSort() {
       var b = document.createElement('button'); b.className = 'sort-btn'; b.textContent = label;
       if (ans !== null) {
         b.disabled = true;
-        if (ans === val) b.classList.add(val === 'shown' ? 'selected-shown' : 'selected-needs');
+        if (ans === val) b.classList.add(isCorrect ? 'correct' : 'wrong');
       }
       (function(v){ b.addEventListener('click', function() { sortState[i] = v; renderSort(); }); })(val);
       btns.appendChild(b);

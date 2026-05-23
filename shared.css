@@ -391,6 +391,8 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 }
 .page-sub {
   font-size: clamp(14px, 1.7vw, 16px);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   color: #666;
   margin-bottom: 28px;
 }
@@ -438,6 +440,8 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 }
 .step-desc {
   font-size: clamp(14px, 1.6vw, 16px);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
   color: #555;
   line-height: 1.65;
 }
@@ -580,6 +584,8 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 .sort-btn:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
 .sort-btn.selected-shown { background: var(--primary); border-color: var(--primary); color: white; }
 .sort-btn.selected-needs { background: var(--accent); border-color: var(--accent); color: white; }
+.sort-btn.correct { background: var(--success-bg); border-color: var(--success-border); color: var(--success-text); }
+.sort-btn.wrong   { background: var(--error-bg);   border-color: var(--error-border);   color: var(--error-text); }
 .sort-btn:disabled { cursor: default; }
 .sort-result {
   width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
