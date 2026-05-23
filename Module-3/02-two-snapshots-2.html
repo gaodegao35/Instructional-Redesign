@@ -38,10 +38,10 @@
 ================================================================ */
 .match-q-list { display: flex; flex-direction: column; gap: 14px; }
 .match-q-label { font-size: 13px; font-weight: 600; color: #222; margin-bottom: 8px; line-height: 1.5; }
-.match-q-num { display: inline-block; background: #00329d; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 11px; font-weight: 700; text-align: center; line-height: 20px; margin-right: 6px; }
+.match-q-num { display: inline-block; background: #6aa3e8; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 11px; font-weight: 700; text-align: center; line-height: 20px; margin-right: 6px; }
 .match-opts { display: flex; gap: 8px; flex-wrap: wrap; }
 .match-opt { border: 1.5px solid #e2e8f0; border-radius: 7px; padding: 8px 14px; font-size: 12px; font-weight: 600; color: #444; cursor: pointer; background: white; transition: all 0.15s; white-space: nowrap; }
-.match-opt:hover:not(.locked) { border-color: #00329d; color: #00329d; }
+.match-opt:hover:not(.locked) { border-color: #6aa3e8; color: #6aa3e8; }
 .match-opt.correct { border-color: var(--success-border) !important; background: var(--success-bg) !important; color: var(--success-text) !important; }
 .match-opt.wrong   { border-color: var(--error-border) !important; background: var(--error-bg) !important; color: var(--error-text) !important; }
 .match-opt.locked  { cursor: default; }
@@ -60,12 +60,12 @@
 .dnd-bank { display: flex; flex-wrap: wrap; gap: 8px; min-height: 36px; }
 .dnd-zones { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
 .dnd-zone { border: 2px dashed #d1d5db; border-radius: 10px; padding: 14px; min-height: 130px; transition: border-color 0.15s, background 0.15s; }
-.dnd-zone.drag-over { border-color: #00329d; background: #eff6ff; }
+.dnd-zone.drag-over { border-color: #6aa3e8; background: #eff6ff; }
 .dnd-zone-label { font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #e2e8f0; line-height: 1.4; }
 .dnd-zone-items { display: flex; flex-wrap: wrap; gap: 7px; min-height: 28px; }
 .dnd-zone-empty { font-size: 12px; color: #bbb; font-style: italic; }
 .dnd-item { padding: 7px 12px; background: white; border: 1.5px solid #d1d5db; border-radius: 8px; font-size: 12px; font-weight: 500; color: #333; cursor: grab; user-select: none; transition: all 0.15s; line-height: 1.4; }
-.dnd-item:hover:not(.checked) { border-color: #00329d; color: #00329d; background: #eff6ff; }
+.dnd-item:hover:not(.checked) { border-color: #6aa3e8; color: #6aa3e8; background: #eff6ff; }
 .dnd-item.dragging { opacity: 0.35; }
 .dnd-item.correct  { border-color: var(--success-border) !important; background: var(--success-bg) !important; color: var(--success-text) !important; }
 .dnd-item.wrong    { border-color: var(--error-border) !important; background: var(--error-bg) !important; color: var(--error-text) !important; }

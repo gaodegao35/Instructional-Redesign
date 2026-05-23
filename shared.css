@@ -2,7 +2,7 @@
 /* Used by index.html and all module pages.        */
 
 :root {
-  --primary: #00329d;
+  --primary: #6aa3e8;
   --primary-light: #286dc0;
   --primary-faint: #f0f4f8;
   --accent: #bd5319;
@@ -779,12 +779,12 @@ body { background: var(--page-bg); font-family: Inter, system-ui, sans-serif; co
 .section-sub   { font-size: 13px; color: #666; margin-bottom: 14px; line-height: 1.5; }
 
 .callout {
-  background: #eff6ff; border-left: 3px solid #00329d;
+  background: #eff6ff; border-left: 3px solid #6aa3e8;
   border-radius: 0 8px 8px 0; padding: 13px 16px;
   font-size: 13px; color: #1e3a5f; line-height: 1.65;
   margin-top: 18px;
 }
-.callout strong { color: #00329d; }
+.callout strong { color: #6aa3e8; }
 
 /* ===== ACTIVITY CARD CHROME ========================================= */
 /* Used by: two-snapshots/two-snapshots1.html                          */
@@ -793,7 +793,7 @@ body { background: var(--page-bg); font-family: Inter, system-ui, sans-serif; co
 .activity-card { border: 2px solid #e2e8f0; box-shadow: none; }
 .activity-tag {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: 10px; font-weight: 700; color: #00329d;
+  font-size: 10px; font-weight: 700; color: #6aa3e8;
   letter-spacing: 0.7px; text-transform: uppercase;
   background: #eff6ff; border-radius: 20px; padding: 3px 10px;
   margin-bottom: 10px;
@@ -803,7 +803,7 @@ body { background: var(--page-bg); font-family: Inter, system-ui, sans-serif; co
 
 .btn { border: none; border-radius: 6px; padding: 9px 20px; font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.15s, border-color 0.15s, color 0.15s; }
 .btn-outline { background: white; color: #444; border: 1.5px solid #d1d5db; }
-.btn-outline:hover { border-color: #00329d; color: #00329d; }
+.btn-outline:hover { border-color: #6aa3e8; color: #6aa3e8; }
 .btn-primary { background: var(--primary); color: white; }
 .btn-primary:hover { background: var(--primary-light); }
 .btn-hint {
