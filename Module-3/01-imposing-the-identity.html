@@ -370,7 +370,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    color: #6aa3e8;
+    color: var(--primary);
     margin-bottom: 4px;
   }
   .zone-hint {
@@ -442,7 +442,7 @@
     cursor: pointer;
     transition: border-color 0.15s, color 0.15s;
   }
-  .btn-reset:hover { border-color: var(--primary); color: #6aa3e8; }
+  .btn-reset:hover { border-color: var(--primary); color: var(--primary); }
 
   /* continue button (stage transition) */
   .btn-continue {
@@ -687,7 +687,7 @@
     width: 24px; height: 24px;
     border-radius: 50%;
     background: #dbeafe;
-    color: #6aa3e8;
+    color: var(--primary);
     display: flex; align-items: center; justify-content: center;
     font-size: 12px; font-weight: 700;
     flex-shrink: 0;
@@ -824,7 +824,7 @@
     .dnd-bank { background: #32303c; border-color: #4a4858; }
     .dnd-bank-label { color: #8a8898; }
     .dnd-progress { color: #8a8898; }
-    .zone-title { color: #6aa3e8; }
+    .zone-title { color: var(--primary); }
     .dnd-card { background: #3e3c48; border-color: #4a4858; color: #d0cede; }
     .dnd-card:hover { background: #464454; border-color: #6a6880; }
     .dnd-card-sub { color: #8a8898; }
@@ -848,11 +848,11 @@
     .press-explain-block { background: #32303c; border-color: #2a2830; }
     .press-explain-text { color: #c8ccd8; }
     .btn-reset { background: #32303c; color: #c8ccd8; border-color: #2a2830; }
-    .btn-reset:hover { border-color: #6aa3e8; color: #6aa3e8; }
-    .btn-continue { background: #6aa3e8; color: #1b191f; }
+    .btn-reset:hover { border-color: var(--primary); color: var(--primary); }
+    .btn-continue { background: var(--primary); color: #1b191f; }
     .btn-continue:hover { background: #88b8f0; }
     .progress-bar { background: #2a2830; }
-    .progress-fill { background: #6aa3e8; }
+    .progress-fill { background: var(--primary); }
     /* Equation pills */
     .eq-term.a, .pill.a { background: #1a3040; color: #78b0cc; }
     .eq-term.l, .pill.l { background: #1a2540; color: #7090c8; }
@@ -870,7 +870,7 @@
     .dnd-zone.z-press { background: #26200e; border-color: #6a4020; }
     .dnd-zone.z-press .zone-title { color: #c8a86a; }
     .dnd-zone.z-press .zone-hint { color: #7a5a28; }
-    .dnd-zone.over { background: #1e2d4a; border-color: #6aa3e8; }
+    .dnd-zone.over { background: #1e2d4a; border-color: var(--primary); }
     .dnd-zone.z-press.over { background: #2c2416; border-color: #5a4828; transform: scale(1.02); }
     /* Wait cards & notes */
     .dnd-card.wait-card, .dnd-card.wait-card:hover { background: #26200e; border-color: #6a4020; color: #c8a86a; }
@@ -878,7 +878,7 @@
     .dnd-bank-label.wait-label { color: #c8a86a; }
     /* Drag card states */
     .dnd-card.wrong { border-color: var(--error-border); background: var(--error-bg); color: var(--error-text); }
-    .dnd-card.selected { background: #1a2540; border-color: #6aa3e8; color: #93c5fd; }
+    .dnd-card.selected { background: #1a2540; border-color: var(--primary); color: #93c5fd; }
     /* Placed chips */
     .placed-chip { background: #0f1828; color: #7090c8; }
     .placed-chip.press { background: #181208; color: #c8a86a; }
@@ -887,7 +887,7 @@
     /* DND result */
     .dnd-result.done { background: var(--success-bg); border-color: var(--success-border); color: var(--success-text); }
     /* Double-entry visual */
-    .de-num { background: #1a2540; color: #6aa3e8; }
+    .de-num { background: #1a2540; color: var(--primary); }
     .de-verdict { background: #1a2540; color: #7090c8; }
     /* Reconcile card headers & verdicts */
     .reconcile-card.ok .reconcile-card-header { background: #1a2540; color: #7090c8; border-bottom-color: #2a3a58; }
