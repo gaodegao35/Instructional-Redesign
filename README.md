@@ -57,7 +57,7 @@ Base: `https://gaodegao35.github.io/Instructional-Redesign/`
   /* NOTE: page-specific two-column balance sheet grid — not in shared.css */
   .bs-two-col { ... }
   ```
-- Dark mode overrides for page-specific classes belong in the page's inline `<style>`, not in `shared.css`.
+- **Dark mode:** reusable components (`.prose`, `.mc-opt`, `.btn-*`, `.bs-two-col`, etc.) → add overrides in `shared.css` under `@media (prefers-color-scheme: dark)`. Classes used on only one page → keep light and dark styles in that page’s inline `<style>`.
 
 ## Update
 
