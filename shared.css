@@ -22,6 +22,13 @@
   --warn-bg: #fffbeb;
   --warn-border: #fcd34d;
   --warn-text: #92400e;
+
+  /* ===== FONT SIZE SCALE ===== */
+  --font-xlg: 28px;   /* banner headings, hero text */
+  --font-lg:  20px;   /* section headings, step titles */
+  --font-m:   15px;   /* body text, descriptions, prose */
+  --font-s:   13px;   /* labels, buttons, nav, small UI */
+  --font-xs:  11px;   /* badges, tiny labels, footnotes */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -42,7 +49,7 @@ body {
   justify-content: space-between;
   height: 44px;
   font-family: Inter, system-ui, sans-serif;
-  font-size: 13px;
+  font-size: var(--font-s);
   position: sticky;
   top: 0;
   z-index: 50;
@@ -56,13 +63,13 @@ body {
   color: var(--primary);
   text-decoration: none;
   font-weight: 600;
-  font-size: 13px;
+  font-size: var(--font-s);
 }
 .nav-home:hover { text-decoration: underline; }
-.nav-sep { color: #ccc; font-size: 11px; }
+.nav-sep { color: #ccc; font-size: var(--font-xs); }
 .nav-current {
   color: #888;
-  font-size: 13px;
+  font-size: var(--font-s);
 }
 .nav-right {
   display: flex;
@@ -75,7 +82,7 @@ body {
   border-radius: 4px;
   padding: 4px 10px;
   font-family: inherit;
-  font-size: 12px;
+  font-size: var(--font-xs);
   color: #555;
   cursor: pointer;
   transition: all 0.15s;
@@ -112,7 +119,7 @@ body {
   padding: 8px 16px;
   text-decoration: none;
   color: #2a2a2a;
-  font-size: 13px;
+  font-size: var(--font-s);
   transition: background 0.1s;
 }
 .nav-dropdown a:hover { background: var(--primary-faint); }
@@ -125,7 +132,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: var(--font-xs);
   font-weight: 600;
   color: #888;
   flex-shrink: 0;
@@ -170,7 +177,7 @@ body {
   align-items: center;
   justify-content: center;
   font-family: Inter, system-ui, sans-serif;
-  font-size: 30px;
+  font-size: var(--font-xlg);
   font-weight: bold;
   overflow: hidden;
 }
@@ -179,19 +186,19 @@ body {
   object-fit: contain;
 }
 .banner-text h1 {
-  font-size: 28px;
+  font-size: var(--font-xlg);
   font-weight: normal;
   font-family: 'Open Sans', sans-serif;
   letter-spacing: 0.3px;
 }
 .banner-text .author {
-  font-size: 14px;
+  font-size: var(--font-s);
   opacity: 0.7;
   font-family: 'Open Sans', sans-serif;
   margin-top: 2px;
 }
 .banner-text .institution {
-  font-size: 12px;
+  font-size: var(--font-xs);
   opacity: 0.55;
   font-family: 'Open Sans', sans-serif;
   margin-top: 1px;
@@ -207,7 +214,7 @@ body {
 /* Section headers */
 h2 {
   font-family: 'Open Sans', sans-serif;
-  font-size: 20px;
+  font-size: var(--font-lg);
   color: var(--primary);
   margin: 0 0 20px;
   font-weight: 600;
@@ -233,14 +240,14 @@ h1 {
 /* Prose */
 .prose {
   font-family: 'Open Sans', sans-serif;
-  font-size: 15.5px;
+  font-size: var(--font-m);
   color: #374151;
   line-height: 1.75;
   margin-bottom: 16px;
 }
 .prose:last-child { margin-bottom: 0; }
 .rh-body .prose {
-  font-size: 14px;
+  font-size: var(--font-s);
   color: #444;
   line-height: 1.75;
 }
@@ -263,12 +270,12 @@ h1 {
 }
 .info-box h3 {
   font-family: Inter, system-ui, sans-serif;
-  font-size: 15px;
+  font-size: var(--font-m);
   color: var(--primary);
   margin-bottom: 8px;
 }
 .info-box p {
-  font-size: 14.5px;
+  font-size: var(--font-m);
   line-height: 1.6;
 }
 
@@ -278,7 +285,7 @@ h1 {
 }
 .module-header .module-label {
   font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
+  font-size: var(--font-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -286,11 +293,11 @@ h1 {
   margin-bottom: 6px;
 }
 .module-header h2 {
-  font-size: 24px;
+  font-size: var(--font-lg);
   margin-bottom: 8px;
 }
 .module-header .module-subtitle {
-  font-size: 15px;
+  font-size: var(--font-m);
   color: #777;
   font-style: italic;
   margin-bottom: 0;
@@ -317,7 +324,7 @@ h1 {
   border: none;
   cursor: pointer;
   font-family: Inter, system-ui, sans-serif;
-  font-size: 15px;
+  font-size: var(--font-m);
   font-weight: 600;
   color: var(--primary);
   text-align: left;
@@ -334,7 +341,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: var(--font-xs);
   font-weight: 700;
   color: var(--primary-light);
   flex-shrink: 0;
@@ -345,7 +352,7 @@ h1 {
 }
 .accordion-trigger .chevron {
   margin-left: auto;
-  font-size: 11px;
+  font-size: var(--font-xs);
   color: #aaa;
   transition: transform 0.2s;
   flex-shrink: 0;
@@ -356,7 +363,7 @@ h1 {
 .accordion-body {
   display: none;
   padding: 4px 20px 24px;
-  font-size: 16px;
+  font-size: var(--font-m);
 }
 .accordion-section.open .accordion-body {
   display: block;
@@ -386,7 +393,7 @@ h1 {
   border: none;
   cursor: pointer;
   font-family: Inter, system-ui, sans-serif;
-  font-size: 14px;
+  font-size: var(--font-s);
   font-weight: 600;
   color: var(--accent);
   text-align: left;
@@ -396,12 +403,12 @@ h1 {
   background: #fff5eb;
 }
 .rabbit-hole-trigger .rh-icon {
-  font-size: 16px;
+  font-size: var(--font-m);
   flex-shrink: 0;
 }
 .rabbit-hole-trigger .rh-chevron {
   margin-left: auto;
-  font-size: 11px;
+  font-size: var(--font-xs);
   color: #caa;
   transition: transform 0.2s;
 }
@@ -411,7 +418,7 @@ h1 {
 .rabbit-hole-body {
   display: none;
   padding: 4px 18px 20px;
-  font-size: 15px;
+  font-size: var(--font-m);
   line-height: 1.7;
   color: #444;
 }
@@ -433,7 +440,7 @@ h1 {
   border-radius: 3px;
   padding: 1px 7px;
   font-family: Inter, system-ui, sans-serif;
-  font-size: 11px;
+  font-size: var(--font-xs);
   font-weight: 600;
   color: var(--accent);
   text-transform: uppercase;
@@ -472,7 +479,7 @@ h1 {
 }
 .module-nav .nav-direction {
   font-family: 'Open Sans', sans-serif;
-  font-size: 11px;
+  font-size: var(--font-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.4px;
@@ -480,7 +487,7 @@ h1 {
   margin-bottom: 4px;
 }
 .module-nav .nav-label {
-  font-size: 15px;
+  font-size: var(--font-m);
   color: var(--primary);
   font-weight: 500;
 }
@@ -491,13 +498,13 @@ h1 {
   padding: 24px 0 40px;
 }
 .welcome-subtitle {
-  font-size: 20px;
+  font-size: var(--font-lg);
   font-style: italic;
   color: #555;
   margin-bottom: 8px;
 }
 .welcome-text {
-  font-size: 15px;
+  font-size: var(--font-m);
   color: #777;
   margin-bottom: 32px;
   padding: 0 20px;
@@ -549,7 +556,7 @@ h1 {
 .video-label {
   color: rgba(255,255,255,0.6);
   font-family: Inter, system-ui, sans-serif;
-  font-size: 13px;
+  font-size: var(--font-s);
 }
 
 /* Transcript toggle */
@@ -559,7 +566,7 @@ h1 {
   background: none;
   border: none;
   font-family: Inter, system-ui, sans-serif;
-  font-size: 13px;
+  font-size: var(--font-s);
   color: #888;
   cursor: pointer;
   padding: 4px 8px;
@@ -569,7 +576,7 @@ h1 {
 .transcript-toggle::before {
   content: '\25B6';
   display: inline-block;
-  font-size: 9px;
+  font-size: var(--font-xs);
   margin-right: 6px;
   transition: transform 0.2s;
   vertical-align: middle;
@@ -585,7 +592,7 @@ h1 {
   border-radius: 6px;
   text-align: left;
   font-family: 'Open Sans', sans-serif;
-  font-size: 14.5px;
+  font-size: var(--font-m);
   line-height: 1.7;
   color: #333;
   max-height: 400px;
@@ -631,7 +638,7 @@ h1 {
 .roadmap-text { padding: 0 0 18px 14px; }
 .roadmap-module {
   font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
+  font-size: var(--font-xs);
   font-weight: 600;
   color: var(--primary-light);
   text-transform: uppercase;
@@ -639,14 +646,14 @@ h1 {
 }
 .roadmap-item.active .roadmap-module { color: var(--accent); }
 .roadmap-title {
-  font-size: 15.5px;
+  font-size: var(--font-m);
   color: #2a2a2a;
   margin-top: 1px;
 }
 .roadmap-title a { color: inherit; text-decoration: none; }
 .roadmap-title a:hover { color: var(--primary); }
 .roadmap-desc {
-  font-size: 13.5px;
+  font-size: var(--font-s);
   color: #888;
   margin-top: 1px;
   font-style: italic;
@@ -659,7 +666,7 @@ h1 {
   margin: 36px 0 0;
   padding-top: 20px;
   border-top: 1px solid #e0e0e0;
-  font-size: 15px;
+  font-size: var(--font-m);
 }
 .transition a { color: var(--primary); text-decoration: none; }
 .transition a:hover { text-decoration: underline; }
@@ -688,14 +695,14 @@ h1 {
   border-bottom: 1px solid #eee;
 }
 .glossary-header h3 {
-  font-size: 16px;
+  font-size: var(--font-m);
   font-weight: 600;
   color: var(--primary);
 }
 .glossary-close {
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: var(--font-lg);
   color: #999;
   cursor: pointer;
   padding: 4px 8px;
@@ -711,7 +718,7 @@ h1 {
   padding: 8px 12px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 13px;
+  font-size: var(--font-s);
   font-family: inherit;
 }
 .glossary-search input:focus { outline: none; border-color: var(--primary); }
@@ -725,13 +732,13 @@ h1 {
   border-bottom: 1px solid #f5f5f5;
 }
 .glossary-term {
-  font-size: 14px;
+  font-size: var(--font-s);
   font-weight: 600;
   color: var(--primary);
   margin-bottom: 3px;
 }
 .glossary-def {
-  font-size: 13px;
+  font-size: var(--font-s);
   color: #555;
   line-height: 1.5;
 }
@@ -749,7 +756,7 @@ h1 {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 600px) {
   .banner { padding: 24px 20px 20px; }
-  .banner-text h1 { font-size: 22px; }
+  .banner-text h1 { font-size: var(--font-lg); }
   .content { padding: 28px 16px 60px; }
   .glossary-overlay { width: 100%; }
   .nav { padding: 0 12px; }
@@ -773,16 +780,16 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 /*           two-snapshots/two-snapshots3.html                          */
 .text-block { padding: 4px 0 24px; margin-bottom: 0; }
 .section-tag {
-  font-size: 10px; font-weight: 700; color: #888;
+  font-size: var(--font-xs); font-weight: 700; color: #888;
   letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 8px;
 }
-.section-title { font-size: 18px; font-weight: 700; margin-bottom: 4px; color: #111; }
-.section-sub   { font-size: 13px; color: #666; margin-bottom: 14px; line-height: 1.5; }
+.section-title { font-size: var(--font-lg); font-weight: 700; margin-bottom: 4px; color: #111; }
+.section-sub   { font-size: var(--font-s); color: #666; margin-bottom: 14px; line-height: 1.5; }
 
 .callout {
   background: #eff6ff; border-left: 3px solid #6aa3e8;
   border-radius: 0 8px 8px 0; padding: 13px 16px;
-  font-size: 13px; color: #1e3a5f; line-height: 1.65;
+  font-size: var(--font-s); color: #1e3a5f; line-height: 1.65;
   font-family: Inter, system-ui, sans-serif;
   margin-top: 18px;
 }
@@ -795,15 +802,15 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 .activity-card { border: 2px solid #e2e8f0; box-shadow: none; }
 .activity-tag {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: 10px; font-weight: 700; color: #6aa3e8;
+  font-size: var(--font-xs); font-weight: 700; color: #6aa3e8;
   letter-spacing: 0.7px; text-transform: uppercase;
   background: #eff6ff; border-radius: 20px; padding: 3px 10px;
   margin-bottom: 10px;
 }
-.activity-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
-.activity-desc  { font-family: Inter, sans-serif; font-size: 16px; color: #555; line-height: 1.6; margin-bottom: 20px; }
+.activity-title { font-size: var(--font-m); font-weight: 700; margin-bottom: 6px; }
+.activity-desc  { font-family: Inter, sans-serif; font-size: var(--font-m); color: #555; line-height: 1.6; margin-bottom: 20px; }
 
-.btn { border: none; border-radius: 6px; padding: 9px 20px; font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.15s, border-color 0.15s, color 0.15s; }
+.btn { border: none; border-radius: 6px; padding: 9px 20px; font-family: Inter, sans-serif; font-size: var(--font-s); font-weight: 600; cursor: pointer; transition: background 0.15s, border-color 0.15s, color 0.15s; }
 .btn-outline { background: white; color: #444; border: 1.5px solid #d1d5db; }
 .btn-outline:hover { border-color: #6aa3e8; color: #6aa3e8; }
 .btn-primary { background: var(--primary); color: white; }
@@ -830,7 +837,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 .next-page-hint.show { display: inline-block; }
 
 .act-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 18px; padding-top: 16px; border-top: 1px solid #f1f5f9; }
-.act-progress { font-size: 12px; color: #888; font-weight: 600; }
+.act-progress { font-size: var(--font-xs); color: #888; font-weight: 600; }
 
 /* ===== MCQ — multiple choice options & feedback ======================= */
 /* Used by: 1st_activity.html, module-1/1.1-getting-organized.html */
@@ -891,7 +898,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 }
 .mcq-letter {
   font-weight: 700;
-  font-size: 14px;
+  font-size: var(--font-s);
   flex-shrink: 0;
   min-width: 18px;
 }
@@ -902,7 +909,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
   border-radius: 50%;
   flex-shrink: 0;
   border: 1.5px solid #c5c8d4;
-  font-size: 13px;
+  font-size: var(--font-s);
   font-weight: 700;
   color: #888;
   display: flex;
@@ -984,7 +991,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 .prog-dot.active { background: var(--primary); }
 .prog-dot.done   { background: #16a34a; }
 .prog-label {
-  font-size: 13px;
+  font-size: var(--font-s);
   color: #888;
   margin-left: 4px;
 }
@@ -994,7 +1001,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 .screen.active { display: block; }
 .step-header { margin-bottom: 24px; }
 .step-tag {
-  font-size: 12px;
+  font-size: var(--font-xs);
   font-weight: 700;
   color: #888;
   letter-spacing: 0.8px;
@@ -1018,7 +1025,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 /* Used by: 1st_activity.html (Assets, Liabilities, Equities, etc.) */
 .bs-section-title,
 .delta-box-label {
-  font-size: 12px;
+  font-size: var(--font-xs);
   font-weight: 700;
   color: var(--primary);
   letter-spacing: 0.8px;
@@ -1030,7 +1037,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 /* ===== BALANCE SHEET CARD ============================= */
 /* Used by: articulation-activity.html, 1st_activity.html */
 .bs-col-header {
-  font-size: 13px;
+  font-size: var(--font-s);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.4px;
@@ -1050,7 +1057,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
   font-family: Inter, system-ui, sans-serif;
 }
 .acct-col h4 {
-  font-size: 13px;
+  font-size: var(--font-s);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.4px;
@@ -1062,7 +1069,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 .acct-line {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: var(--font-s);
   padding: 4px 2px;
   color: #555;
   border-radius: 3px;
@@ -1071,7 +1078,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 .acct-total {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: var(--font-s);
   font-weight: 700;
   color: var(--primary);
   padding-top: 8px;
