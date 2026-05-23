@@ -460,7 +460,7 @@ function ChangeSummary({ label, noun, color, changeLabel, opening, closing }) {
       </div>
       <div className="change-summary">
         <span>Opening {noun}: <strong style={{ color }}>{fmt(opening)}</strong></span>
-        <span style={{ margin: '0 6px' }}>&rarr;</span>
+        <span style={{ margin: '0 6px', color }}>&rarr;</span>
         <span>Closing {noun}: <strong style={{ color }}>{fmt(closing)}</strong></span>
       </div>
       <div className="change-summary" style={{ marginTop: 2 }}>
@@ -503,7 +503,7 @@ function DecompTracker({ isEntries, cfsEntries, sceEntries, netIncome, step, acc
           </div>
         )}
       </div>
-      <ChangeSummary label="Change in Equities" noun="equities" color="#92400e" changeLabel="Net change in equities" opening={0} closing={closingEquities} />
+      <ChangeSummary label="Change in Equities" noun="equities" color="var(--warn-text)" changeLabel="Net change in equities" opening={0} closing={closingEquities} />
 
       {/* 2. Cash Flow Statement — decomposition of change in cash */}
       <div className="decomp-section decomp-cfs" style={{ borderLeft: '3px solid var(--success-text)' }}>
@@ -544,7 +544,7 @@ function DecompTracker({ isEntries, cfsEntries, sceEntries, netIncome, step, acc
           </div>
         )}
       </div>
-      <ChangeSummary label="Change in Cash" noun="cash" color="#166534" changeLabel="Net change in cash" opening={0} closing={closingCash} />
+      <ChangeSummary label="Change in Cash" noun="cash" color="var(--success-text)" changeLabel="Net change in cash" opening={0} closing={closingCash} />
 
       {/* 3. Income Statement — decomposes the "Net income" line above */}
       <div className="decomp-section decomp-is" style={{ borderLeft: '3px solid var(--primary)' }}>
