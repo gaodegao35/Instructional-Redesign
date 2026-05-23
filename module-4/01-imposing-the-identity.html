@@ -10,47 +10,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../shared.css">
 <style>
-  html.micro-activity body { background: #e6e9f2; }
-
-  /* Override headings to match iframe-testing: Inter, 700, #111 */
-  h1 {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: clamp(22px, 3vw, 28px);
-    font-weight: 700;
-    color: #111;
-    margin-bottom: 6px;
-  }
-  h2 {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: clamp(17px, 2.2vw, 21px);
-    font-weight: 700;
-    color: #111;
-    margin: 0 0 14px;
-  }
-  /* Section label: gray (#888) like iframe-testing step-tag */
-  .section-label {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #888;
-    margin-bottom: 6px;
-  }
-  /* Prose keeps Open Sans at original size per user preference */
-  .prose {
-    font-family: 'Open Sans', system-ui, sans-serif;
-    font-size: 15.5px;
-    color: #374151;
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-
   /* ===== EQUATION VISUAL ===== */
   .eq-compare {
     background: white;
     border-radius: 12px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--border);
     box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     margin: 20px 0;
     overflow: hidden;
@@ -151,7 +115,7 @@
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     border-radius: 12px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--border);
     background: white;
     padding: 20px;
     display: flex;
@@ -257,7 +221,7 @@
     background: white;
     border-radius: 12px;
     padding: 20px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--border);
     box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     text-align: center;
     font-family: 'Inter', system-ui, sans-serif;
@@ -295,7 +259,7 @@
   .org-badge {
     display: inline-block;
     background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border);
     border-radius: 20px;
     padding: 3px 12px;
     font-size: 12px;
@@ -315,7 +279,7 @@
     padding: 16px;
     background: white;
     border-radius: 12px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--border);
     box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     min-height: 72px;
     margin-bottom: 18px;
@@ -335,7 +299,7 @@
 
   .dnd-card {
     background: white;
-    border: 1.5px solid #e2e8f0;
+    border: 1.5px solid var(--border);
     border-radius: 8px;
     padding: 10px 14px;
     font-size: 15px;
@@ -349,7 +313,7 @@
   }
   .dnd-card:hover { border-color: #94a3b8; background: #f8fafc; }
   .dnd-card.dragging { opacity: 0.35; cursor: grabbing; }
-  .dnd-card.selected { border-color: #00329d; background: #eff6ff; color: #1d4ed8; }
+  .dnd-card.selected { border-color: var(--primary); background: #eff6ff; color: #1d4ed8; }
   .dnd-card-sub { font-size: 12px; color: #9ca3af; font-weight: 400; margin-top: 2px; }
 
   .dnd-zones {
@@ -368,7 +332,7 @@
     font-family: 'Inter', system-ui, sans-serif;
   }
   .dnd-zone.z-assets, .dnd-zone.z-liab, .dnd-zone.z-equity { border-color: #93c5fd; background: #f0f7ff; }
-  .dnd-zone.over { background: #dbeafe; border-color: #00329d; transform: scale(1.02); }
+  .dnd-zone.over { background: #dbeafe; border-color: var(--primary); transform: scale(1.02); }
 
   .dnd-bank-divider {
     width: 100%;
@@ -379,20 +343,20 @@
   .dnd-bank-label.wait-label { color: #6a4020; }
 
   .dnd-card.wait-card {
-    border-color: #fcd34d;
-    background: #fffbeb;
+    border-color: var(--warn-border);
+    background: var(--warn-bg);
     color: #78350f;
     cursor: default;
     opacity: 0.85;
   }
-  .dnd-card.wait-card:hover { border-color: #fcd34d; background: #fffbeb; }
+  .dnd-card.wait-card:hover { border-color: var(--warn-border); background: var(--warn-bg); }
 
   .wait-note {
     width: 100%;
     font-size: 12px;
     color: #6a4020;
     background: #fef3c7;
-    border: 1px solid #fcd34d;
+    border: 1px solid var(--warn-border);
     border-radius: 8px;
     padding: 8px 12px;
     margin-top: 6px;
@@ -446,7 +410,7 @@
     color: #6b7280;
   }
   .progress-bar { flex: 1; height: 5px; background: #e5e7eb; border-radius: 3px; overflow: hidden; }
-  .progress-fill { height: 100%; background: #00329d; border-radius: 3px; transition: width 0.3s ease; }
+  .progress-fill { height: 100%; background: var(--primary); border-radius: 3px; transition: width 0.3s ease; }
 
   /* result — green theme matching iframe-testing feedback.ok */
   .dnd-result {
@@ -478,7 +442,7 @@
     cursor: pointer;
     transition: border-color 0.15s, color 0.15s;
   }
-  .btn-reset:hover { border-color: #00329d; color: #00329d; }
+  .btn-reset:hover { border-color: var(--primary); color: #00329d; }
 
   /* continue button (stage transition) */
   .btn-continue {
@@ -486,7 +450,7 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: #00329d;
+    background: var(--primary);
     color: white;
     border: none;
     border-radius: 6px;
@@ -508,7 +472,7 @@
   @media (max-width: 640px) { .dnd-zones-2col { grid-template-columns: 1fr; } }
 
   /* press release zone — amber */
-  .dnd-zone.z-press { border-color: #fcd34d; background: #fffbeb; }
+  .dnd-zone.z-press { border-color: var(--warn-border); background: var(--warn-bg); }
   .dnd-zone.z-press.over { background: #fef3c7; border-color: #d97706; transform: scale(1.02); }
   .dnd-zone.z-press .zone-title { color: #6a4020; }
   .dnd-zone.z-press .zone-hint { color: #b45309; }
@@ -520,7 +484,7 @@
   .press-explain-block {
     background: white;
     border-radius: 8px;
-    border: 1px solid #fde68a;
+    border: 1px solid var(--warn-border);
     padding: 10px 12px;
     margin-top: 8px;
   }
@@ -547,7 +511,7 @@
   /* press release set-aside note shown in Stage 2 */
   .stage-note {
     background: #fef3c7;
-    border: 1px solid #fcd34d;
+    border: 1px solid var(--warn-border);
     border-radius: 8px;
     padding: 10px 16px;
     font-size: 13px;
@@ -580,7 +544,7 @@
   .interlude-card {
     background: white;
     border-radius: 12px;
-    border: 1px solid #fde68a;
+    border: 1px solid var(--warn-border);
     border-top: 4px solid #f59e0b;
     padding: 18px;
     font-family: 'Inter', system-ui, sans-serif;
@@ -628,7 +592,7 @@
   .reconcile-card {
     background: white;
     border-radius: 12px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--border);
     box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     overflow: hidden;
     font-family: 'Inter', system-ui, sans-serif;
@@ -710,7 +674,7 @@
 
   .de-card {
     background: white;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 16px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.06);
@@ -840,7 +804,7 @@
     html.micro-activity body { background: #1b191f; color: #eeebf5; }
     h1, h2 { color: #eeebf5; }
     .prose { color: #c8ccd8; }
-    .section-label { color: #8a8898; }
+    .section-tag { color: #8a8898; }
     .eq-compare { background: #32303c; border-color: #2a2830; }
     .eq-connector-rule { background: #2a2830; }
     .eq-connector-label, .eq-panel-tag { color: #8a8898; }
@@ -913,7 +877,7 @@
     .wait-note { background: #26200e; border-color: #6a4020; color: #c8a86a; }
     .dnd-bank-label.wait-label { color: #c8a86a; }
     /* Drag card states */
-    .dnd-card.wrong { border-color: #5c2a2a; background: #2a1818; color: #c08888; }
+    .dnd-card.wrong { border-color: var(--error-border); background: var(--error-bg); color: var(--error-text); }
     .dnd-card.selected { background: #1a2540; border-color: #6aa3e8; color: #93c5fd; }
     /* Placed chips */
     .placed-chip { background: #0f1828; color: #7090c8; }
@@ -921,17 +885,17 @@
     /* Stage note */
     .stage-note { background: #26200e; border-color: #6a4020; color: #c8a86a; }
     /* DND result */
-    .dnd-result.done { background: #192a20; border-color: #2a5c38; color: #6db890; }
+    .dnd-result.done { background: var(--success-bg); border-color: var(--success-border); color: var(--success-text); }
     /* Double-entry visual */
     .de-num { background: #1a2540; color: #6aa3e8; }
     .de-verdict { background: #1a2540; color: #7090c8; }
     /* Reconcile card headers & verdicts */
     .reconcile-card.ok .reconcile-card-header { background: #1a2540; color: #7090c8; border-bottom-color: #2a3a58; }
-    .reconcile-card.err .reconcile-card-header { background: #2a1818; color: #c08888; border-bottom-color: #5a2020; }
+    .reconcile-card.err .reconcile-card-header { background: var(--error-bg); color: var(--error-text); border-bottom-color: var(--error-border); }
     .reconcile-card.ok .reconcile-verdict { background: #1a2540; color: #7090c8; }
-    .reconcile-card.err .reconcile-verdict { background: #2a1818; color: #c08888; }
+    .reconcile-card.err .reconcile-verdict { background: var(--error-bg); color: var(--error-text); }
     .reconcile-card.ok .reconcile-op { color: #7090c8; }
-    .reconcile-card.err .reconcile-op { color: #c08888; }
+    .reconcile-card.err .reconcile-op { color: var(--error-text); }
     .reconcile-card.err .reconcile-total span.mismatch { color: #f87171; }
     /* Interlude */
     .interlude-card-title { color: #c8a86a; }
@@ -954,7 +918,7 @@
 
 <div class="activity-content">
 
-  <div class="section-label">Accounting Foundations</div>
+  <div class="section-tag">Accounting Foundations</div>
   <h1>Imposing the Identity</h1>
 
   <p class="prose">The first move is to impose a structural constraint on the system. Not discover one. Not derive one from economic theory. <strong>Impose one</strong> — a deliberate design choice, made because of what it makes possible.</p>
@@ -1103,7 +1067,7 @@
 
   <!-- Stage 1: Recognition -->
   <div id="stage1Activity">
-    <div class="section-label">Activity — Step 1 of 2</div>
+    <div class="section-tag">Activity — Step 1 of 2</div>
     <h2>Recognize or Issue a Press Release?</h2>
     <p class="prose">Before classifying anything, decide what even enters the accounting records. Some of these events are economically important — but they don't qualify for recognition yet. Drag each item into the correct pool, or tap an item then tap a zone.</p>
 
@@ -1145,7 +1109,7 @@
 
   <!-- Stage 2: Classification -->
   <div id="stage2Activity" style="display:none">
-    <div class="section-label">Activity — Step 2 of 2</div>
+    <div class="section-tag">Activity — Step 2 of 2</div>
     <h2>Now Classify the Recognized Items</h2>
     <p class="prose">The press release items have been set aside — they don't enter the statements yet. Now classify each recognized item as an asset, liability, or equity. Drag or tap to place.</p>
 

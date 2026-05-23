@@ -36,24 +36,24 @@
 .ms-item:hover:not(.revealed) { border-color: #00329d; }
 .ms-item.selected:not(.revealed) { border-color: #00329d; background: #eff6ff; }
 .ms-item.revealed { cursor: default; }
-.ms-item.revealed.correct-pick  { border-color: #16a34a; background: #f0fdf4; }
-.ms-item.revealed.wrong-pick    { border-color: #dc2626; background: #fef2f2; }
-.ms-item.revealed.missed-pick   { border-color: #f59e0b; background: #fffbeb; }
+.ms-item.revealed.correct-pick  { border-color: var(--success-border); background: var(--success-bg); }
+.ms-item.revealed.wrong-pick    { border-color: var(--error-border); background: var(--error-bg); }
+.ms-item.revealed.missed-pick   { border-color: var(--warn-border); background: var(--warn-bg); }
 .ms-check {
-  width: 18px; height: 18px; border-radius: 4px; border: 2px solid #d1d5db;
+  width: 18px; height: 18px; border-radius: 4px; border: 2px solid var(--border-strong);
   flex-shrink: 0; display: flex; align-items: center; justify-content: center;
   margin-top: 1px; font-size: 11px; font-weight: 700; transition: all 0.15s;
 }
-.ms-item.selected:not(.revealed) .ms-check { border-color: #00329d; background: #00329d; color: white; }
-.ms-item.revealed.correct-pick .ms-check  { border-color: #16a34a; background: #16a34a; color: white; }
-.ms-item.revealed.wrong-pick .ms-check    { border-color: #dc2626; background: #dc2626; color: white; }
-.ms-item.revealed.missed-pick .ms-check   { border-color: #f59e0b; background: #f59e0b; color: white; }
+.ms-item.selected:not(.revealed) .ms-check { border-color: var(--primary); background: var(--primary); color: white; }
+.ms-item.revealed.correct-pick .ms-check  { border-color: var(--success-text); background: var(--success-text); color: white; }
+.ms-item.revealed.wrong-pick .ms-check    { border-color: var(--error-text); background: var(--error-text); color: white; }
+.ms-item.revealed.missed-pick .ms-check   { border-color: var(--warn-text); background: var(--warn-text); color: white; }
 .ms-body { flex: 1; }
 .ms-text { font-size: 13px; font-weight: 600; color: #222; line-height: 1.5; }
 .ms-hint { font-size: 12px; line-height: 1.6; margin-top: 5px; display: none; }
-.ms-item.revealed.correct-pick .ms-hint  { display: block; color: #2a5c38; }
-.ms-item.revealed.wrong-pick .ms-hint    { display: block; color: #991b1b; }
-.ms-item.revealed.missed-pick .ms-hint   { display: block; color: #92400e; }
+.ms-item.revealed.correct-pick .ms-hint  { display: block; color: var(--success-text); }
+.ms-item.revealed.wrong-pick .ms-hint    { display: block; color: var(--error-text); }
+.ms-item.revealed.missed-pick .ms-hint   { display: block; color: var(--warn-text); }
 
 /* ================================================================
    RABBIT HOLE ACCORDION
@@ -91,17 +91,17 @@
   .rh-chevron { color: #6b5540; }
   .rh-body { color: #b8afa4; }
   /* MS item revealed states */
-  .ms-item.revealed.correct-pick { border-color: #2a5c38; background: #192a20; }
-  .ms-item.revealed.wrong-pick   { border-color: #5c2a2a; background: #2a1818; }
-  .ms-item.revealed.missed-pick  { border-color: #7a5a28; background: #26200e; }
-  .ms-item.revealed.correct-pick .ms-check { border-color: #2a5c38; background: #2a5c38; }
-  .ms-item.revealed.wrong-pick   .ms-check { border-color: #5c2a2a; background: #5c2a2a; }
-  .ms-item.revealed.missed-pick  .ms-check { border-color: #7a5a28; background: #7a5a28; }
-  .ms-item.revealed.correct-pick .ms-hint { color: #6db890; }
-  .ms-item.revealed.wrong-pick   .ms-hint { color: #c08888; }
-  .ms-item.revealed.missed-pick  .ms-hint { color: #c8a86a; }
+  .ms-item.revealed.correct-pick { border-color: var(--success-border); background: var(--success-bg); }
+  .ms-item.revealed.wrong-pick   { border-color: var(--error-border); background: var(--error-bg); }
+  .ms-item.revealed.missed-pick  { border-color: var(--warn-border); background: var(--warn-bg); }
+  .ms-item.revealed.correct-pick .ms-check { border-color: var(--success-border); background: var(--success-border); }
+  .ms-item.revealed.wrong-pick   .ms-check { border-color: var(--error-border); background: var(--error-border); }
+  .ms-item.revealed.missed-pick  .ms-check { border-color: var(--warn-border); background: var(--warn-border); }
+  .ms-item.revealed.correct-pick .ms-hint { color: var(--success-text); }
+  .ms-item.revealed.wrong-pick   .ms-hint { color: var(--error-text); }
+  .ms-item.revealed.missed-pick  .ms-hint { color: var(--warn-text); }
   /* Selected checkbox */
-  .ms-item.selected:not(.revealed) .ms-check { border-color: #6aa3e8; background: #6aa3e8; color: #1b191f; }
+  .ms-item.selected:not(.revealed) .ms-check { border-color: var(--primary); background: var(--primary); color: #1b191f; }
   /* Primary button */
   .btn-primary { background: #6aa3e8; color: #1b191f; border-color: #6aa3e8; }
   .btn-primary:hover { background: #88b8f0; border-color: #88b8f0; }

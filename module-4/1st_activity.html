@@ -30,60 +30,12 @@ body {
 
 .bs-column { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 
-.bs-col-label {
-  font-size: clamp(13px, 1.5vw, 15px); font-weight: 700;
-  color: #374151; margin-bottom: 6px;
-}
-
-/* ── Outer box per BS column ──────────────────────── */
-.bs-col-box {
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: clamp(14px, 2vw, 22px);
-  width: 100%;
-}
-
-/* ── Sections inside the box ──────────────────────── */
-.bs-section { padding: 14px 0; }
-.bs-section:first-child { padding-top: 0; }
-.bs-section:last-child  { padding-bottom: 0; }
-.bs-section + .bs-section {
-  border-top: 1.5px solid #9ca3af;
-  margin-left: -10px;
-  margin-right: -10px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-/* ── Line items ───────────────────────────────────── */
-.bs-item {
-  display: flex; justify-content: space-between; align-items: baseline;
-  padding: 4px 0; font-size: clamp(13px, 1.5vw, 15px);
-}
-
-.item-label { color: #374151; padding-right: 8px; }
-.item-value {
-  font-variant-numeric: tabular-nums;
-  font-weight: 500; color: #111; white-space: nowrap;
-  /* Fixed padding matches .hl so row height never shifts */
-  padding: 1px 7px;
+/* Highlighted total — only visible when .hint-active is on the grid */
+.hint-active .acct-total.hl {
+  background: var(--primary-faint);
   border-radius: 4px;
+  padding: 6px 4px;
 }
-
-/* Highlighted changed value — only visible when .hint-active is on the grid */
-.hint-active .item-value.hl {
-  background: #dbeafe; color: #1d4ed8;
-  font-weight: 700;
-}
-
-/* Total row */
-.bs-item.total-row {
-  border-top: 1px solid #d1d5db;
-  margin-top: 4px; padding-top: 8px;
-}
-.bs-item.total-row .item-label { font-weight: 700; color: #111; }
-.bs-item.total-row .item-value { font-weight: 700; }
 
 /* ── Delta summary (screen 5) ─────────────────────── */
 .delta-box {
@@ -100,7 +52,7 @@ body {
 .delta-name   { color: #374151; font-weight: 600; flex: 1; min-width: 120px; }
 .delta-calc   { color: #888; font-variant-numeric: tabular-nums; font-size: clamp(13px, 1.4vw, 15px); }
 .delta-result {
-  background: #dbeafe; color: #1d4ed8;
+  background: var(--primary-faint); color: var(--primary);
   border-radius: 4px; padding: 1px 8px;
   font-weight: 700; font-variant-numeric: tabular-nums;
 }
@@ -117,7 +69,7 @@ body {
   gap: 12px; margin-bottom: 16px;
 }
 .mc-q {
-  font-size: clamp(15px, 1.8vw, 17px); font-weight: 600;
+  font-size: 15px; font-weight: 600;
   color: #111; line-height: 1.5; flex: 1; margin-bottom: 16px;
 }
 .mc-q-row .mc-q { margin-bottom: 0; }
@@ -128,18 +80,11 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-  .bs-col-label { color: #c8ccd8; }
-  .bs-col-box { background: #32303c; border-color: #2a2830; }
-  .bs-section + .bs-section { border-top-color: #4a4858; }
-  .item-label { color: #c8ccd8; }
-  .item-value { color: #e8e8f0; }
-  .hint-active .item-value.hl { background: #1a2540; color: #93c5fd; }
-  .bs-item.total-row { border-top-color: #4a4858; }
-  .bs-item.total-row .item-label { color: #e8e8f0; }
-  .delta-box { background: #32303c; border-color: #2a2830; }
+  .hint-active .acct-total.hl { background: var(--primary-faint); }
+  .delta-box { background: #32303c; border-color: var(--border); }
   .delta-name { color: #c8ccd8; }
   .delta-calc { color: #8a8898; }
-  .delta-result { background: #1a2540; color: #93c5fd; }
+  .delta-result { background: var(--primary-faint); color: var(--primary); }
   .mc-card { background: #32303c; box-shadow: 0 1px 4px rgba(0,0,0,0.4); }
   .mc-q { color: #e8e8f0; }
 }
@@ -336,39 +281,27 @@ function fmt(n) { return '$' + n.toLocaleString('en-US'); }
 // ── BALANCE SHEET RENDERER ────────────────────────────────────
 // highlight: null | 'assets' | 'liab' | 'equity' | 'all'
 // Both columns get highlights when a hint is active.
-// Only the Total row value is highlighted (not individual line items).
-function buildColumn(data, isClose, highlight) {
+function buildColumn(data, highlight) {
   var ha  = !!(highlight === 'assets' || highlight === 'all');
   var hl  = !!(highlight === 'liab'   || highlight === 'all');
   var hte = !!(highlight === 'equity' || highlight === 'all');
-
   var totalA = data.cash + data.nca;
   var totalL = data.loan;
   var totalE = data.cs + data.re;
 
-  function v(n, doHL) {
-    return '<span class="item-value' + (doHL ? ' hl' : '') + '">' + fmt(n) + '</span>';
-  }
-
   return (
-    '<div class="bs-section">'
-    + '<div class="bs-section-title">Assets</div>'
-    + '<div class="bs-item"><span class="item-label">Cash Assets</span>'        + v(data.cash, false) + '</div>'
-    + '<div class="bs-item"><span class="item-label">Non-Cash Assets</span>'    + v(data.nca,  false) + '</div>'
-    + '<div class="bs-item total-row"><span class="item-label">Total Assets</span>' + v(totalA, ha) + '</div>'
-    + '</div>'
-
-    + '<div class="bs-section">'
-    + '<div class="bs-section-title">Liabilities</div>'
-    + '<div class="bs-item"><span class="item-label">Bank Loan</span>'          + v(data.loan, false) + '</div>'
-    + '<div class="bs-item total-row"><span class="item-label">Total Liabilities</span>' + v(totalL, hl) + '</div>'
-    + '</div>'
-
-    + '<div class="bs-section">'
-    + '<div class="bs-section-title">Equities</div>'
-    + '<div class="bs-item"><span class="item-label">Contributed Capital</span>' + v(data.cs,  false) + '</div>'
-    + '<div class="bs-item"><span class="item-label">Retained Earnings</span>'  + v(data.re,  false) + '</div>'
-    + '<div class="bs-item total-row"><span class="item-label">Total Equities</span>' + v(totalE, hte) + '</div>'
+    '<div class="acct-col">'
+    + '<h4>Assets</h4>'
+    + '<div class="acct-line"><span>Cash Assets</span><span class="acct-val">'        + fmt(data.cash) + '</span></div>'
+    + '<div class="acct-line"><span>Non-Cash Assets</span><span class="acct-val">'    + fmt(data.nca)  + '</span></div>'
+    + '<div class="acct-total' + (ha  ? ' hl' : '') + '"><span>Total Assets</span><span>'      + fmt(totalA) + '</span></div>'
+    + '<h4 style="margin-top:16px">Liabilities</h4>'
+    + '<div class="acct-line"><span>Bank Loan</span><span class="acct-val">'          + fmt(data.loan) + '</span></div>'
+    + '<div class="acct-total' + (hl  ? ' hl' : '') + '"><span>Total Liabilities</span><span>' + fmt(totalL) + '</span></div>'
+    + '<h4 style="margin-top:16px">Equities</h4>'
+    + '<div class="acct-line"><span>Contributed Capital</span><span class="acct-val">' + fmt(data.cs)  + '</span></div>'
+    + '<div class="acct-line"><span>Retained Earnings</span><span class="acct-val">'  + fmt(data.re)  + '</span></div>'
+    + '<div class="acct-total' + (hte ? ' hl' : '') + '"><span>Total Equities</span><span>'    + fmt(totalE) + '</span></div>'
     + '</div>'
   );
 }
@@ -377,12 +310,12 @@ function buildGrid(containerId, openData, closeData, highlight) {
   document.getElementById(containerId).innerHTML =
     '<div class="bs-two-col">'
     + '<div class="bs-column">'
-    +   '<div class="bs-col-label">Opening Balance Sheet</div>'
-    +   '<div class="bs-col-box">' + buildColumn(openData, false, highlight) + '</div>'
+    +   '<div class="bs-col-header">Opening Balance Sheet</div>'
+    +   buildColumn(openData, highlight)
     + '</div>'
     + '<div class="bs-column">'
-    +   '<div class="bs-col-label">Closing Balance Sheet</div>'
-    +   '<div class="bs-col-box">' + buildColumn(closeData, true, highlight) + '</div>'
+    +   '<div class="bs-col-header closing">Closing Balance Sheet</div>'
+    +   buildColumn(closeData, highlight)
     + '</div>'
     + '</div>';
 }
@@ -407,23 +340,23 @@ function toggleHint(screenNum) {
 // ── FEEDBACK MESSAGES ─────────────────────────────────────────
 var FB = {
   1: {
-    ok:  '\u2713 Correct. For each period, Assets \u2212 Liabilities = Equities. Opening: 120,000 \u2212 50,000 = 70,000. Closing: 150,000 \u2212 56,000 = 94,000. Both balance.',
+    ok:  'Correct. For each period, Assets \u2212 Liabilities = Equities. Opening: 120,000 \u2212 50,000 = 70,000. Closing: 150,000 \u2212 56,000 = 94,000. Both balance.',
     err: 'Not quite. For each period, check whether Assets \u2212 Liabilities = Equities. Look at the totals in both columns and try again.'
   },
   2: {
-    ok:  '\u2713 Correct. Total Assets increased from 120,000 to 150,000 \u2014 a change of +30,000. Cash Assets rose by +18,000 and Non-Cash Assets by +12,000.',
+    ok:  'Correct. Total Assets increased from 120,000 to 150,000 \u2014 a change of +30,000. Cash Assets rose by +18,000 and Non-Cash Assets by +12,000.',
     err: 'Look at the Total Assets row in each column. Opening total: 120,000. Closing total: 150,000. What is the difference?'
   },
   3: {
-    ok:  '\u2713 Correct. The Bank Loan increased from 50,000 to 56,000 \u2014 a change of +6,000 in Total Liabilities.',
+    ok:  'Correct. The Bank Loan increased from 50,000 to 56,000 \u2014 a change of +6,000 in Total Liabilities.',
     err: 'Focus on the Liabilities section. Compare the Total Liabilities row in the opening and closing columns and try again.'
   },
   4: {
-    ok:  '\u2713 Correct. Total Equities increased from 70,000 to 94,000 \u2014 a change of +24,000. Contributed Capital was unchanged; only Retained Earnings increased.',
+    ok:  'Correct. Total Equities increased from 70,000 to 94,000 \u2014 a change of +24,000. Contributed Capital was unchanged; only Retained Earnings increased.',
     err: 'Look at the Total Equities row in each column. Opening: 70,000. Closing: 94,000. What is the difference?'
   },
   5: {
-    ok:  '\u2713 Exactly right. The balance sheet shows balances at two points in time \u2014 not the transactions that produced them. Earning a profit, borrowing, or receiving investment could all result in similar-looking changes. To understand the actual cause, we need the other financial statements.',
+    ok:  'Exactly right. The balance sheet shows balances at two points in time \u2014 not the transactions that produced them. Earning a profit, borrowing, or receiving investment could all result in similar-looking changes. To understand the actual cause, we need the other financial statements.',
     err: 'Think carefully. The balance sheet only records beginning and ending balances \u2014 it does not explain what happened in between. Could any of the other options produce the same pattern of changes?'
   }
 };
@@ -494,7 +427,6 @@ function goTo(n) {
     else if (i === n) d.classList.add('active');
   }
   document.getElementById('progLabel').textContent = 'Step ' + n + ' of 5';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ── INIT ──────────────────────────────────────────────────────

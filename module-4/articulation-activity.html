@@ -102,15 +102,6 @@
     flex-shrink: 0;
   }
 
-  /* ===== PAGE INTRO TEXT ===== */
-  .page-intro {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #373a44;
-    padding: 20px 20px 0;
-  }
-
   /* ===== OUTER WRAP ===== */
   .articulate-wrap {
     padding: 12px 16px 32px;
@@ -162,22 +153,6 @@
   }
 
   /* ===== COLUMN HEADERS ===== */
-  .bs-col-header {
-    font-family: Inter, system-ui, sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    color: var(--primary);
-    text-align: center;
-    margin-bottom: 8px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid var(--primary);
-  }
-  .bs-col-header.closing {
-    color: var(--accent);
-    border-color: var(--accent);
-  }
   .bs-col-header.center-hdr {
     color: #555;
     border-color: #aaa;
@@ -204,49 +179,6 @@
   }
 
   /* ===== BALANCE SHEET ===== */
-  .acct-col {
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    padding: 14px;
-    margin-bottom: 8px;
-  }
-  .acct-col h4 {
-    font-family: Inter, system-ui, sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    color: var(--primary);
-    margin: 0 0 10px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid var(--primary);
-  }
-  .acct-line {
-    display: flex;
-    justify-content: space-between;
-    font-family: Inter, system-ui, sans-serif;
-    font-size: 14px;
-    padding: 4px 2px;
-    color: #555;
-    border-radius: 3px;
-    transition: background 0.25s;
-  }
-  .acct-line .acct-val {
-    font-weight: 600;
-    color: #333;
-  }
-  .acct-total {
-    display: flex;
-    justify-content: space-between;
-    font-family: Inter, system-ui, sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--primary);
-    padding-top: 8px;
-    margin-top: 6px;
-    border-top: 1px solid #ddd;
-  }
 
   /* Highlight states for guided emphasis */
   .hl-equity {
@@ -267,12 +199,6 @@
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 12px;
-  }
-  .stage-text {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 15px;
-    line-height: 1.75;
-    color: #2a2a2a;
   }
   .stage-text p { margin: 0 0 12px; }
   .stage-text p:last-child { margin-bottom: 0; }
@@ -789,6 +715,105 @@
     .dib-divider { width: 60%; height: 1px; }
     .articulate-wrap { padding: 0 12px 28px; }
   }
+
+  /* ===== DARK MODE ===== */
+  @media (prefers-color-scheme: dark) {
+    /* Cards and panels */
+    .center-card,
+    .decomp-section,
+    .clarif-card,
+    .eq-box,
+    .kc-wrap {
+      background: #32303c;
+      border-color: var(--border);
+    }
+
+    /* Balance sheet text */
+    .bs-header-title { color: var(--primary); }
+    .bs-header-date { color: #8a8898; }
+    .bs-header { border-bottom-color: var(--border); }
+    .hl-equity { background: rgba(224,120,64,0.18); }
+
+    /* Column headers */
+    .bs-col-header.center-hdr { color: #8a8898; border-color: #3a3848; }
+
+    /* Stage card and text */
+    .stage-card-title { color: var(--accent); }
+    .stage-text strong { color: var(--primary); }
+
+    /* Flow statement panels */
+    .decomp-cfs h4 { color: var(--success-text); }
+    .decomp-sce h4 { color: var(--warn-text); }
+    .decomp-is h4 { color: #a78bfa; }
+    .decomp-section h4 { border-bottom-color: var(--border); }
+    .decomp-line { color: #c0bece; }
+    .decomp-line .dl-val { color: #eeebf5; }
+    .decomp-total { color: #eeebf5; }
+    .decomp-cat-label { color: #8a8898; }
+    .decomp-cfs h4 ~ .decomp-total { color: var(--success-text); }
+    .decomp-sce h4 ~ .decomp-total { color: var(--warn-text); }
+    .cfs-clickable:hover { background: #3a3848; }
+    .cfs-open { background: #2a2840; }
+    .cfs-scenario { background: #28263a; color: #b0aec0; }
+    .sce-is-intro { color: #b0aec0; }
+    .sce-is-panel { background: #28263a; border-color: #3a3060; }
+    .sce-is-title { color: #a78bfa; }
+    .sce-ni-clickable:hover { background: #3a3848; }
+
+    /* MCQ inside activity */
+    .mcq-card { background: #32303c; border-color: var(--border); }
+    .mcq-question { color: #eeebf5; }
+    .mcq-choice {
+      background: #3e3c48;
+      border-color: #4a4858;
+      color: #c8ccd8;
+    }
+    .mcq-choice:not(:disabled):hover { border-color: var(--primary); color: var(--primary); background: var(--primary-faint); }
+    .mcq-correct { background: var(--success-bg) !important; border-color: var(--success-border) !important; color: var(--success-text) !important; }
+    .mcq-incorrect { background: var(--error-bg) !important; border-color: var(--error-border) !important; color: var(--error-text) !important; }
+    .mcq-dimmed { opacity: 0.4; }
+    .mcq-feedback { background: var(--primary-faint); color: var(--primary); border-color: var(--primary); }
+
+    /* Knowledge check */
+    .kc-question-block { background: #2c2a36; border-color: var(--border); }
+    .kc-q-text { color: #eeebf5; }
+    .kc-choice {
+      background: #3e3c48;
+      border-color: #4a4858;
+      color: #c8ccd8;
+    }
+    .kc-choice:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-faint); }
+    .kc-choice.selected { border-color: var(--primary); background: var(--primary-faint); color: var(--primary); }
+    .kc-choice.correct { background: var(--success-bg) !important; border-color: var(--success-border) !important; color: var(--success-text) !important; }
+    .kc-choice.wrong { background: var(--error-bg) !important; border-color: var(--error-border) !important; color: var(--error-text) !important; }
+    .kc-feedback { background: var(--primary-faint); color: var(--primary); }
+    .kc-feedback.correct-fb { background: var(--success-bg); color: var(--success-text); }
+    .kc-feedback.wrong-fb { background: var(--error-bg); color: var(--error-text); }
+
+    /* Clarification card */
+    .clarif-card { border-color: var(--border); }
+    .clarif-card-heading { color: var(--accent); }
+
+    /* Equation box */
+    .eq-box-heading { color: #b0aec0; }
+    .eq-source { color: #8a8898; }
+    .eq-formula { background: #3a3848; color: #eeebf5; border-color: var(--border); }
+
+    /* Buttons */
+    .btn-next { background: var(--primary); color: #1b191f; }
+    .btn-next:hover { background: var(--primary-light); }
+    .btn-back { background: #3e3c48; color: #c8ccd8; border-color: var(--border); }
+    .btn-back:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* Stage progress */
+    .stage-dot { background: #4a4858; }
+    .stage-dot.done { background: var(--primary-light); }
+    .stage-dot.active { background: var(--accent); }
+    .stage-label-pill { color: var(--accent); }
+
+    /* Panel footnote */
+    .panel-footnote { color: #8a8898; }
+  }
 </style>
 </head>
 <body>
@@ -937,11 +962,11 @@ function StaticBalanceSheet({ data, highlight, title, date }) {
       {/* Assets */}
       <h4 className={fadeEquity ? 'acct-fade-50' : ''}>Assets</h4>
       <div className={'acct-line' + fe}>
-        <span>Cash</span>
+        <span>Cash Assets</span>
         <span className="acct-val">{fmt(data.cash)}</span>
       </div>
       <div className={'acct-line' + fc + fe}>
-        <span>Non-cash assets</span>
+        <span>Non-Cash Assets</span>
         <span className="acct-val">{fmt(data.nonCash)}</span>
       </div>
       <div className={'acct-total' + fc + fe}>
@@ -952,7 +977,7 @@ function StaticBalanceSheet({ data, highlight, title, date }) {
       {/* Liabilities */}
       <h4 className={fh.trim()} style={{ marginTop: '16px' }}>Liabilities</h4>
       <div className={'acct-line' + fc + fe}>
-        <span>Bank loan</span>
+        <span>Bank Loan</span>
         <span className="acct-val">{fmt(data.loan)}</span>
       </div>
       <div className={'acct-total' + fc + fe}>
@@ -963,11 +988,11 @@ function StaticBalanceSheet({ data, highlight, title, date }) {
       {/* Equity */}
       <h4 className={fadeCash ? 'acct-fade-50' : ''} style={{ marginTop: '16px' }}>Equity</h4>
       <div className={'acct-line' + fc + fe}>
-        <span>Contributed capital</span>
+        <span>Contributed Capital</span>
         <span className="acct-val">{fmt(data.contributed)}</span>
       </div>
       <div className={'acct-line' + (hlEquity ? ' hl-equity' : '') + fc + fe}>
-        <span>Retained earnings</span>
+        <span>Retained Earnings</span>
         <span className="acct-val">{fmt(data.retained)}</span>
       </div>
       <div className={'acct-total' + (hlEquity ? ' hl-equity' : '') + fc}>
@@ -984,20 +1009,20 @@ function StaticBalanceSheet({ data, highlight, title, date }) {
 const CFS_SCENARIOS = {
   operating: (
     <div className="cfs-scenario">
-      <p>During the period, the entity received $26,000 in cash from its core business activities.</p>
-      <p>For example, it may have sold products or provided services and collected cash from customers. Because this cash came from the entity's regular operations, it appears under Operating in the statement of cash flows.</p>
+      <p className="activity-desc">During the period, the entity received $26,000 in cash from its core business activities.</p>
+      <p className="activity-desc">For example, it may have sold products or provided services and collected cash from customers. Because this cash came from the entity's regular operations, it appears under Operating in the statement of cash flows.</p>
     </div>
   ),
   investing: (
     <div className="cfs-scenario">
-      <p>During the period, the entity used $10,000 of cash to acquire a longer-term resource.</p>
-      <p>For example, it may have purchased equipment that will help the business operate in future periods. Because this cash was used to invest in a long-term asset, it appears under Investing.</p>
+      <p className="activity-desc">During the period, the entity used $10,000 of cash to acquire a longer-term resource.</p>
+      <p className="activity-desc">For example, it may have purchased equipment that will help the business operate in future periods. Because this cash was used to invest in a long-term asset, it appears under Investing.</p>
     </div>
   ),
   financing: (
     <div className="cfs-scenario">
-      <p>During the period, the entity received $2,000 of cash from financing activity.</p>
-      <p>For example, the entity may have borrowed cash through its bank loan. Because this cash came from financing rather than from business operations, it appears under Financing.</p>
+      <p className="activity-desc">During the period, the entity received $2,000 of cash from financing activity.</p>
+      <p className="activity-desc">For example, the entity may have borrowed cash through its bank loan. Because this cash came from financing rather than from business operations, it appears under Financing.</p>
     </div>
   ),
 };
@@ -1424,17 +1449,17 @@ function StageIntroCard({ step, onSolveMcq, mcqSolved }) {
       case 0:
         return (
           <div className="stage-text">
-            <p>Start by comparing the opening and closing <strong>Balance Sheets</strong>. Each one is a snapshot of the entity's financial position at a specific point in time — one at the beginning of the period and one at the end of the period.</p>
-            <p>The two snapshots are not the same. Assets changed. Liabilities changed. Equity changed.</p>
-            <p>But the Balance Sheets alone do not tell you how or why those changes happened. In the next stages, you will follow some of the most important parts of that change and see how the other financial statements explain them.</p>
-            <p>In this activity, the statements are simplified to help you focus on the overall structure and how the statements connect. They do not include every detail that may appear in real financial statements.</p>
+            <p className="activity-desc">Start by comparing the opening and closing <strong>Balance Sheets</strong>. Each one is a snapshot of the entity's financial position at a specific point in time — one at the beginning of the period and one at the end of the period.</p>
+            <p className="activity-desc">The two snapshots are not the same. Assets changed. Liabilities changed. Equity changed.</p>
+            <p className="activity-desc">But the Balance Sheets alone do not tell you how or why those changes happened. In the next stages, you will follow some of the most important parts of that change and see how the other financial statements explain them.</p>
+            <p className="activity-desc">In this activity, the statements are simplified to help you focus on the overall structure and how the statements connect. They do not include every detail that may appear in real financial statements.</p>
           </div>
         );
       case 1:
         return (
           <>
             <div className="stage-text">
-              <p>Look at the <strong>Cash</strong> line in the two Balance Sheets. Cash increased from <strong>$40,000</strong> to <strong>$58,000</strong> over the period.</p>
+              <p className="activity-desc">Look at the <strong>Cash</strong> line in the two Balance Sheets. Cash increased from <strong>$40,000</strong> to <strong>$58,000</strong> over the period.</p>
             </div>
             <McqCard
               question={MCQ_DATA.cash.question}
@@ -1450,7 +1475,7 @@ function StageIntroCard({ step, onSolveMcq, mcqSolved }) {
         return (
           <>
             <div className="stage-text">
-              <p>The <strong>Cash Flow Statement</strong> gives more detail about why <strong>Cash</strong> changed during the period. It breaks the net change in cash into <strong>operating</strong>, <strong>investing</strong>, and <strong>financing</strong> cash flows.</p>
+              <p className="activity-desc">The <strong>Cash Flow Statement</strong> gives more detail about why <strong>Cash</strong> changed during the period. It breaks the net change in cash into <strong>operating</strong>, <strong>investing</strong>, and <strong>financing</strong> cash flows.</p>
             </div>
             <div className="eq-box">
               <div className="eq-box-heading">How did cash change?</div>
@@ -1464,7 +1489,7 @@ function StageIntroCard({ step, onSolveMcq, mcqSolved }) {
               </div>
             </div>
             <div className="stage-text" style={{ marginTop: '12px' }}>
-              <p>Click each cash flow category to see a simple scenario that helps explain the amount.</p>
+              <p className="activity-desc">Click each cash flow category to see a simple scenario that helps explain the amount.</p>
             </div>
           </>
         );
@@ -1472,7 +1497,7 @@ function StageIntroCard({ step, onSolveMcq, mcqSolved }) {
         return (
           <>
             <div className="stage-text">
-              <p>Now look at the <strong>Total Equity</strong> line in the two Balance Sheets. It increased from <strong>$70,000</strong> to <strong>$94,000</strong> over the period.</p>
+              <p className="activity-desc">Now look at the <strong>Total Equity</strong> line in the two Balance Sheets. It increased from <strong>$70,000</strong> to <strong>$94,000</strong> over the period.</p>
             </div>
             <McqCard
               question={MCQ_DATA.equity.question}
@@ -1487,8 +1512,8 @@ function StageIntroCard({ step, onSolveMcq, mcqSolved }) {
       case 4:
         return (
           <div className="stage-text">
-            <p>The <strong>Statement of Changes in Equity</strong> gives more detail about why <strong>Total Equity</strong> changed during the period.</p>
-            <p>In this simplified example, the entity earned income during the period and also distributed part of that amount to owners. Because contributed capital does not change in this example, the change in total equity comes from those two items.</p>
+            <p className="activity-desc">The <strong>Statement of Changes in Equity</strong> gives more detail about why <strong>Total Equity</strong> changed during the period.</p>
+            <p className="activity-desc">In this simplified example, the entity earned income during the period and also distributed part of that amount to owners. Because contributed capital does not change in this example, the change in total equity comes from those two items.</p>
             <div className="eq-box">
               <div className="eq-box-heading">How did equity change?</div>
               <div className="eq-group">
@@ -1504,14 +1529,14 @@ function StageIntroCard({ step, onSolveMcq, mcqSolved }) {
                 <div className="eq-formula">Net Income &minus; Distributions to Owners = Change in Total Equity</div>
               </div>
             </div>
-            <p style={{ marginTop: '14px' }}>One important line in this statement is <strong>Net Income</strong>. Next, we will look at that line in more detail.</p>
+            <p className="activity-desc" style={{ marginTop: '14px' }}>One important line in this statement is <strong>Net Income</strong>. Next, we will look at that line in more detail.</p>
           </div>
         );
       case 5:
         return (
           <>
             <div className="stage-text">
-              <p>In the Statement of Changes in Equity, <strong>Net Income</strong> appears as a single line: <strong>$28,000</strong>.</p>
+              <p className="activity-desc">In the Statement of Changes in Equity, <strong>Net Income</strong> appears as a single line: <strong>$28,000</strong>.</p>
             </div>
             <McqCard
               question={MCQ_DATA.netIncome.question}
@@ -1526,7 +1551,7 @@ function StageIntroCard({ step, onSolveMcq, mcqSolved }) {
       case 6:
         return (
           <div className="stage-text">
-            <p>Here, focus on the <strong>Net Income</strong> line in the <strong>Statement of Changes in Equity</strong>. Click that line to open the <strong>Income Statement</strong> and see the <strong>Revenue</strong> and <strong>Expenses</strong> behind it.</p>
+            <p className="activity-desc">Here, focus on the <strong>Net Income</strong> line in the <strong>Statement of Changes in Equity</strong>. Click that line to open the <strong>Income Statement</strong> and see the <strong>Revenue</strong> and <strong>Expenses</strong> behind it.</p>
             <div className="eq-box">
               <div className="eq-box-heading">How is Net Income determined?</div>
               <div className="eq-group">
@@ -1534,29 +1559,29 @@ function StageIntroCard({ step, onSolveMcq, mcqSolved }) {
                 <div className="eq-formula">Net Income = Total Revenue &minus; Total Expenses</div>
               </div>
             </div>
-            <p style={{ marginTop: '14px' }}>In this activity, the Income Statement opens from the Net Income line in the Statement of Changes in Equity to help you see how the two statements connect. In actual financial reporting, the Income Statement and the Statement of Changes in Equity are two distinct statements. The Income Statement gives more detail about the Net Income line that appears in the Statement of Changes in Equity.</p>
+            <p className="activity-desc" style={{ marginTop: '14px' }}>In this activity, the Income Statement opens from the Net Income line in the Statement of Changes in Equity to help you see how the two statements connect. In actual financial reporting, the Income Statement and the Statement of Changes in Equity are two distinct statements. The Income Statement gives more detail about the Net Income line that appears in the Statement of Changes in Equity.</p>
           </div>
         );
       case 7:
         return (
           <div className="stage-text">
-            <p>You have now seen the overall structure of the financial statements.</p>
-            <p>
+            <p className="activity-desc">You have now seen the overall structure of the financial statements.</p>
+            <p className="activity-desc">
               The two <strong>Balance Sheets</strong> are snapshots of the entity's financial position at two different points in time. The <strong>Cash Flow Statement</strong> explains one important part of the change: <strong>Cash</strong>. The <strong>Statement of Changes in Equity</strong> explains another important part of the change: <strong>Total Equity</strong>. The <strong>Income Statement</strong> provides more detail about the <strong>Net Income</strong> line in the Statement of Changes in Equity.
             </p>
-            <p>
+            <p className="activity-desc">
               In this activity, these statements are shown in a simplified way to help you see how they connect. They are not separate reports that just happen to fit together. Each one helps explain a different part of the change between the opening and closing Balance Sheets.
             </p>
             <div className="clarif-card">
               <div className="clarif-card-heading">Important clarification</div>
-              <p>The statements shown in this activity are <strong>simplified examples</strong> designed to help you see the overall structure more clearly. Real financial statements are often more detailed and can include many more accounts than the ones shown here. You might also wonder about other changes between the opening and closing Balance Sheets — for example, changes in <strong>non-cash assets</strong> or <strong>liabilities</strong>. Those changes <strong>can also be explained</strong>. In this activity, we focus on only a few important parts of the overall change so the structure is easier to see.</p>
+              <p className="activity-desc">The statements shown in this activity are <strong>simplified examples</strong> designed to help you see the overall structure more clearly. Real financial statements are often more detailed and can include many more accounts than the ones shown here. You might also wonder about other changes between the opening and closing Balance Sheets — for example, changes in <strong>non-cash assets</strong> or <strong>liabilities</strong>. Those changes <strong>can also be explained</strong>. In this activity, we focus on only a few important parts of the overall change so the structure is easier to see.</p>
             </div>
           </div>
         );
       case 8:
         return (
           <div className="stage-text">
-            <p>Answer the questions below, then click Submit to check your understanding.</p>
+            <p className="activity-desc">Answer the questions below, then click Submit to check your understanding.</p>
           </div>
         );
       default:

@@ -7,6 +7,21 @@
   --primary-faint: #f0f4f8;
   --accent: #bd5319;
   --page-bg: #e6e9f2;
+
+  /* Border */
+  --border: #e2e8f0;
+  --border-strong: #d1d5db;
+
+  /* Semantic state colors */
+  --success-bg: #f0fdf4;
+  --success-border: #86efac;
+  --success-text: #166534;
+  --error-bg: #fef2f2;
+  --error-border: #fca5a5;
+  --error-text: #991b1b;
+  --warn-bg: #fffbeb;
+  --warn-border: #fcd34d;
+  --warn-text: #92400e;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -20,7 +35,7 @@ body {
 /* ===== NAV BAR ===== */
 .nav {
   background: white;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border);
   padding: 0 24px;
   display: flex;
   align-items: center;
@@ -198,13 +213,30 @@ h2 {
   font-weight: 600;
 }
 
+/* Activity-page headings (inside .page context) */
+h1 {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.page h2 {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: clamp(17px, 2.2vw, 21px);
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 14px;
+}
+
 /* Prose */
 .prose {
   font-family: 'Open Sans', sans-serif;
-  font-size: 1rem;
-  color: #333;
-  line-height: 1.8;
-  margin-bottom: 14px;
+  font-size: 15.5px;
+  color: #374151;
+  line-height: 1.75;
+  margin-bottom: 16px;
 }
 .prose:last-child { margin-bottom: 0; }
 .rh-body .prose {
@@ -838,17 +870,17 @@ body { background: var(--page-bg); font-family: Inter, system-ui, sans-serif; co
 }
 .mcq-opt.correct,
 .mc-opt.correct {
-  border-color: #16a34a !important;
-  background: #f0fdf4 !important;
-  color: #14532d !important;
+  border-color: var(--success-border) !important;
+  background: var(--success-bg) !important;
+  color: var(--success-text) !important;
   cursor: default;
   pointer-events: none;
 }
 .mcq-opt.wrong,
 .mc-opt.wrong {
-  border-color: #dc2626 !important;
-  background: #fef2f2 !important;
-  color: #991b1b !important;
+  border-color: var(--error-border) !important;
+  background: var(--error-bg) !important;
+  color: var(--error-text) !important;
 }
 .mcq-opt.locked,
 .mc-opt.locked {
@@ -895,8 +927,9 @@ body { background: var(--page-bg); font-family: Inter, system-ui, sans-serif; co
 .feedback {
   border-radius: 8px;
   padding: 12px 16px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: Inter, system-ui, sans-serif;
   font-size: clamp(14px, 1.6vw, 15px);
+  font-weight: 400;
   line-height: 1.75;
   display: none;
   margin-bottom: 16px;
@@ -905,16 +938,16 @@ body { background: var(--page-bg); font-family: Inter, system-ui, sans-serif; co
 .feedback.show { display: block; }
 .mcq-fb.ok,
 .feedback.ok {
-  background: #f0fdf4;
-  color: #166534;
-  border: 1px solid #86efac;
+  background: var(--success-bg);
+  color: var(--success-text);
+  border: 1px solid var(--success-border);
 }
 .mcq-fb.inf { background: #eff6ff; color: #1e3a5f; }
 .mcq-fb.err,
 .feedback.err {
-  background: #fef2f2;
-  color: #991b1b;
-  border: 1px solid #fca5a5;
+  background: var(--error-bg);
+  color: var(--error-text);
+  border: 1px solid var(--error-border);
 }
 
 /* ===== MULTI-STEP ACTIVITY — HEADER & PROGRESS ====================== */
@@ -992,6 +1025,57 @@ body { background: var(--page-bg); font-family: Inter, system-ui, sans-serif; co
 .bs-section-title { margin-bottom: 10px; }
 .delta-box-label { margin-bottom: 14px; }
 
+/* ===== BALANCE SHEET CARD ============================= */
+/* Used by: articulation-activity.html, 1st_activity.html */
+.bs-col-header {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--primary);
+}
+.bs-col-header.closing { color: var(--accent); border-color: var(--accent); }
+.acct-col {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 14px;
+  margin-bottom: 8px;
+}
+.acct-col h4 {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--primary);
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--primary);
+}
+.acct-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 4px 2px;
+  color: #555;
+  border-radius: 3px;
+}
+.acct-line .acct-val { font-weight: 600; color: #333; }
+.acct-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  padding-top: 8px;
+  margin-top: 6px;
+  border-top: 1px solid #ddd;
+}
+
 /* ===== DARK MODE ===== */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -999,12 +1083,28 @@ body { background: var(--page-bg); font-family: Inter, system-ui, sans-serif; co
     --primary-light: #88b8f0;
     --primary-faint: #1a2540;
     --accent: #e07840;
+
+    --border: #2a2830;
+    --border-strong: #3a3848;
+
+    --success-bg: #192a20;
+    --success-border: #2a5c38;
+    --success-text: #6db890;
+    --error-bg: #2a1818;
+    --error-border: #5c2a2a;
+    --error-text: #c08888;
+    --warn-bg: #1e1a10;
+    --warn-border: #52401a;
+    --warn-text: #d4a444;
   }
 
   body {
     background: #1b191f;
     color: #ffffff;
   }
+
+  h1 { color: #eeebf5; }
+  .page h2 { color: #eeebf5; }
 
   /* Nav */
   .nav {
@@ -1148,6 +1248,15 @@ body { background: var(--page-bg); font-family: Inter, system-ui, sans-serif; co
   .act-footer { border-top-color: #2a2830; }
   .act-progress { color: #8a8898; }
 
+  /* Balance sheet card */
+  .acct-col { background: #32303c; border-color: var(--border); }
+  .acct-col h4 { color: var(--primary); border-bottom-color: var(--primary); }
+  .acct-line { color: #b0aec0; }
+  .acct-line .acct-val { color: #eeebf5; }
+  .acct-total { color: var(--primary); border-top-color: var(--border); }
+  .bs-col-header { color: var(--primary); border-bottom-color: var(--primary); }
+  .bs-col-header.closing { color: var(--accent); border-color: var(--accent); }
+
   /* Multi-step activity header & progress */
   .page-title { color: #eeebf5; }
   .page-sub { color: #b0aec0; }
@@ -1180,15 +1289,15 @@ body { background: var(--page-bg); font-family: Inter, system-ui, sans-serif; co
   }
   .mcq-opt.correct,
   .mc-opt.correct {
-    border-color: #2a5c38 !important;
-    background: #192a20 !important;
-    color: #6db890 !important;
+    border-color: var(--success-border) !important;
+    background: var(--success-bg) !important;
+    color: var(--success-text) !important;
   }
   .mcq-opt.wrong,
   .mc-opt.wrong {
-    border-color: #5c2a2a !important;
-    background: #2a1818 !important;
-    color: #c08888 !important;
+    border-color: var(--error-border) !important;
+    background: var(--error-bg) !important;
+    color: var(--error-text) !important;
   }
   .mc-letter { border-color: #4a4858; color: #8a8898; }
   .mc-opt.selected:not(.locked) .mc-letter {
@@ -1208,15 +1317,15 @@ body { background: var(--page-bg); font-family: Inter, system-ui, sans-serif; co
   }
   .mcq-fb.ok,
   .feedback.ok {
-    background: #192a20;
-    color: #6db890;
-    border-color: #2a5c38;
+    background: var(--success-bg);
+    color: var(--success-text);
+    border-color: var(--success-border);
   }
   .mcq-fb.inf { background: var(--primary-faint); color: #93c5fd; }
   .mcq-fb.err,
   .feedback.err {
-    background: #2a1818;
-    color: #c08888;
-    border-color: #5c2a2a;
+    background: var(--error-bg);
+    color: var(--error-text);
+    border-color: var(--error-border);
   }
 }
