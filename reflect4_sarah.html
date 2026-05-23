@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en" class="reflect4-embed">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accounting Pre-Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css?v=2">
+<style>
+  /* Fill the iframe / browser tab (embedded “whole page” layout) */
+  html.reflect4-embed,
+  html.reflect4-embed body {
+    height: 100%;
+    margin: 0;
+  }
+  html.reflect4-embed body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: Inter, system-ui, sans-serif;
+  }
+
+  .identity-bar {
+    background: var(--primary);
+    color: white;
+    border-radius: 0;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .identity-bar .id-num {
+    font-size: 20px;
+    min-width: 60px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .identity-bar .id-op {
+    font-size: 16px;
+    opacity: 0.7;
+    align-self: flex-end;
+    padding-bottom: 3px;
+  }
+  .identity-bar .id-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+    display: block;
+    font-weight: 400;
+  }
+  .id-group { text-align: center; }
+  .id-num.flash { color: #ffd700; }
+
+  /* === THREE-COLUMN DESKTOP LAYOUT === */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr 1fr;
+    gap: 14px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    align-items: start;
+  }
+  .main-grid .bs-open { grid-column: 1; grid-row: 1; }
+  .main-grid .decomp-area { grid-column: 2; grid-row: 1; }
+  .main-grid .bs-close { grid-column: 3; grid-row: 1; }
+
+  .bs-col-header {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--primary);
+  }
+  .bs-col-header.closing { color: var(--accent); border-color: var(--accent); }
+
+  .txn-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 140px;
+  }
+  .txn-card .txn-label {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .txn-card .txn-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .txn-effects {
+    background: var(--primary-faint);
+    border-radius: 5px;
+    padding: 12px 16px;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 12px;
+  }
+  .txn-effects .eff-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0;
+  }
+  .eff-acct { color: #555; }
+  .eff-amt { font-weight: 600; }
+  .eff-amt.pos { color: #16a34a; }
+  .eff-amt.neg { color: #dc2626; }
+  .txn-tag {
+    display: inline-block;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .tag-is { background: #ede9fe; color: #6d28d9; }
+  .tag-cfs { background: #dcfce7; color: #166534; }
+  .tag-sce { background: #fef3c7; color: #92400e; }
+
+  .accounts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .acct-col {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 14px;
+  }
+  .acct-col h4 {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--primary);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--primary);
+  }
+  .acct-line {
+    display: flex;
+    justify-content: space-between;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 13px;
+    padding: 3px 0;
+    color: #555;
+  }
+  .acct-line .acct-val { font-weight: 600; color: #333; }
+  .acct-total {
+    display: flex;
+    justify-content: space-between;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+    padding-top: 8px;
+    margin-top: 6px;
+    border-top: 1px solid #ddd;
+  }
+
+  .decomp-section {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .decomp-section h4 {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 8px;
+  }
+  .decomp-is h4 { color: #6d28d9; }
+  .decomp-cfs h4 { color: #166534; }
+  .decomp-sce h4 { color: #92400e; }
+  .decomp-line {
+    display: flex;
+    justify-content: space-between;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 13px;
+    padding: 3px 0;
+    color: #555;
+  }
+  .decomp-line .dl-val { font-weight: 600; color: #333; }
+  .decomp-total {
+    display: flex;
+    justify-content: space-between;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding-top: 6px;
+    margin-top: 4px;
+    border-top: 1px solid #ddd;
+  }
+  .decomp-empty {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 12px;
+    color: #bbb;
+    font-style: italic;
+    padding: 4px 0;
+  }
+
+  .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .nav-buttons button {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 13px;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .btn-back {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #555;
+  }
+  .btn-back:disabled { color: #ccc; cursor: default; }
+  .btn-next {
+    background: var(--primary);
+    color: white;
+    border: none;
+    font-weight: 600;
+  }
+  .btn-next:disabled { background: #ccc; cursor: default; }
+
+  .reveal-box {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0 0 0;
+  }
+  .reveal-box h3 {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 16px;
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
+
+  .prompt-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 24px;
+    margin: 20px 0;
+  }
+  .prompt-card .prompt-number {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .prompt-card .prompt-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .prompt-card textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #2a2a2a;
+    resize: vertical;
+    box-sizing: border-box;
+  }
+  .prompt-card textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  .prompt-card textarea::placeholder {
+    color: #bbb;
+    font-style: italic;
+  }
+
+  /* Flex: title bar fixed, only inner body scrolls (sticky breaks in some iframes) */
+  .decomp-scroll-box {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fafafa;
+    padding: 0;
+    overflow: hidden;
+  }
+  .decomp-scroll-head {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 16px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  .decomp-scroll-body {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .decomp-scroll-box h3 {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #888;
+    margin: 0;
+    padding: 0;
+  }
+  /* Intro scrolls with flow statements below (not part of sticky title bar) */
+  .decomp-scroll-intro {
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+    margin: 0 0 14px 0;
+    font-family: Inter, system-ui, sans-serif;
+    line-height: 1.5;
+  }
+  /* === PROGRESSIVE REVEAL === */
+  .acct-line.acct-new-pos {
+    background-color: rgba(34, 197, 94, 0.15);
+    border-radius: 3px;
+    padding: 3px 4px;
+    margin: 0 -4px;
+  }
+  .acct-line.acct-new-neg {
+    background-color: rgba(220, 38, 38, 0.12);
+    border-radius: 3px;
+    padding: 3px 4px;
+    margin: 0 -4px;
+  }
+  .acct-line.acct-dimmed {
+    opacity: 0.35;
+    transition: opacity 0.3s ease;
+  }
+  .bs-paled .acct-line {
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+  }
+  .bs-paled .acct-col h4 {
+    opacity: 0.5;
+  }
+  .bs-paled .acct-total {
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+  }
+  @keyframes valFlash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.15; }
+  }
+  .acct-val-flash {
+    animation: valFlash 0.25s ease-in-out 3;
+    color: var(--accent) !important;
+    font-weight: 700 !important;
+  }
+  .bs-empty-msg {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 12px;
+    color: #aaa;
+    font-style: italic;
+    text-align: center;
+    padding: 16px 10px;
+    line-height: 1.5;
+  }
+
+  /* Three-column layout scales to fit the available width (no horizontal scroll) */
+  .reflect4-grid-wrap {
+    overflow-x: visible;
+    overflow-y: visible;
+    margin-bottom: 16px;
+  }
+  .reflect4-fixed-min {
+    min-width: 0;
+  }
+  .reflect4-layout .identity-bar {
+    flex-wrap: nowrap;
+  }
+
+  /* Narrow viewports: slightly larger type, no layout changes */
+  @media (max-width: 900px) {
+    .reflect4-layout .identity-bar {
+      font-size: 16px;
+      gap: 10px;
+    }
+    .reflect4-layout .identity-bar .id-num { font-size: 22px; min-width: 64px; }
+    .reflect4-layout .identity-bar .id-label { font-size: 11px; }
+    .reflect4-layout .acct-line { font-size: 14px; }
+    .reflect4-layout .acct-col h4 { font-size: 12px; }
+    .reflect4-layout .bs-col-header { font-size: 12px; }
+    .reflect4-layout .txn-card .txn-desc { font-size: 16px; }
+    .reflect4-layout .txn-effects { font-size: 14px; }
+    .reflect4-layout .decomp-line { font-size: 14px; }
+    .reflect4-layout .decomp-scroll-intro { font-size: 13px; }
+    .reflect4-layout .main-grid { gap: 8px; }
+  }
+  @media (max-width: 580px) {
+    .reflect4-layout .identity-bar .id-num { font-size: 24px; }
+    .reflect4-layout .acct-line { font-size: 15px; }
+    .reflect4-layout .txn-card .txn-desc { font-size: 17px; }
+    .reflect4-layout .decomp-line { font-size: 15px; }
+    .reflect4-layout .main-grid { gap: 4px; }
+    .reflect4-layout .txn-card { padding: 12px; }
+  }
+
+  /* Full width + at least one viewport tall inside the embed */
+  .content.content-standalone {
+    max-width: none;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+</style>
+</head>
+<body>
+
+<div class="content content-standalone">
+  <div id="react-root"></div>
+</div>
+
+<script src="config.js?v=2"></script>
+<script src="shared.js"></script>
+<script>
+  applyConfig();
+  markModuleVisited(4);
+</script>
+
+<!-- React via CDN -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+const { useState, useCallback, useRef, useEffect } = React;
+
+const STORAGE_KEY = 'prework_reflect4';
+
+// ===== ACCOUNT STRUCTURE =====
+const OPENING = {
+  cash: 0, receivables: 0, equipment: 0,
+  loan: 0, payables: 0,
+  contributed: 0, retained: 0
+};
+
+// ===== TRANSACTIONS =====
+const TXNS = [
+  {
+    id: 'owner-invest',
+    desc: 'The owner invests $100,000 cash to start the business.',
+    effects: { cash: 100000, contributed: 100000 },
+    is: [],
+    cfs: [{ label: 'Owner investment', amt: 100000, cat: 'financing' }],
+    sce: [{ label: 'Owner investment', amt: 100000, col: 'contributed' }]
+  },
+  {
+    id: 'borrow',
+    desc: 'The entity borrows $30,000 from a bank.',
+    effects: { cash: 30000, loan: 30000 },
+    is: [],
+    cfs: [{ label: 'Bank borrowing', amt: 30000, cat: 'financing' }],
+    sce: []
+  },
+  {
+    id: 'buy-equip',
+    desc: 'The entity buys equipment for $20,000 cash.',
+    effects: { cash: -20000, equipment: 20000 },
+    is: [],
+    cfs: [{ label: 'Equipment purchase', amt: -20000, cat: 'investing' }],
+    sce: []
+  },
+  {
+    id: 'service-revenue',
+    desc: 'The entity provides $43,000 of services. It collects $25,000 in cash immediately; the remaining $18,000 is owed by customers who will pay later.',
+    effects: { cash: 25000, receivables: 18000, retained: 43000 },
+    is: [{ label: 'Service revenue', amt: 43000 }],
+    cfs: [{ label: 'Cash from customers', amt: 25000, cat: 'operating' }],
+    sce: [],
+    sceChip: true
+  },
+  {
+    id: 'pay-salaries',
+    desc: 'The entity pays employee salaries of $15,000.',
+    effects: { cash: -15000, retained: -15000 },
+    is: [{ label: 'Salary expense', amt: -15000 }],
+    cfs: [{ label: 'Salaries paid', amt: -15000, cat: 'operating' }],
+    sce: []
+  },
+  {
+    id: 'collect',
+    desc: 'The entity collects $12,000 from the customer who owed money.',
+    effects: { cash: 12000, receivables: -12000 },
+    is: [],
+    cfs: [{ label: 'Collections from customers', amt: 12000, cat: 'operating' }],
+    sce: []
+  },
+  {
+    id: 'depreciation',
+    desc: 'The entity records $4,000 of depreciation on its equipment. The equipment is wearing out — its recorded worth decreases, and the cost is recognized as an expense. No cash moves.',
+    effects: { equipment: -4000, retained: -4000 },
+    is: [{ label: 'Depreciation expense', amt: -4000 }],
+    cfs: [],
+    sce: []
+  },
+  {
+    id: 'dividend',
+    desc: 'The entity pays the owner a $5,000 dividend.',
+    effects: { cash: -5000, retained: -5000 },
+    is: [],
+    cfs: [{ label: 'Dividend paid', amt: -5000, cat: 'financing' }],
+    sce: [{ label: 'Dividend to owner', amt: -5000, col: 'retained' }]
+  }
+];
+
+const ACCT_LABELS = {
+  cash: 'Cash', receivables: 'Accounts Receivable', equipment: 'Equipment',
+  loan: 'Bank Loan', payables: 'Accounts Payable',
+  contributed: 'Contributed Capital', retained: 'Retained Earnings'
+};
+
+// ===== PROGRESSIVE REVEAL HELPERS =====
+function getRevealedAccounts(upToTxnCount) {
+  const revealed = new Set();
+  for (let i = 0; i < upToTxnCount && i < TXNS.length; i++) {
+    Object.keys(TXNS[i].effects).forEach(k => revealed.add(k));
+  }
+  return revealed;
+}
+
+function fmt(n) {
+  if (n === 0) return '$0';
+  const abs = '$' + Math.abs(n).toLocaleString();
+  return n < 0 ? '(' + abs + ')' : abs;
+}
+
+function fmtChange(n) {
+  if (n === 0) return '';
+  const abs = '$' + Math.abs(n).toLocaleString();
+  return n > 0 ? '+' + abs : '(' + abs + ')';
+}
+
+// ===== IDENTITY BAR =====
+function IdentityBar({ accounts }) {
+  const a = accounts.cash + accounts.receivables + accounts.equipment;
+  const l = accounts.loan + accounts.payables;
+  const e = accounts.contributed + accounts.retained;
+  return (
+    <div className="identity-bar">
+      <div className="id-group">
+        <span className="id-label">Assets</span>
+        <span className="id-num">{fmt(a)}</span>
+      </div>
+      <span className="id-op">&minus;</span>
+      <div className="id-group">
+        <span className="id-label">Liabilities</span>
+        <span className="id-num">{fmt(l)}</span>
+      </div>
+      <span className="id-op">=</span>
+      <div className="id-group">
+        <span className="id-label">Equities</span>
+        <span className="id-num">{fmt(e)}</span>
+      </div>
+    </div>
+  );
+}
+
+// ===== ANIMATED VALUE (old number flashes, then replaced by new) =====
+function AnimatedValue({ oldValue, newValue, shouldAnimate }) {
+  const [displayValue, setDisplayValue] = useState(newValue);
+  const [flashing, setFlashing] = useState(false);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    // Clean up any pending timer
+    if (timerRef.current) clearTimeout(timerRef.current);
+
+    if (shouldAnimate && oldValue !== newValue) {
+      // Show old value with flash
+      setDisplayValue(oldValue);
+      setFlashing(true);
+      // After 3 flashes (~750ms), swap to new value
+      timerRef.current = setTimeout(() => {
+        setDisplayValue(newValue);
+        setFlashing(false);
+      }, 750);
+    } else {
+      setDisplayValue(newValue);
+      setFlashing(false);
+    }
+    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
+  }, [oldValue, newValue, shouldAnimate]);
+
+  return (
+    <span className={'acct-val' + (flashing ? ' acct-val-flash' : '')}>
+      {fmt(displayValue)}
+    </span>
+  );
+}
+
+// ===== ACCOUNTS GRID (progressive reveal) =====
+function AccountsGrid({ accounts, prevAccounts, revealedAccounts, newAccounts, affectedAccounts, isEmpty }) {
+  const allAssets = ['cash', 'receivables', 'equipment'];
+  const allLiabs = ['loan', 'payables'];
+  const allEqs = ['contributed', 'retained'];
+
+  // Only show accounts that have been revealed by transactions so far
+  const assets = revealedAccounts ? allAssets.filter(k => revealedAccounts.has(k)) : allAssets;
+  const liabs  = revealedAccounts ? allLiabs.filter(k => revealedAccounts.has(k))  : allLiabs;
+  const eqs    = revealedAccounts ? allEqs.filter(k => revealedAccounts.has(k))    : allEqs;
+
+  const totalA = assets.reduce((s, k) => s + accounts[k], 0);
+  const totalL = liabs.reduce((s, k) => s + accounts[k], 0);
+  const totalE = eqs.reduce((s, k) => s + accounts[k], 0);
+
+  function row(key) {
+    const isAffected = affectedAccounts && affectedAccounts.has(key);
+    const isDimmed = affectedAccounts && affectedAccounts.size > 0 && !isAffected;
+    const oldVal = prevAccounts ? prevAccounts[key] : accounts[key];
+    const newVal = accounts[key];
+    const showComparison = !!prevAccounts;
+    const changed = showComparison && oldVal !== newVal;
+
+    let cls = 'acct-line';
+    if (isAffected) cls += affectedAccounts.get(key) >= 0 ? ' acct-new-pos' : ' acct-new-neg';
+    if (isDimmed) cls += ' acct-dimmed';
+
+    return (
+      <div key={key} style={{ marginBottom: 10 }}>
+        {showComparison && (
+          <div style={{
+            fontSize: 10,
+            color: changed ? '#888' : '#bbb',
+            fontFamily: "'Inter', system-ui, sans-serif",
+            textAlign: 'right',
+            marginBottom: 1,
+          }}>
+            Previously {fmt(oldVal)}
+          </div>
+        )}
+        <div className={cls}>
+          <span>{ACCT_LABELS[key]}</span>
+          <AnimatedValue
+            oldValue={oldVal}
+            newValue={newVal}
+            shouldAnimate={isAffected && changed}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  function totalRow(label, total) {
+    return (
+      <div className="acct-total" key={label}>
+        <span>{label}</span>
+        <span>{fmt(total)}</span>
+      </div>
+    );
+  }
+
+  // Empty state: show full chart at $0 (opening / before any txn)
+  if (isEmpty) {
+    const zeroA = allAssets.reduce((s, k) => s + accounts[k], 0);
+    const zeroL = allLiabs.reduce((s, k) => s + accounts[k], 0);
+    const zeroE = allEqs.reduce((s, k) => s + accounts[k], 0);
+    function zeroRow(key) {
+      return (
+        <div className="acct-line" key={key}>
+          <span>{ACCT_LABELS[key]}</span>
+          <span className="acct-val">{fmt(accounts[key])}</span>
+        </div>
+      );
+    }
+    return (
+      <div className="accounts-grid">
+        <div className="acct-col">
+          <h4>Assets</h4>
+          {allAssets.map(zeroRow)}
+          {totalRow('Total Assets', zeroA)}
+        </div>
+        <div className="acct-col">
+          <h4>Liabilities</h4>
+          {allLiabs.map(zeroRow)}
+          {totalRow('Total Liabilities', zeroL)}
+        </div>
+        <div className="acct-col">
+          <h4>Equities</h4>
+          {allEqs.map(zeroRow)}
+          {totalRow('Total Equities', zeroE)}
+        </div>
+      </div>
+    );
+  }
+
+  function colBody(items) {
+    if (items.length === 0) return <div className="bs-empty-msg">None yet</div>;
+    return items.map(row);
+  }
+
+  return (
+    <div className="accounts-grid">
+      <div className="acct-col">
+        <h4>Assets</h4>
+        {colBody(assets)}
+        {totalRow('Total Assets', totalA)}
+      </div>
+      <div className="acct-col">
+        <h4>Liabilities</h4>
+        {colBody(liabs)}
+        {totalRow('Total Liabilities', totalL)}
+      </div>
+      <div className="acct-col">
+        <h4>Equities</h4>
+        {colBody(eqs)}
+        {totalRow('Total Equities', totalE)}
+      </div>
+    </div>
+  );
+}
+
+// ===== TIP LINE (highlighted decomp row with hover tooltip via portal) =====
+function TipLine({ label, val, tip }) {
+  const [open, setOpen] = useState(false);
+  const [pos, setPos] = useState({ top: 0, left: 0 });
+  const rowRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    if (rowRef.current) {
+      const rect = rowRef.current.getBoundingClientRect();
+      setPos({ top: rect.bottom + 6, left: rect.left });
+    }
+    setOpen(true);
+  };
+
+  return (
+    <div ref={rowRef}>
+      <div
+        className="decomp-line"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={() => setOpen(false)}
+        style={{
+          background: 'rgba(0, 50, 157, 0.20)', borderRadius: 3,
+          padding: '3px 6px', margin: '2px -6px', cursor: 'default',
+        }}
+      >
+        <span>&ensp;{label}</span>
+        <span className="dl-val">{fmt(val)}</span>
+      </div>
+      {open && ReactDOM.createPortal(
+        <div style={{
+          position: 'fixed',
+          top: pos.top,
+          left: pos.left,
+          background: '#2a2a2a',
+          color: 'white',
+          fontSize: 12,
+          lineHeight: 1.6,
+          padding: '10px 14px',
+          borderRadius: 6,
+          width: 'max-content',
+          maxWidth: 240,
+          zIndex: 9999,
+          boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
+          pointerEvents: 'none',
+          fontWeight: 400,
+          fontFamily: "'Inter', system-ui, sans-serif",
+        }}>
+          {tip}
+          <div style={{
+            position: 'absolute',
+            bottom: '100%',
+            left: 20,
+            width: 0, height: 0,
+            borderLeft: '6px solid transparent',
+            borderRight: '6px solid transparent',
+            borderBottom: '6px solid #2a2a2a',
+          }} />
+        </div>,
+        document.body
+      )}
+    </div>
+  );
+}
+
+// ===== DECOMPOSITION TRACKER =====
+function ChangeSummary({ label, noun, color, changeLabel, opening, closing }) {
+  const change = closing - opening;
+  return (
+    <div style={{
+      fontFamily: "'Inter', system-ui, sans-serif",
+      background: '#f8f8f8', borderRadius: 4, padding: '10px 12px',
+      marginBottom: 35, border: '1px solid #e8e8e8'
+    }}>
+      <div style={{ fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.4px', color: '#555', marginBottom: 6 }}>
+        What this statement explains
+      </div>
+      <div style={{ fontSize: 12, color: '#555', lineHeight: 1.6 }}>
+        <span>Opening {noun}: <strong style={{ color }}>{fmt(opening)}</strong></span>
+        <span style={{ margin: '0 6px', color: '#bbb' }}>&rarr;</span>
+        <span>Closing {noun}: <strong style={{ color }}>{fmt(closing)}</strong></span>
+      </div>
+      <div style={{ fontSize: 12, color: '#555', marginTop: 2 }}>
+        {changeLabel}: <strong style={{ color }}>{fmt(change)}</strong>
+      </div>
+    </div>
+  );
+}
+
+function DecompTracker({ isEntries, cfsEntries, sceEntries, netIncome, step, accounts }) {
+  const cfsByCat = { operating: [], investing: [], financing: [] };
+  cfsEntries.forEach(e => cfsByCat[e.cat].push(e));
+  const cfsTotal = cfsEntries.reduce((s, e) => s + e.amt, 0);
+
+  // Compute closing equities for the SCE total
+  const closingEquities = sceEntries.reduce((s, e) => s + e.amt, 0) + netIncome;
+  const closingCash = accounts.cash;
+
+  return (
+    <div>
+      {/* 1. Flow panel (p2): intro → Change in Equities row → SCE detail card */}
+      <div className="decomp-section decomp-sce" style={{ borderLeft: '3px solid #92400e' }}>
+        <h4>Statement of Changes in Equities</h4>
+        {sceEntries.map((e, i) => (
+          step === 1 && e.label === 'Owner investment'
+            ? <TipLine key={i} label={e.label} val={e.amt} tip="The $100,000 owner investment increases equity, reflecting capital provided by the owner to start the business." />
+            : step === 8 && e.label === 'Dividend to owner'
+            ? <TipLine key={i} label={e.label} val={e.amt} tip="The $5,000 dividend reduces retained earnings, reflecting a distribution of profits to the owner." />
+            : <div className="decomp-line" key={i}><span>&ensp;{e.label}</span><span className="dl-val">{fmt(e.amt)}</span></div>
+        ))}
+        {netIncome !== 0 && (
+          step === 4
+            ? <TipLine label="Net income" val={netIncome} tip="Net Income appears in the Statement of Changes in Equities because it is one part of the change in equities. The Income Statement explains how net income was generated, while the Statement of Changes in Equities shows how it contributes to the movement from opening equities to current equities." />
+            : <div className="decomp-line"><span>&ensp;Net income</span><span className="dl-val">{fmt(netIncome)}</span></div>
+        )}
+        {sceEntries.length === 0 && netIncome === 0 && <div className="decomp-empty">No entries yet</div>}
+        {(sceEntries.length > 0 || netIncome !== 0) && (
+          <div className="decomp-total" style={{ color: '#92400e' }}>
+            <span>Closing equities</span><span>{fmt(closingEquities)}</span>
+          </div>
+        )}
+      </div>
+      <ChangeSummary label="Change in Equities" noun="equities" color="#92400e" changeLabel="Net change in equities" opening={0} closing={closingEquities} />
+
+      {/* 2. Cash Flow Statement — decomposition of change in cash */}
+      <div className="decomp-section decomp-cfs" style={{ borderLeft: '3px solid #166534' }}>
+        <h4>Cash Flow Statement</h4>
+        {cfsEntries.length === 0 ? <div className="decomp-empty">No entries yet</div> :
+          ['operating', 'investing', 'financing'].map(cat => {
+            const items = cfsByCat[cat];
+            if (items.length === 0) return null;
+            return (
+              <div key={cat} style={{ marginBottom: 6 }}>
+                <div style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: 11, fontWeight: 600, color: '#888', textTransform: 'uppercase', letterSpacing: '0.3px', marginTop: 4 }}>
+                  {cat}
+                </div>
+                {items.map((e, i) => (
+                  step === 1 && e.label === 'Owner investment'
+                    ? <TipLine key={i} label={e.label} val={e.amt} tip="The $100,000 cash is classified as a financing inflow because it comes from the owner as a source of funding. It is not generated by the entity's operations." />
+                  : step === 2 && e.label === 'Bank borrowing'
+                    ? <TipLine key={i} label={e.label} val={e.amt} tip="The $30,000 cash is classified as a financing inflow because it comes from borrowing. It increases available cash, but it does not come from earning revenue." />
+                  : step === 3 && e.label === 'Equipment purchase'
+                    ? <TipLine key={i} label={e.label} val={e.amt} tip="The $20,000 cash is classified as an investing outflow because it is used to acquire equipment, a long-term resource the entity will use in future periods." />
+                  : step === 4 && e.label === 'Cash from customers'
+                    ? <TipLine key={i} label={e.label} val={e.amt} tip="The $25,000 of cash collected from customers comes from the entity's business operations, so it is reported as an operating cash inflow." />
+                  : step === 5 && e.label === 'Salaries paid'
+                    ? <TipLine key={i} label={e.label} val={e.amt} tip="The $15,000 paid for salaries is part of the entity's business operations, so it is reported as an operating cash outflow." />
+                  : step === 6 && e.label === 'Collections from customers'
+                    ? <TipLine key={i} label={e.label} val={e.amt} tip="The $12,000 of cash collected from customers relates to prior revenue from the entity's business operations, so it is reported as an operating cash inflow." />
+                  : step === 8 && e.label === 'Dividend paid'
+                    ? <TipLine key={i} label={e.label} val={e.amt} tip="The $5,000 cash is classified as a financing outflow because it is paid as a dividend to the owner. Dividend payments reduce cash, but they are distributions to owners rather than operating expenses, so they do not affect net income." />
+                    : <div className="decomp-line" key={i}><span>&ensp;{e.label}</span><span className="dl-val">{fmt(e.amt)}</span></div>
+                ))}
+              </div>
+            );
+          })
+        }
+        {cfsEntries.length > 0 && (
+          <div className="decomp-total" style={{ color: '#166534' }}>
+            <span>Net change in cash</span><span>{fmt(cfsTotal)}</span>
+          </div>
+        )}
+      </div>
+      <ChangeSummary label="Change in Cash" noun="cash" color="#166534" changeLabel="Net change in cash" opening={0} closing={closingCash} />
+
+      {/* 3. Income Statement — decomposes the "Net income" line above */}
+      <div className="decomp-section decomp-is" style={{ borderLeft: '3px solid #6d28d9' }}>
+        <h4>Income Statement</h4>
+        {isEntries.length === 0 ? <div className="decomp-empty">No entries yet</div> :
+          isEntries.map((e, i) => (
+            step === 4 && e.label === 'Service revenue'
+              ? <TipLine key={i} label={e.label} val={e.amt} tip="The $43,000 is recognized as service revenue, reflecting value earned from providing services during the period." />
+              : step === 5 && e.label === 'Salary expense'
+              ? <TipLine key={i} label={e.label} val={e.amt} tip="$15,000 is recognized as salary expense, reflecting the cost of labor used to operate the entity during the period." />
+              : step === 7 && e.label === 'Depreciation expense'
+              ? <TipLine key={i} label={e.label} val={e.amt} tip="The $4,000 is classified as depreciation expense. Depreciation records part of the equipment's cost as an expense in the periods that benefit from its use, rather than all at once when the equipment is purchased. No cash is paid when this expense is recorded." />
+              : <div className="decomp-line" key={i}>
+              <span>&ensp;{e.label}</span>
+              <span className="dl-val">{fmt(e.amt)}</span>
+            </div>
+          ))
+        }
+        {isEntries.length > 0 && (
+          <div className="decomp-total" style={{ color: '#6d28d9' }}>
+            <span>Net income</span><span>{fmt(netIncome)}</span>
+          </div>
+        )}
+      </div>
+      <div style={{
+        fontFamily: "'Inter', system-ui, sans-serif",
+        background: '#f8f8f8', borderRadius: 4, padding: '10px 12px',
+        marginBottom: 35, border: '1px solid #e8e8e8'
+      }}>
+        <div style={{ fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.4px', color: '#555', marginBottom: 6 }}>
+          What this statement explains
+        </div>
+        <div style={{ fontSize: 12, color: '#555' }}>
+          Net income: <strong style={{ color: '#6d28d9' }}>{fmt(netIncome)}</strong>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ===== TIMELINE SVG =====
+
+// ===== PROMPT =====
+function Prompt({ promptKey, promptText, number, total }) {
+  const [val, setVal] = useState(() => {
+    try { return (JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'))[promptKey] || ''; } catch(e) { return ''; }
+  });
+  const timerRef = useRef(null);
+
+  const save = useCallback((v) => {
+    try {
+      const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      s[promptKey] = v;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+    } catch(e) {}
+  }, [promptKey]);
+
+  const onChange = useCallback((e) => {
+    setVal(e.target.value);
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => save(e.target.value), 800);
+  }, [save]);
+
+  return (
+    <div className="prompt-card">
+      <div className="prompt-number">Prompt {number} of {total}</div>
+      <div className="prompt-text">{promptText}</div>
+      <textarea value={val} onChange={onChange} onBlur={() => save(val)} placeholder="Write your response here..." />
+    </div>
+  );
+}
+
+// ===== STAGES: transactions + reveal (no prompts — those are on the next page) =====
+const STAGES = [
+  { type: 'intro' },
+  { type: 'txn', txnIndex: 0 },  // owner invests
+  { type: 'txn', txnIndex: 1 },  // borrow
+  { type: 'txn', txnIndex: 2 },  // buy equipment
+  { type: 'txn', txnIndex: 3 },  // service revenue ($43K, $25K cash / $18K credit)
+  { type: 'txn', txnIndex: 4 },  // pay salaries
+  { type: 'txn', txnIndex: 5 },  // collect from customer
+  { type: 'txn', txnIndex: 6 },  // depreciation
+  { type: 'txn', txnIndex: 7 },  // dividend
+  { type: 'reveal' }
+];
+
+// ===== MAIN APP =====
+function TransactionSequencer() {
+  const [step, setStep] = useState(0);
+
+  const stage = STAGES[step];
+  const isFirst = step === 0;
+  const isLast = step === STAGES.length - 1;
+
+  // Count how many transactions have been processed up to this step
+  let txnsProcessed = 0;
+  for (let i = 0; i <= step; i++) {
+    if (STAGES[i].type === 'txn') txnsProcessed++;
+  }
+  // For prompt/reveal stages, txnsProcessed stays at the count from the last txn
+
+  const totalTxns = TXNS.length;
+
+  // Compute accounts after all transactions processed so far
+  function getAccounts(upTo) {
+    const accts = { ...OPENING };
+    for (let i = 0; i < upTo && i < totalTxns; i++) {
+      const eff = TXNS[i].effects;
+      Object.keys(eff).forEach(k => { accts[k] += eff[k]; });
+    }
+    return accts;
+  }
+
+  const currentAccounts = getAccounts(txnsProcessed);
+  const prevAccounts = txnsProcessed > 0 ? getAccounts(txnsProcessed - 1) : null;
+
+  // Progressive reveal: which accounts are visible, which are new, which are affected
+  const revealedAccounts = getRevealedAccounts(txnsProcessed);
+  const prevRevealed = txnsProcessed > 0 ? getRevealedAccounts(txnsProcessed - 1) : new Set();
+  const newAccounts = new Set();
+  revealedAccounts.forEach(k => { if (!prevRevealed.has(k)) newAccounts.add(k); });
+  const currentTxnIndex = stage.type === 'txn' ? stage.txnIndex : -1;
+  const affectedAccounts = currentTxnIndex >= 0
+    ? new Map(Object.entries(TXNS[currentTxnIndex].effects))
+    : new Map();
+  const isEmpty = txnsProcessed === 0;
+
+  // Collect decomposition entries
+  let isEntries = [], cfsEntries = [], sceEntries = [];
+  for (let i = 0; i < txnsProcessed; i++) {
+    isEntries = isEntries.concat(TXNS[i].is);
+    cfsEntries = cfsEntries.concat(TXNS[i].cfs);
+    sceEntries = sceEntries.concat(TXNS[i].sce);
+  }
+  const netIncome = isEntries.reduce((s, e) => s + e.amt, 0);
+
+  // Current transaction (if this stage is a txn)
+  const txn = stage.type === 'txn' ? TXNS[stage.txnIndex] : null;
+  // Transaction display number
+  const txnDisplayNum = stage.type === 'txn' ? txnsProcessed : null;
+
+  return (
+    <div className="reflect4-layout">
+      <p
+        style={{
+          fontFamily: "'Open Sans', sans-serif",
+          fontSize: '1rem',
+          lineHeight: 1.7,
+          color: '#373a44',
+          marginBottom: 8,
+        }}
+      >
+        Step through the first year of a new entity. Each transaction updates the accounting identity and builds the financial statements from scratch.
+      </p>
+      <p style={{ fontFamily: "'Open Sans', sans-serif", fontSize: '1rem', lineHeight: 1.7, color: '#373a44', marginTop: '1rem', marginBottom: 12 }}>
+        As you work through the activity, pay close attention to the <strong>architecture</strong>: the two balance sheets are snapshots of the entity's financial position at different dates, and the flow statements decompose the difference between them.
+      </p>
+
+      <div className="reflect4-grid-wrap">
+      <div className="reflect4-fixed-min">
+
+      {/* === TRANSACTION CARD: full-width below timeline === */}
+      <div className="txn-area">
+        {stage.type === 'intro' && (
+          <div className="txn-card">
+            <div className="txn-label">Starting Point</div>
+            <div className="txn-desc">
+              A new entity has just been formed. It has no assets, no liabilities, and no equities. Everything is zero. The accounting identity holds trivially: $0 &minus; $0 = $0.
+            </div>
+            <p style={{ fontSize: 12, color: '#555', lineHeight: 1.6 }}>
+              Click <strong>Next</strong> to begin recording transactions. Watch what happens to the accounting identity, the current balance sheet, and the flow statements as each one is processed.
+            </p>
+          </div>
+        )}
+
+        {stage.type === 'txn' && (
+          <div className="txn-card">
+            <div className="txn-label">Transaction {txnDisplayNum} of {totalTxns}</div>
+            <div className="txn-desc">{txn.desc}</div>
+            <div className="txn-effects">
+              <div style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.4px', color: '#888', marginBottom: 8 }}>
+                Accounts changed in the current balance sheet
+              </div>
+              {Object.keys(txn.effects).map(k => (
+                <div className="eff-line" key={k}>
+                  <span className="eff-acct">{ACCT_LABELS[k]}</span>
+                  <span className={'eff-amt ' + (txn.effects[k] > 0 ? 'pos' : 'neg')}>
+                    {fmtChange(txn.effects[k])}
+                  </span>
+                </div>
+              ))}
+              {Object.values(txn.effects).some(v => v < 0) && (
+                <div style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: 10, color: '#555', fontStyle: 'italic', marginTop: 8 }}>
+                  ( ) denotes a negative amount
+                </div>
+              )}
+            </div>
+            <div>
+              {(txn.is.length > 0 || txn.cfs.length > 0 || txn.sce.length > 0) && (
+                <div style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.4px', color: '#888', marginBottom: 6, marginTop: 28 }}>
+                  AFFECTED FLOW STATEMENT(S)
+                </div>
+              )}
+              {(txn.sce.length > 0 || txn.sceChip) && <span className="txn-tag tag-sce">Statement of Changes in Equities</span>}
+              {txn.cfs.length > 0 && <span className="txn-tag tag-cfs">Cash Flow Statement</span>}
+              {txn.is.length > 0 && <span className="txn-tag tag-is">Income Statement</span>}
+              {txn.is.length === 0 && txn.cfs.length === 0 && txn.sce.length === 0 && (
+                <span style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: 12, color: '#999', fontStyle: 'italic' }}>
+                  No cash moved. No revenue or expense. Only the balance sheet changes.
+                </span>
+              )}
+            </div>
+          </div>
+        )}
+
+        {stage.type === 'reveal' && (
+          <div className="reveal-box">
+            <h3>The Statements Emerge</h3>
+            <p style={{ fontSize: 15, lineHeight: 1.7, color: '#333', marginBottom: 12 }}>
+              Every transaction you stepped through changed the balance sheet on the right. The flow statements below are not new information. They reorganize those same transactions to explain different parts of the difference between the opening and closing balance sheets.
+            </p>
+            <p style={{ fontSize: 15, lineHeight: 1.7, color: '#333', marginBottom: 12 }}>
+              Notice that Net Income is $24,000, while Cash from Operations is $22,000. These amounts differ because revenue, expenses, and cash do not always move at the same time. Of the $43,000 in revenue, only $25,000 was collected in cash when the revenue was earned. Another $12,000 of cash collected this period came from amounts customers already owed. In addition, the $4,000 depreciation expense reduced net income without reducing cash.
+            </p>
+          </div>
+        )}
+
+        {/* Nav buttons */}
+        <div className="nav-buttons" style={{ marginTop: 12 }}>
+          <button className="btn-back" disabled={isFirst} onClick={() => setStep(s => s - 1)}>
+            &larr; Back
+          </button>
+          {!isLast && (
+            <button className="btn-next" onClick={() => setStep(s => s + 1)}>
+              Next &rarr;
+            </button>
+          )}
+        </div>
+      </div>
+      <IdentityBar accounts={currentAccounts} />
+
+      {/* === THREE-COLUMN GRID: opening BS | decomp tracker | closing BS === */}
+      <div className="main-grid">
+
+        {/* LEFT COLUMN: opening balance sheet */}
+        <div className={'bs-open' + (txnsProcessed > 0 ? ' bs-paled' : '')}>
+          <div className="bs-col-header">Opening Balance Sheet</div>
+          <AccountsGrid
+            accounts={OPENING}
+            prevAccounts={null}
+            revealedAccounts={revealedAccounts}
+            newAccounts={null}
+            affectedAccounts={null}
+            isEmpty={isEmpty}
+          />
+        </div>
+
+        {/* CENTER COLUMN: decomp tracker */}
+        <div className="decomp-area">
+          <div className="bs-col-header">Flow Statements: Decompositions of the Change</div>
+          {txnsProcessed > 0 && (
+            <p style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: 11, color: '#888', marginBottom: 8, marginTop: 4 }}>
+              <span style={{ fontWeight: 600 }}>Tip:</span> Highlighted lines show the items changed by the current transaction. Hover over them to view explanations.
+            </p>
+          )}
+          <div className="decomp-scroll-box">
+            <div className="decomp-scroll-body">
+              <DecompTracker
+                isEntries={isEntries}
+                cfsEntries={cfsEntries}
+                sceEntries={sceEntries}
+                netIncome={netIncome}
+                step={step}
+                accounts={currentAccounts}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT COLUMN: closing balance sheet */}
+        <div className="bs-close">
+          <div className={'bs-col-header' + (stage.type === 'reveal' ? ' closing' : '')}>
+            {stage.type === 'reveal' ? 'Closing Balance Sheet' : 'Current Balance Sheet'}
+          </div>
+          <AccountsGrid
+            accounts={currentAccounts}
+            prevAccounts={prevAccounts}
+            revealedAccounts={revealedAccounts}
+            newAccounts={newAccounts}
+            affectedAccounts={affectedAccounts}
+            isEmpty={isEmpty}
+          />
+        </div>
+
+      </div>{/* /main-grid */}
+      <p style={{ fontFamily: "'Open Sans', sans-serif", fontSize: 12, color: '#888', lineHeight: 1.6, marginTop: 0, marginBottom: 0 }}>
+        * In practice, most people encounter the Income Statement first &mdash; it is what investors, managers, and analysts tend to care about most, and standard presentations reflect that. In this activity, however, we present the statements in a different order to make their underlying structure easier to see. The Statement of Changes in Equities serves as the full bridge between the two Balance Sheets. The Cash Flow Statement decomposes the change in Cash. The Income Statement decomposes one line within the Statement of Changes in Equities: Net Income.
+      </p>
+      </div>{/* /reflect4-fixed-min */}
+      </div>{/* /reflect4-grid-wrap */}
+    </div>
+  );
+}
+
+// ===== MOUNT =====
+const root = ReactDOM.createRoot(document.getElementById('react-root'));
+root.render(<TransactionSequencer />);
+</script>
+
+</body>
+</html>
