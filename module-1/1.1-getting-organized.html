@@ -20,12 +20,12 @@
   margin-bottom: 20px;
 }
 .scenario p {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-style: italic;
-  font-size: 15.5px;
-  color: #3a2a1a;
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--font-m);
+  color: #374151;
   line-height: 1.75;
   margin: 0;
+  font-style: italic;
 }
 
 /* ================================================================
@@ -67,13 +67,13 @@
 }
 .flip-card-front h4 {
   font-family: Inter, sans-serif;
-  font-size: 13px; font-weight: 700;
+  font-size: var(--font-m); font-weight: 700;
   color: var(--primary);
   margin-bottom: 10px;
 }
 .flip-card-front p {
   font-family: 'Open Sans', sans-serif;
-  font-size: 12.5px; color: #444; line-height: 1.65; margin: 0; flex: 1;
+  font-size: var(--font-m); color: #444; line-height: 1.65; margin: 0; flex: 1;
 }
 .flip-card-front .flip-hint {
   font-family: Inter, sans-serif;
@@ -90,7 +90,7 @@
 }
 .flip-card-back p {
   font-family: Inter, sans-serif;
-  font-size: 14px; font-weight: 600;
+  font-size: var(--font-m); font-weight: 600;
   color: white; line-height: 1.55; margin: 0;
 }
 
@@ -138,10 +138,10 @@
   cursor: grab; user-select: none;
   transition: border-color 0.15s, background 0.15s, opacity 0.15s;
 }
-.dnd-chip:hover { border-color: #00329d; color: #00329d; }
+.dnd-chip:hover { border-color: var(--primary); color: var(--primary); }
 .dnd-chip.dragging { opacity: 0.4; }
-.dnd-chip.correct { border-color: #86efac; background: #f0fdf4; color: #166534; cursor: default; }
-.dnd-chip.wrong   { border-color: #fca5a5; background: #fef2f2; color: #991b1b; cursor: default; }
+.dnd-chip.correct { border-color: var(--success-border); background: var(--success-bg); color: var(--success-text); cursor: default; }
+.dnd-chip.wrong   { border-color: var(--error-border); background: var(--error-bg); color: var(--error-text); cursor: default; }
 
 /* ================================================================
    MCQ — adapted from .match-opt pattern in three-flow-statements.html
@@ -151,23 +151,23 @@
   border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 13px 16px;
   cursor: pointer; background: white; transition: all 0.15s;
   display: flex; align-items: center; gap: 12px;
-  font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: #333;
+  font-family: Inter, sans-serif; font-size: var(--font-m); font-weight: 500; color: #333;
 }
-.mcq-opt:hover:not(.locked) { border-color: #00329d; background: #eff6ff; color: #00329d; }
-.mcq-opt.selected:not(.locked) { border-color: #00329d; background: #eff6ff; color: #00329d; }
-.mcq-opt.correct  { border-color: #16a34a !important; background: #f0fdf4 !important; color: #14532d !important; cursor: default; }
-.mcq-opt.wrong    { border-color: #dc2626 !important; background: #fef2f2 !important; color: #991b1b !important; cursor: default; }
+.mcq-opt:hover:not(.locked) { border-color: var(--primary); background: var(--primary-faint); color: var(--primary); }
+.mcq-opt.selected:not(.locked) { border-color: var(--primary); background: var(--primary-faint); color: var(--primary); }
+.mcq-opt.correct  { border-color: var(--success-border) !important; background: var(--success-bg) !important; color: var(--success-text) !important; cursor: default; }
+.mcq-opt.wrong    { border-color: var(--error-border) !important; background: var(--error-bg) !important; color: var(--error-text) !important; cursor: default; }
 .mcq-opt.locked   { cursor: default; }
 .mcq-letter { font-weight: 700; font-size: 14px; flex-shrink: 0; min-width: 18px; }
 .mcq-fb {
   font-family: 'Open Sans', sans-serif;
-  font-size: 12px; line-height: 1.65; margin-top: 10px; display: none;
-  padding: 8px 12px; border-radius: 6px;
+  font-size: var(--font-m); line-height: 1.65; margin-top: 10px; display: none;
+  padding: 10px 14px; border-radius: 6px;
 }
 .mcq-fb.show { display: block; }
-.mcq-fb.ok  { background: #f0fdf4; color: #166534; }
-.mcq-fb.inf { background: #eff6ff; color: #1e3a5f; }
-.mcq-fb.err { background: #fef2f2; color: #991b1b; }
+.mcq-fb.ok  { background: var(--success-bg); color: var(--success-text); border: 1px solid var(--success-border); }
+.mcq-fb.inf { background: var(--primary-faint); color: var(--primary); border: 1px solid #bfdbfe; }
+.mcq-fb.err { background: var(--error-bg); color: var(--error-text); border: 1px solid var(--error-border); }
 
 /* ================================================================
    ACCORDION — pattern from two-snapshots3.html
@@ -182,8 +182,8 @@
 }
 .acc-trigger:hover { background: #f8fafc; }
 .acc-trigger-left { display: flex; align-items: center; gap: 12px; }
-.acc-term { font-family: Inter, sans-serif; font-size: 14px; font-weight: 700; color: #00329d; }
-.acc-tag  { font-family: Inter, sans-serif; font-size: 11px; color: #888; font-weight: 400; }
+.acc-term { font-family: Inter, sans-serif; font-size: var(--font-m); font-weight: 700; color: var(--primary); }
+.acc-tag  { font-family: Inter, sans-serif; font-size: var(--font-s); color: #888; font-weight: 400; }
 .acc-icon {
   width: 22px; height: 22px; border-radius: 50%;
   border: 1.5px solid #d1d5db;
@@ -191,11 +191,11 @@
   font-size: 14px; color: #888; transition: all 0.2s; flex-shrink: 0;
 }
 .acc-trigger[aria-expanded="true"] .acc-icon {
-  background: #00329d; border-color: #00329d; color: white; transform: rotate(45deg);
+  background: var(--primary); border-color: var(--primary); color: white; transform: rotate(45deg);
 }
 .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 20px; background: #f8fafc; }
 .acc-body.open { max-height: 500px; padding: 16px 20px; }
-.acc-body p { font-family: 'Open Sans', sans-serif; font-size: 13px; color: #333; line-height: 1.75; margin-bottom: 10px; }
+.acc-body p { font-family: 'Open Sans', sans-serif; font-size: var(--font-m); color: #333; line-height: 1.75; margin-bottom: 10px; }
 .acc-body p:last-child { margin-bottom: 0; }
 
 /* ================================================================
@@ -246,25 +246,18 @@
   .dnd-divider { background: #4a4858; }
   .dnd-bin-label { color: #8a8898; }
   .dnd-chip { background: #3e3c48; border-color: #4a4858; color: #c8ccd8; }
-  .dnd-chip:hover { border-color: #6aa3e8; color: #6aa3e8; }
-  .dnd-chip.correct { border-color: #2a5c38; background: #192a20; color: #6db890; }
-  .dnd-chip.wrong   { border-color: #5c2a2a; background: #2a1818; color: #c08888; }
+  .dnd-chip:hover { border-color: var(--primary); color: var(--primary); }
+
   .mcq-opt { background: #3e3c48; border-color: #4a4858; color: #c8ccd8; }
-  .mcq-opt:hover:not(.locked) { border-color: #6aa3e8; background: #1a2540; color: #6aa3e8; }
-  .mcq-opt.selected:not(.locked) { border-color: #6aa3e8; background: #1a2540; color: #6aa3e8; }
-  .mcq-opt.correct { border-color: #2a5c38 !important; background: #192a20 !important; color: #6db890 !important; }
-  .mcq-opt.wrong   { border-color: #5c2a2a !important; background: #2a1818 !important; color: #c08888 !important; }
-  .mcq-fb.ok  { background: #192a20; color: #6db890; }
-  .mcq-fb.inf { background: #1a2540; color: #93c5fd; }
-  .mcq-fb.err { background: #2a1818; color: #c08888; }
+  .mcq-fb.inf { background: var(--primary-faint); color: var(--primary); }
   .accordion { border-color: #2a2830; }
   .acc-item { border-bottom-color: #2a2830; }
   .acc-trigger { background: #32303c; }
   .acc-trigger:hover { background: #3a3846; }
-  .acc-term { color: #6aa3e8; }
+  .acc-term { color: var(--primary); }
   .acc-tag { color: #8a8898; }
   .acc-icon { border-color: #4a4858; color: #b0aec0; }
-  .acc-trigger[aria-expanded="true"] .acc-icon { background: #6aa3e8; border-color: #6aa3e8; color: #1b191f; }
+  .acc-trigger[aria-expanded="true"] .acc-icon { background: var(--primary); border-color: var(--primary); color: #1b191f; }
   .acc-body { background: #3e3c48; border-top: 1px solid #4a4858; }
   .acc-body p { color: #c8ccd8; }
   .rabbit-hole { background: #2a2318; border-color: #3a2e22; }
@@ -289,7 +282,7 @@
   </div>
 
   <div class="scenario">
-    <p> Scenario:You run a bicycle repair shop. It has been six months. Tools are scattered, parts are stacked in corners, and you have been keeping most things in your head. It isn&rsquo;t really working anymore. You want to get more systematic about how you run this thing.</p>
+    <p>Scenario: You run a bicycle repair shop. It has been six months. Tools are scattered, parts are stacked in corners, and you have been keeping most things in your head. It isn&rsquo;t really working anymore. You want to get more systematic about how you run this thing.</p>
   </div>
 
   <div class="info-box">
@@ -365,13 +358,13 @@
     <div class="dnd-bins">
       <div class="dnd-bin" id="binShop" data-bin="a"
            ondragover="dndOver(event,this)" ondragleave="dndLeave(this)" ondrop="dndDrop(event,this)">
-        <div class="dnd-bin-label">&#127978; Shop</div>
+        <div class="dnd-bin-label">Shop</div>
         <div class="dnd-bin-chips" id="binShopChips"></div>
       </div>
       <div class="dnd-divider"></div>
       <div class="dnd-bin" id="binPersonal" data-bin="b"
            ondragover="dndOver(event,this)" ondragleave="dndLeave(this)" ondrop="dndDrop(event,this)">
-        <div class="dnd-bin-label">&#127968; Personal</div>
+        <div class="dnd-bin-label">Personal</div>
         <div class="dnd-bin-chips" id="binPersonalChips"></div>
       </div>
     </div>
@@ -433,7 +426,7 @@
   </div>
 
   <div class="scenario">
-    <p> Senario: Last month, a <strong>customer</strong> paid a <strong>deposit</strong> for a custom build that isn&rsquo;t finished yet. Your parts <strong>supplier</strong> sent a <strong>bill</strong> you haven&rsquo;t paid. The <strong>landlord</strong> expects <strong>rent</strong> at the end of the week. </p>
+    <p>Scenario: Last month, a <strong>customer</strong> paid a <strong>deposit</strong> for a custom build that isn&rsquo;t finished yet. Your parts <strong>supplier</strong> sent a <strong>bill</strong> you haven&rsquo;t paid. The <strong>landlord</strong> expects <strong>rent</strong> at the end of the week. </p>
   </div>
 
   <div class="text-block">

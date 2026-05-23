@@ -9,85 +9,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../shared.css">
 <style>
-body {
-  min-height: 100vh;
-  width: 100%;
-}
-
-.page {
-  width: 100%;
-  padding: 36px clamp(16px, 5vw, 60px) 80px;
-}
-
-/* ── Two-column layout ────────────────────────────── */
-.bs-two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(20px, 4vw, 56px);
-  margin-bottom: 28px;
-  width: 100%;
-}
-
-.bs-column { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-
-/* Highlighted total — only visible when .hint-active is on the grid */
-.hint-active .acct-total.hl {
-  background: var(--primary-faint);
-  border-radius: 4px;
-  padding: 6px 4px;
-}
-
-/* ── Delta summary (screen 5) ─────────────────────── */
-.delta-box {
-  background: white; border: 1px solid #e5e7eb;
-  border-radius: 12px; padding: clamp(14px, 2vw, 22px);
-  margin-bottom: 24px; width: 100%;
-}
-.delta-row {
-  display: flex; align-items: baseline; gap: 10px;
-  font-size: clamp(14px, 1.6vw, 16px);
-  padding: 7px 0; border-bottom: 1px solid #f3f4f6; flex-wrap: wrap;
-}
-.delta-row:last-child { border-bottom: none; }
-.delta-name   { color: #374151; font-weight: 600; flex: 1; min-width: 120px; }
-.delta-calc   { color: #888; font-variant-numeric: tabular-nums; font-size: clamp(13px, 1.4vw, 15px); }
-.delta-result {
-  background: var(--primary-faint); color: var(--primary);
-  border-radius: 4px; padding: 1px 8px;
-  font-weight: 700; font-variant-numeric: tabular-nums;
-}
-
-/* ── Multiple choice card ─────────────────────────── */
-.mc-card {
-  background: white; border-radius: 12px;
-  padding: clamp(16px, 2.5vw, 26px);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-  width: 100%;
-}
-.mc-q-row {
-  display: flex; align-items: flex-start; justify-content: space-between;
-  gap: 12px; margin-bottom: 16px;
-}
-.mc-q {
-  font-size: 15px; font-weight: 600;
-  color: #111; line-height: 1.5; flex: 1; margin-bottom: 16px;
-}
-.mc-q-row .mc-q { margin-bottom: 0; }
-
-/* ── Responsive ───────────────────────────────────── */
-@media (max-width: 600px) {
-  .bs-two-col { grid-template-columns: 1fr; gap: 20px; }
-}
-
-@media (prefers-color-scheme: dark) {
-  .hint-active .acct-total.hl { background: var(--primary-faint); }
-  .delta-box { background: #32303c; border-color: var(--border); }
-  .delta-name { color: #c8ccd8; }
-  .delta-calc { color: #8a8898; }
-  .delta-result { background: var(--primary-faint); color: var(--primary); }
-  .mc-card { background: #32303c; box-shadow: 0 1px 4px rgba(0,0,0,0.4); }
-  .mc-q { color: #e8e8f0; }
-}
+/* Page-specific layout overrides */
+body { min-height: 100vh; }
+.page { padding: 36px clamp(16px, 5vw, 60px) 80px; }
+.hint-active .acct-total.hl { background: var(--primary-faint); border-radius: 4px; padding: 6px 4px; }
 </style>
 </head>
 <body>

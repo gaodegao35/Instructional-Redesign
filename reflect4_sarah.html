@@ -10,379 +10,54 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
-  /* Fill the iframe / browser tab (embedded “whole page” layout) */
-  html.reflect4-embed,
-  html.reflect4-embed body {
-    height: 100%;
-    margin: 0;
-  }
-  html.reflect4-embed body {
-    min-height: 100vh;
-    min-height: 100dvh;
-  }
+  /* Embed shell */
+  html.reflect4-embed, html.reflect4-embed body { height: 100%; margin: 0; }
+  html.reflect4-embed body { min-height: 100vh; min-height: 100dvh; }
 
+  /* Identity bar — sticky full-width variant (overrides shared.css inline bar) */
   .identity-bar {
-    background: var(--primary);
-    color: white;
-    border-radius: 0;
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    font-size: 15px;
-    font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    position: sticky;
-    top: 0;
-    z-index: 40;
+    border-radius: 0; padding: 14px 20px; gap: 12px;
+    margin-top: 20px; margin-bottom: 20px;
+    position: sticky; top: 0; z-index: 40;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
-  .identity-bar .id-num {
-    font-size: 20px;
-    min-width: 60px;
-    text-align: center;
-    transition: all 0.3s;
-  }
-  .identity-bar .id-op {
-    font-size: 16px;
-    opacity: 0.7;
-    align-self: flex-end;
-    padding-bottom: 3px;
-  }
-  .identity-bar .id-label {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    opacity: 0.8;
-    display: block;
-    font-weight: 400;
-  }
-  .id-group { text-align: center; }
-  .id-num.flash { color: #ffd700; }
+  .identity-bar .id-num { font-size: 20px; min-width: 60px; text-align: center; transition: all 0.3s; }
+  .identity-bar .id-op  { font-size: 16px; opacity: 0.7; align-self: flex-end; padding-bottom: 3px; }
+  .identity-bar .id-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.8; display: block; font-weight: 400; }
 
-  /* === THREE-COLUMN DESKTOP LAYOUT === */
-  .main-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.8fr 1fr;
-    gap: 14px;
-    margin-top: 16px;
-    margin-bottom: 16px;
-    align-items: start;
-  }
+  /* Grid column assignments */
   .main-grid .bs-open { grid-column: 1; grid-row: 1; }
   .main-grid .decomp-area { grid-column: 2; grid-row: 1; }
   .main-grid .bs-close { grid-column: 3; grid-row: 1; }
 
-  /* NOTE: smaller font size than shared.css default for dense three-column layout */
+  /* Dense layout: smaller fonts for three-column fit */
   .bs-col-header { font-size: 11px; }
-
-  .txn-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px;
-    min-height: 140px;
-  }
-  .txn-card .txn-label {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    color: var(--accent);
-    margin-bottom: 10px;
-  }
-  .txn-card .txn-desc {
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 14px;
-  }
-  .txn-effects {
-    background: var(--primary-faint);
-    border-radius: 5px;
-    padding: 12px 16px;
-    font-size: 13px;
-    color: #333;
-    margin-bottom: 12px;
-  }
-  .txn-effects .eff-line {
-    display: flex;
-    justify-content: space-between;
-    padding: 3px 0;
-  }
-  .eff-acct { color: #555; }
-  .eff-amt { font-weight: 600; }
-  .eff-amt.pos { color: var(--success-text); }
-  .eff-amt.neg { color: var(--error-text); }
-  .txn-tag {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-    padding: 3px 8px;
-    border-radius: 3px;
-    margin-right: 4px;
-    margin-bottom: 4px;
-  }
-  .tag-is { background: #ede9fe; color: #6d28d9; }
-  .tag-cfs { background: var(--success-bg); color: var(--success-text); }
-  .tag-sce { background: var(--warn-bg); color: var(--warn-text); }
-
-  .accounts-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-  /* NOTE: smaller font sizes, tighter padding, and lighter blue for this page's dense layout */
   .acct-col { margin-bottom: 0; }
   .acct-col h4 { font-size: 11px; }
-  .bs-col-header { font-size: 11px; }
   .acct-line { font-size: 13px; padding: 3px 0; }
 
-  .decomp-section {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-  .decomp-section h4 {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    margin-bottom: 8px;
-  }
-  .decomp-is h4 { color: #6d28d9; }
-  .decomp-is-total { color: #6d28d9; }
-  .decomp-cfs h4 { color: var(--success-text); }
-  .decomp-sce h4 { color: var(--warn-text); }
-  .change-summary-box {
-    background: #f8f8f8;
-    border-radius: 4px;
-    padding: 10px 12px;
-    margin-bottom: 35px;
-    border: 1px solid var(--border);
-  }
-  .change-summary { font-size: 12px; color: #555; line-height: 1.6; }
-  .decomp-line {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    padding: 3px 0;
-    color: #555;
-  }
-  .decomp-line .dl-val { font-weight: 600; color: #333; }
-  .decomp-line-hl { background: var(--primary-faint); border-radius: 3px; padding: 3px 6px; margin: 2px -6px; cursor: default; }
-  .decomp-total {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    font-weight: 700;
-    padding-top: 6px;
-    margin-top: 4px;
-    border-top: 1px solid var(--border);
-  }
-  .decomp-empty {
-    font-size: 12px;
-    color: #bbb;
-    font-style: italic;
-    padding: 4px 0;
-  }
+  /* Transaction card page-specific sizing */
+  .txn-card { min-height: 140px; }
+  .txn-card .txn-label { color: var(--accent); }
+  .txn-card .txn-desc { font-size: 15px; }
+  .txn-effects .eff-line { display: flex; justify-content: space-between; padding: 3px 0; }
+
+  /* Decomp dense variant */
+  .decomp-section h4 { font-size: 12px; margin-bottom: 8px; }
+  .change-summary-box { margin-bottom: 35px; }
+
+  /* Reveal text — regular prose (override shared.css green .reveal-para) */
   .reveal-para { font-size: 15px; line-height: 1.7; color: #333; margin-bottom: 12px; }
+  .reveal-box h3 { font-size: 16px; color: var(--primary); margin-bottom: 12px; }
 
-  .nav-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
-  }
-  .nav-buttons button {
-    font-size: 13px;
-    padding: 8px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  .btn-back {
-    background: #fff;
-    border: 1px solid var(--border);
-    color: #555;
-  }
-  .btn-back:disabled { color: #ccc; cursor: default; }
-  .btn-next {
-    background: var(--primary);
-    color: white;
-    border: none;
-    font-weight: 600;
-  }
-  .btn-next:disabled { background: #ccc; cursor: default; }
+  /* Nav button sizing */
+  .nav-buttons button { font-size: 13px; padding: 8px 20px; border-radius: 4px; cursor: pointer; }
 
-  .reveal-box {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px;
-    margin: 20px 0 0 0;
-  }
-  .reveal-box h3 {
-    font-size: 16px;
-    color: var(--primary);
-    margin-bottom: 12px;
-  }
+  /* Scoped layout */
+  .reflect4-layout .identity-bar { flex-wrap: nowrap; }
 
-  .prompt-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 24px;
-    margin: 20px 0;
-  }
-  .prompt-card .prompt-number {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-  .prompt-card .prompt-text {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 14px;
-  }
-  .prompt-card textarea {
-    width: 100%;
-    min-height: 100px;
-    padding: 12px 14px;
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    font-size: 15px;
-    line-height: 1.6;
-    color: #2a2a2a;
-    resize: vertical;
-    box-sizing: border-box;
-  }
-  .prompt-card textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-  }
-  .prompt-card textarea::placeholder {
-    color: #bbb;
-    font-style: italic;
-  }
-
-  /* Flex: title bar fixed, only inner body scrolls (sticky breaks in some iframes) */
-  .decomp-scroll-box {
-    position: relative;
-    isolation: isolate;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: #fafafa;
-    padding: 0;
-    overflow: hidden;
-  }
-  .decomp-scroll-head {
-    flex-shrink: 0;
-    margin: 0;
-    padding: 16px 20px;
-    background-color: #ffffff;
-    border-bottom: 1px solid var(--border);
-    border-radius: 8px 8px 0 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  }
-  .decomp-scroll-body {
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-    padding: 16px;
-    -webkit-overflow-scrolling: touch;
-  }
-  .decomp-scroll-box h3 {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    color: #888;
-    margin: 0;
-    padding: 0;
-  }
-  /* Intro scrolls with flow statements below (not part of sticky title bar) */
-  .decomp-scroll-intro {
-    font-size: 12px;
-    color: #888;
-    font-style: italic;
-    margin: 0 0 14px 0;
-    line-height: 1.5;
-  }
-  /* === PROGRESSIVE REVEAL === */
-  .acct-line.acct-new-pos {
-    background-color: rgba(34, 197, 94, 0.15);
-    border-radius: 3px;
-    padding: 3px 4px;
-    margin: 0 -4px;
-  }
-  .acct-line.acct-new-neg {
-    background-color: rgba(220, 38, 38, 0.12);
-    border-radius: 3px;
-    padding: 3px 4px;
-    margin: 0 -4px;
-  }
-  .acct-line.acct-dimmed {
-    opacity: 0.35;
-    transition: opacity 0.3s ease;
-  }
-  .bs-paled .acct-line {
-    opacity: 0.4;
-    transition: opacity 0.3s ease;
-  }
-  .bs-paled .acct-col h4 {
-    opacity: 0.5;
-  }
-  .bs-paled .acct-total {
-    opacity: 0.4;
-    transition: opacity 0.3s ease;
-  }
-  @keyframes valFlash {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.15; }
-  }
-  .acct-val-flash {
-    animation: valFlash 0.25s ease-in-out 3;
-    color: var(--accent) !important;
-    font-weight: 700 !important;
-  }
-  .bs-empty-msg {
-    font-size: 12px;
-    color: #aaa;
-    font-style: italic;
-    text-align: center;
-    padding: 16px 10px;
-    line-height: 1.5;
-  }
-
-  /* Three-column layout scales to fit the available width (no horizontal scroll) */
-  .reflect4-grid-wrap {
-    overflow-x: visible;
-    overflow-y: visible;
-    margin-bottom: 16px;
-  }
-  .reflect4-fixed-min {
-    min-width: 0;
-  }
-  .reflect4-layout .identity-bar {
-    flex-wrap: nowrap;
-  }
-
-  /* Narrow viewports: slightly larger type, no layout changes */
   @media (max-width: 900px) {
-    .reflect4-layout .identity-bar {
-      font-size: 16px;
-      gap: 10px;
-    }
+    .reflect4-layout .identity-bar { font-size: 16px; gap: 10px; }
     .reflect4-layout .identity-bar .id-num { font-size: 22px; min-width: 64px; }
     .reflect4-layout .identity-bar .id-label { font-size: 11px; }
     .reflect4-layout .acct-line { font-size: 14px; }
@@ -403,83 +78,10 @@
     .reflect4-layout .txn-card { padding: 12px; }
   }
 
-  /* Small muted footnote below the grid */
-  .reflect4-footnote {
-    font-size: 12px;
-    color: #888;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* ===== DARK MODE ===== */
   @media (prefers-color-scheme: dark) {
-    /* Cards and panels */
-    .txn-card,
-    .decomp-section,
-    .reveal-box,
-    .prompt-card { background: #32303c; border-color: var(--border); }
-
-    .decomp-scroll-box { background: #2c2a36; border-color: var(--border); }
-    .decomp-scroll-head { background: #32303c; border-bottom-color: var(--border); }
-
-    /* Text */
+    .reveal-para { color: var(--success-text); }
     .txn-card .txn-desc { color: #d0cede; }
-    .txn-effects { background: var(--primary-faint); color: #c8ccd8; }
-    .eff-acct { color: #b0aec0; }
-    .decomp-line { color: #b0aec0; }
-    .decomp-line .dl-val { color: #eeebf5; }
-    .decomp-total { color: #eeebf5; border-top-color: var(--border); }
-    .decomp-scroll-box h3 { color: #8a8898; }
-    .decomp-scroll-intro { color: #8a8898; }
-    .decomp-empty { color: #9896a8; }
-    .bs-empty-msg { color: #9896a8; }
-
-    /* Statement section headers and totals */
-    .decomp-is h4 { color: #a78bfa; }
-    .decomp-is-total { color: #a78bfa; }
-    .change-summary-box { background: #2c2a36; border-color: var(--border); }
-    .change-summary { color: #b0aec0; }
-
-    /* Statement tags */
-    .tag-is { background: #2d1a4a; color: #a78bfa; }
-    .tag-cfs { background: var(--success-bg); color: var(--success-text); }
-    .tag-sce { background: var(--warn-bg); color: var(--warn-text); }
-
-    /* Nav buttons */
-    .btn-back { background: #3e3c48; border-color: var(--border); color: #c8ccd8; }
-    .btn-back:disabled { color: #4a4858; }
-    .btn-next:disabled { background: #4a4858; }
-
-    /* Prompt textarea */
-    .prompt-card textarea { background: #2c2a36; border-color: var(--border); color: #eeebf5; }
-    .prompt-card textarea::placeholder { color: #9896a8; }
-
-    /* Footnote */
-    .reflect4-footnote { color: #9896a8; }
-    .reveal-para { color: #6db890; }
-
-    /* Page-specific color shift: #00329d → #6aa3e8 in dark mode */
-    .identity-bar { background: #6aa3e8; }
-    .btn-next { background: #6aa3e8; }
-    .acct-col h4 { color: #6aa3e8; border-bottom-color: #6aa3e8; }
-    .bs-col-header { color: #6aa3e8; border-bottom-color: #6aa3e8; }
-    .acct-total { color: #6aa3e8; border-top-color: white; }
-    .decomp-line-hl { background: #1b191f; }
-
-    /* Progressive reveal highlights */
-    .acct-line.acct-new-pos { background-color: rgba(34, 197, 94, 0.2); }
-    .acct-line.acct-new-neg { background-color: rgba(220, 38, 38, 0.18); }
-  }
-
-  /* Full width + at least one viewport tall inside the embed */
-  .content.content-standalone {
-    max-width: none;
-    width: 100%;
-    min-height: 100vh;
-    min-height: 100dvh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    .txn-card .txn-label { color: var(--accent); }
   }
 </style>
 </head>
@@ -945,7 +547,7 @@ function DecompTracker({ isEntries, cfsEntries, sceEntries, netIncome, step, acc
       <ChangeSummary label="Change in Cash" noun="cash" color="#166534" changeLabel="Net change in cash" opening={0} closing={closingCash} />
 
       {/* 3. Income Statement — decomposes the "Net income" line above */}
-      <div className="decomp-section decomp-is" style={{ borderLeft: '3px solid #6d28d9' }}>
+      <div className="decomp-section decomp-is" style={{ borderLeft: '3px solid var(--primary)' }}>
         <h4>Income Statement</h4>
         {isEntries.length === 0 ? <div className="decomp-empty">No entries yet</div> :
           isEntries.map((e, i) => (
@@ -972,7 +574,7 @@ function DecompTracker({ isEntries, cfsEntries, sceEntries, netIncome, step, acc
           What this statement explains
         </div>
         <div className="change-summary">
-          Net income: <strong style={{ color: '#6d28d9' }}>{fmt(netIncome)}</strong>
+          Net income: <strong style={{ color: 'var(--primary)' }}>{fmt(netIncome)}</strong>
         </div>
       </div>
     </div>
