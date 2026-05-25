@@ -1,52 +1,64 @@
-# iframe-testing
+# Instructional-Redesign
 
 Static pages (minimal chrome) for OLI Torus **Webpage** blocks.
 
+**Live site (GitHub Pages):** [https://gaodegao35.github.io/Instructional-Redesign/](https://gaodegao35.github.io/Instructional-Redesign/)
+
+Published from the **`main`** branch, root folder (`/`). Only files on `main` appear at these URLs.
+
+Shared assets (repo root): `shared.css`, `shared.js`, `config.js`
+
 ## Pages
 
-### Root
-- `intro-activity.html` — introductory financial statements activity (3-step: match, trace, connect)
-- `1st_activity.html` — balance sheet identity activity (5-step progressive comparison)
-- `simplified-example.html` — ExampleCo articulation exercise (3-layer, standalone; links to apple/)
-- `homework.html` — Homework I
-### two-snapshots/
-- `two-snapshots1.html` — The Balance Sheet as a Snapshot (activity: Snapshot or Explanation?)
-- `two-snapshots2.html` — What Changed Between the Two Dates (activities: Which Statement Explains the Change?, drag-and-drop)
-- `two-snapshots3.html` — Recognition, Classification, and Quantification (accordion)
-- `three-flow-statements.html` — Three Flow Statements reading page with end-of-page match activity
+### Module-1/
+- `1.1-getting-organized.html` — Getting Organized (entity boundary, assets & liabilities activities)
 
-### apple/
-- `apple-example.html` — Apple FY2024 articulation exercise (links back to simplified-example.html)
-- `apple-fy25-q3-p1.png`, `apple-fy25-q3-p2.png`, `apple-fy25-q3-p3.png` — source PDF pages
+### Module-2/
+- `reflect4_sarah.html` — Transaction articulation activity (React; opening → decomposition → closing balance sheets)
 
-### entity-diagram/
-- `entity-diagram.html` — entity boundary diagram (standalone)
-- `entity-diagram-prompts.html` — Stuff, Rights, and Promises + writing prompts
+### Module-3/
+- `01-imposing-the-identity.html` — Imposing the Identity
+- `02-two-snapshots-1.html` — The Balance Sheet as a Snapshot (activity: Snapshot or Explanation?)
+- `02-two-snapshots-2.html` — What Changed Between the Two Dates (activities: Which Statement Explains the Change?, drag-and-drop)
+- `02-two-snapshots-3.html` — Recognition, Classification, and Quantification (accordion)
+- `03-three-flow-statements.html` — Three Flow Statements reading page with end-of-page match activity
+- `04-how-fit-together.html` — How They Fit Together
+- `05-1st_activity.html` — Balance Sheet Identity (5-step progressive comparison)
+- `06-structure-activity.html` — Financial Statement Structure (articulation activity)
 
-### reflect4/
-- `reflect4.html` — transaction sequencer
-- `reflect4_rick.html` — Rick's original design variant
+## GitHub Pages URLs
 
-Shared: `shared.css`, `shared.js`, `config.js`
+Base: `https://gaodegao35.github.io/Instructional-Redesign/`
 
-## GitHub Pages
+### Module-1
+- [1.1-getting-organized.html](https://gaodegao35.github.io/Instructional-Redesign/Module-1/1.1-getting-organized.html)
 
-Deploy from **`main`** / **`/(root)`**, then for example:
+### Module-2
+- [reflect4_sarah.html](https://gaodegao35.github.io/Instructional-Redesign/Module-2/reflect4_sarah.html)
 
-- `https://gaodeg-source.github.io/iframe-testing/intro-activity.html`
-- `https://gaodeg-source.github.io/iframe-testing/two-snapshots/two-snapshots1.html`
-- `https://gaodeg-source.github.io/iframe-testing/two-snapshots/two-snapshots2.html`
-- `https://gaodeg-source.github.io/iframe-testing/two-snapshots/two-snapshots3.html`
-- `https://gaodeg-source.github.io/iframe-testing/three-flow-statements.html`
-- `https://gaodeg-source.github.io/iframe-testing/simplified-example.html`
-- `https://gaodeg-source.github.io/iframe-testing/apple/apple-example.html`
-- `https://gaodeg-source.github.io/iframe-testing/entity-diagram/entity-diagram.html`
-- `https://gaodeg-source.github.io/iframe-testing/entity-diagram/entity-diagram-prompts.html`
-- `https://gaodeg-source.github.io/iframe-testing/reflect4/reflect4.html`
-- `https://gaodeg-source.github.io/iframe-testing/reflect4/reflect4_rick.html`
+### Module-3
+- [01-imposing-the-identity.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/01-imposing-the-identity.html)
+- [02-two-snapshots-1.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/02-two-snapshots-1.html)
+- [02-two-snapshots-2.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/02-two-snapshots-2.html)
+- [02-two-snapshots-3.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/02-two-snapshots-3.html)
+- [03-three-flow-statements.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/03-three-flow-statements.html)
+- [04-how-fit-together.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/04-how-fit-together.html)
+- [05-1st_activity.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/05-1st_activity.html)
+- [06-structure-activity.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/06-structure-activity.html)
+
+## CSS Convention
+
+> **All pages must use `shared.css` as the single source of truth for styles.**
+
+- Module pages link `../shared.css` (and `../shared.js` / `../config.js` when needed).
+- **Do not** redefine colors, typography, spacing, or component styles locally if they are already in `shared.css`.
+- If a page requires inline `<style>` for page-specific layout or one-off overrides, add a comment at the top of that block explaining why. Example:
+  ```css
+  /* NOTE: page-specific two-column balance sheet grid — not in shared.css */
+  .bs-two-col { ... }
+  ```
+- **Dark mode:** reusable components (`.prose`, `.mc-opt`, `.btn-*`, `.bs-two-col`, etc.) → add overrides in `shared.css` under `@media (prefers-color-scheme: dark)`. Classes used on only one page → keep light and dark styles in that page’s inline `<style>`.
 
 ## Update
 
-Copy updated files from your prototype and push to `main`.
-
-**Note:** For a second Torus **Webpage** block, point it at `entity-diagram/entity-diagram-prompts.html` if you want prompts on a separate course page. Prompt answers use the same `localStorage` key as before (`prework_reflect_entity`) only when both pages are served from the **same origin** (same GitHub Pages site).
+Copy updated files from your working branch, push to **`main`**, and wait a minute or two for GitHub Pages to refresh.
