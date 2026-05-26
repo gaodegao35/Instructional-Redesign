@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three Nonprofits, One Donation — Accounting Prework</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<style>
+  /* ===== Page-specific spacing overrides ===== */
+  .section-title               { margin-bottom: 14px; }
+  .screen > .btn-reset         { margin-bottom: 22px; }
+  .narrative-block             { margin-bottom: 28px; padding: 20px 22px; }
+  .narrative-inset             { padding: 14px 16px; }
+  .acct-liab                   { margin-top: 18px; }
+  .acct-liab + .acct-total     { margin-top: 18px; }
+  .acct-col .acct-section      { margin-top: 18px; }
+  .narrative-inset-accent      { background: #fef3eb; border: 1px solid #f5c4a8; border-radius: 6px; padding: 14px 16px; margin-top: 14px; color: #374151; }
+  .phase-nav                   { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; }
+
+  /* ===== Statement of Activities table ===== */
+  .soa-wrap { background: white; border: 1px solid #e0e0e0; border-radius: 6px; padding: 14px; margin-bottom: 18px; overflow-x: auto; font-family: Inter, system-ui, sans-serif; }
+  .soa-header { margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid #eee; }
+  .soa-header-title { font-family: Inter, sans-serif; font-size: var(--font-m); font-weight: 700; color: var(--primary); }
+  .soa-header-date  { font-family: Inter, sans-serif; font-size: 12px; color: #888; margin-top: 2px; }
+  .soa-table { width: 100%; border-collapse: collapse; font-size: var(--font-s); }
+  .soa-table th { text-align: right; color: var(--primary); padding: 3px 6px 6px; font-weight: 700; border-bottom: 1px solid #ddd; }
+  .soa-table th:first-child { text-align: left; }
+  .soa-table td { padding: 4px 6px; color: #555; text-align: right; }
+  .soa-table td:first-child { text-align: left; }
+  .soa-table tr.soa-total td { border-top: 1px solid #ddd; font-weight: 700; color: var(--primary); padding-top: 8px; }
+  .soa-table tr.soa-release td { background: var(--warn-bg); }
+  .soa-footnote { font-size: var(--font-xs); color: #888; font-style: italic; margin-top: 8px; }
+
+  @media (prefers-color-scheme: dark) {
+    .narrative-inset-accent { background: #2a1e0a; border-color: #5c3a1a; color: #b8afa4; }
+    .soa-wrap { background: #32303c; border-color: var(--border); }
+    .soa-header { border-bottom-color: var(--border); }
+    .soa-header-title { color: var(--primary); }
+    .soa-header-date { color: #8a8898; }
+    .soa-table th { color: var(--primary); border-bottom-color: var(--border); }
+    .soa-table td { color: #b0aec0; }
+    .soa-table tr.soa-total td { color: var(--primary); border-top-color: var(--border); }
+    .soa-table tr.soa-release td { background: var(--warn-bg); }
+    .soa-footnote { color: #8a8898; }
+  }
+</style>
+</head>
+<body>
+<div class="content content-standalone">
+
+
+<!-- ===================================================================
+     PHASE: WELCOME
+     ================================================================= -->
+<div id="phase-welcome" class="screen active">
+
+  <div class="section-title">Three Nonprofits, One Donation</div>
+
+  <div class="narrative-block">
+    <p>You still have <strong>$25K</strong>. This time, you are considering a donation rather than an investment. You want to support a nonprofit that serves youth, and you have identified three candidates: <strong>Harbor Youth and Family Support</strong>, <strong>Bridgeway Counseling Center</strong>, and <strong>Northline Youth Services</strong>.</p>
+    <p>You will review their records in stages, just as you did with the three businesses in Part 1. At each step, you will consider what the information helps you understand and what you would still want to know before making a donation decision.</p>
+    <p>The same accounting identity still organizes the records. But because nonprofits do not have owners, the residual is called Net Assets rather than Equity. As the records unfold, you will see how nonprofit statements organize information differently from for-profit statements.</p>
+  </div>
+
+  <div class="section-card">
+    <div class="subsection-head" style="margin-top:0">What you'll discover</div>
+    <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+      <li class="prose" style="margin:0; display:flex; gap:8px;"><span style="color:var(--accent); flex-shrink:0">•</span> That the nonprofit balance sheet is built around the same identity from Part 1 — the residual just carries a different name.</li>
+      <li class="prose" style="margin:0; display:flex; gap:8px;"><span style="color:var(--accent); flex-shrink:0">•</span> That the residual is shown in two parts tracking whether donor-imposed restrictions still apply — a split the for-profit side has no analog for.</li>
+      <li class="prose" style="margin:0; display:flex; gap:8px;"><span style="color:var(--accent); flex-shrink:0">•</span> That the same evidence test from Part 1 governs what enters the records — and real resources can end up on the outside of that line.</li>
+    </ul>
+    <div class="narrative-inset-accent">
+      <div class="subsection-head" style="margin-top:0">A note on simplifications</div>
+      <p class="prose">Real financial statements include more detail than shown here, and the rules behind them are more complex.</p>
+      <p class="prose">This exercise keeps the statements simple so you can focus on the basic structure: the accounting identity, the evidence needed to include items in the records, and the role of statements that explain changes over time.</p>
+      <p class="prose" style="margin-bottom:0">The goal is to carry the logic from Part 1 into a nonprofit setting and see how nonprofit statements organize information differently.</p>
+    </div>
+  </div>
+
+  <button class="btn-continue" style="width:100%; justify-content:center" onclick="goTo('totals')">Begin →</button>
+
+</div><!-- /phase-welcome -->
+
+
+<!-- ===================================================================
+     PHASE: TOTALS
+     ================================================================= -->
+<div id="phase-totals" class="screen">
+
+  <div class="section-title">Step 1: The Balance Sheet Totals</div>
+
+  <div class="narrative-block">
+    <p>Here are the year-end balance sheet totals for the three nonprofits. Each organization works with youth through services such as mentoring, counseling, or after-school programs.</p>
+    <div class="narrative-inset">
+      <p><strong>Notice:</strong> For each nonprofit, Total Assets minus Total Liabilities equals $500. Total Net Assets is also $500.</p>
+      <p>The same accounting identity still holds. For a nonprofit, <strong>Assets − Liabilities = Net Assets</strong>. This is the same relationship you saw in Part 1, but the residual has a different name. For a business, the residual is called Equity. For a nonprofit, it is called Net Assets.</p>
+    </div>
+  </div>
+
+  <div class="biz-grid">
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Harbor</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-total"><span>Total Net Assets</span><span>$500</span></div>
+    </div>
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Bridgeway</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-total"><span>Total Net Assets</span><span>$500</span></div>
+    </div>
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Northline</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-total"><span>Total Net Assets</span><span>$500</span></div>
+    </div>
+  </div>
+
+  <div class="prompt-card" id="pick-totals">
+    <div class="prompt-number">Step 1: Compare the Statements</div>
+    <div class="prompt-q">Based only on these totals, how do the three nonprofits compare? What else would you need to know before deciding where to donate?</div>
+<textarea id="totals-rationale" placeholder="Write your response here..." rows="2" oninput="checkPickSubmit('totals')"></textarea>
+    <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border)">
+      <div class="prompt-number">Step 2: Make a tentative choice</div>
+      <div class="prompt-q">If you had to choose now, which nonprofit would you donate to?</div>
+    </div>
+    <div class="pick-grid">
+      <button class="pick-btn" data-biz="H" onclick="selectBiz('totals','H')">Harbor</button>
+      <button class="pick-btn" data-biz="B" onclick="selectBiz('totals','B')">Bridgeway</button>
+      <button class="pick-btn" data-biz="N" onclick="selectBiz('totals','N')">Northline</button>
+    </div>
+    <div style="margin-top:10px">
+      <button class="btn btn-primary" id="totals-submit-btn" onclick="submitPick('totals')" disabled>Submit</button>
+    </div>
+    <div class="feedback ok" id="totals-feedback">
+      <p>Your response has been submitted. Continue to the next step.</p>
+    </div>
+  </div>
+
+  <div class="phase-nav">
+    <button class="btn-reset" onclick="goBack()">← Back</button>
+    <button class="btn-continue" id="totals-continue" disabled onclick="goTo('asset-breakdown')">Continue →</button>
+  </div>
+
+</div><!-- /phase-totals -->
+
+
+<!-- ===================================================================
+     PHASE: ASSET BREAKDOWN
+     ================================================================= -->
+<div id="phase-asset-breakdown" class="screen">
+
+  <div class="section-title">Step 2: Asset Breakdown</div>
+
+  <div class="insight-box" id="recap-totals" style="display:none">
+    <div class="insight-label">Your previous choice</div>
+    <p id="recap-totals-text"></p>
+  </div>
+
+  <div class="narrative-block">
+    <p>The balance sheets now show more detail about each nonprofit's assets. The accounting identity still holds: Assets − Liabilities = Net Assets. But the composition of assets is now different across the three nonprofits.</p>
+    <div class="narrative-inset">
+      <p><strong>Notice:</strong> Bridgeway's balance sheet includes a <strong>Building</strong> listed under Assets at $400.</p>
+      <p>A building is an asset because it is a resource the organization controls, with clear evidence for existence and financial effects on future cash flows. What makes it different from cash is <strong>liquidity</strong>: how readily it converts to meet other needs.</p>
+    </div>
+  </div>
+
+  <div class="biz-grid">
+    <!-- Harbor -->
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Harbor</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$500</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-total"><span>Total Net Assets</span><span>$500</span></div>
+    </div>
+    <!-- Bridgeway -->
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Bridgeway</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$100</span></div>
+      <div class="acct-line"><span class="acct-indent">Building</span><span class="acct-val">$400</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-total"><span>Total Net Assets</span><span>$500</span></div>
+    </div>
+    <!-- Northline -->
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Northline</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$500</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-total"><span>Total Net Assets</span><span>$500</span></div>
+    </div>
+  </div>
+
+  <div class="prompt-card" id="pick-assets">
+    <div class="prompt-number">Step 1: Compare the Statements</div>
+    <div class="prompt-q">Based on this added detail, how do the three nonprofits compare? What else would you need to know before deciding where to donate?</div>
+<textarea id="assets-rationale" placeholder="Write your response here..." rows="2" oninput="checkPickSubmit('assets')"></textarea>
+    <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border)">
+      <div class="prompt-number">Step 2: Make a tentative choice</div>
+      <div class="prompt-q">If you had to choose now, which nonprofit would you donate to?</div>
+    </div>
+    <div class="pick-grid">
+      <button class="pick-btn" data-biz="H" onclick="selectBiz('assets','H')">Harbor</button>
+      <button class="pick-btn" data-biz="B" onclick="selectBiz('assets','B')">Bridgeway</button>
+      <button class="pick-btn" data-biz="N" onclick="selectBiz('assets','N')">Northline</button>
+    </div>
+    <div style="margin-top:10px">
+      <button class="btn btn-primary" id="assets-submit-btn" onclick="submitPick('assets')" disabled>Submit</button>
+    </div>
+    <div class="feedback ok" id="assets-feedback">
+      <p>Your response has been submitted. Continue to the next step.</p>
+    </div>
+  </div>
+
+  <div class="phase-nav">
+    <button class="btn-reset" onclick="goBack()">← Back</button>
+    <button class="btn-continue" id="assets-continue" disabled onclick="goTo('net-assets-breakdown')">Continue →</button>
+  </div>
+
+</div><!-- /phase-asset-breakdown -->
+
+
+<!-- ===================================================================
+     PHASE: NET ASSETS BREAKDOWN
+     ================================================================= -->
+<div id="phase-net-assets-breakdown" class="screen">
+
+  <div class="section-title">Step 3: Net Assets Breakdown</div>
+
+  <div class="insight-box" id="recap-assets" style="display:none">
+    <div class="insight-label">Your previous choice</div>
+    <p id="recap-assets-text"></p>
+  </div>
+
+  <div class="narrative-block">
+    <p>The balance sheets now show how each nonprofit's Total Net Assets are classified. In this example, Total Net Assets are divided into two categories: <strong>Without Donor Restrictions</strong> and <strong>With Donor Restrictions</strong>.</p>
+    <div class="narrative-inset">
+      <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+        <li>• <strong>Without Donor Restrictions</strong> means the nonprofit can use those funds for its general mission and operations. These amounts may come from donations with no donor limits, or from restricted funds after the donor's requirement has been met.</li>
+        <li>• <strong>With Donor Restrictions</strong> means the donor has limited how or when the funds or resources can be used. The nonprofit has received them, but it must follow the donor's restriction until that restriction is satisfied.</li>
+        <li>• When a restriction is satisfied, the amount is released from restriction. In the records, it moves out of With Donor Restrictions and into Without Donor Restrictions.</li>
+      </ul>
+    </div>
+    <p style="margin-top:14px; margin-bottom:0">For Bridgeway, the $400 listed <strong>With Donor Restrictions</strong> is tied to a building donated for adolescent counseling services. Because that donor restriction has not yet been satisfied, the $400 remains in the restricted category.</p>
+  </div>
+
+  <div class="biz-grid">
+    <!-- Harbor -->
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Harbor</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$500</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-section">Net Assets</div>
+      <div class="acct-line"><span class="acct-indent">Without Donor Restrictions</span><span class="acct-val">$500</span></div>
+      <div class="acct-line"><span class="acct-indent">With Donor Restrictions</span><span class="acct-val">$0</span></div>
+      <div class="acct-total"><span>Total Net Assets</span><span>$500</span></div>
+    </div>
+    <!-- Bridgeway -->
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Bridgeway</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$100</span></div>
+      <div class="acct-line"><span class="acct-indent">Building</span><span class="acct-val">$400</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-section">Net Assets</div>
+      <div class="acct-line"><span class="acct-indent">Without Donor Restrictions</span><span class="acct-val">$100</span></div>
+      <div class="acct-line"><span class="acct-indent">With Donor Restrictions</span><span class="acct-val">$400</span></div>
+      <div class="acct-total"><span>Total Net Assets</span><span>$500</span></div>
+    </div>
+    <!-- Northline -->
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Northline</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$500</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-section">Net Assets</div>
+      <div class="acct-line"><span class="acct-indent">Without Donor Restrictions</span><span class="acct-val">$500</span></div>
+      <div class="acct-line"><span class="acct-indent">With Donor Restrictions</span><span class="acct-val">$0</span></div>
+      <div class="acct-total"><span>Total Net Assets</span><span>$500</span></div>
+    </div>
+  </div>
+
+  <div class="prompt-card" id="pick-netAssets">
+    <div class="prompt-number">Step 1: Compare the Statements</div>
+    <div class="prompt-q">Based on this added detail, how do the three nonprofits compare? What else would you need to know before deciding where to donate?</div>
+<textarea id="netAssets-rationale" placeholder="Write your response here..." rows="2" oninput="checkPickSubmit('netAssets')"></textarea>
+    <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border)">
+      <div class="prompt-number">Step 2: Make a tentative choice</div>
+      <div class="prompt-q">If you had to choose now, which nonprofit would you donate to?</div>
+    </div>
+    <div class="pick-grid">
+      <button class="pick-btn" data-biz="H" onclick="selectBiz('netAssets','H')">Harbor</button>
+      <button class="pick-btn" data-biz="B" onclick="selectBiz('netAssets','B')">Bridgeway</button>
+      <button class="pick-btn" data-biz="N" onclick="selectBiz('netAssets','N')">Northline</button>
+    </div>
+    <div style="margin-top:10px">
+      <button class="btn btn-primary" id="netAssets-submit-btn" onclick="submitPick('netAssets')" disabled>Submit</button>
+    </div>
+    <div class="feedback ok" id="netAssets-feedback">
+      <p>Your response has been submitted. Continue to the next step.</p>
+    </div>
+  </div>
+
+  <div class="phase-nav">
+    <button class="btn-reset" onclick="goBack()">← Back</button>
+    <button class="btn-continue" id="netAssets-continue" disabled onclick="goTo('statement-of-activities')">Continue →</button>
+  </div>
+
+</div><!-- /phase-net-assets-breakdown -->
+
+
+<!-- ===================================================================
+     PHASE: STATEMENT OF ACTIVITIES
+     ================================================================= -->
+<div id="phase-statement-of-activities" class="screen">
+
+  <div class="section-title">What Changed in Net Assets?</div>
+
+  <div class="insight-box" id="recap-netAssets" style="display:none">
+    <div class="insight-label">Your previous choice</div>
+    <p id="recap-netAssets-text"></p>
+  </div>
+
+  <div class="narrative-block">
+    <p>The balance sheet is a snapshot of the accounting identity at one point in time. To understand how Net Assets changed during a period, nonprofits use a statement called the <strong>Statement of Activities</strong>.</p>
+    <p>In Part 1, the income statement helped explain the change in Retained Earnings. The Statement of Activities plays a similar role for nonprofits. It explains changes in Net Assets, including changes in Without Donor Restrictions and With Donor Restrictions.</p>
+    <div class="narrative-inset">
+      <p><strong>Two kinds of changes can appear:</strong></p>
+      <ol style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+        <li>1. <strong>Activities that change Total Net Assets</strong> — These include revenues, expenses, gains, and losses. They change the total amount of Net Assets.</li>
+        <li>2. <strong>Releases from donor restrictions</strong> — When a donor restriction is satisfied, the amount is released from restriction. In the records, it moves from With Donor Restrictions to Without Donor Restrictions. This changes how Net Assets are classified, but it does not change Total Net Assets.</li>
+      </ol>
+      <p style="margin-top:8px; margin-bottom:0">The Statement of Activities shows both kinds of changes in one place.</p>
+    </div>
+  </div>
+
+  <div class="soa-wrap">
+    <div class="soa-header">
+      <div class="soa-header-title">Bridgeway Counseling Center</div>
+      <div class="soa-header-date">Statement of Activities — For the Year Ended December 31, 2026</div>
+    </div>
+    <table class="soa-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Without DR</th>
+          <th>With DR</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Contribution revenue</td>
+          <td>$50</td>
+          <td>$30</td>
+          <td>$80</td>
+        </tr>
+        <tr class="soa-release">
+          <td>Released from restrictions *</td>
+          <td>$30</td>
+          <td>($30)</td>
+          <td>$0</td>
+        </tr>
+        <tr>
+          <td>Counseling program expenses</td>
+          <td>($40)</td>
+          <td>—</td>
+          <td>($40)</td>
+        </tr>
+        <tr class="soa-total">
+          <td>Change in Net Assets</td>
+          <td>$40</td>
+          <td>$0</td>
+          <td>$40</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="soa-footnote">* Donor restriction satisfied — funds reclassified to Without Donor Restrictions.</div>
+  </div>
+
+  <div class="narrative-block" style="margin-bottom:18px">
+    <p>Read the <strong>Released from restrictions</strong> row across. It adds $30 to Without Donor Restrictions and subtracts $30 from With Donor Restrictions, so the total effect is $0.</p>
+    <p>This does not create or remove resources. It shows that $30 of donor-restricted funds were used for their intended purpose, so the restriction was satisfied. In the records, that amount moves from With Donor Restrictions to Without Donor Restrictions.</p>
+    <p style="margin-bottom:0">The other rows increase or decrease Total Net Assets. The release row only shifts funds between the two net asset categories.</p>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-q">Does the "Released from restrictions" line cause Total Net Assets to change?</div>
+    <div class="yn-grid" id="yn-soa">
+      <button class="pick-btn" data-choice="yes" onclick="selectYN('soa','yes')">Yes</button>
+      <button class="pick-btn" data-choice="no"  onclick="selectYN('soa','no')">No</button>
+    </div>
+    <div id="soa-explanation-wrap">
+      <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border)">
+        <div class="prompt-q">Briefly explain why.</div>
+      </div>
+      <textarea id="soa-explanation" placeholder="Write your response here..." rows="2" oninput="checkYNSubmit('soa')"></textarea>
+      <div style="margin-top:10px">
+        <button class="btn btn-primary" id="soa-check-btn" onclick="checkYN('soa')" disabled>Submit</button>
+      </div>
+      <div id="soa-attempts-remaining" style="margin-top:8px; font-size:var(--font-s); color:#6b7280;">2 attempts remaining</div>
+    </div>
+    <div class="stage-note" id="soa-hint" style="display:none; margin-top:16px"></div>
+    <div class="feedback ok" id="soa-correct">
+      <p style="margin-bottom:6px"><strong>Correct.</strong></p>
+      <p>The Released from Restrictions line does not change Total Net Assets. It adds $30 to Without Donor Restrictions and subtracts $30 from With Donor Restrictions, so the total effect is $0.</p>
+      <p style="margin-bottom:0">This is a reclassification. It moves the amount between the two net asset categories after the donor restriction is satisfied, but it does not create new resources or reduce the organization's total resources.</p>
+    </div>
+    <div class="feedback err" id="soa-reveal">
+      <p style="margin-bottom:6px"><strong>The correct answer is No.</strong></p>
+      <p>The Released from Restrictions line does not change Total Net Assets. The $30 added to Without Donor Restrictions is offset by the $30 subtracted from With Donor Restrictions, so the total effect is $0.</p>
+      <p style="margin-bottom:0">This line shows a reclassification between categories. It changes how Net Assets are classified, but it does not change what the organization holds in total.</p>
+    </div>
+  </div>
+
+  <div class="phase-nav">
+    <button class="btn-reset" onclick="goBack()">← Back</button>
+    <button class="btn-continue" id="soa-continue" disabled onclick="goTo('recognition-tests')">Continue →</button>
+  </div>
+
+</div><!-- /phase-statement-of-activities -->
+
+
+<!-- ===================================================================
+     PHASE: RECOGNITION TESTS
+     ================================================================= -->
+<div id="phase-recognition-tests" class="screen">
+
+  <div class="section-title">Do Volunteer Hours Enter the Records?</div>
+
+  <div class="narrative-block">
+    <p>The same logic from Part 1 still applies: not everything valuable to an organization automatically appears in the financial records.</p>
+    <p>For nonprofits, this question often comes up with donated labor, also called <strong>contributed services</strong>. Volunteers may provide work that is essential to the mission, but many volunteer hours are not recorded as contribution revenue or expense.</p>
+    <div class="narrative-inset">
+      <p style="margin-bottom:8px">In general, donated services enter the records only when they meet specific accounting conditions. They may be recorded when:</p>
+      <ol style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+        <li>1. They <strong>create or improve a nonfinancial asset</strong> — for example, volunteers help build or renovate a shelter.</li>
+        <li>2. They <strong>require specialized professional skills</strong> that the nonprofit would otherwise need to purchase — for example, a lawyer provides pro bono legal services, or an accountant donates audit services.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-q">Harbor runs its mentoring program with parent volunteers. Together, they provide about <strong>500 hours of one-to-one mentoring for teens</strong>. If the parents did not volunteer, Harbor might need to hire mentors at <strong>$20 per hour</strong>. Should Harbor record contribution revenue for these volunteer mentoring hours?</div>
+    <div class="yn-grid" id="yn-services">
+      <button class="pick-btn" data-choice="yes" onclick="selectYN('services','yes')">Yes, record it</button>
+      <button class="pick-btn" data-choice="no"  onclick="selectYN('services','no')">No, do not record it</button>
+    </div>
+    <div id="services-explanation-wrap">
+      <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border)">
+        <div class="prompt-q">Briefly explain why.</div>
+      </div>
+      <textarea id="services-explanation" placeholder="Write your response here..." rows="2" oninput="checkYNSubmit('services')"></textarea>
+      <div style="margin-top:10px">
+        <button class="btn btn-primary" id="services-check-btn" onclick="checkYN('services')" disabled>Submit</button>
+      </div>
+      <div id="services-attempts-remaining" style="margin-top:8px; font-size:var(--font-s); color:#6b7280;">2 attempts remaining</div>
+    </div>
+    <div class="stage-note" id="services-hint" style="display:none; margin-top:16px"></div>
+    <div class="feedback ok" id="services-correct">
+      <p style="margin-bottom:6px"><strong>Correct.</strong></p>
+      <p>Harbor should not record contribution revenue for these volunteer mentoring hours.</p>
+      <p>The volunteer work is real and valuable to the program, but it does not meet the conditions for being recorded. The volunteers did not create or improve a nonfinancial asset. The mentoring also is not described as a specialized professional service that requires a license, certification, or professional credential.</p>
+      <p style="margin-bottom:0">Even if Harbor would otherwise have to pay for mentoring support, that alone is not enough. Because the volunteer hours do not meet either condition, they stay outside the financial records.</p>
+    </div>
+    <div class="feedback err" id="services-reveal">
+      <p style="margin-bottom:6px"><strong>The correct answer is No, do not record it.</strong></p>
+      <p>Harbor should not record contribution revenue for these volunteer mentoring hours.</p>
+      <p>The volunteer work is real and valuable to the program, but it does not meet the conditions for being recorded. The volunteers did not create or improve a nonfinancial asset. The mentoring also is not described as a specialized professional service that requires a license, certification, or professional credential.</p>
+      <p style="margin-bottom:0">Even if Harbor would otherwise have to pay for mentoring support, that alone is not enough. Because the volunteer hours do not meet either condition, they stay outside the financial records.</p>
+    </div>
+  </div>
+
+  <div class="insight-box" id="services-insight" style="display:none">
+    <div class="insight-label">Records do not show everything that matters</div>
+    <p>Harbor's records will not show contribution revenue for the 500 volunteer hours, even though those hours support the mentoring program.</p>
+    <p style="margin-bottom:0">This does not mean the volunteer work has no value. It means the work does not meet the conditions for being recorded in the financial statements. The records are doing their job, but they show only the items that meet the accounting rules for recognition.</p>
+  </div>
+
+  <div class="phase-nav">
+    <button class="btn-reset" onclick="goBack()">← Back</button>
+    <button class="btn-continue" id="services-continue" disabled onclick="goTo('collection-election')">Continue →</button>
+  </div>
+
+</div><!-- /phase-recognition-tests -->
+
+
+<!-- ===================================================================
+     PHASE: COLLECTION ELECTION
+     ================================================================= -->
+<div id="phase-collection-election" class="screen">
+
+  <div class="section-title">The Evidence Test: Collection Capitalization</div>
+
+  <div class="narrative-block">
+    <p>One more place the convention asks a recognition question. Northline holds a <strong>community-history archive</strong> — oral histories, photographs, and memorabilia from the neighborhoods it serves. The archive is used in Northline's heritage-education program with teens.</p>
+    <p>Items like these can qualify as a <strong>collection</strong> — items held for exhibition, education, or research; preserved; and governed by a policy that any sale proceeds must be reinvested in the collection. Northline's archive qualifies.</p>
+    <div class="narrative-inset">
+      <p><strong>Capitalize</strong> means record as an asset on the balance sheet. When an organization does not capitalize an item, the item does not appear in the accounting records — even though the organization still holds it.</p>
+      <p style="margin-bottom:0">The convention allows an organization holding a collection to <em>choose</em> whether to capitalize it. <strong>Northline has chosen not to capitalize its archive.</strong></p>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-q">A local family donates a historical photograph to Northline's archive. A curator confirms a fair value of $100. Because Northline has chosen not to capitalize its archive, does anything appear on either of Northline's statements as a result?</div>
+    <div class="yn-grid" id="yn-collection">
+      <button class="pick-btn" data-choice="yes" onclick="selectYN('collection','yes')">Something appears</button>
+      <button class="pick-btn" data-choice="no"  onclick="selectYN('collection','no')">Nothing appears</button>
+    </div>
+    <div id="collection-explanation-wrap">
+      <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border)">
+        <div class="prompt-q">Briefly explain why.</div>
+      </div>
+      <textarea id="collection-explanation" placeholder="Write your response here..." rows="2" oninput="checkYNSubmit('collection')"></textarea>
+      <div style="margin-top:10px">
+        <button class="btn btn-primary" id="collection-check-btn" onclick="checkYN('collection')" disabled>Submit</button>
+      </div>
+      <div id="collection-attempts-remaining" style="margin-top:8px; font-size:var(--font-s); color:#6b7280;">2 attempts remaining</div>
+    </div>
+    <div class="stage-note" id="collection-hint" style="display:none; margin-top:16px"></div>
+    <div class="feedback ok" id="collection-correct">
+      <p style="margin-bottom:6px"><strong>Correct.</strong></p>
+      <p>If Northline had capitalized, the photograph would appear on the balance sheet as a $100 asset, and $100 of contribution revenue would appear on the Statement of Activities — Net Assets would rise by $100. Because Northline has chosen not to capitalize its archive, nothing appears on either statement. The photograph is real — it is simply outside the accounting records.</p>
+    </div>
+    <div class="feedback err" id="collection-reveal">
+      <p style="margin-bottom:6px"><strong>The correct answer is Nothing appears.</strong></p>
+      <p>If Northline capitalized, the photograph would be a $100 asset and $100 of contribution revenue would appear on the Statement of Activities, increasing Net Assets by $100. Because Northline has chosen not to capitalize its archive, the photograph enters the records nowhere — no asset, no revenue, nothing on either statement. The archive is visible only in the footnotes.</p>
+    </div>
+  </div>
+
+  <div class="insight-box" id="collection-insight" style="display:none">
+    <div class="insight-label">Records show less than the entity has</div>
+    <p>Northline's balance sheet shows exactly what Harbor's shows — $500 in cash, no liabilities, $500 in Net Assets Without Donor Restrictions. But Northline also holds a community archive that Harbor does not. The records are silent about it. This is the convention giving an organization permission to leave a real asset — even a major one — entirely outside the books.</p>
+  </div>
+
+  <div class="phase-nav">
+    <button class="btn-reset" onclick="goBack()">← Back</button>
+    <button class="btn-continue" id="collection-continue" disabled onclick="goTo('consolidation')">Continue →</button>
+  </div>
+
+</div><!-- /phase-collection-election -->
+
+
+<!-- ===================================================================
+     PHASE: CONSOLIDATION
+     ================================================================= -->
+<div id="phase-consolidation" class="screen">
+
+  <div class="section-title">What the Structure Shows</div>
+
+  <div class="narrative-block">
+    <p>Four things this exercise shows about the structure of nonprofit financial statements — and how each one relates back to Part 1.</p>
+    <div class="narrative-inset">
+      <ol style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:14px;">
+        <li class="prose" style="margin:0"><strong style="color:var(--primary)">1. Same identity, different name for the residual.</strong> Assets − Liabilities = Net Assets for nonprofits, the same way Assets − Liabilities = Equity for for-profits. The identity holds at every point in time, by construction.</li>
+        <li class="prose" style="margin:0"><strong style="color:var(--primary)">2. The residual is shown in subparts — but the question the subparts answer is different.</strong> Part 1's Equity split into Contributed Capital and Retained Earnings — a "where did it come from" question. Part 2's Net Assets splits into Without Donor Restrictions and With Donor Restrictions — tracking whether donor-imposed restrictions on the use of resources still apply.</li>
+        <li class="prose" style="margin:0"><strong style="color:var(--primary)">3. The explanatory statement does one extra job.</strong> Part 1's income statement decomposed value changes to Retained Earnings. The Statement of Activities decomposes value changes to Net Assets <em>and</em> shows reclassifications between the two restriction categories. The release row zeros out in the Total column — it moves dollars sideways, not up or down.</li>
+        <li class="prose" style="margin:0"><strong style="color:var(--primary)">4. The evidence test still governs — and the nonprofit setting puts it on display.</strong> Most contributed services stay outside the records. A collection an organization chooses not to capitalize never enters the records at all. In each case a real economic event exists; the convention draws its evidence line somewhere that leaves it out.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="insight-box" id="recap-all-picks" style="display:none">
+    <div class="insight-label">Review Your Choices</div>
+    <div id="recap-all-picks-text" style="margin-top:8px; font-size:var(--font-m); line-height:1.7;"></div>
+  </div>
+
+  <div class="prompt-card" style="margin-top:28px">
+    <p class="prompt-q">In one or two sentences, describe what the nonprofit financial statements now let you see that was not clear at the start — and where they still leave something out.</p>
+    <textarea id="consolidation-reflection" placeholder="Write your response here..." rows="3" oninput="checkReflection()"></textarea>
+    <div style="margin-top:10px">
+      <button class="btn btn-primary" id="consolidation-submit-btn" onclick="submitReflection()" disabled>Submit</button>
+    </div>
+    <div class="feedback ok" id="consolidation-feedback">
+      <p>Your response has been submitted. Continue to the next step.</p>
+    </div>
+  </div>
+
+  <div class="phase-nav">
+    <button class="btn-reset" onclick="goBack()">← Back</button>
+    <button class="btn-continue" id="consolidation-continue" disabled onclick="goTo('complete')">Continue →</button>
+  </div>
+
+</div><!-- /phase-consolidation -->
+
+
+<!-- ===================================================================
+     PHASE: COMPLETE
+     ================================================================= -->
+<div id="phase-complete" class="screen">
+
+  <div class="section-title">Tutorial Complete</div>
+
+  <div class="section-card" style="border:2px solid var(--success-border)">
+    <div class="subsection-head" style="margin-top:0">What you discovered</div>
+    <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;">
+      <li class="prose" style="margin:0; display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--success-text); font-weight:700; flex-shrink:0">✓</span> The <strong>accounting identity</strong> organizes the nonprofit balance sheet the same way it did in Part 1. Only the name of the residual changes: Net Assets in place of Equity.</li>
+      <li class="prose" style="margin:0; display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--success-text); font-weight:700; flex-shrink:0">✓</span> Net Assets is shown in two categories tracking whether <strong>donor-imposed restrictions</strong> on the use of resources still apply — a split the for-profit side has no analog for.</li>
+      <li class="prose" style="margin:0; display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--success-text); font-weight:700; flex-shrink:0">✓</span> The <strong>Statement of Activities</strong> decomposes changes to Net Assets — both value flows (revenues, expenses, gains, losses) and reclassifications (releases from donor restrictions, which zero out in the Total column).</li>
+      <li class="prose" style="margin:0; display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--success-text); font-weight:700; flex-shrink:0">✓</span> The <strong>evidence test</strong> governs recognition in the nonprofit setting, just as in Part 1. Most contributed services stay outside the records; a collection an organization chooses not to capitalize produces nothing on either statement at all.</li>
+    </ul>
+  </div>
+
+  <div class="insight-box">
+    <div class="insight-label">The deeper point</div>
+    <p>For-profit and nonprofit financial statements share a common skeleton: an identity at a point in time, a residual shown in subparts that carry specific information, and an explanatory statement that decomposes how the residual changed during the period. But that skeleton is tailored to the situation — to the kind of organization being reported on, and to the kind of information useful for that kind of organization. The two tutorials share a structure and diverge in the details that matter.</p>
+  </div>
+
+  <div class="section-card">
+    <div class="subsection-head" style="margin-top:0">Coming next</div>
+    <p class="prose">You have now seen the same structural skeleton applied to a for-profit and to a nonprofit. The next tutorial steps back and asks: what is that skeleton, and what decisions determine how it gets tailored to the kind of organization and the kind of information that is useful?</p>
+    <p class="prose" style="margin-bottom:0; font-weight:600; color:var(--primary)">Next: a common structure, tailored to the situation</p>
+  </div>
+
+  <button class="btn-continue" style="width:100%; justify-content:center; margin-bottom:10px" onclick="playContinueClick(); window.location.href='2.3-decision.html'">Next Tutorial →</button>
+  <button class="btn-reset" style="width:100%; justify-content:center" onclick="restartTutorial()">↺ Restart Tutorial</button>
+  <button class="btn-reset" onclick="goBack()">← Back</button>
+
+</div><!-- /phase-complete -->
+
+
+</div><!-- /content -->
+
+
+<!-- ===== GLOSSARY OVERLAY ===== -->
+<div class="glossary-overlay" id="glossaryOverlay" onclick="glossaryBackdropClick(event)">
+  <div class="glossary-panel" onclick="event.stopPropagation()">
+    <div class="glossary-panel-head">
+      <span class="glossary-panel-title">Glossary</span>
+      <button class="glossary-close-btn" onclick="closeGlossary()" aria-label="Close glossary">✕</button>
+    </div>
+    <div class="glossary-search-wrap">
+      <input type="text" id="glossarySearch" placeholder="Search terms…" oninput="filterGlossary(this.value)" aria-label="Search glossary">
+    </div>
+    <div class="glossary-list" id="glossaryList"></div>
+  </div>
+</div>
+
+
+<script src="../config.js"></script>
+<script src="../shared.js"></script>
+<script>
+(function () {
+
+  // ── Glossary data ────────────────────────────────────────────────────
+  var PAGE_GLOSSARY = [
+    { term: 'Accounting identity',       def: 'The definitional relationship that Assets minus Liabilities equals a residual. For for-profits the residual is Equity; for nonprofits it is Net Assets. It holds at every point in time, for every entity, by construction.' },
+    { term: 'Net Assets',                def: 'The definitional residual on the right side of a nonprofit balance sheet — the difference between recorded assets and recorded liabilities. Shown in two subparts that track the status of donor restrictions.' },
+    { term: 'Without Donor Restrictions',def: 'The part of Net Assets where no donor restriction was ever attached, or a prior restriction has been satisfied and released into this category.' },
+    { term: 'With Donor Restrictions',   def: 'The part of Net Assets made up of donor-restricted contributions whose restriction has not yet been met. Only donors can create binding restrictions.' },
+    { term: 'Contribution',              def: 'A voluntary, nonreciprocal transfer of cash or other assets to a nonprofit. The donor receives no direct benefit in return.' },
+    { term: 'Contributed services',      def: 'Donated labor. Recognized only if it creates or enhances a nonfinancial asset, or requires specialized skills the organization would otherwise purchase. Most volunteer labor does not meet these criteria.' },
+    { term: 'Capitalize',                def: 'Record as an asset on the balance sheet. When an organization does not capitalize an item, the item does not appear in the accounting records — even though the organization still holds it.' },
+    { term: 'Collection',                def: 'Items held for public exhibition, education, or research; preserved; and subject to a policy requiring that any sale proceeds be reinvested in the collection. The convention allows an organization to choose whether to record its collection as an asset.' },
+    { term: 'Statement of Activities',   def: 'The nonprofit explanatory statement that decomposes the change in Net Assets during the period — both value flows (revenues, expenses, gains, losses) and restriction reclassifications (releases from donor restrictions).' },
+    { term: 'Recognition',               def: 'The process of admitting an item onto the accounting records. The convention requires sufficient evidence that an item exists and that its effects are at least in part financial — that they bear on future cash flows.' }
+  ];
+
+  function buildGlossary() {
+    var list = document.getElementById('glossaryList');
+    if (!list) return;
+    list.innerHTML = '';
+    PAGE_GLOSSARY.slice().sort(function (a, b) { return a.term.localeCompare(b.term); }).forEach(function (g) {
+      var el = document.createElement('div');
+      el.className = 'glossary-entry';
+      el.dataset.term = g.term.toLowerCase();
+      el.dataset.def  = g.def.toLowerCase();
+      el.innerHTML = '<div class="glossary-entry-term">' + g.term + '</div><div class="glossary-entry-def">' + g.def + '</div>';
+      list.appendChild(el);
+    });
+  }
+
+  window.openGlossary = function () {
+    buildGlossary();
+    document.getElementById('glossaryOverlay').classList.add('open');
+    var inp = document.getElementById('glossarySearch');
+    if (inp) { inp.value = ''; filterGlossary(''); setTimeout(function () { inp.focus(); }, 50); }
+  };
+
+  window.closeGlossary = function () {
+    document.getElementById('glossaryOverlay').classList.remove('open');
+  };
+
+  window.glossaryBackdropClick = function (e) {
+    if (e.target === document.getElementById('glossaryOverlay')) closeGlossary();
+  };
+
+  window.filterGlossary = function (q) {
+    q = (q || '').toLowerCase();
+    document.querySelectorAll('.glossary-entry').forEach(function (el) {
+      var match = el.dataset.term.indexOf(q) !== -1 || el.dataset.def.indexOf(q) !== -1;
+      el.classList.toggle('hidden', !match);
+    });
+  };
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeGlossary();
+  });
+
+
+  // ── Sound helpers ────────────────────────────────────────────────────
+  function audioCtx() { return new (window.AudioContext || window.webkitAudioContext)(); }
+
+  window.playSuccessTone = function () {
+    try {
+      var ctx = audioCtx(), t = ctx.currentTime;
+      [523.25, 659.25, 783.99].forEach(function (f, i) {
+        var o = ctx.createOscillator(), g = ctx.createGain();
+        o.connect(g); g.connect(ctx.destination);
+        o.frequency.value = f; o.type = 'sine';
+        var s = t + i * 0.1, e = s + 0.15;
+        g.gain.setValueAtTime(0, s); g.gain.linearRampToValueAtTime(0.3, s + 0.02); g.gain.exponentialRampToValueAtTime(0.01, e);
+        o.start(s); o.stop(e + 0.1);
+      });
+      setTimeout(function () { ctx.close(); }, 600);
+    } catch (e) { /* silent */ }
+  };
+
+  window.playSoftNope = function () {
+    try {
+      var ctx = audioCtx(), t = ctx.currentTime;
+      [400, 300].forEach(function (f, i) {
+        var o = ctx.createOscillator(), g = ctx.createGain();
+        o.connect(g); g.connect(ctx.destination);
+        o.frequency.value = f; o.type = 'sine';
+        var s = t + i * 0.12, e = s + 0.12;
+        g.gain.setValueAtTime(0, s); g.gain.linearRampToValueAtTime(0.2, s + 0.02); g.gain.exponentialRampToValueAtTime(0.01, e);
+        o.start(s); o.stop(e + 0.05);
+      });
+      setTimeout(function () { ctx.close(); }, 400);
+    } catch (e) { /* silent */ }
+  };
+
+  window.playBuzzer = function () {
+    try {
+      var ctx = audioCtx(), o = ctx.createOscillator(), g = ctx.createGain();
+      o.connect(g); g.connect(ctx.destination);
+      o.frequency.value = 150; o.type = 'sawtooth';
+      var t = ctx.currentTime;
+      g.gain.setValueAtTime(0.25, t); g.gain.exponentialRampToValueAtTime(0.01, t + 0.3);
+      o.start(t); o.stop(t + 0.35);
+      setTimeout(function () { ctx.close(); }, 400);
+    } catch (e) { /* silent */ }
+  };
+
+  window.playContinueClick = function () {
+    try {
+      var ctx = audioCtx(), o = ctx.createOscillator(), g = ctx.createGain();
+      o.connect(g); g.connect(ctx.destination);
+      o.frequency.value = 600; o.type = 'sine';
+      var t = ctx.currentTime;
+      g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.15, t + 0.01); g.gain.exponentialRampToValueAtTime(0.01, t + 0.08);
+      o.start(t); o.stop(t + 0.1);
+      setTimeout(function () { ctx.close(); }, 150);
+    } catch (e) { /* silent */ }
+  };
+
+
+  // ── Phase state ──────────────────────────────────────────────────────
+  var PHASES = [
+    'welcome', 'totals', 'asset-breakdown', 'net-assets-breakdown',
+    'statement-of-activities', 'recognition-tests', 'collection-election',
+    'consolidation', 'complete'
+  ];
+
+  var NPO_NAMES = { H: 'Harbor', B: 'Bridgeway', N: 'Northline' };
+
+  var state = {
+    phase: 'welcome',
+    totalsPick: '',    totalsRationale: '',    totalsSubmitted: false,
+    assetsPick: '',    assetsRationale: '',    assetsSubmitted: false,
+    netAssetsPick: '', netAssetsRationale: '', netAssetsSubmitted: false,
+    soaChoice: '',     soaAttempts: 0,         soaSubmitted: false,
+    servicesChoice: '', servicesAttempts: 0,   servicesSubmitted: false,
+    collectionChoice: '', collectionAttempts: 0, collectionSubmitted: false,
+    consolidationSubmitted: false,
+    devMode: false, headerClicks: 0
+  };
+
+  var YN_CONFIG = {
+    soa: { correct: 'no', hints: [
+      'Look at the Total column for the "Released from restrictions" row. What does it sum to?',
+      'A reclassification moves dollars from one Net Assets category to another. Compare it to contribution revenue or expenses, which add to or subtract from Total Net Assets.'
+    ]},
+    services: { correct: 'no', hints: [
+      'Walk through the two tests. Did the volunteers create or enhance a nonfinancial asset? If not, do their services require a professional license or certification?',
+      'Mentoring is valuable labor, and Harbor would pay for it if it had to. But "would otherwise purchase" is only half of the second test — the other half is "specialized skills" in the sense of a license or credential.'
+    ]},
+    collection: { correct: 'no', hints: [
+      'Think through what would happen if Northline had chosen to capitalize the archive. What would appear on each statement? Now consider what happens when Northline does not capitalize.',
+      'If the photograph is not recorded as an asset, is there contribution revenue to recognize against it? No asset, no revenue — what does that mean for the statements?'
+    ]}
+  };
+
+
+  // ── Navigation ───────────────────────────────────────────────────────
+  window.goTo = function (phase) {
+    playContinueClick();
+    var old = document.getElementById('phase-' + state.phase);
+    if (old) old.classList.remove('active');
+    state.phase = phase;
+    var next = document.getElementById('phase-' + phase);
+    if (next) next.classList.add('active');
+    window.scrollTo(0, 0);
+    updateProgress();
+    if (phase === 'asset-breakdown')          showRecap('totals');
+    if (phase === 'net-assets-breakdown')     showRecap('assets');
+    if (phase === 'statement-of-activities')  showRecap('netAssets');
+    if (phase === 'consolidation')            showAllRecaps();
+  };
+
+  window.goBack = function () {
+    var idx = PHASES.indexOf(state.phase);
+    if (idx > 0) goTo(PHASES[idx - 1]);
+  };
+
+  function updateProgress() {
+    var idx = PHASES.indexOf(state.phase);
+    var pct = Math.round(idx / (PHASES.length - 1) * 100);
+    var fill = document.getElementById('progressFill');
+    if (fill) fill.style.width = pct + '%';
+    var lbl = document.getElementById('progressPct');
+    if (lbl) lbl.textContent = pct + '%';
+  }
+
+  function showRecap(group) {
+    var box  = document.getElementById('recap-' + group);
+    var text = document.getElementById('recap-' + group + '-text');
+    var pick = state[group + 'Pick'];
+    var rat  = state[group + 'Rationale'];
+    if (box && text && pick) {
+      text.textContent = 'You chose ' + (NPO_NAMES[pick] || pick) + '. You wrote: "' + rat + '"';
+      box.style.display = '';
+    }
+  }
+
+  function showAllRecaps() {
+    var box  = document.getElementById('recap-all-picks');
+    var text = document.getElementById('recap-all-picks-text');
+    if (!box || !text) return;
+    var lines = [];
+    if (state.totalsPick)    lines.push('<strong>Step 1. Totals Only:</strong> ' + NPO_NAMES[state.totalsPick] + ' — <em>"' + state.totalsRationale + '"</em>');
+    if (state.assetsPick)    lines.push('<strong>Step 2. Asset Breakdown:</strong> ' + NPO_NAMES[state.assetsPick] + ' — <em>"' + state.assetsRationale + '"</em>');
+    if (state.netAssetsPick) lines.push('<strong>Step 3. Net Assets Breakdown:</strong> ' + NPO_NAMES[state.netAssetsPick] + ' — <em>"' + state.netAssetsRationale + '"</em>');
+    if (lines.length) {
+      text.innerHTML = lines.join('<br>');
+      box.style.display = '';
+    }
+  }
+
+
+  // ── Pick & Rationale ─────────────────────────────────────────────────
+  window.selectBiz = function (group, biz) {
+    if (state[group + 'Submitted']) return;
+    state[group + 'Pick'] = biz;
+    document.querySelectorAll('#pick-' + group + ' .pick-btn').forEach(function (btn) {
+      btn.classList.toggle('selected', btn.dataset.biz === biz);
+    });
+    checkPickSubmit(group);
+  };
+
+  window.checkPickSubmit = function (group) {
+    if (state[group + 'Submitted']) return;
+    var ta  = document.getElementById(group + '-rationale');
+    var btn = document.getElementById(group + '-submit-btn');
+    if (btn) btn.disabled = !(state[group + 'Pick'] && ta && ta.value.trim().length >= 8);
+  };
+
+  window.submitPick = function (group) {
+    var ta = document.getElementById(group + '-rationale');
+    if (!state[group + 'Pick'] || !ta || ta.value.trim().length < 8) return;
+    state[group + 'Rationale'] = ta.value.trim();
+    state[group + 'Submitted'] = true;
+    playSuccessTone();
+    document.querySelectorAll('#pick-' + group + ' .pick-btn').forEach(function (b) { b.disabled = true; });
+    ta.disabled = true;
+    var sb = document.getElementById(group + '-submit-btn');
+    if (sb) sb.style.display = 'none';
+    var fb = document.getElementById(group + '-feedback');
+    if (fb) fb.classList.add('show');
+    var cont = document.getElementById(group + '-continue');
+    if (cont) cont.disabled = false;
+  };
+
+
+  // ── Yes / No questions ───────────────────────────────────────────────
+  window.selectYN = function (group, choice) {
+    if (state[group + 'Submitted']) return;
+    state[group + 'Choice'] = choice;
+    document.querySelectorAll('#yn-' + group + ' .pick-btn').forEach(function (btn) {
+      btn.classList.toggle('selected', btn.dataset.choice === choice);
+    });
+    var wrap = document.getElementById(group + '-explanation-wrap');
+    if (wrap) wrap.style.display = '';
+    checkYNSubmit(group);
+  };
+
+  window.checkYNSubmit = function (group) {
+    if (state[group + 'Submitted']) return;
+    var ta  = document.getElementById(group + '-explanation');
+    var btn = document.getElementById(group + '-check-btn');
+    if (btn) btn.disabled = !(state[group + 'Choice'] && ta && ta.value.trim().length >= 8);
+  };
+
+  window.checkYN = function (group) {
+    if (state[group + 'Submitted']) return;
+    var cfg    = YN_CONFIG[group];
+    var choice = state[group + 'Choice'];
+    var ta     = document.getElementById(group + '-explanation');
+    if (!choice || !ta || ta.value.trim().length < 8) return;
+
+    if (choice === cfg.correct) {
+      playSuccessTone();
+      state[group + 'Submitted'] = true;
+      lockYN(group);
+      markCorrectBtn(group, cfg.correct);
+      var c = document.getElementById(group + '-correct');
+      if (c) c.classList.add('show');
+      var attEl = document.getElementById(group + '-attempts-remaining');
+      if (attEl) attEl.style.display = 'none';
+      showPostYNInsight(group);
+      var cont = document.getElementById(group + '-continue');
+      if (cont) cont.disabled = false;
+    } else {
+      state[group + 'Attempts']++;
+      var attempts = state[group + 'Attempts'];
+      if (attempts >= 2) {
+        playBuzzer();
+        state[group + 'Submitted'] = true;
+        lockYN(group);
+        markCorrectBtn(group, cfg.correct);
+        var r = document.getElementById(group + '-reveal');
+        if (r) r.classList.add('show');
+        var attEl2 = document.getElementById(group + '-attempts-remaining');
+        if (attEl2) attEl2.style.display = 'none';
+        showPostYNInsight(group);
+        var cont2 = document.getElementById(group + '-continue');
+        if (cont2) cont2.disabled = false;
+      } else {
+        playSoftNope();
+        var attEl3 = document.getElementById(group + '-attempts-remaining');
+        if (attEl3) attEl3.textContent = '1 attempt remaining';
+        var hintEl = document.getElementById(group + '-hint');
+        if (hintEl) {
+          hintEl.textContent = 'Hint: ' + cfg.hints[attempts - 1];
+          hintEl.style.display = '';
+        }
+      }
+    }
+  };
+
+  function showPostYNInsight(group) {
+    var insight = document.getElementById(group + '-insight');
+    if (insight) insight.style.display = '';
+  }
+
+  function lockYN(group) {
+    document.querySelectorAll('#yn-' + group + ' .pick-btn').forEach(function (b) { b.disabled = true; });
+    var ta = document.getElementById(group + '-explanation');
+    if (ta) ta.disabled = true;
+    var cb = document.getElementById(group + '-check-btn');
+    if (cb) cb.style.display = 'none';
+  }
+
+  function markCorrectBtn(group, correctChoice) {
+    document.querySelectorAll('#yn-' + group + ' .pick-btn').forEach(function (b) {
+      if (b.dataset.choice === correctChoice) b.classList.add('correct-answer');
+    });
+  }
+
+
+  // ── Consolidation reflection ─────────────────────────────────────────
+  window.checkReflection = function () {
+    if (state.consolidationSubmitted) return;
+    var ta  = document.getElementById('consolidation-reflection');
+    var btn = document.getElementById('consolidation-submit-btn');
+    if (btn) btn.disabled = !ta || ta.value.trim().length < 15;
+  };
+
+  window.submitReflection = function () {
+    var ta = document.getElementById('consolidation-reflection');
+    if (!ta || ta.value.trim().length < 15) return;
+    state.consolidationSubmitted = true;
+    playSuccessTone();
+    ta.disabled = true;
+    var sb = document.getElementById('consolidation-submit-btn');
+    if (sb) sb.style.display = 'none';
+    var fb = document.getElementById('consolidation-feedback');
+    if (fb) fb.classList.add('show');
+    var cont = document.getElementById('consolidation-continue');
+    if (cont) cont.disabled = false;
+  };
+
+
+  // ── Restart ───────────────────────────────────────────────────────────
+  window.restartTutorial = function () {
+    playContinueClick();
+    state.phase = 'welcome';
+    state.totalsPick = '';     state.totalsRationale = '';     state.totalsSubmitted = false;
+    state.assetsPick = '';     state.assetsRationale = '';     state.assetsSubmitted = false;
+    state.netAssetsPick = '';  state.netAssetsRationale = '';  state.netAssetsSubmitted = false;
+    state.soaChoice = '';      state.soaAttempts = 0;          state.soaSubmitted = false;
+    state.servicesChoice = ''; state.servicesAttempts = 0;    state.servicesSubmitted = false;
+    state.collectionChoice = ''; state.collectionAttempts = 0; state.collectionSubmitted = false;
+    state.consolidationSubmitted = false;
+
+    PHASES.forEach(function (p) {
+      var el = document.getElementById('phase-' + p);
+      if (el) el.classList.remove('active');
+    });
+    document.getElementById('phase-welcome').classList.add('active');
+    updateProgress();
+
+    // Reset pick groups
+    ['totals', 'assets', 'netAssets'].forEach(function (g) {
+      document.querySelectorAll('#pick-' + g + ' .pick-btn').forEach(function (b) {
+        b.classList.remove('selected'); b.disabled = false;
+      });
+      var ta = document.getElementById(g + '-rationale');
+      if (ta) { ta.value = ''; ta.disabled = false; }
+      var sb = document.getElementById(g + '-submit-btn');
+      if (sb) { sb.style.display = ''; sb.disabled = true; }
+      var fb = document.getElementById(g + '-feedback');
+      if (fb) fb.classList.remove('show');
+      var cont = document.getElementById(g + '-continue');
+      if (cont) cont.disabled = true;
+    });
+
+    // Reset recap boxes
+    ['totals', 'assets', 'netAssets'].forEach(function (g) {
+      var box = document.getElementById('recap-' + g);
+      if (box) box.style.display = 'none';
+    });
+    var allBox = document.getElementById('recap-all-picks');
+    if (allBox) allBox.style.display = 'none';
+
+    // Reset YN groups
+    ['soa', 'services', 'collection'].forEach(function (g) {
+      document.querySelectorAll('#yn-' + g + ' .pick-btn').forEach(function (b) {
+        b.classList.remove('selected', 'correct-answer'); b.disabled = false;
+      });
+      var wrap = document.getElementById(g + '-explanation-wrap');
+      if (wrap) wrap.style.display = 'none';
+      var ta = document.getElementById(g + '-explanation');
+      if (ta) { ta.value = ''; ta.disabled = false; }
+      var cb = document.getElementById(g + '-check-btn');
+      if (cb) { cb.style.display = ''; cb.disabled = true; }
+      var hint = document.getElementById(g + '-hint');
+      if (hint) hint.style.display = 'none';
+      var cor = document.getElementById(g + '-correct');
+      if (cor) cor.classList.remove('show');
+      var rev = document.getElementById(g + '-reveal');
+      if (rev) rev.classList.remove('show');
+      var ins = document.getElementById(g + '-insight');
+      if (ins) ins.style.display = 'none';
+      var cont = document.getElementById(g + '-continue');
+      if (cont) cont.disabled = true;
+      var attEl = document.getElementById(g + '-attempts-remaining');
+      if (attEl) { attEl.textContent = '2 attempts remaining'; attEl.style.display = ''; }
+    });
+
+    // Reset consolidation
+    var cta = document.getElementById('consolidation-reflection');
+    if (cta) { cta.value = ''; cta.disabled = false; }
+    var csb = document.getElementById('consolidation-submit-btn');
+    if (csb) { csb.style.display = ''; csb.disabled = true; }
+    var cfb = document.getElementById('consolidation-feedback');
+    if (cfb) cfb.classList.remove('show');
+    var ccont = document.getElementById('consolidation-continue');
+    if (ccont) ccont.disabled = true;
+
+    window.scrollTo(0, 0);
+  };
+
+
+  // ── Dev mode ──────────────────────────────────────────────────────────
+  window.headerClick = function () {
+    state.headerClicks++;
+    if (state.headerClicks >= 3) {
+      state.devMode = !state.devMode;
+      state.headerClicks = 0;
+      var panel = document.getElementById('devPanel');
+      if (panel) {
+        panel.style.display = state.devMode ? '' : 'none';
+        if (state.devMode) buildDevButtons();
+      }
+    }
+  };
+
+  function buildDevButtons() {
+    var wrap = document.getElementById('devBtns');
+    if (!wrap || wrap.children.length) return;
+    PHASES.forEach(function (p) {
+      var b = document.createElement('button');
+      b.textContent = p;
+      b.style.cssText = 'padding:3px 8px; border-radius:4px; border:none; font-size:var(--font-xs); cursor:pointer; background:rgba(255,255,255,0.2); color:white;';
+      b.onclick = function () { goTo(p); };
+      wrap.appendChild(b);
+    });
+  }
+
+
+  // ── Init ──────────────────────────────────────────────────────────────
+  updateProgress();
+
+})();
+</script>
+</body>
+</html>
