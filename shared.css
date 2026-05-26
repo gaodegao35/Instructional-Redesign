@@ -559,6 +559,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
   cursor: pointer; transition: background 0.15s;
 }
 .btn-continue:hover { background: var(--primary-light); }
+.btn-continue:disabled { background: #c8d0e0; color: #fff; cursor: default; }
 .act-footer-btns { display: flex; gap: 8px; }
 
 /* ===== SUBSECTION HEAD ===== */

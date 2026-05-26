@@ -117,7 +117,7 @@
 
   <div class="phase-nav">
     <button class="btn-reset" onclick="goBack()">← Back</button>
-    <button class="btn-continue" id="totals-continue" style="display:none" onclick="goTo('asset-breakdown')">Continue →</button>
+    <button class="btn-continue" id="totals-continue" disabled onclick="goTo('asset-breakdown')">Continue →</button>
   </div>
 
 </div><!-- /phase-totals -->
@@ -193,7 +193,7 @@
 
   <div class="phase-nav">
     <button class="btn-reset" onclick="goBack()">← Back</button>
-    <button class="btn-continue" id="assets-continue" style="display:none" onclick="goTo('equities-breakdown')">Continue →</button>
+    <button class="btn-continue" id="assets-continue" disabled onclick="goTo('equities-breakdown')">Continue →</button>
   </div>
 
 </div><!-- /phase-asset-breakdown -->
@@ -284,7 +284,7 @@
 
   <div class="phase-nav">
     <button class="btn-reset" onclick="goBack()">← Back</button>
-    <button class="btn-continue" id="equities-continue" style="display:none" onclick="goTo('income-statements')">Continue →</button>
+    <button class="btn-continue" id="equities-continue" disabled onclick="goTo('income-statements')">Continue →</button>
   </div>
 
 </div><!-- /phase-equities-breakdown -->
@@ -335,6 +335,7 @@
       <div style="margin-top:10px">
         <button class="btn btn-primary" id="income-check-btn" onclick="checkYN('income')" disabled>Submit</button>
       </div>
+      <div id="income-attempts-remaining" style="margin-top:8px; font-size:var(--font-s); color:#6b7280;">2 attempts remaining</div>
     </div>
     <div class="stage-note" id="income-hint" style="display:none; margin-top:16px"></div>
     <div class="feedback ok" id="income-correct">
@@ -351,7 +352,7 @@
 
   <div class="phase-nav">
     <button class="btn-reset" onclick="goBack()">← Back</button>
-    <button class="btn-continue" id="income-continue" style="display:none" onclick="goTo('recognition-rule')">Continue →</button>
+    <button class="btn-continue" id="income-continue" disabled onclick="goTo('recognition-rule')">Continue →</button>
   </div>
 
 </div><!-- /phase-income-statements -->
@@ -384,6 +385,7 @@
       <div style="margin-top:10px">
         <button class="btn btn-primary" id="recognition-check-btn" onclick="checkYN('recognition')" disabled>Submit</button>
       </div>
+      <div id="recognition-attempts-remaining" style="margin-top:8px; font-size:var(--font-s); color:#6b7280;">2 attempts remaining</div>
     </div>
     <div class="stage-note" id="recognition-hint" style="display:none; margin-top:16px"></div>
     <div class="feedback ok" id="recognition-correct">
@@ -402,7 +404,7 @@
 
   <div class="phase-nav">
     <button class="btn-reset" onclick="goBack()">← Back</button>
-    <button class="btn-continue" id="recognition-continue" style="display:none" onclick="goTo('convention-applied')">Continue →</button>
+    <button class="btn-continue" id="recognition-continue" disabled onclick="goTo('convention-applied')">Continue →</button>
   </div>
 
 </div><!-- /phase-recognition-rule -->
@@ -416,7 +418,7 @@
   <div class="section-title">The Records, Corrected</div>
 
   <div class="narrative-block">
-    <p>Here are the three businesses' statements after applying the recognition rule. Business C's Great Idea may still exist and may still become valuable, but it is no longer recorded as a $100 asset in the balance sheet. The related gain is also removed from the income statement.</p>
+    <p>Here are the three businesses' statements <strong>after</strong> applying the recognition rule. Business C's Great Idea may still exist and may still become valuable, but it is no longer recorded as a $100 asset in the balance sheet. The related gain is also removed from the income statement.</p>
   </div>
 
   <div class="subsection-head">Balance Sheets</div>
@@ -490,9 +492,9 @@
     <p>Three things this exercise shows about the structure of for-profit financial statements.</p>
     <div class="narrative-inset">
       <ol style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:14px;">
-        <li class="prose" style="margin:0"><strong style="color:var(--primary)">1. An identity holds the balance sheet together.</strong> Assets − Liabilities = Equity, at every point in time, by construction.</li>
-        <li class="prose" style="margin:0"><strong style="color:var(--primary)">2. The residual gets broken into subparts.</strong> Contributed Capital and Retained Earnings answer different questions about where the Equity balance came from. Without the breakdown, the balance sheet can't carry those distinctions.</li>
-        <li class="prose" style="margin:0"><strong style="color:var(--primary)">3. A second statement explains how the residual changed.</strong> The income statement tells the story behind Retained Earnings. Two businesses with the same Retained Earnings balance can have very different income statements behind them — and the structure makes those differences visible.</li>
+        <li class="prose" style="margin:0"><strong style="color:var(--primary)">1. The balance sheet is built around the accounting identity.</strong> At any point in time, Assets − Liabilities = Equity. Equity is the residual: what remains after liabilities are subtracted from assets.</li>
+        <li class="prose" style="margin:0"><strong style="color:var(--primary)">2. The residual gets broken into subparts.</strong> Contributed Capital — amounts owners put into the business — and Retained Earnings — amounts the business generated and kept — show where the Equity balance came from. Without this breakdown, the balance sheet cannot carry those distinctions.</li>
+        <li class="prose" style="margin:0"><strong style="color:var(--primary)">3. The income statement explains how the residual changed.</strong> The balance sheet shows the ending balance of Retained Earnings. The income statement helps explain what happened during the period to produce that balance. Two businesses can show the same Retained Earnings balance, but the income statements behind those balances may tell very different stories.</li>
       </ol>
     </div>
   </div>
@@ -503,19 +505,19 @@
   </div>
 
   <div class="prompt-card" style="margin-top:28px">
-    <p class="prompt-q">Write a sentence or two about what you now see in these statements that you didn't see at the start.</p>
+    <p class="prompt-q">In one or two sentences, describe what you now understand about financial statements that was not clear at the start.</p>
     <textarea id="consolidation-reflection" placeholder="Write your response here..." rows="3" oninput="checkReflection()"></textarea>
     <div style="margin-top:10px">
-      <button class="btn btn-primary" id="consolidation-submit-btn" onclick="submitReflection()" disabled>Submit reflection</button>
+      <button class="btn btn-primary" id="consolidation-submit-btn" onclick="submitReflection()" disabled>Submit</button>
     </div>
     <div class="feedback ok" id="consolidation-feedback">
-      <p>Reflection captured.</p>
+      <p>Your response has been submitted. Continue to the next step.</p>
     </div>
   </div>
 
   <div class="phase-nav">
     <button class="btn-reset" onclick="goBack()">← Back</button>
-    <button class="btn-continue" id="consolidation-continue" style="display:none" onclick="goTo('complete')">Continue →</button>
+    <button class="btn-continue" id="consolidation-continue" disabled onclick="goTo('complete')">Continue →</button>
   </div>
 
 </div><!-- /phase-consolidation -->
@@ -765,9 +767,9 @@
     var text = document.getElementById('recap-all-picks-text');
     if (!box || !text) return;
     var lines = [];
-    if (state.totalsPick)    lines.push('<strong>Totals Only:</strong> Business ' + state.totalsPick + ' — <em>"' + state.totalsRationale + '"</em>');
-    if (state.assetsPick)    lines.push('<strong>Asset Breakdown:</strong> Business ' + state.assetsPick + ' — <em>"' + state.assetsRationale + '"</em>');
-    if (state.equitiesPick)  lines.push('<strong>Equity Breakdown:</strong> Business ' + state.equitiesPick + ' — <em>"' + state.equitiesRationale + '"</em>');
+    if (state.totalsPick)    lines.push('<strong>Step 1. Totals Only:</strong> Business ' + state.totalsPick + ' — <em>"' + state.totalsRationale + '"</em>');
+    if (state.assetsPick)    lines.push('<strong>Step 2. Asset Breakdown:</strong> Business ' + state.assetsPick + ' — <em>"' + state.assetsRationale + '"</em>');
+    if (state.equitiesPick)  lines.push('<strong>Step 3. Equity Breakdown:</strong> Business ' + state.equitiesPick + ' — <em>"' + state.equitiesRationale + '"</em>');
     if (lines.length) {
       text.innerHTML = lines.join('<br>');
       box.style.display = '';
@@ -807,7 +809,7 @@
     var fb = document.getElementById(group + '-feedback');
     if (fb) fb.classList.add('show');
     var cont = document.getElementById(group + '-continue');
-    if (cont) cont.style.display = '';
+    if (cont) cont.disabled = false;
   };
 
 
@@ -845,8 +847,10 @@
       markCorrectBtn(group, cfg.correct);
       var c = document.getElementById(group + '-correct');
       if (c) c.classList.add('show');
+      var attEl = document.getElementById(group + '-attempts-remaining');
+      if (attEl) attEl.style.display = 'none';
       var cont = document.getElementById(group + '-continue');
-      if (cont) cont.style.display = '';
+      if (cont) cont.disabled = false;
     } else {
       // Wrong
       state[group + 'Attempts']++;
@@ -858,10 +862,14 @@
         markCorrectBtn(group, cfg.correct);
         var r = document.getElementById(group + '-reveal');
         if (r) r.classList.add('show');
+        var attEl2 = document.getElementById(group + '-attempts-remaining');
+        if (attEl2) attEl2.style.display = 'none';
         var cont2 = document.getElementById(group + '-continue');
-        if (cont2) cont2.style.display = '';
+        if (cont2) cont2.disabled = false;
       } else {
         playSoftNope();
+        var attEl3 = document.getElementById(group + '-attempts-remaining');
+        if (attEl3) attEl3.textContent = '1 attempt remaining';
         var hintEl = document.getElementById(group + '-hint');
         if (hintEl) {
           hintEl.textContent = 'Hint: ' + cfg.hints[attempts - 1];
@@ -905,7 +913,7 @@
     var fb = document.getElementById('consolidation-feedback');
     if (fb) fb.classList.add('show');
     var cont = document.getElementById('consolidation-continue');
-    if (cont) cont.style.display = '';
+    if (cont) cont.disabled = false;
   };
 
 
@@ -941,7 +949,7 @@
       var fb = document.getElementById(g + '-feedback');
       if (fb) fb.classList.remove('show');
       var cont = document.getElementById(g + '-continue');
-      if (cont) cont.style.display = 'none';
+      if (cont) cont.disabled = true;
     });
 
     // Reset recap boxes
@@ -970,7 +978,9 @@
       var rev = document.getElementById(g + '-reveal');
       if (rev) rev.classList.remove('show');
       var cont = document.getElementById(g + '-continue');
-      if (cont) cont.style.display = 'none';
+      if (cont) cont.disabled = true;
+      var attEl = document.getElementById(g + '-attempts-remaining');
+      if (attEl) { attEl.textContent = '2 attempts remaining'; attEl.style.display = ''; }
     });
 
     // Reset reflection
@@ -981,7 +991,7 @@
     var cfb = document.getElementById('consolidation-feedback');
     if (cfb) cfb.classList.remove('show');
     var ccont = document.getElementById('consolidation-continue');
-    if (ccont) ccont.style.display = 'none';
+    if (ccont) ccont.disabled = true;
 
     window.scrollTo(0, 0);
   };
