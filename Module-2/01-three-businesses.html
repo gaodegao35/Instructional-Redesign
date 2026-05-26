@@ -19,6 +19,7 @@
   .acct-liab + .acct-total     { margin-top: 18px; }
   .acct-col .acct-section      { margin-top: 18px; }
   .narrative-inset-accent      { background: #fef3eb; border: 1px solid #f5c4a8; border-radius: 6px; padding: 14px 16px; margin-top: 14px; color: #374151; }
+  .phase-nav                   { display: flex; justify-content: space-between; align-items: center; margin-top: 22px; }
 </style>
 </head>
 <body>
@@ -110,12 +111,14 @@
       <button class="btn btn-primary" id="totals-submit-btn" onclick="submitPick('totals')" disabled>Submit</button>
     </div>
     <div class="feedback ok" id="totals-feedback">
-      <p style="margin-bottom:10px">Your response has been submitted. Continue to the next step.</p>
-      <button class="btn-continue" onclick="goTo('asset-breakdown')">Continue →</button>
+      <p>Your response has been submitted. Continue to the next step.</p>
     </div>
   </div>
 
-  <button class="btn-reset" onclick="goBack()">← Back</button>
+  <div class="phase-nav">
+    <button class="btn-reset" onclick="goBack()">← Back</button>
+    <button class="btn-continue" id="totals-continue" style="display:none" onclick="goTo('asset-breakdown')">Continue →</button>
+  </div>
 
 </div><!-- /phase-totals -->
 
@@ -184,12 +187,14 @@
       <button class="btn btn-primary" id="assets-submit-btn" onclick="submitPick('assets')" disabled>Submit</button>
     </div>
     <div class="feedback ok" id="assets-feedback">
-      <p style="margin-bottom:10px">Your response has been submitted. Continue to the next step.</p>
-      <button class="btn-continue" onclick="goTo('equities-breakdown')">Continue →</button>
+      <p>Your response has been submitted. Continue to the next step.</p>
     </div>
   </div>
 
-  <button class="btn-reset" onclick="goBack()">← Back</button>
+  <div class="phase-nav">
+    <button class="btn-reset" onclick="goBack()">← Back</button>
+    <button class="btn-continue" id="assets-continue" style="display:none" onclick="goTo('equities-breakdown')">Continue →</button>
+  </div>
 
 </div><!-- /phase-asset-breakdown -->
 
@@ -273,12 +278,14 @@
       <button class="btn btn-primary" id="equities-submit-btn" onclick="submitPick('equities')" disabled>Submit</button>
     </div>
     <div class="feedback ok" id="equities-feedback">
-      <p style="margin-bottom:10px">Your response has been submitted. Continue to the next step.</p>
-      <button class="btn-continue" onclick="goTo('income-statements')">Continue →</button>
+      <p>Your response has been submitted. Continue to the next step.</p>
     </div>
   </div>
 
-  <button class="btn-reset" onclick="goBack()">← Back</button>
+  <div class="phase-nav">
+    <button class="btn-reset" onclick="goBack()">← Back</button>
+    <button class="btn-continue" id="equities-continue" style="display:none" onclick="goTo('income-statements')">Continue →</button>
+  </div>
 
 </div><!-- /phase-equities-breakdown -->
 
@@ -340,10 +347,12 @@
       <p>Business B's income statement shows revenues and expenses from business activity during the year. Business C's income statement shows one owner-estimated gain from the "great idea."</p>
       <p style="margin-top:6px">Both statements report $100 of Net Income, but they do not explain that amount in the same way. The income statement reveals the difference between the events behind the numbers.</p>
     </div>
-    <button class="btn-continue" id="income-continue" style="display:none; margin-top:10px" onclick="goTo('recognition-rule')">Continue →</button>
   </div>
 
-  <button class="btn-reset" onclick="goBack()">← Back</button>
+  <div class="phase-nav">
+    <button class="btn-reset" onclick="goBack()">← Back</button>
+    <button class="btn-continue" id="income-continue" style="display:none" onclick="goTo('recognition-rule')">Continue →</button>
+  </div>
 
 </div><!-- /phase-income-statements -->
 
@@ -389,10 +398,12 @@
       <p style="margin-top:6px">For an item to enter the records, there needs to be enough evidence that it exists as an accounting item and that its financial effect can be measured. Here, no outside party bought, licensed, or paid for the idea, and no exchange took place.</p>
       <p style="margin-top:6px">The idea may still be valuable, but the records do not provide enough evidence to include it in the financial statements. This rule keeps self-declared values off the records, but it can also leave out genuinely valuable things, such as in-house knowledge, customer relationships, or a brand built inside the business.</p>
     </div>
-    <button class="btn-continue" id="recognition-continue" style="display:none; margin-top:10px" onclick="goTo('convention-applied')">Continue →</button>
   </div>
 
-  <button class="btn-reset" onclick="goBack()">← Back</button>
+  <div class="phase-nav">
+    <button class="btn-reset" onclick="goBack()">← Back</button>
+    <button class="btn-continue" id="recognition-continue" style="display:none" onclick="goTo('convention-applied')">Continue →</button>
+  </div>
 
 </div><!-- /phase-recognition-rule -->
 
@@ -460,9 +471,10 @@
     <div class="acct-col"><div class="acct-empty">No recognized income statement activity to report.</div></div>
   </div>
 
-  <button class="btn-continue" style="width:100%; justify-content:center" onclick="goTo('consolidation')">Continue →</button>
-
-  <button class="btn-reset" style="margin-top:14px" onclick="goBack()">← Back</button>
+  <div class="phase-nav">
+    <button class="btn-reset" onclick="goBack()">← Back</button>
+    <button class="btn-continue" onclick="goTo('consolidation')">Continue →</button>
+  </div>
 
 </div><!-- /phase-convention-applied -->
 
@@ -497,12 +509,14 @@
       <button class="btn btn-primary" id="consolidation-submit-btn" onclick="submitReflection()" disabled>Submit reflection</button>
     </div>
     <div class="feedback ok" id="consolidation-feedback">
-      <p style="margin-bottom:10px">Reflection captured.</p>
-      <button class="btn-continue" onclick="goTo('complete')">Continue →</button>
+      <p>Reflection captured.</p>
     </div>
   </div>
 
-  <button class="btn-reset" onclick="goBack()">← Back</button>
+  <div class="phase-nav">
+    <button class="btn-reset" onclick="goBack()">← Back</button>
+    <button class="btn-continue" id="consolidation-continue" style="display:none" onclick="goTo('complete')">Continue →</button>
+  </div>
 
 </div><!-- /phase-consolidation -->
 
@@ -789,9 +803,11 @@
     ta.disabled = true;
     var sb = document.getElementById(group + '-submit-btn');
     if (sb) sb.style.display = 'none';
-    // Show feedback
+    // Show feedback and continue button
     var fb = document.getElementById(group + '-feedback');
     if (fb) fb.classList.add('show');
+    var cont = document.getElementById(group + '-continue');
+    if (cont) cont.style.display = '';
   };
 
 
@@ -888,6 +904,8 @@
     if (sb) sb.style.display = 'none';
     var fb = document.getElementById('consolidation-feedback');
     if (fb) fb.classList.add('show');
+    var cont = document.getElementById('consolidation-continue');
+    if (cont) cont.style.display = '';
   };
 
 
@@ -922,6 +940,8 @@
       if (sb) { sb.style.display = ''; sb.disabled = true; }
       var fb = document.getElementById(g + '-feedback');
       if (fb) fb.classList.remove('show');
+      var cont = document.getElementById(g + '-continue');
+      if (cont) cont.style.display = 'none';
     });
 
     // Reset recap boxes
@@ -960,6 +980,8 @@
     if (csb) { csb.style.display = ''; csb.disabled = true; }
     var cfb = document.getElementById('consolidation-feedback');
     if (cfb) cfb.classList.remove('show');
+    var ccont = document.getElementById('consolidation-continue');
+    if (ccont) ccont.style.display = 'none';
 
     window.scrollTo(0, 0);
   };
