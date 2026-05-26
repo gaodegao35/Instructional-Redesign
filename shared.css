@@ -236,6 +236,7 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
 .btn-primary { background: var(--primary); color: white; }
 .btn-primary:hover { background: var(--primary-light); }
+.btn-primary:disabled { background: #c8d0e0; color: #fff; cursor: default; }
 .btn-hint {
   background: #eff6ff;
   color: #1d4ed8;
@@ -1206,6 +1207,272 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 /* ===== ID NUM FLASH ===== */
 .id-num.flash { color: #ffd700; }
 
+/* ===== NARRATIVE BLOCK (accent left-border callout for story/context) ===== */
+/* Used by: Module-2/01-three-businesses.html */
+.narrative-block {
+  background: var(--primary-faint);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 13px 16px;
+  font-size: var(--font-m);
+  color: #374151;
+  line-height: 1.65;
+  font-family: Inter, system-ui, sans-serif;
+  margin-bottom: 16px;
+}
+.narrative-block p { margin-bottom: 10px; }
+.narrative-block p:last-child { margin-bottom: 0; }
+.narrative-block strong { color: var(--accent); }
+
+/* ===== PICK GRID — A / B / C business selector ===== */
+/* Used by: Module-2/01-three-businesses.html */
+.pick-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.yn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.pick-btn {
+  border: 1.5px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 12px 8px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: var(--font-m);
+  font-weight: 700;
+  cursor: pointer;
+  background: white;
+  color: #444;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.pick-btn:hover:not([disabled]) { border-color: var(--primary); color: var(--primary); }
+.pick-btn.selected { border-color: var(--primary); background: var(--primary-faint); color: var(--primary); }
+.pick-btn.correct-answer { border-color: var(--success-border) !important; background: var(--success-bg) !important; color: var(--success-text) !important; }
+.pick-btn[disabled] { cursor: default; }
+
+/* ===== BIZ GRID — multi-column financial statement layout ===== */
+/* Used by: Module-2/01-three-businesses.html */
+.biz-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.biz-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+@media (max-width: 640px) {
+  .biz-grid, .biz-grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ===== ACCT-COL HELPERS — section labels, indent, footer ===== */
+/* Used by: Module-2/01-three-businesses.html */
+.acct-section {
+  font-size: var(--font-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--primary);
+  margin: 10px 0 4px;
+}
+.acct-section:first-child { margin-top: 0; }
+.acct-indent { padding-left: 12px; }
+.acct-footer {
+  font-size: var(--font-xs);
+  color: #888;
+  font-style: italic;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+.acct-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+  font-size: var(--font-s);
+  color: #999;
+  font-style: italic;
+}
+
+/* ===== ACTIVITY HEADER — sticky phase banner ===== */
+/* Used by: Module-2/01-three-businesses.html */
+.activity-header {
+  background: var(--primary);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 28px;
+  color: white;
+}
+.activity-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+.activity-header-title {
+  font-family: Inter, sans-serif;
+  font-size: var(--font-lg);
+  font-weight: 700;
+  margin-bottom: 2px;
+  line-height: 1.3;
+}
+.activity-header-sub {
+  font-size: var(--font-s);
+  opacity: 0.75;
+}
+.activity-header-btns {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+}
+.activity-header-btn {
+  background: rgba(255,255,255,0.13);
+  border: none;
+  border-radius: 6px;
+  padding: 7px 10px;
+  cursor: pointer;
+  color: white;
+  font-size: var(--font-m);
+  text-decoration: none;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.15s;
+}
+.activity-header-btn:hover { background: rgba(255,255,255,0.24); }
+.activity-header-progress { margin-top: 14px; }
+.activity-header-progress-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-xs);
+  opacity: 0.75;
+  margin-bottom: 5px;
+}
+.activity-header-bar {
+  height: 5px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.activity-header-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+/* ===== GLOSSARY OVERLAY — standalone activity pages ===== */
+/* Used by: Module-2/01-three-businesses.html */
+.glossary-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px 24px;
+  background: rgba(0,0,0,0.45);
+}
+.glossary-overlay.open { display: flex; }
+.glossary-panel {
+  background: white;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  overflow: hidden;
+}
+.glossary-panel-head {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.glossary-panel-title {
+  font-family: Inter, sans-serif;
+  font-size: var(--font-m);
+  font-weight: 700;
+  color: var(--primary);
+}
+.glossary-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-lg);
+  color: #888;
+  line-height: 1;
+  padding: 0 4px;
+}
+.glossary-close-btn:hover { color: var(--primary); }
+.glossary-search-wrap {
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.glossary-search-wrap input {
+  width: 100%;
+  padding: 7px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  font-family: Inter, sans-serif;
+  font-size: var(--font-s);
+  color: #333;
+  box-sizing: border-box;
+  background: white;
+}
+.glossary-search-wrap input:focus { outline: none; border-color: var(--primary); }
+.glossary-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.glossary-entry.hidden { display: none; }
+.glossary-entry-term {
+  font-family: Inter, sans-serif;
+  font-size: var(--font-s);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 3px;
+}
+.glossary-entry-def {
+  font-family: 'Open Sans', sans-serif;
+  font-size: var(--font-s);
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ===== NARRATIVE INSET — contrasting inner box inside .narrative-block ===== */
+/* Used by: Module-2/01-three-businesses.html */
+.narrative-inset {
+  background: white;
+  border-radius: 6px;
+  padding: 10px 13px;
+  margin-top: 10px;
+  color: #374151;
+}
+.narrative-inset p { margin-bottom: 8px; }
+.narrative-inset p:last-child { margin-bottom: 0; }
+.narrative-inset ul { margin: 0; padding: 0; }
+
 /* ===== DARK MODE ===== */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -1706,4 +1973,32 @@ body { background: var(--page-bg); font-family: 'Open Sans', sans-serif; color: 
 
   /* Prompt sub-elements */
   .prompt-number { color: var(--accent); }
+
+  /* Narrative block */
+  .narrative-block { background: #1e150a; border-left-color: var(--accent); color: #b8afa4; }
+  .narrative-block strong { color: var(--accent); }
+
+  /* Pick / YN buttons */
+  .pick-btn { background: #3e3c48; border-color: #4a4858; color: #c8ccd8; }
+  .pick-btn:hover:not([disabled]) { border-color: var(--primary); color: var(--primary); }
+  .pick-btn.selected { background: var(--primary-faint); border-color: var(--primary); color: var(--primary); }
+
+  /* Acct-col helpers */
+  .acct-section { color: var(--primary); }
+  .acct-footer { color: #8a8898; border-top-color: #2a2830; }
+  .acct-empty { color: #4a4858; }
+
+  /* Glossary overlay */
+  .glossary-panel { background: #2a2830; }
+  .glossary-panel-head { border-bottom-color: var(--border); }
+  .glossary-panel-title { color: var(--primary); }
+  .glossary-close-btn { color: #8a8898; }
+  .glossary-search-wrap { border-bottom-color: var(--border); }
+  .glossary-search-wrap input { background: #1e1c26; border-color: var(--border-strong); color: #c8ccd8; }
+  .glossary-search-wrap input::placeholder { color: #4a4858; }
+  .glossary-entry-term { color: var(--primary); }
+  .glossary-entry-def { color: #b0aec0; }
+
+  /* Narrative inset box */
+  .narrative-inset { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.1); color: #b8afa4; }
 }

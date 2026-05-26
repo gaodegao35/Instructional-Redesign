@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three Businesses, One Decision — Accounting Prework</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+<style>
+  /* ===== Page-specific spacing overrides ===== */
+  .section-title               { margin-bottom: 14px; }
+  .screen > .btn-reset         { margin-bottom: 22px; }
+  .narrative-block             { margin-bottom: 28px; padding: 20px 22px; }
+  .narrative-inset             { padding: 14px 16px; }
+  .acct-liab                   { margin-top: 18px; }
+  .acct-liab + .acct-total     { margin-top: 18px; }
+  .acct-col .acct-section      { margin-top: 18px; }
+  .narrative-inset-accent      { background: #fef3eb; border: 1px solid #f5c4a8; border-radius: 6px; padding: 14px 16px; margin-top: 14px; color: #374151; }
+</style>
+</head>
+<body>
+<div class="content content-standalone">
+
+
+<!-- ===================================================================
+     PHASE: WELCOME
+     ================================================================= -->
+<div id="phase-welcome" class="screen active">
+
+  <div class="section-title">Three Businesses, One Decision</div>
+
+  <div class="narrative-block">
+    <p>In Module 1 you built the recordkeeping system from the inside out — identify the entity, list its Assets and Liabilities, and the residual falls out as Equity (or Net Assets, for an organization no one owns). A − L = E by construction. Time to apply it.</p>
+    <p>You have <strong>$25k</strong>. You can invest it in one of three for-profit businesses, or donate it to a nonprofit. This first part of the exercise looks at the three for-profits. The donation option comes up in the next part.</p>
+    <p>Each business started from nothing exactly one year ago. You will see their records, step by step, and work out how the pieces fit together.</p>
+  </div>
+
+  <div class="section-card">
+    <div class="subsection-head" style="margin-top:0">What you'll discover</div>
+    <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
+      <li class="prose" style="margin:0; display:flex; gap:8px;"><span style="color:var(--accent); flex-shrink:0">•</span> That the balance sheet is constructed around a single identity.</li>
+      <li class="prose" style="margin:0; display:flex; gap:8px;"><span style="color:var(--accent); flex-shrink:0">•</span> What different information the two sides of a balance sheet carry.</li>
+      <li class="prose" style="margin:0; display:flex; gap:8px;"><span style="color:var(--accent); flex-shrink:0">•</span> How a second statement explains the change in one part of the right side.</li>
+    </ul>
+    <div class="narrative-inset-accent">
+      <div class="subsection-head" style="margin-top:0">A note on simplifications</div>
+      <p class="prose" style="margin-bottom:0">Real financial statements have many more lines than what appears in this exercise, and the rules that govern what can go on them are more detailed than what is covered here.</p>
+    </div>
+  </div>
+
+
+  <button class="btn-continue" style="width:100%; justify-content:center" onclick="goTo('totals')">Begin →</button>
+
+</div><!-- /phase-welcome -->
+
+
+<!-- ===================================================================
+     PHASE: TOTALS
+     ================================================================= -->
+<div id="phase-totals" class="screen">
+
+  <div class="section-title">Step 1: The Balance Sheet Totals</div>
+
+  <div class="narrative-block">
+    <p>Here is each business's year-end record, reduced to totals. Three businesses, all started from nothing one year ago.</p>
+    <div class="narrative-inset">
+      <p><strong>Notice:</strong> For each business, Total Assets minus Total Liabilities is $500. Total Equity is also $500.</p>
+      <p>This relationship — Assets minus Liabilities equals Equity — is called the <strong>accounting identity</strong>. It holds at every point in time, for every entity, by construction. <em>Equity</em> is the definitional difference between recorded assets and recorded liabilities.</p>
+    </div>
+  </div>
+
+  <div class="biz-grid">
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business A</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-total"><span>Total Equity</span><span>$500</span></div>
+    </div>
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business B</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-total"><span>Total Equity</span><span>$500</span></div>
+    </div>
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business C</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-total"><span>Total Equity</span><span>$500</span></div>
+    </div>
+  </div>
+
+  <div class="prompt-card" id="pick-totals">
+    <div class="prompt-number">Step 1: Compare the Statements</div>
+    <div class="prompt-q">Based only on these totals, how do the three businesses compare? What else would you need to know before making a decision?</div>
+<textarea id="totals-rationale" placeholder="Write your response here..." rows="2" oninput="checkPickSubmit('totals')"></textarea>
+    <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border)">
+      <div class="prompt-number">Step 2: Make a tentative choice</div>
+      <div class="prompt-q">If you had to make a choice now, which business would you invest in?</div>
+    </div>
+    <div class="pick-grid">
+      <button class="pick-btn" data-biz="A" onclick="selectBiz('totals','A')">Business A</button>
+      <button class="pick-btn" data-biz="B" onclick="selectBiz('totals','B')">Business B</button>
+      <button class="pick-btn" data-biz="C" onclick="selectBiz('totals','C')">Business C</button>
+    </div>
+    <div style="margin-top:10px">
+      <button class="btn btn-primary" id="totals-submit-btn" onclick="submitPick('totals')" disabled>Submit</button>
+    </div>
+    <div class="feedback ok" id="totals-feedback">
+      <p style="margin-bottom:10px">Your response has been submitted. Continue to the next step.</p>
+      <button class="btn-continue" onclick="goTo('asset-breakdown')">Continue →</button>
+    </div>
+  </div>
+
+  <button class="btn-reset" onclick="goBack()">← Back</button>
+
+</div><!-- /phase-totals -->
+
+
+<!-- ===================================================================
+     PHASE: ASSET BREAKDOWN
+     ================================================================= -->
+<div id="phase-asset-breakdown" class="screen">
+
+  <div class="section-title">Step 2: Asset Breakdown</div>
+
+  <div class="insight-box" id="recap-totals" style="display:none">
+    <div class="insight-label">Your previous choice</div>
+    <p id="recap-totals-text"></p>
+  </div>
+
+  <div class="narrative-block">
+    <p>The balance sheets now show more detail about each business's assets. The accounting identity still holds: Assets − Liabilities = Equities. But the composition of assets is now different across the three businesses.</p>
+    <div class="narrative-inset">
+      <p><strong>Notice:</strong> Business C's balance sheet includes a line called <strong>Great Idea</strong> under Assets. Business C believes it has an idea that could help create value in the future and records it at $100.</p>
+    </div>
+  </div>
+
+  <div class="biz-grid">
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business A</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$500</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-total"><span>Total Equity</span><span>$500</span></div>
+    </div>
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business B</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$500</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-total"><span>Total Equity</span><span>$500</span></div>
+    </div>
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business C</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$400</span></div>
+      <div class="acct-line"><span class="acct-indent">Great Idea</span><span class="acct-val">$100</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-total"><span>Total Equity</span><span>$500</span></div>
+    </div>
+  </div>
+
+  <div class="prompt-card" id="pick-assets">
+    <div class="prompt-number">Step 1: Compare the Statements</div>
+    <div class="prompt-q">Based on this added detail, how do the three businesses compare? What else would you need to know before making a decision?</div>
+<textarea id="assets-rationale" placeholder="Write your response here..." rows="2" oninput="checkPickSubmit('assets')"></textarea>
+    <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border)">
+      <div class="prompt-number">Step 2: Make a tentative choice</div>
+      <div class="prompt-q">If you had to make a choice now, which business would you invest in?</div>
+    </div>
+    <div class="pick-grid">
+      <button class="pick-btn" data-biz="A" onclick="selectBiz('assets','A')">Business A</button>
+      <button class="pick-btn" data-biz="B" onclick="selectBiz('assets','B')">Business B</button>
+      <button class="pick-btn" data-biz="C" onclick="selectBiz('assets','C')">Business C</button>
+    </div>
+    <div style="margin-top:10px">
+      <button class="btn btn-primary" id="assets-submit-btn" onclick="submitPick('assets')" disabled>Submit</button>
+    </div>
+    <div class="feedback ok" id="assets-feedback">
+      <p style="margin-bottom:10px">Your response has been submitted. Continue to the next step.</p>
+      <button class="btn-continue" onclick="goTo('equities-breakdown')">Continue →</button>
+    </div>
+  </div>
+
+  <button class="btn-reset" onclick="goBack()">← Back</button>
+
+</div><!-- /phase-asset-breakdown -->
+
+
+<!-- ===================================================================
+     PHASE: EQUITIES BREAKDOWN
+     ================================================================= -->
+<div id="phase-equities-breakdown" class="screen">
+
+  <div class="section-title">Step 3: Equity Breakdown</div>
+
+  <div class="insight-box" id="recap-assets" style="display:none">
+    <div class="insight-label">Your previous choice</div>
+    <p id="recap-assets-text"></p>
+  </div>
+
+  <div class="narrative-block">
+    <p>The balance sheets now reveal two components of Total Equity: <strong>Contributed Capital</strong> and <strong>Retained Earnings</strong>.</p>
+    <div class="narrative-inset">
+      <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:4px;">
+        <li>• <strong>Contributed Capital</strong> refers to amounts put into the business by owners.</li>
+        <li>• <strong>Retained Earnings</strong> refers to amounts the business generated and kept.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="biz-grid">
+    <!-- Business A -->
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business A</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$500</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-section">Equity</div>
+      <div class="acct-line"><span class="acct-indent">Contributed Capital</span><span class="acct-val">$500</span></div>
+      <div class="acct-line"><span class="acct-indent">Retained Earnings</span><span class="acct-val">$0</span></div>
+      <div class="acct-total"><span>Total Equity</span><span>$500</span></div>
+    </div>
+    <!-- Business B -->
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business B</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$500</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-section">Equity</div>
+      <div class="acct-line"><span class="acct-indent">Contributed Capital</span><span class="acct-val">$400</span></div>
+      <div class="acct-line"><span class="acct-indent">Retained Earnings</span><span class="acct-val">$100</span></div>
+      <div class="acct-total"><span>Total Equity</span><span>$500</span></div>
+    </div>
+    <!-- Business C -->
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business C</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$400</span></div>
+      <div class="acct-line"><span class="acct-indent">Great Idea</span><span class="acct-val">$100</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-section">Equity</div>
+      <div class="acct-line"><span class="acct-indent">Contributed Capital</span><span class="acct-val">$400</span></div>
+      <div class="acct-line"><span class="acct-indent">Retained Earnings</span><span class="acct-val">$100</span></div>
+      <div class="acct-total"><span>Total Equity</span><span>$500</span></div>
+    </div>
+  </div>
+
+  <div class="prompt-card" id="pick-equities">
+    <div class="prompt-number">Step 1: Compare the Statements</div>
+    <div class="prompt-q">Based on this added detail, how do the three businesses compare? What else would you need to know before making a decision?</div>
+<textarea id="equities-rationale" placeholder="Write your response here..." rows="2" oninput="checkPickSubmit('equities')"></textarea>
+    <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border)">
+      <div class="prompt-number">Step 2: Make a tentative choice</div>
+      <div class="prompt-q">If you had to make a choice now, which business would you invest in?</div>
+    </div>
+    <div class="pick-grid">
+      <button class="pick-btn" data-biz="A" onclick="selectBiz('equities','A')">Business A</button>
+      <button class="pick-btn" data-biz="B" onclick="selectBiz('equities','B')">Business B</button>
+      <button class="pick-btn" data-biz="C" onclick="selectBiz('equities','C')">Business C</button>
+    </div>
+    <div style="margin-top:10px">
+      <button class="btn btn-primary" id="equities-submit-btn" onclick="submitPick('equities')" disabled>Submit</button>
+    </div>
+    <div class="feedback ok" id="equities-feedback">
+      <p style="margin-bottom:10px">Your response has been submitted. Continue to the next step.</p>
+      <button class="btn-continue" onclick="goTo('income-statements')">Continue →</button>
+    </div>
+  </div>
+
+  <button class="btn-reset" onclick="goBack()">← Back</button>
+
+</div><!-- /phase-equities-breakdown -->
+
+
+<!-- ===================================================================
+     PHASE: INCOME STATEMENTS
+     ================================================================= -->
+<div id="phase-income-statements" class="screen">
+
+  <div class="section-title">What Produced the $100 in Retained Earnings?</div>
+
+  <div class="insight-box" id="recap-equities" style="display:none">
+    <div class="insight-label">Your previous choice</div>
+    <p id="recap-equities-text"></p>
+  </div>
+
+  <div class="narrative-block">
+    <p>In the previous step, the balance sheets for Businesses B and C each showed $100 in Retained Earnings. The income statements below show what happened during the year to produce those amounts.</p>
+  </div>
+
+  <div class="biz-grid-2">
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business B</div><div class="bs-header-date">Income Statement — For the Year Ended December 31, 2026</div></div>
+      <div class="acct-line"><span>Revenues</span><span class="acct-val">$130</span></div>
+      <div class="acct-line"><span>Expenses</span><span class="acct-val">($30)</span></div>
+      <div class="acct-total"><span>Net Income</span><span>$100</span></div>
+    </div>
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business C</div><div class="bs-header-date">Income Statement — For the Year Ended December 31, 2026</div></div>
+      <div class="acct-line"><span>Owner's Estimated Gain from Great Idea</span><span class="acct-val">$100</span></div>
+      <div class="acct-total"><span>Net Income</span><span>$100</span></div>
+    </div>
+  </div>
+
+  <!-- TwoChoice: income -->
+  <div class="prompt-card">
+    <div class="prompt-q">Looking at the two income statements, do they explain the $100 in Retained Earnings in the same way?</div>
+    <div class="yn-grid" id="yn-income">
+      <button class="pick-btn" data-choice="yes" onclick="selectYN('income','yes')">Yes</button>
+      <button class="pick-btn" data-choice="no"  onclick="selectYN('income','no')">No</button>
+    </div>
+    <div id="income-explanation-wrap">
+      <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border)">
+        <div class="prompt-q">Briefly explain why.</div>
+      </div>
+      <textarea id="income-explanation" placeholder="Write your response here..." rows="2" oninput="checkYNSubmit('income')"></textarea>
+      <div style="margin-top:10px">
+        <button class="btn btn-primary" id="income-check-btn" onclick="checkYN('income')" disabled>Submit</button>
+      </div>
+    </div>
+    <div class="stage-note" id="income-hint" style="display:none; margin-top:16px"></div>
+    <div class="feedback ok" id="income-correct">
+      <p style="margin-bottom:6px"><strong>Correct.</strong></p>
+      <p>Business B's income statement shows revenues and expenses from business activity during the year. Business C's income statement shows one owner-estimated gain from the Great Idea.</p>
+      <p style="margin-top:6px">Both statements report $100 of Net Income, but they do not explain that amount in the same way. The income statement helps reveal the difference between the events behind the numbers.</p>
+    </div>
+    <div class="feedback err" id="income-reveal">
+      <p style="margin-bottom:6px"><strong>The correct answer is No.</strong></p>
+      <p>Business B's income statement shows revenues and expenses from business activity during the year. Business C's income statement shows one owner-estimated gain from the "great idea."</p>
+      <p style="margin-top:6px">Both statements report $100 of Net Income, but they do not explain that amount in the same way. The income statement reveals the difference between the events behind the numbers.</p>
+    </div>
+    <button class="btn-continue" id="income-continue" style="display:none; margin-top:10px" onclick="goTo('recognition-rule')">Continue →</button>
+  </div>
+
+  <button class="btn-reset" onclick="goBack()">← Back</button>
+
+</div><!-- /phase-income-statements -->
+
+
+<!-- ===================================================================
+     PHASE: RECOGNITION RULE
+     ================================================================= -->
+<div id="phase-recognition-rule" class="screen">
+
+  <div class="section-title">How Did It Get on the Records?</div>
+
+  <div class="narrative-block">
+    <p>Business C's records include two connected entries: a $100 asset labeled <strong>Great Idea</strong> on the balance sheet, and a $100 line on the income statement labeled <strong>Owner's Estimated Gain from Great Idea</strong>. The income statement line reports $100 of Net Income, which explains the $100 shown in Retained Earnings.</p>
+    <p>Here is the backstory. The owner believes the idea could help the business create value in the future and assigns it a value of $100. But no outside party has paid for the idea, bought it, or licensed it. No money changed hands, and no exchange took place. The owner simply declared a value and entered the numbers into the records.</p>
+  </div>
+
+  <!-- TwoChoice: recognition -->
+  <div class="prompt-card">
+    <div class="prompt-q">Do you think Business C should be allowed to record the Great Idea as a $100 asset and report a related gain as income?</div>
+    <div class="yn-grid" id="yn-recognition">
+      <button class="pick-btn" data-choice="yes" onclick="selectYN('recognition','yes')">Yes</button>
+      <button class="pick-btn" data-choice="no"  onclick="selectYN('recognition','no')">No</button>
+    </div>
+    <div id="recognition-explanation-wrap">
+      <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border)">
+        <div class="prompt-q">Briefly explain why.</div>
+      </div>
+      <textarea id="recognition-explanation" placeholder="Write your response here..." rows="2" oninput="checkYNSubmit('recognition')"></textarea>
+      <div style="margin-top:10px">
+        <button class="btn btn-primary" id="recognition-check-btn" onclick="checkYN('recognition')" disabled>Submit</button>
+      </div>
+    </div>
+    <div class="stage-note" id="recognition-hint" style="display:none; margin-top:16px"></div>
+    <div class="feedback ok" id="recognition-correct">
+      <p style="margin-bottom:6px"><strong>Correct.</strong></p>
+      <p>Business C should not record the Great Idea as a $100 asset or report a related gain as income based only on the owner's estimate.</p>
+      <p style="margin-top:6px">For an item to enter the records, there needs to be enough evidence that it exists as an accounting item and that its financial effect can be measured. Here, no outside party bought, licensed, or paid for the idea, and no exchange took place.</p>
+      <p style="margin-top:6px">The idea may still be valuable, but the records do not provide enough evidence to include it in the financial statements. This rule keeps self-declared values off the records, but it can also leave out genuinely valuable things, such as in-house knowledge, customer relationships, or a brand built inside the business.</p>
+    </div>
+    <div class="feedback err" id="recognition-reveal">
+      <p style="margin-bottom:6px"><strong>The correct answer is No.</strong></p>
+      <p>Business C should not record the Great Idea as a $100 asset or report a related gain as income based only on the owner's estimate.</p>
+      <p style="margin-top:6px">For an item to enter the records, there needs to be enough evidence that it exists as an accounting item and that its financial effect can be measured. Here, no outside party bought, licensed, or paid for the idea, and no exchange took place.</p>
+      <p style="margin-top:6px">The idea may still be valuable, but the records do not provide enough evidence to include it in the financial statements. This rule keeps self-declared values off the records, but it can also leave out genuinely valuable things, such as in-house knowledge, customer relationships, or a brand built inside the business.</p>
+    </div>
+    <button class="btn-continue" id="recognition-continue" style="display:none; margin-top:10px" onclick="goTo('convention-applied')">Continue →</button>
+  </div>
+
+  <button class="btn-reset" onclick="goBack()">← Back</button>
+
+</div><!-- /phase-recognition-rule -->
+
+
+<!-- ===================================================================
+     PHASE: CONVENTION APPLIED
+     ================================================================= -->
+<div id="phase-convention-applied" class="screen">
+
+  <div class="section-title">The Records, Corrected</div>
+
+  <div class="narrative-block">
+    <p>Here are the three businesses' statements after applying the recognition rule. Business C's Great Idea may still exist and may still become valuable, but it is no longer recorded as a $100 asset in the balance sheet. The related gain is also removed from the income statement.</p>
+  </div>
+
+  <div class="subsection-head">Balance Sheets</div>
+  <div class="biz-grid">
+    <!-- Business A -->
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business A</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$500</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-section">Equity</div>
+      <div class="acct-line"><span class="acct-indent">Contributed Capital</span><span class="acct-val">$500</span></div>
+      <div class="acct-line"><span class="acct-indent">Retained Earnings</span><span class="acct-val">$0</span></div>
+      <div class="acct-total"><span>Total Equity</span><span>$500</span></div>
+    </div>
+    <!-- Business B -->
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business B</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$500</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$500</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-section">Equity</div>
+      <div class="acct-line"><span class="acct-indent">Contributed Capital</span><span class="acct-val">$400</span></div>
+      <div class="acct-line"><span class="acct-indent">Retained Earnings</span><span class="acct-val">$100</span></div>
+      <div class="acct-total"><span>Total Equity</span><span>$500</span></div>
+    </div>
+    <!-- Business C (corrected) -->
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business C</div><div class="bs-header-date">Balance Sheet — December 31, 2026</div></div>
+      <div class="acct-section">Assets</div>
+      <div class="acct-line"><span class="acct-indent">Cash</span><span class="acct-val">$400</span></div>
+      <div class="acct-total"><span>Total Assets</span><span>$400</span></div>
+      <div class="acct-total acct-liab"><span>Total Liabilities</span><span>$0</span></div>
+      <div class="acct-section">Equity</div>
+      <div class="acct-line"><span class="acct-indent">Contributed Capital</span><span class="acct-val">$400</span></div>
+      <div class="acct-line"><span class="acct-indent">Retained Earnings</span><span class="acct-val">$0</span></div>
+      <div class="acct-total"><span>Total Equity</span><span>$400</span></div>
+    </div>
+  </div>
+
+  <div class="subsection-head">Income Statements</div>
+  <div class="biz-grid">
+    <div class="acct-col"><div class="acct-empty">No recognized income statement activity to report.</div></div>
+    <div class="acct-col">
+      <div class="bs-header"><div class="bs-header-title">Business B</div><div class="bs-header-date">Income Statement — For the Year Ended December 31, 2026</div></div>
+      <div class="acct-line"><span>Revenues</span><span class="acct-val">$130</span></div>
+      <div class="acct-line"><span>Expenses</span><span class="acct-val">($30)</span></div>
+      <div class="acct-total"><span>Net Income</span><span>$100</span></div>
+    </div>
+    <div class="acct-col"><div class="acct-empty">No recognized income statement activity to report.</div></div>
+  </div>
+
+  <button class="btn-continue" style="width:100%; justify-content:center" onclick="goTo('consolidation')">Continue →</button>
+
+  <button class="btn-reset" style="margin-top:14px" onclick="goBack()">← Back</button>
+
+</div><!-- /phase-convention-applied -->
+
+
+<!-- ===================================================================
+     PHASE: CONSOLIDATION
+     ================================================================= -->
+<div id="phase-consolidation" class="screen">
+
+  <div class="section-title">What the Structure Shows</div>
+
+  <div class="narrative-block">
+    <p>Three things this exercise shows about the structure of for-profit financial statements.</p>
+    <div class="narrative-inset">
+      <ol style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:14px;">
+        <li class="prose" style="margin:0"><strong style="color:var(--primary)">1. An identity holds the balance sheet together.</strong> Assets − Liabilities = Equity, at every point in time, by construction.</li>
+        <li class="prose" style="margin:0"><strong style="color:var(--primary)">2. The residual gets broken into subparts.</strong> Contributed Capital and Retained Earnings answer different questions about where the Equity balance came from. Without the breakdown, the balance sheet can't carry those distinctions.</li>
+        <li class="prose" style="margin:0"><strong style="color:var(--primary)">3. A second statement explains how the residual changed.</strong> The income statement tells the story behind Retained Earnings. Two businesses with the same Retained Earnings balance can have very different income statements behind them — and the structure makes those differences visible.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="insight-box" id="recap-all-picks" style="display:none">
+    <div class="insight-label">Review Your Choices</div>
+    <div id="recap-all-picks-text" style="margin-top:8px; font-size:var(--font-m); line-height:1.7;"></div>
+  </div>
+
+  <div class="prompt-card" style="margin-top:28px">
+    <p class="prompt-q">Write a sentence or two about what you now see in these statements that you didn't see at the start.</p>
+    <textarea id="consolidation-reflection" placeholder="Write your response here..." rows="3" oninput="checkReflection()"></textarea>
+    <div style="margin-top:10px">
+      <button class="btn btn-primary" id="consolidation-submit-btn" onclick="submitReflection()" disabled>Submit reflection</button>
+    </div>
+    <div class="feedback ok" id="consolidation-feedback">
+      <p style="margin-bottom:10px">Reflection captured.</p>
+      <button class="btn-continue" onclick="goTo('complete')">Continue →</button>
+    </div>
+  </div>
+
+  <button class="btn-reset" onclick="goBack()">← Back</button>
+
+</div><!-- /phase-consolidation -->
+
+
+<!-- ===================================================================
+     PHASE: COMPLETE
+     ================================================================= -->
+<div id="phase-complete" class="screen">
+
+  <div class="section-title">Tutorial Complete</div>
+
+  <div class="section-card" style="border:2px solid var(--success-border)">
+    <div class="subsection-head" style="margin-top:0">What you discovered</div>
+    <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;">
+      <li class="prose" style="margin:0; display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--success-text); font-weight:700; flex-shrink:0">✓</span> The <strong>accounting identity</strong>: Assets − Liabilities = Equity, always, by construction.</li>
+      <li class="prose" style="margin:0; display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--success-text); font-weight:700; flex-shrink:0">✓</span> Why Equity is shown in subparts — so the structure can carry information about where the residual came from.</li>
+      <li class="prose" style="margin:0; display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--success-text); font-weight:700; flex-shrink:0">✓</span> How the <strong>income statement</strong> explains what happened behind Retained Earnings.</li>
+      <li class="prose" style="margin:0; display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--success-text); font-weight:700; flex-shrink:0">✓</span> The evidence test that governs what enters the records — that the item exists and that its effects are at least in part financial.</li>
+    </ul>
+  </div>
+
+  <div class="insight-box">
+    <div class="insight-label">The deeper point</div>
+    <p>Financial statements are not a single report. They are a connected set. The balance sheet presents an identity at a point in time. The income statement explains how a part of that identity — Retained Earnings — changed during the period. The structure is built to carry information that no single statement could carry alone.</p>
+  </div>
+
+  <div class="section-card">
+    <div class="subsection-head" style="margin-top:0">Coming next</div>
+    <p class="prose">The same structural pieces appear for a nonprofit — an identity, a residual with subparts, explanatory statements. But the names differ, the rules differ, and a new dimension appears: donor intent. Your $25k could still go there instead.</p>
+    <p class="prose" style="margin-bottom:0; font-weight:600; color:var(--primary)">Next: the nonprofit side of the decision</p>
+  </div>
+
+  <button class="btn-continue" style="width:100%; justify-content:center; margin-bottom:10px" onclick="playContinueClick(); window.location.href='02-three-nonprofits.html'">Next Tutorial →</button>
+  <button class="btn-reset" style="width:100%; justify-content:center" onclick="restartTutorial()">↺ Restart Tutorial</button>
+  <button class="btn-reset" onclick="goBack()">← Back</button>
+
+</div><!-- /phase-complete -->
+
+
+</div><!-- /content -->
+
+
+<!-- ===== GLOSSARY OVERLAY ===== -->
+<div class="glossary-overlay" id="glossaryOverlay" onclick="glossaryBackdropClick(event)">
+  <div class="glossary-panel" onclick="event.stopPropagation()">
+    <div class="glossary-panel-head">
+      <span class="glossary-panel-title">Glossary</span>
+      <button class="glossary-close-btn" onclick="closeGlossary()" aria-label="Close glossary">✕</button>
+    </div>
+    <div class="glossary-search-wrap">
+      <input type="text" id="glossarySearch" placeholder="Search terms…" oninput="filterGlossary(this.value)" aria-label="Search glossary">
+    </div>
+    <div class="glossary-list" id="glossaryList"></div>
+  </div>
+</div>
+
+
+<script src="../config.js"></script>
+<script src="../shared.js"></script>
+<script>
+(function () {
+
+  // ── Glossary data (page-specific terms) ──────────────────────────
+  var PAGE_GLOSSARY = [
+    { term: 'Accounting identity',      def: 'The definitional relationship that Assets minus Liabilities equals Equity (for a for-profit) or Net Assets (for a nonprofit). It holds at every point in time, for every entity, by construction.' },
+    { term: 'Equity',                 def: 'The definitional residual on the right side of a for-profit balance sheet — the difference between recorded assets and recorded liabilities. Shown in subparts so that the structure can carry more information.' },
+    { term: 'Contributed Capital',      def: 'The part of Equity that came from outside sources putting money or other assets into the business.' },
+    { term: 'Retained Earnings',        def: 'The part of Equity that reflects amounts the business generated through its activities and kept in the business.' },
+    { term: 'Net Income',               def: 'The bottom line of the income statement — revenues and gains minus expenses and losses for a period. Flows into Retained Earnings.' },
+    { term: 'Transaction',              def: 'An event in which something of value changes hands between parties.' },
+    { term: 'Arm\'s-length transaction', def: 'A transaction between independent parties, each acting in their own interest. Such transactions are one strong source of evidence about an item\'s existence and its financial effects, though not the only source.' },
+    { term: 'Recognition',              def: 'The process of admitting an item onto the accounting records — reporting it on the balance sheet or income statement. The convention requires sufficient evidence that an item exists and that its effects are at least in part financial — that they bear on future cash flows.' }
+  ];
+
+  function buildGlossary() {
+    var list = document.getElementById('glossaryList');
+    if (!list) return;
+    list.innerHTML = '';
+    PAGE_GLOSSARY.slice().sort(function (a, b) { return a.term.localeCompare(b.term); }).forEach(function (g) {
+      var el = document.createElement('div');
+      el.className = 'glossary-entry';
+      el.dataset.term = g.term.toLowerCase();
+      el.dataset.def  = g.def.toLowerCase();
+      el.innerHTML = '<div class="glossary-entry-term">' + g.term + '</div><div class="glossary-entry-def">' + g.def + '</div>';
+      list.appendChild(el);
+    });
+  }
+
+  window.openGlossary = function () {
+    buildGlossary();
+    document.getElementById('glossaryOverlay').classList.add('open');
+    var inp = document.getElementById('glossarySearch');
+    if (inp) { inp.value = ''; filterGlossary(''); setTimeout(function () { inp.focus(); }, 50); }
+  };
+
+  window.closeGlossary = function () {
+    document.getElementById('glossaryOverlay').classList.remove('open');
+  };
+
+  window.glossaryBackdropClick = function (e) {
+    if (e.target === document.getElementById('glossaryOverlay')) closeGlossary();
+  };
+
+  window.filterGlossary = function (q) {
+    q = (q || '').toLowerCase();
+    document.querySelectorAll('.glossary-entry').forEach(function (el) {
+      var match = el.dataset.term.indexOf(q) !== -1 || el.dataset.def.indexOf(q) !== -1;
+      el.classList.toggle('hidden', !match);
+    });
+  };
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeGlossary();
+  });
+
+
+  // ── Sound helpers ─────────────────────────────────────────────────
+  function audioCtx() { return new (window.AudioContext || window.webkitAudioContext)(); }
+
+  window.playSuccessTone = function () {
+    try {
+      var ctx = audioCtx(), t = ctx.currentTime;
+      [523.25, 659.25, 783.99].forEach(function (f, i) {
+        var o = ctx.createOscillator(), g = ctx.createGain();
+        o.connect(g); g.connect(ctx.destination);
+        o.frequency.value = f; o.type = 'sine';
+        var s = t + i * 0.1, e = s + 0.15;
+        g.gain.setValueAtTime(0, s); g.gain.linearRampToValueAtTime(0.3, s + 0.02); g.gain.exponentialRampToValueAtTime(0.01, e);
+        o.start(s); o.stop(e + 0.1);
+      });
+      setTimeout(function () { ctx.close(); }, 600);
+    } catch (e) { /* silent */ }
+  };
+
+  window.playSoftNope = function () {
+    try {
+      var ctx = audioCtx(), t = ctx.currentTime;
+      [400, 300].forEach(function (f, i) {
+        var o = ctx.createOscillator(), g = ctx.createGain();
+        o.connect(g); g.connect(ctx.destination);
+        o.frequency.value = f; o.type = 'sine';
+        var s = t + i * 0.12, e = s + 0.12;
+        g.gain.setValueAtTime(0, s); g.gain.linearRampToValueAtTime(0.2, s + 0.02); g.gain.exponentialRampToValueAtTime(0.01, e);
+        o.start(s); o.stop(e + 0.05);
+      });
+      setTimeout(function () { ctx.close(); }, 400);
+    } catch (e) { /* silent */ }
+  };
+
+  window.playBuzzer = function () {
+    try {
+      var ctx = audioCtx(), o = ctx.createOscillator(), g = ctx.createGain();
+      o.connect(g); g.connect(ctx.destination);
+      o.frequency.value = 150; o.type = 'sawtooth';
+      var t = ctx.currentTime;
+      g.gain.setValueAtTime(0.25, t); g.gain.exponentialRampToValueAtTime(0.01, t + 0.3);
+      o.start(t); o.stop(t + 0.35);
+      setTimeout(function () { ctx.close(); }, 400);
+    } catch (e) { /* silent */ }
+  };
+
+  window.playContinueClick = function () {
+    try {
+      var ctx = audioCtx(), o = ctx.createOscillator(), g = ctx.createGain();
+      o.connect(g); g.connect(ctx.destination);
+      o.frequency.value = 600; o.type = 'sine';
+      var t = ctx.currentTime;
+      g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.15, t + 0.01); g.gain.exponentialRampToValueAtTime(0.01, t + 0.08);
+      o.start(t); o.stop(t + 0.1);
+      setTimeout(function () { ctx.close(); }, 150);
+    } catch (e) { /* silent */ }
+  };
+
+
+  // ── Phase state ───────────────────────────────────────────────────
+  var PHASES = [
+    'welcome', 'totals', 'asset-breakdown', 'equities-breakdown',
+    'income-statements', 'recognition-rule', 'convention-applied',
+    'consolidation', 'complete'
+  ];
+
+  var state = {
+    phase: 'welcome',
+    totalsPick: '', totalsRationale: '', totalsSubmitted: false,
+    assetsPick: '', assetsRationale: '', assetsSubmitted: false,
+    equitiesPick: '', equitiesRationale: '', equitiesSubmitted: false,
+    incomeChoice: '', incomeAttempts: 0, incomeSubmitted: false,
+    recognitionChoice: '', recognitionAttempts: 0, recognitionSubmitted: false,
+    consolidationSubmitted: false,
+    devMode: false, headerClicks: 0
+  };
+
+  var YN_CONFIG = {
+    income:      { correct: 'no',  hints: [
+      'Look closely at the line items. What did Business B do during the year? What did Business C do?'
+    ]},
+    recognition: { correct: 'no',  hints: [
+      'Look for evidence beyond the owner\'s estimate. What supports recording the idea as a $100 asset and reporting a related gain as income?'
+    ]}
+  };
+
+
+  // ── Navigation ───────────────────────────────────────────────────
+  window.goTo = function (phase) {
+    playContinueClick();
+    var old = document.getElementById('phase-' + state.phase);
+    if (old) old.classList.remove('active');
+    state.phase = phase;
+    var next = document.getElementById('phase-' + phase);
+    if (next) next.classList.add('active');
+    window.scrollTo(0, 0);
+    updateProgress();
+    if (phase === 'asset-breakdown')     showRecap('totals');
+    if (phase === 'equities-breakdown')  showRecap('assets');
+    if (phase === 'income-statements')   showRecap('equities');
+    if (phase === 'consolidation')       showAllRecaps();
+  };
+
+  window.goBack = function () {
+    var idx = PHASES.indexOf(state.phase);
+    if (idx > 0) goTo(PHASES[idx - 1]);
+  };
+
+  function updateProgress() {
+    var idx = PHASES.indexOf(state.phase);
+    var pct = Math.round(idx / (PHASES.length - 1) * 100);
+    var fill = document.getElementById('progressFill');
+    if (fill) fill.style.width = pct + '%';
+    var lbl = document.getElementById('progressPct');
+    if (lbl) lbl.textContent = pct + '%';
+  }
+
+  function showRecap(group) {
+    var box  = document.getElementById('recap-' + group);
+    var text = document.getElementById('recap-' + group + '-text');
+    var pick = state[group + 'Pick'];
+    var rat  = state[group + 'Rationale'];
+    if (box && text && pick) {
+      text.textContent = 'You chose Business ' + pick + '. You wrote: "' + rat + '"';
+      box.style.display = '';
+    }
+  }
+
+  function showAllRecaps() {
+    var box  = document.getElementById('recap-all-picks');
+    var text = document.getElementById('recap-all-picks-text');
+    if (!box || !text) return;
+    var lines = [];
+    if (state.totalsPick)    lines.push('<strong>Totals Only:</strong> Business ' + state.totalsPick + ' — <em>"' + state.totalsRationale + '"</em>');
+    if (state.assetsPick)    lines.push('<strong>Asset Breakdown:</strong> Business ' + state.assetsPick + ' — <em>"' + state.assetsRationale + '"</em>');
+    if (state.equitiesPick)  lines.push('<strong>Equity Breakdown:</strong> Business ' + state.equitiesPick + ' — <em>"' + state.equitiesRationale + '"</em>');
+    if (lines.length) {
+      text.innerHTML = lines.join('<br>');
+      box.style.display = '';
+    }
+  }
+
+
+  // ── Pick & Rationale ─────────────────────────────────────────────
+  window.selectBiz = function (group, biz) {
+    if (state[group + 'Submitted']) return;
+    state[group + 'Pick'] = biz;
+    document.querySelectorAll('#pick-' + group + ' .pick-btn').forEach(function (btn) {
+      btn.classList.toggle('selected', btn.dataset.biz === biz);
+    });
+    checkPickSubmit(group);
+  };
+
+  window.checkPickSubmit = function (group) {
+    if (state[group + 'Submitted']) return;
+    var ta  = document.getElementById(group + '-rationale');
+    var btn = document.getElementById(group + '-submit-btn');
+    if (btn) btn.disabled = !(state[group + 'Pick'] && ta && ta.value.trim().length >= 8);
+  };
+
+  window.submitPick = function (group) {
+    var ta = document.getElementById(group + '-rationale');
+    if (!state[group + 'Pick'] || !ta || ta.value.trim().length < 8) return;
+    state[group + 'Rationale'] = ta.value.trim();
+    state[group + 'Submitted'] = true;
+    playSuccessTone();
+    // Lock controls
+    document.querySelectorAll('#pick-' + group + ' .pick-btn').forEach(function (b) { b.disabled = true; });
+    ta.disabled = true;
+    var sb = document.getElementById(group + '-submit-btn');
+    if (sb) sb.style.display = 'none';
+    // Show feedback
+    var fb = document.getElementById(group + '-feedback');
+    if (fb) fb.classList.add('show');
+  };
+
+
+  // ── Yes / No questions ───────────────────────────────────────────
+  window.selectYN = function (group, choice) {
+    if (state[group + 'Submitted']) return;
+    state[group + 'Choice'] = choice;
+    document.querySelectorAll('#yn-' + group + ' .pick-btn').forEach(function (btn) {
+      btn.classList.toggle('selected', btn.dataset.choice === choice);
+    });
+    var wrap = document.getElementById(group + '-explanation-wrap');
+    if (wrap) wrap.style.display = '';
+    checkYNSubmit(group);
+  };
+
+  window.checkYNSubmit = function (group) {
+    if (state[group + 'Submitted']) return;
+    var ta  = document.getElementById(group + '-explanation');
+    var btn = document.getElementById(group + '-check-btn');
+    if (btn) btn.disabled = !(state[group + 'Choice'] && ta && ta.value.trim().length >= 8);
+  };
+
+  window.checkYN = function (group) {
+    if (state[group + 'Submitted']) return;
+    var cfg     = YN_CONFIG[group];
+    var choice  = state[group + 'Choice'];
+    var ta      = document.getElementById(group + '-explanation');
+    if (!choice || !ta || ta.value.trim().length < 8) return;
+
+    if (choice === cfg.correct) {
+      // Correct
+      playSuccessTone();
+      state[group + 'Submitted'] = true;
+      lockYN(group);
+      markCorrectBtn(group, cfg.correct);
+      var c = document.getElementById(group + '-correct');
+      if (c) c.classList.add('show');
+      var cont = document.getElementById(group + '-continue');
+      if (cont) cont.style.display = '';
+    } else {
+      // Wrong
+      state[group + 'Attempts']++;
+      var attempts = state[group + 'Attempts'];
+      if (attempts >= 2) {
+        playBuzzer();
+        state[group + 'Submitted'] = true;
+        lockYN(group);
+        markCorrectBtn(group, cfg.correct);
+        var r = document.getElementById(group + '-reveal');
+        if (r) r.classList.add('show');
+        var cont2 = document.getElementById(group + '-continue');
+        if (cont2) cont2.style.display = '';
+      } else {
+        playSoftNope();
+        var hintEl = document.getElementById(group + '-hint');
+        if (hintEl) {
+          hintEl.textContent = 'Hint: ' + cfg.hints[attempts - 1];
+          hintEl.style.display = '';
+        }
+      }
+    }
+  };
+
+  function lockYN(group) {
+    document.querySelectorAll('#yn-' + group + ' .pick-btn').forEach(function (b) { b.disabled = true; });
+    var ta = document.getElementById(group + '-explanation');
+    if (ta) ta.disabled = true;
+    var cb = document.getElementById(group + '-check-btn');
+    if (cb) cb.style.display = 'none';
+  }
+
+  function markCorrectBtn(group, correctChoice) {
+    document.querySelectorAll('#yn-' + group + ' .pick-btn').forEach(function (b) {
+      if (b.dataset.choice === correctChoice) b.classList.add('correct-answer');
+    });
+  }
+
+
+  // ── Consolidation reflection ──────────────────────────────────────
+  window.checkReflection = function () {
+    if (state.consolidationSubmitted) return;
+    var ta  = document.getElementById('consolidation-reflection');
+    var btn = document.getElementById('consolidation-submit-btn');
+    if (btn) btn.disabled = !ta || ta.value.trim().length < 15;
+  };
+
+  window.submitReflection = function () {
+    var ta = document.getElementById('consolidation-reflection');
+    if (!ta || ta.value.trim().length < 15) return;
+    state.consolidationSubmitted = true;
+    playSuccessTone();
+    ta.disabled = true;
+    var sb = document.getElementById('consolidation-submit-btn');
+    if (sb) sb.style.display = 'none';
+    var fb = document.getElementById('consolidation-feedback');
+    if (fb) fb.classList.add('show');
+  };
+
+
+  // ── Restart ───────────────────────────────────────────────────────
+  window.restartTutorial = function () {
+    playContinueClick();
+    // Reset state
+    state.phase = 'welcome';
+    state.totalsPick = '';      state.totalsRationale = '';    state.totalsSubmitted = false;
+    state.assetsPick = '';      state.assetsRationale = '';    state.assetsSubmitted = false;
+    state.equitiesPick = '';    state.equitiesRationale = '';  state.equitiesSubmitted = false;
+    state.incomeChoice = '';    state.incomeAttempts = 0;      state.incomeSubmitted = false;
+    state.recognitionChoice=''; state.recognitionAttempts = 0; state.recognitionSubmitted = false;
+    state.consolidationSubmitted = false;
+
+    // Hide all screens, show welcome
+    PHASES.forEach(function (p) {
+      var el = document.getElementById('phase-' + p);
+      if (el) el.classList.remove('active');
+    });
+    document.getElementById('phase-welcome').classList.add('active');
+    updateProgress();
+
+    // Reset pick buttons
+    ['totals','assets','equities'].forEach(function (g) {
+      document.querySelectorAll('#pick-' + g + ' .pick-btn').forEach(function (b) {
+        b.classList.remove('selected'); b.disabled = false;
+      });
+      var ta = document.getElementById(g + '-rationale');
+      if (ta) { ta.value = ''; ta.disabled = false; }
+      var sb = document.getElementById(g + '-submit-btn');
+      if (sb) { sb.style.display = ''; sb.disabled = true; }
+      var fb = document.getElementById(g + '-feedback');
+      if (fb) fb.classList.remove('show');
+    });
+
+    // Reset recap boxes
+    ['totals','assets','equities'].forEach(function (g) {
+      var box = document.getElementById('recap-' + g);
+      if (box) box.style.display = 'none';
+    });
+    var allBox = document.getElementById('recap-all-picks');
+    if (allBox) allBox.style.display = 'none';
+
+    // Reset YN questions
+    ['income','recognition'].forEach(function (g) {
+      document.querySelectorAll('#yn-' + g + ' .pick-btn').forEach(function (b) {
+        b.classList.remove('selected','correct-answer'); b.disabled = false;
+      });
+      var wrap = document.getElementById(g + '-explanation-wrap');
+      if (wrap) wrap.style.display = 'none';
+      var ta = document.getElementById(g + '-explanation');
+      if (ta) { ta.value = ''; ta.disabled = false; }
+      var cb = document.getElementById(g + '-check-btn');
+      if (cb) { cb.style.display = ''; cb.disabled = true; }
+      var hint = document.getElementById(g + '-hint');
+      if (hint) hint.style.display = 'none';
+      var cor = document.getElementById(g + '-correct');
+      if (cor) cor.classList.remove('show');
+      var rev = document.getElementById(g + '-reveal');
+      if (rev) rev.classList.remove('show');
+      var cont = document.getElementById(g + '-continue');
+      if (cont) cont.style.display = 'none';
+    });
+
+    // Reset reflection
+    var cta = document.getElementById('consolidation-reflection');
+    if (cta) { cta.value = ''; cta.disabled = false; }
+    var csb = document.getElementById('consolidation-submit-btn');
+    if (csb) { csb.style.display = ''; csb.disabled = true; }
+    var cfb = document.getElementById('consolidation-feedback');
+    if (cfb) cfb.classList.remove('show');
+
+    window.scrollTo(0, 0);
+  };
+
+
+  // ── Dev mode ─────────────────────────────────────────────────────
+  window.headerClick = function () {
+    state.headerClicks++;
+    if (state.headerClicks >= 3) {
+      state.devMode = !state.devMode;
+      state.headerClicks = 0;
+      var panel = document.getElementById('devPanel');
+      if (panel) {
+        panel.style.display = state.devMode ? '' : 'none';
+        if (state.devMode) buildDevButtons();
+      }
+    }
+  };
+
+  function buildDevButtons() {
+    var wrap = document.getElementById('devBtns');
+    if (!wrap || wrap.children.length) return;
+    PHASES.forEach(function (p) {
+      var b = document.createElement('button');
+      b.textContent = p;
+      b.style.cssText = 'padding:3px 8px; border-radius:4px; border:none; font-size:var(--font-xs); cursor:pointer; background:rgba(255,255,255,0.2); color:white;';
+      b.onclick = function () { goTo(p); };
+      wrap.appendChild(b);
+    });
+  }
+
+
+  // ── Init ─────────────────────────────────────────────────────────
+  updateProgress();
+
+})();
+</script>
+</body>
+</html>
