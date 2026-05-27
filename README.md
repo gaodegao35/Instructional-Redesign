@@ -16,11 +16,9 @@ Shared assets (repo root): `shared.css`, `shared.js`, `config.js`
 ### Module-2/
 - `reflect4_sarah.html` — Transaction articulation activity (React; opening → decomposition → closing balance sheets)
 
-### Module-3/
+### Module-4/
 - `01-imposing-the-identity.html` — Imposing the Identity
-- `02-two-snapshots-1.html` — The Balance Sheet as a Snapshot (activity: Snapshot or Explanation?)
-- `02-two-snapshots-2.html` — What Changed Between the Two Dates (activities: Which Statement Explains the Change?, drag-and-drop)
-- `02-two-snapshots-3.html` — Recognition, Classification, and Quantification (accordion)
+- `02-two-snapshots.html` — The Balance Sheet as a Snapshot / What Changed Between the Two Dates / Recognition, Classification, and Quantification (activities: Snapshot or Explanation?, Which Statement Explains the Change?, drag-and-drop; accordion)
 - `03-three-flow-statements.html` — Three Flow Statements reading page with end-of-page match activity
 - `04-how-fit-together.html` — How They Fit Together
 - `05-1st_activity.html` — Balance Sheet Identity (5-step progressive comparison)
@@ -36,15 +34,13 @@ Base: `https://gaodegao35.github.io/Instructional-Redesign/`
 ### Module-2
 - [reflect4_sarah.html](https://gaodegao35.github.io/Instructional-Redesign/Module-2/reflect4_sarah.html)
 
-### Module-3
-- [01-imposing-the-identity.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/01-imposing-the-identity.html)
-- [02-two-snapshots-1.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/02-two-snapshots-1.html)
-- [02-two-snapshots-2.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/02-two-snapshots-2.html)
-- [02-two-snapshots-3.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/02-two-snapshots-3.html)
-- [03-three-flow-statements.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/03-three-flow-statements.html)
-- [04-how-fit-together.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/04-how-fit-together.html)
-- [05-1st_activity.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/05-1st_activity.html)
-- [06-structure-activity.html](https://gaodegao35.github.io/Instructional-Redesign/Module-3/06-structure-activity.html)
+### Module-4
+- [01-imposing-the-identity.html](https://gaodegao35.github.io/Instructional-Redesign/Module-4/01-imposing-the-identity.html)
+- [02-two-snapshots.html](https://gaodegao35.github.io/Instructional-Redesign/Module-4/02-two-snapshots.html)
+- [03-three-flow-statements.html](https://gaodegao35.github.io/Instructional-Redesign/Module-4/03-three-flow-statements.html)
+- [04-how-fit-together.html](https://gaodegao35.github.io/Instructional-Redesign/Module-4/04-how-fit-together.html)
+- [05-1st_activity.html](https://gaodegao35.github.io/Instructional-Redesign/Module-4/05-1st_activity.html)
+- [06-structure-activity.html](https://gaodegao35.github.io/Instructional-Redesign/Module-4/06-structure-activity.html)
 
 ## CSS Convention
 
