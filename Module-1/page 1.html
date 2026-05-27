@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1 - Getting Organized (Page 1)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+<div class="page">
+  <div class="text-block">
+    <div class="section-tag">Module 1 · Getting Organized</div>
+    <h2 class="section-title">The Need to Organize</h2>
+  </div>
+
+  <div class="info-box">
+    <h3>What You'll Discover</h3>
+    <p>&#8594;&ensp;Why you need things organized.</p>
+    <p>&#8594;&ensp;How to get things organized: write things down, group them, name each group, and fit new things into the structure.</p>
+  </div>
+
+  <div class="text-block">
+    <div class="section-tag">Scenario</div>
+    <div class="analogy-box">
+      You run a bicycle repair shop. It has been six months. Tools are scattered, parts are stacked in corners, and you have been keeping most things in your head. It isn't really working anymore. You want to get more systematic about how you run this thing.
+    </div>
+  </div>
+
+  <div class="text-block">
+    <h2 class="section-title">Three things happened this week</h2>
+    <p class="section-sub">None of them went smoothly.</p>
+    <div class="def-grid">
+      <div class="flip-card a" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="def-title">Story 1</div>
+            <p class="def-brief">A customer walks in with a broken derailleur. "Do you have a 24mm wrench?" You think you do, somewhere in that toolbox under the bench, or maybe in the drawer. You start digging.</p>
+            <div class="flip-hint">Click to flip</div>
+          </div>
+          <div class="flip-card-back">
+            <div class="flip-back-title">What This Tells You</div>
+            <p>You need a clearer way to find tools quickly.</p>
+            <div class="flip-back-hint">Click to return</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card l" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="def-title">Story 2</div>
+            <p class="def-brief">Tonight you unwrapped a fork crown race tool you bought last week and found another one already in the drawer, still in its package. Third time this month you've reordered something you already had.</p>
+            <div class="flip-hint">Click to flip</div>
+          </div>
+          <div class="flip-card-back">
+            <div class="flip-back-title">What This Tells You</div>
+            <p>You need a grouped list so duplicates are easier to spot.</p>
+            <div class="flip-back-hint">Click to return</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-card e" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <div class="def-title">Story 3</div>
+            <p class="def-brief">A fire two blocks over last night gets you thinking: you should have insurance, and you don't really know what's at risk. The repair stand, the parts, all the tools, it's a lot.</p>
+            <div class="flip-hint">Click to flip</div>
+          </div>
+          <div class="flip-card-back">
+            <div class="flip-back-title">What This Tells You</div>
+            <p>You need structure before you can describe risk.</p>
+            <div class="flip-back-hint">Click to return</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>Three different moments, the same realization:</strong> To get things organized, it's time to write things down and create a list.
+    </div>
+  </div>
+
+  <div class="text-block">
+    <div class="section-tag">Scenario</div>
+    <div class="analogy-box">
+      You decide to look into insuring the things you use in the shop. You call Maria - the agent your hardware-store friend uses.
+      <br><br>
+      "Great. Eventually I'll need a detailed list - every wrench, every tube, every bracket, with a value for each. But to draft a policy I just need a summary. Group your stuff in a way that makes sense, give me a rough value for each group, and we'll work from that."
+      <br><br>
+      You start sorting things into different groups.
+    </div>
+  </div>
+
+  <div class="section-card activity-card">
+    <div class="activity-tag">&#10003; Activity 1</div>
+    <div class="activity-title">Group 12 shop items, then name each group</div>
+    <div class="activity-desc">Drag each item into one of 4 groups. After sorting, enter a name for each group.</div>
+
+    <div class="dnd-bank-wrap">
+      <div class="dnd-bank-label">Item Bank</div>
+      <div class="dnd-bank" id="itemBank"></div>
+    </div>
+
+    <div class="dnd-zones" id="zonesWrap">
+      <div class="dnd-zone" id="zone-g1" data-zone="g1" ondragover="allowDrop(event,this)" ondragleave="leaveDrop(this)" ondrop="dropItem(event,this)">
+        <div class="dnd-zone-label">Group A</div>
+        <div class="dnd-zone-items" id="zoneItems-g1"></div>
+      </div>
+      <div class="dnd-zone" id="zone-g2" data-zone="g2" ondragover="allowDrop(event,this)" ondragleave="leaveDrop(this)" ondrop="dropItem(event,this)">
+        <div class="dnd-zone-label">Group B</div>
+        <div class="dnd-zone-items" id="zoneItems-g2"></div>
+      </div>
+      <div class="dnd-zone" id="zone-g3" data-zone="g3" ondragover="allowDrop(event,this)" ondragleave="leaveDrop(this)" ondrop="dropItem(event,this)">
+        <div class="dnd-zone-label">Group C</div>
+        <div class="dnd-zone-items" id="zoneItems-g3"></div>
+      </div>
+      <div class="dnd-zone" id="zone-g4" data-zone="g4" ondragover="allowDrop(event,this)" ondragleave="leaveDrop(this)" ondrop="dropItem(event,this)">
+        <div class="dnd-zone-label">Group D</div>
+        <div class="dnd-zone-items" id="zoneItems-g4"></div>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-number">Group Name</div>
+      <p class="prompt-text">Name for Group A</p>
+      <textarea id="groupName-g1" placeholder="Type group name"></textarea>
+    </div>
+    <div class="prompt-card">
+      <div class="prompt-number">Group Name</div>
+      <p class="prompt-text">Name for Group B</p>
+      <textarea id="groupName-g2" placeholder="Type group name"></textarea>
+    </div>
+    <div class="prompt-card">
+      <div class="prompt-number">Group Name</div>
+      <p class="prompt-text">Name for Group C</p>
+      <textarea id="groupName-g3" placeholder="Type group name"></textarea>
+    </div>
+    <div class="prompt-card">
+      <div class="prompt-number">Group Name</div>
+      <p class="prompt-text">Name for Group D</p>
+      <textarea id="groupName-g4" placeholder="Type group name"></textarea>
+    </div>
+
+    <div class="dnd-fb-card" id="act1Feedback" style="display:none;">
+      <span class="dnd-fb-label">Activity Feedback</span>
+      <span id="act1FeedbackText"></span>
+    </div>
+
+    <div class="act-footer">
+      <span class="act-progress" id="act1Progress">0 of 12 placed</span>
+      <div class="act-footer-btns">
+        <button class="btn btn-outline" onclick="resetActivity1()">Reset</button>
+        <button class="btn btn-primary" id="checkAct1Btn" onclick="checkActivity1()" disabled>Check Grouping</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    You draw four lines to separate things. In each group, you have a reason to put items together, and the insurance agent will work with this structure.
+  </div>
+
+  <div class="text-block">
+    <div class="section-tag">Scenario</div>
+    <div class="analogy-box">
+      Friday morning. A delivery arrives - a new box of brake pads. Where does it go?
+    </div>
+  </div>
+
+  <div class="section-card activity-card">
+    <div class="activity-tag">&#10003; Activity 2</div>
+    <div class="activity-title">Which group should the new brake pads go into?</div>
+    <div class="activity-desc">Select the group based on the names you created in Activity 1.</div>
+    <div class="mcq-list" id="mcq2List"></div>
+    <div class="mcq-fb" id="mcq2Feedback"></div>
+    <div class="act-footer">
+      <span class="act-progress" id="act2State">Complete Activity 1 first</span>
+      <button class="btn btn-outline" onclick="resetActivity2()">Reset Activity 2</button>
+    </div>
+  </div>
+
+  <div class="callout">
+    You took 12 separate items and built four lines you can think with. That's the move from raw detail to manageable structure. The same move applies to every list you'll ever maintain - and you're about to start maintaining yours.
+  </div>
+</div>
+
+<script src="../config.js"></script>
+<script src="../shared.js"></script>
+<script>
+applyConfig();
+
+var ITEMS = [
+  { id: "i1", text: "Torque wrench", correct: "g1" },
+  { id: "i2", text: "Chain whip", correct: "g1" },
+  { id: "i3", text: "Hex key set", correct: "g1" },
+  { id: "i4", text: "Brake pads", correct: "g2" },
+  { id: "i5", text: "Inner tubes", correct: "g2" },
+  { id: "i6", text: "Shift cables", correct: "g2" },
+  { id: "i7", text: "Fire extinguisher", correct: "g3" },
+  { id: "i8", text: "First-aid kit", correct: "g3" },
+  { id: "i9", text: "Safety goggles", correct: "g3" },
+  { id: "i10", text: "Repair stand", correct: "g4" },
+  { id: "i11", text: "Workbench", correct: "g4" },
+  { id: "i12", text: "Storage shelves", correct: "g4" }
+];
+
+var GROUPS = ["g1", "g2", "g3", "g4"];
+var draggingId = null;
+var activity1Checked = false;
+var activity2Locked = false;
+
+function byId(id) {
+  return document.getElementById(id);
+}
+
+function createItemEl(item) {
+  var el = document.createElement("div");
+  el.className = "dnd-item";
+  el.id = item.id;
+  el.textContent = item.text;
+  el.draggable = true;
+  el.setAttribute("data-correct", item.correct);
+  el.addEventListener("dragstart", function(e) {
+    draggingId = item.id;
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("text/plain", item.id);
+    setTimeout(function() { el.classList.add("dragging"); }, 0);
+  });
+  el.addEventListener("dragend", function() {
+    el.classList.remove("dragging");
+    draggingId = null;
+    updateActivity1State();
+  });
+  return el;
+}
+
+function renderBank() {
+  var bank = byId("itemBank");
+  bank.innerHTML = "";
+  ITEMS.forEach(function(item) {
+    bank.appendChild(createItemEl(item));
+  });
+}
+
+function allowDrop(e, zone) {
+  e.preventDefault();
+  zone.classList.add("drag-over");
+}
+
+function leaveDrop(zone) {
+  zone.classList.remove("drag-over");
+}
+
+function dropItem(e, zone) {
+  e.preventDefault();
+  zone.classList.remove("drag-over");
+  var itemId = e.dataTransfer.getData("text/plain") || draggingId;
+  if (!itemId || activity1Checked) return;
+  var itemEl = byId(itemId);
+  if (!itemEl) return;
+  var container = zone.querySelector(".dnd-zone-items");
+  container.appendChild(itemEl);
+  updateActivity1State();
+}
+
+function allowDropBank(e) {
+  e.preventDefault();
+}
+
+function dropToBank(e) {
+  e.preventDefault();
+  var itemId = e.dataTransfer.getData("text/plain") || draggingId;
+  if (!itemId || activity1Checked) return;
+  var itemEl = byId(itemId);
+  if (!itemEl) return;
+  byId("itemBank").appendChild(itemEl);
+  updateActivity1State();
+}
+
+function countPlaced() {
+  var placed = 0;
+  GROUPS.forEach(function(g) {
+    placed += byId("zoneItems-" + g).querySelectorAll(".dnd-item").length;
+  });
+  return placed;
+}
+
+function allGroupsNamed() {
+  for (var i = 0; i < GROUPS.length; i++) {
+    var value = byId("groupName-" + GROUPS[i]).value.trim();
+    if (!value) return false;
+  }
+  return true;
+}
+
+function updateActivity1State() {
+  var placed = countPlaced();
+  byId("act1Progress").textContent = placed + " of 12 placed";
+  byId("checkAct1Btn").disabled = !(placed === 12 && allGroupsNamed()) || activity1Checked;
+}
+
+function attachNameListeners() {
+  GROUPS.forEach(function(g) {
+    byId("groupName-" + g).addEventListener("input", function() {
+      updateActivity1State();
+      if (!activity2Locked) renderActivity2Options();
+    });
+  });
+}
+
+function checkActivity1() {
+  if (activity1Checked) return;
+  activity1Checked = true;
+  var correctCount = 0;
+
+  GROUPS.forEach(function(g) {
+    var zoneItems = byId("zoneItems-" + g).querySelectorAll(".dnd-item");
+    zoneItems.forEach(function(el) {
+      var isCorrect = el.getAttribute("data-correct") === g;
+      el.classList.remove("correct", "wrong");
+      el.classList.add(isCorrect ? "correct" : "wrong");
+      el.draggable = false;
+      if (isCorrect) correctCount += 1;
+    });
+  });
+
+  var bankItems = byId("itemBank").querySelectorAll(".dnd-item");
+  bankItems.forEach(function(el) { el.draggable = false; });
+
+  byId("act1Feedback").style.display = "block";
+  if (correctCount === 12) {
+    byId("act1FeedbackText").textContent = "Excellent grouping. All 12 items are in sensible groups, and your labels now make the structure usable.";
+  } else {
+    byId("act1FeedbackText").textContent = "You grouped " + correctCount + " of 12 correctly. Review items marked in red, then reset and try again.";
+  }
+
+  byId("checkAct1Btn").disabled = true;
+  byId("act2State").textContent = "Activity 2 is now ready";
+  renderActivity2Options();
+}
+
+function resetActivity1() {
+  activity1Checked = false;
+  byId("act1Feedback").style.display = "none";
+  byId("act1FeedbackText").textContent = "";
+  GROUPS.forEach(function(g) {
+    byId("zoneItems-" + g).innerHTML = "";
+    byId("groupName-" + g).value = "";
+  });
+  renderBank();
+  resetActivity2();
+  byId("act2State").textContent = "Complete Activity 1 first";
+  updateActivity1State();
+}
+
+function groupNames() {
+  return {
+    g1: byId("groupName-g1").value.trim() || "Group A",
+    g2: byId("groupName-g2").value.trim() || "Group B",
+    g3: byId("groupName-g3").value.trim() || "Group C",
+    g4: byId("groupName-g4").value.trim() || "Group D"
+  };
+}
+
+function renderActivity2Options() {
+  var list = byId("mcq2List");
+  list.innerHTML = "";
+  var names = groupNames();
+  GROUPS.forEach(function(g, idx) {
+    var opt = document.createElement("div");
+    opt.className = "mcq-opt";
+    if (activity2Locked || !activity1Checked) opt.classList.add("locked");
+    opt.innerHTML = '<span class="mcq-letter">' + String.fromCharCode(65 + idx) + ".</span> " + names[g];
+    if (activity1Checked && !activity2Locked) {
+      opt.addEventListener("click", function() { checkActivity2(g, opt); });
+    }
+    list.appendChild(opt);
+  });
+}
+
+function checkActivity2(selectedGroup, selectedEl) {
+  if (activity2Locked) return;
+  activity2Locked = true;
+  var correctGroup = "g2";
+  var opts = byId("mcq2List").querySelectorAll(".mcq-opt");
+  opts.forEach(function(o) { o.classList.add("locked"); });
+  selectedEl.classList.add(selectedGroup === correctGroup ? "correct" : "wrong");
+
+  var fb = byId("mcq2Feedback");
+  if (selectedGroup === correctGroup) {
+    fb.className = "mcq-fb show ok";
+    fb.textContent = "You found the group without much thought - because the bin made sense. The structure you built can absorb new things as they arrive. That's what categories do. You'll be glad you have them.";
+  } else {
+    fb.className = "mcq-fb show err";
+    fb.textContent = "Not quite. Brake pads belong with your replacement parts inventory group. Reset Activity 2 and try again.";
+  }
+}
+
+function resetActivity2() {
+  activity2Locked = false;
+  byId("mcq2Feedback").className = "mcq-fb";
+  byId("mcq2Feedback").textContent = "";
+  renderActivity2Options();
+}
+
+byId("itemBank").addEventListener("dragover", allowDropBank);
+byId("itemBank").addEventListener("drop", dropToBank);
+
+renderBank();
+attachNameListeners();
+resetActivity2();
+updateActivity1State();
+</script>
+</body>
+</html>

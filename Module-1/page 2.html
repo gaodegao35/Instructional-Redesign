@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1 - Page 2: Make Lists</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+<div class="page">
+  <div class="text-block">
+    <div class="section-tag">Module 1 · Page 2</div>
+    <h2 class="section-title">Make Lists</h2>
+  </div>
+
+  <div class="text-block">
+    <div class="section-tag">Scenario</div>
+    <div class="analogy-box">
+      One day, you stand in the middle of the rented space and look around. Most of what you see is for the work, but a few personal things have crept in. Then you walk home and look around the apartment. Mostly personal, but some work things have ended up there too. A question comes up: what exactly should I include in the shop's list?
+    </div>
+  </div>
+
+  <div class="section-card activity-card">
+    <div class="activity-tag">&#10003; Activity 1</div>
+    <div class="activity-title">Sorting Things</div>
+    <div class="activity-desc">Drag items from each location into the correct bin. Once you meet the minimum rule, click <strong>Help me sort the rest of items</strong>.</div>
+
+    <div class="dnd-bank-wrap">
+      <div class="dnd-bank-label">At the rented space. Looking around the room from the middle.</div>
+      <div class="dnd-bank" id="srcShop"></div>
+    </div>
+
+    <div class="dnd-bank-wrap">
+      <div class="dnd-bank-label">At home. Looking around the apartment.</div>
+      <div class="dnd-bank" id="srcHome"></div>
+    </div>
+
+    <div class="dnd-zones">
+      <div class="dnd-zone" id="binRelated" data-bin="related" ondragover="dndOver(event,this)" ondragleave="dndLeave(this)" ondrop="dndDrop(event,this)">
+        <div class="dnd-zone-label">Things related to your repair work</div>
+        <div class="dnd-zone-items" id="binRelatedItems"></div>
+      </div>
+      <div class="dnd-zone" id="binUnrelated" data-bin="unrelated" ondragover="dndOver(event,this)" ondragleave="dndLeave(this)" ondrop="dndDrop(event,this)">
+        <div class="dnd-zone-label">Things unrelated to your repair work</div>
+        <div class="dnd-zone-items" id="binUnrelatedItems"></div>
+      </div>
+    </div>
+
+    <div class="dnd-fb-card" id="a1Hint">
+      <span class="dnd-fb-label">Minimum Rule</span>
+      Place at least 6 items correctly, at least 1 in each bin, and at least 1 item whose location did not match where it belongs.
+    </div>
+
+    <div class="dnd-fb-card" id="a1Feedback" style="display:none;">
+      <span class="dnd-fb-label">Activity Feedback</span>
+      <span id="a1FeedbackText"></span>
+    </div>
+
+    <div class="act-footer">
+      <span class="act-progress" id="a1Progress">0 sorted</span>
+      <div class="act-footer-btns">
+        <button class="btn btn-outline" onclick="resetA1()">Reset</button>
+        <button class="btn btn-primary" id="a1AutoBtn" onclick="autoSortA1()" disabled>Help me sort the rest of items</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card activity-card">
+    <div class="activity-tag">&#10003; Activity 2</div>
+    <div class="activity-title">What line did you draw?</div>
+    <div class="activity-desc">Look at what you just did. Your guitar ended up off the list — and the cash drawer ended up on it. You drew a line. Which of these best describes it?</div>
+    <div class="mcq-list" id="a2List"></div>
+    <div class="mcq-fb" id="a2Feedback"></div>
+    <div class="act-footer">
+      <span class="act-progress">Single-select</span>
+      <button class="btn btn-outline" onclick="resetA2()">Reset</button>
+    </div>
+  </div>
+
+  <div class="callout">
+    The line you drew is called the entity boundary. It decides what goes into the accounting records and what stays out. Every time an accountant records something, they have already made a judgment: does this belong to the entity (the shop) or not?
+  </div>
+
+  <div class="text-block">
+    <div class="prose">
+      <p>The boundary isn't always obvious. If you use your personal car to pick up parts for the shop, did the car cross the boundary for that trip? We'll handle this with rules later.</p>
+    </div>
+  </div>
+
+  <div class="text-block">
+    <div class="section-tag">Scenario</div>
+    <div class="analogy-box">
+      You've listed what you have. But there's something the list of things doesn't capture. Last month, a customer paid a deposit for a custom build that isn't finished yet. Your parts supplier sent a bill you haven't paid. The landlord expects rent at the end of the week.
+    </div>
+  </div>
+
+  <div class="text-block">
+    <div class="prose">
+      <p>These aren't things you use — they're promises you've agreed to do or pay, where the doing or paying comes later. A complete picture of your shop has two sides: what you have, and what you owe.</p>
+    </div>
+  </div>
+
+  <div class="section-card activity-card">
+    <div class="activity-tag">&#10003; Activity 3</div>
+    <div class="activity-title">Sort the Promises</div>
+    <div class="activity-desc">Three promises come to mind from the last week or two. Some are related to your repair work; some aren't. Sort them out.</div>
+
+    <div class="dnd-bank-wrap">
+      <div class="dnd-bank-label">Promise Cards</div>
+      <div class="dnd-bank" id="a3Bank"></div>
+    </div>
+
+    <div class="dnd-zones">
+      <div class="dnd-zone" id="a3BinRelated" data-bin="related" ondragover="dndOver(event,this)" ondragleave="dndLeave(this)" ondrop="a3Drop(event,this)">
+        <div class="dnd-zone-label">Promises related to your repair work</div>
+        <div class="dnd-zone-items" id="a3RelatedItems"></div>
+      </div>
+      <div class="dnd-zone" id="a3BinUnrelated" data-bin="unrelated" ondragover="dndOver(event,this)" ondragleave="dndLeave(this)" ondrop="a3Drop(event,this)">
+        <div class="dnd-zone-label">Promises unrelated to your repair work</div>
+        <div class="dnd-zone-items" id="a3UnrelatedItems"></div>
+      </div>
+    </div>
+
+    <div class="dnd-fb-card" id="a3Feedback" style="display:none;">
+      <span class="dnd-fb-label">Activity Feedback</span>
+      <span id="a3FeedbackText"></span>
+    </div>
+
+    <div class="act-footer">
+      <span class="act-progress" id="a3Progress">0 of 3 placed</span>
+      <div class="act-footer-btns">
+        <button class="btn btn-outline" onclick="resetA3()">Reset</button>
+        <button class="btn btn-primary" id="a3CheckBtn" onclick="checkA3()" disabled>Check</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card activity-card">
+    <div class="activity-tag">&#10003; Activity 4</div>
+    <div class="activity-title">What belongs on the promises list?</div>
+    <div class="activity-desc">Two of the three promises ended up on the repair-related list. One didn't. Which of these best describes what is on the promises list you kept?</div>
+    <div class="mcq-list" id="a4List"></div>
+    <div class="mcq-fb" id="a4Feedback"></div>
+    <div class="act-footer">
+      <span class="act-progress">Single-select</span>
+      <button class="btn btn-outline" onclick="resetA4()">Reset</button>
+    </div>
+  </div>
+
+  <div class="rabbit-hole">
+    <button class="rabbit-hole-trigger" onclick="toggleRabbitHole(this)">
+      <span class="rh-icon">&#128007;</span>
+      Why these lists, and not others
+      <span class="rh-chevron">&#9654;</span>
+    </button>
+    <div class="rabbit-hole-body">
+      <p>You didn't draw the line for the sake of drawing it. You drew it because the goal was to get your bike repair activities in order — to stop losing track of tools, to know what you owe and to whom, to know what's at risk.</p>
+      <p>Your guitar, your apartment, the friend dinner — those are real, and they matter in your life. They just don't help with that goal. There's no reason to write lists of them now; on these lists, they'd only be a distraction.</p>
+    </div>
+  </div>
+</div>
+
+<script src="../config.js"></script>
+<script src="../shared.js"></script>
+<script>
+applyConfig();
+
+var dragEl = null;
+
+var A1_ITEMS = [
+  { id: "s1", text: "Cash drawer", belongs: "related", source: "shop" },
+  { id: "s2", text: "Repair stand", belongs: "related", source: "shop" },
+  { id: "s3", text: "Brake pads inventory", belongs: "related", source: "shop" },
+  { id: "s4", text: "Workbench", belongs: "related", source: "shop" },
+  { id: "s5", text: "Guitar case", belongs: "unrelated", source: "shop" },
+  { id: "s6", text: "Family photo album", belongs: "unrelated", source: "shop" },
+  { id: "h1", text: "Laptop with service logs", belongs: "related", source: "home" },
+  { id: "h2", text: "Box of inner tubes", belongs: "related", source: "home" },
+  { id: "h3", text: "Torque wrench set", belongs: "related", source: "home" },
+  { id: "h4", text: "Sofa", belongs: "unrelated", source: "home" },
+  { id: "h5", text: "Kitchen blender", belongs: "unrelated", source: "home" },
+  { id: "h6", text: "TV remote", belongs: "unrelated", source: "home" }
+];
+
+function createA1Chip(item) {
+  var el = document.createElement("div");
+  el.className = "dnd-item";
+  el.id = item.id;
+  el.textContent = item.text;
+  el.draggable = true;
+  el.setAttribute("data-belongs", item.belongs);
+  el.setAttribute("data-source", item.source);
+  el.addEventListener("dragstart", function(e) {
+    dragEl = el;
+    e.dataTransfer.setData("text/plain", item.id);
+    setTimeout(function() { el.classList.add("dragging"); }, 0);
+  });
+  el.addEventListener("dragend", function() { el.classList.remove("dragging"); dragEl = null; });
+  return el;
+}
+
+function dndOver(e, el) { e.preventDefault(); el.classList.add("drag-over"); }
+function dndLeave(el) { el.classList.remove("drag-over"); }
+
+function dndDrop(e, bin) {
+  e.preventDefault();
+  bin.classList.remove("drag-over");
+  var id = e.dataTransfer.getData("text/plain");
+  var el = document.getElementById(id);
+  if (!el) return;
+  bin.querySelector(".dnd-zone-items").appendChild(el);
+  updateA1Progress();
+}
+
+function countA1Placed() {
+  return document.querySelectorAll("#binRelatedItems .dnd-item, #binUnrelatedItems .dnd-item").length;
+}
+
+function a1Stats() {
+  var related = document.querySelectorAll("#binRelatedItems .dnd-item").length;
+  var unrelated = document.querySelectorAll("#binUnrelatedItems .dnd-item").length;
+  var correct = 0;
+  var crossLocation = 0;
+
+  document.querySelectorAll("#binRelatedItems .dnd-item, #binUnrelatedItems .dnd-item").forEach(function(el) {
+    var bin = el.closest(".dnd-zone").getAttribute("data-bin");
+    var belongs = el.getAttribute("data-belongs");
+    var source = el.getAttribute("data-source");
+    if (bin === belongs) correct += 1;
+    if ((source === "shop" && belongs === "unrelated") || (source === "home" && belongs === "related")) crossLocation += 1;
+  });
+
+  return { related: related, unrelated: unrelated, correct: correct, crossLocation: crossLocation };
+}
+
+function updateA1Progress() {
+  var placed = countA1Placed();
+  var stats = a1Stats();
+  document.getElementById("a1Progress").textContent = placed + " of 12 placed · " + stats.correct + " correctly sorted";
+  var canAuto = stats.correct >= 6 && stats.related >= 1 && stats.unrelated >= 1 && stats.crossLocation >= 1;
+  document.getElementById("a1AutoBtn").disabled = !canAuto;
+}
+
+function autoSortA1() {
+  var bins = {
+    related: document.getElementById("binRelatedItems"),
+    unrelated: document.getElementById("binUnrelatedItems")
+  };
+
+  A1_ITEMS.forEach(function(item) {
+    var el = document.getElementById(item.id);
+    if (!el) return;
+    bins[item.belongs].appendChild(el);
+    el.classList.remove("wrong");
+    el.classList.add("correct");
+    el.draggable = false;
+  });
+
+  document.querySelectorAll("#srcShop .dnd-item, #srcHome .dnd-item").forEach(function(el) { el.draggable = false; });
+  document.getElementById("a1AutoBtn").disabled = true;
+  document.getElementById("a1Feedback").style.display = "block";
+  document.getElementById("a1FeedbackText").textContent = "You placed maybe a handful; the system did the rest once it had the line. That move — once the rule is clear, the system handles the volume — is what you're going to feel again and again across this prework.";
+  updateA1Progress();
+}
+
+function resetA1() {
+  var shop = document.getElementById("srcShop");
+  var home = document.getElementById("srcHome");
+  shop.innerHTML = "";
+  home.innerHTML = "";
+  document.getElementById("binRelatedItems").innerHTML = "";
+  document.getElementById("binUnrelatedItems").innerHTML = "";
+  document.getElementById("a1Feedback").style.display = "none";
+  document.getElementById("a1FeedbackText").textContent = "";
+  A1_ITEMS.forEach(function(item) {
+    var chip = createA1Chip(item);
+    (item.source === "shop" ? shop : home).appendChild(chip);
+  });
+  updateA1Progress();
+}
+
+var A2_OPTIONS = [
+  { key: "A", text: "Things related to your repair work", correct: true },
+  { key: "B", text: "Things you use for repairing bicycles", correct: false },
+  { key: "C", text: "Things physically in the space", correct: false },
+  { key: "D", text: "Things the business owns", correct: false }
+];
+var a2Locked = false;
+
+function renderA2() {
+  var list = document.getElementById("a2List");
+  list.innerHTML = "";
+  A2_OPTIONS.forEach(function(opt) {
+    var el = document.createElement("div");
+    el.className = "mcq-opt";
+    if (a2Locked) el.classList.add("locked");
+    el.innerHTML = '<span class="mcq-letter">' + opt.key + '.</span> ' + opt.text;
+    if (!a2Locked) {
+      el.addEventListener("click", function() {
+        if (a2Locked) return;
+        a2Locked = true;
+        document.querySelectorAll("#a2List .mcq-opt").forEach(function(o) { o.classList.add("locked"); });
+        el.classList.add(opt.correct ? "correct" : "wrong");
+        var fb = document.getElementById("a2Feedback");
+        fb.className = "mcq-fb show " + (opt.correct ? "ok" : "err");
+        fb.textContent = "You drew a line: things related to your repair work go on the list. Things unrelated — even if they're useful, even if they're yours — stay off. That line is the most important thing you drew today. Next, you'll see whether the same line works on a second list — a different kind of list.";
+      });
+    }
+    list.appendChild(el);
+  });
+}
+
+function resetA2() {
+  a2Locked = false;
+  var fb = document.getElementById("a2Feedback");
+  fb.className = "mcq-fb";
+  fb.textContent = "";
+  renderA2();
+}
+
+var A3_ITEMS = [
+  { id: "p1", text: "Bought parts last week - put them on my credit card.", belongs: "related" },
+  { id: "p2", text: "Promised to take a friend to dinner - my treat.", belongs: "unrelated" },
+  { id: "p3", text: "Promised to build a custom frame for Smith. He paid me $220 up front for it.", belongs: "related" }
+];
+
+function makeA3Card(item) {
+  var el = document.createElement("div");
+  el.className = "dnd-item";
+  el.id = item.id;
+  el.textContent = item.text;
+  el.draggable = true;
+  el.setAttribute("data-belongs", item.belongs);
+  el.addEventListener("dragstart", function(e) {
+    dragEl = el;
+    e.dataTransfer.setData("text/plain", item.id);
+    setTimeout(function() { el.classList.add("dragging"); }, 0);
+  });
+  el.addEventListener("dragend", function() { el.classList.remove("dragging"); dragEl = null; });
+  return el;
+}
+
+function a3Drop(e, bin) {
+  e.preventDefault();
+  bin.classList.remove("drag-over");
+  var id = e.dataTransfer.getData("text/plain");
+  var el = document.getElementById(id);
+  if (!el) return;
+  bin.querySelector(".dnd-zone-items").appendChild(el);
+  updateA3Progress();
+}
+
+function updateA3Progress() {
+  var placed = document.querySelectorAll("#a3RelatedItems .dnd-item, #a3UnrelatedItems .dnd-item").length;
+  document.getElementById("a3Progress").textContent = placed + " of 3 placed";
+  document.getElementById("a3CheckBtn").disabled = placed !== 3;
+}
+
+function checkA3() {
+  var correct = 0;
+  document.querySelectorAll("#a3RelatedItems .dnd-item, #a3UnrelatedItems .dnd-item").forEach(function(el) {
+    var bin = el.closest(".dnd-zone").getAttribute("data-bin");
+    var belongs = el.getAttribute("data-belongs");
+    var ok = bin === belongs;
+    el.classList.remove("correct", "wrong");
+    el.classList.add(ok ? "correct" : "wrong");
+    el.draggable = false;
+    if (ok) correct += 1;
+  });
+  document.getElementById("a3Feedback").style.display = "block";
+  document.getElementById("a3FeedbackText").textContent = correct === 3
+    ? "Well sorted. Two promises are related to your repair work, and one is not."
+    : "Some promises were placed in the wrong bin. Reset and try again.";
+}
+
+function resetA3() {
+  document.getElementById("a3Bank").innerHTML = "";
+  document.getElementById("a3RelatedItems").innerHTML = "";
+  document.getElementById("a3UnrelatedItems").innerHTML = "";
+  document.getElementById("a3Feedback").style.display = "none";
+  document.getElementById("a3FeedbackText").textContent = "";
+  A3_ITEMS.forEach(function(item) { document.getElementById("a3Bank").appendChild(makeA3Card(item)); });
+  updateA3Progress();
+}
+
+var A4_OPTIONS = [
+  { key: "A", text: "Promises related to your repair work", correct: true },
+  { key: "B", text: "Promises made to people connected to the business", correct: false },
+  { key: "C", text: "Promises the business has made", correct: false }
+];
+var a4Locked = false;
+
+function renderA4() {
+  var list = document.getElementById("a4List");
+  list.innerHTML = "";
+  A4_OPTIONS.forEach(function(opt) {
+    var el = document.createElement("div");
+    el.className = "mcq-opt";
+    if (a4Locked) el.classList.add("locked");
+    el.innerHTML = '<span class="mcq-letter">' + opt.key + '.</span> ' + opt.text;
+    if (!a4Locked) {
+      el.addEventListener("click", function() {
+        if (a4Locked) return;
+        a4Locked = true;
+        document.querySelectorAll("#a4List .mcq-opt").forEach(function(o) { o.classList.add("locked"); });
+        el.classList.add(opt.correct ? "correct" : "wrong");
+        var fb = document.getElementById("a4Feedback");
+        if (opt.correct) {
+          fb.className = "mcq-fb show ok";
+          fb.textContent = "Same line, second time. You drew it between things related to your repair work and things unrelated. Now you've drawn it again — between promises related to your repair work and promises unrelated. The line is the same. It works in both places.";
+        } else {
+          fb.className = "mcq-fb show err";
+          fb.textContent = "Not quite. Use the same boundary rule as before: related to your repair work vs unrelated.";
+        }
+      });
+    }
+    list.appendChild(el);
+  });
+}
+
+function resetA4() {
+  a4Locked = false;
+  var fb = document.getElementById("a4Feedback");
+  fb.className = "mcq-fb";
+  fb.textContent = "";
+  renderA4();
+}
+
+resetA1();
+renderA2();
+resetA3();
+renderA4();
+</script>
+</body>
+</html>

@@ -9,9 +9,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../shared.css">
 <style>
-/* ================================================================
-   SCENARIO BLOCK — narrative framing, uses repo color tokens only
-================================================================ */
+/* NOTE: page-specific styles only — shared.css supplies .prose, .mcq-*, .accordion,
+   .rabbit-hole, .callout, dark mode for those components, and design tokens. */
+
+/* Scenario narrative block */
 .scenario {
   border-left: 4px solid var(--accent);
   background: #fffbf5;
@@ -28,9 +29,7 @@
   font-style: italic;
 }
 
-/* ================================================================
-   FLIP CARDS — 3-column grid, click to flip
-================================================================ */
+/* Flip cards — blue-back variant (not shared.css def-grid flip cards) */
 .flip-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -39,22 +38,22 @@
   align-items: stretch;
 }
 @media (max-width: 600px) { .flip-grid { grid-template-columns: 1fr; } }
-.flip-card {
+.flip-grid .flip-card {
   perspective: 1000px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   min-height: 220px;
 }
-.flip-card-inner {
+.flip-grid .flip-card-inner {
   flex: 1;
   display: grid;
   transform-style: preserve-3d;
   transition: transform 0.5s ease;
 }
-.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
-.flip-card-front,
-.flip-card-back {
+.flip-grid .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-grid .flip-card-front,
+.flip-grid .flip-card-back {
   grid-area: 1 / 1;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -64,46 +63,61 @@
   display: flex;
   flex-direction: column;
 }
-.flip-card-front {
+.flip-grid .flip-card-front {
   background: white;
-  border: 1.5px solid #e2e8f0;
+  border: 1.5px solid var(--border);
 }
-.flip-card-front h4 {
-  font-family: Inter, sans-serif;
-  font-size: var(--font-m); font-weight: 700;
+.flip-grid .flip-card-front h4 {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: var(--font-m);
+  font-weight: 700;
   color: var(--primary);
   margin-bottom: 10px;
 }
-.flip-card-front p {
+.flip-grid .flip-card-front p {
   font-family: 'Open Sans', sans-serif;
-  font-size: var(--font-m); color: #444; line-height: 1.65; margin: 0; flex: 1;
+  font-size: var(--font-m);
+  color: #444;
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
 }
-.flip-card-front .flip-hint {
-  font-family: Inter, sans-serif;
-  font-size: 10px; font-weight: 600; color: #aaa;
-  text-transform: uppercase; letter-spacing: 0.5px;
-  margin-top: 10px; text-align: right;
+.flip-grid .flip-card-front .flip-hint {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+  text-align: right;
 }
-.flip-card-back {
+.flip-grid .flip-card-back {
   background: var(--primary);
   transform: rotateY(180deg);
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-.flip-card-back p {
-  font-family: Inter, sans-serif;
-  font-size: var(--font-m); font-weight: 600;
-  color: white; line-height: 1.55; margin: 0;
+.flip-grid .flip-card-back p {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: var(--font-m);
+  font-weight: 600;
+  color: white;
+  line-height: 1.55;
+  margin: 0;
 }
 
-/* ================================================================
-   DRAG-AND-DROP
-================================================================ */
+/* Two-bin drag-and-drop (shop/personal, have/owe) */
 .dnd-pool {
-  display: flex; flex-wrap: wrap; gap: 8px;
-  min-height: 50px; padding: 12px 14px;
-  background: #f8fafc; border: 1.5px dashed #d1d5db; border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 50px;
+  padding: 12px 14px;
+  background: #f8fafc;
+  border: 1.5px dashed var(--border-strong);
+  border-radius: 10px;
   margin-bottom: 16px;
 }
 .dnd-bins {
@@ -111,127 +125,77 @@
   grid-template-columns: 1fr 3px 1fr;
   align-items: stretch;
   min-height: 130px;
-  border: 1.5px solid #e2e8f0;
+  border: 1.5px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
 }
 .dnd-bin {
   padding: 14px;
   background: #fafafa;
-  display: flex; flex-direction: column; gap: 8px;
-  transition: background 0.15s, border-color 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background 0.15s;
 }
-.dnd-bin.drag-over { background: #eff6ff; }
-.dnd-divider {
-  background: #d1d5db;
-  width: 3px;
-}
+.dnd-bin.drag-over { background: var(--primary-faint); }
+.dnd-divider { background: var(--border-strong); width: 3px; }
 .dnd-bin-label {
-  font-family: Inter, sans-serif;
-  font-size: 11px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.6px;
-  color: #888; margin-bottom: 2px;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: var(--font-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #888;
+  margin-bottom: 2px;
 }
 .dnd-bin-chips { display: flex; flex-wrap: wrap; gap: 7px; min-height: 32px; }
 .dnd-chip {
-  display: inline-flex; align-items: center;
-  background: white; border: 1.5px solid #d1d5db; border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  background: white;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 7px;
   padding: 6px 12px;
-  font-family: Inter, sans-serif; font-size: var(--font-m); font-weight: 500; color: #333;
-  cursor: grab; user-select: none;
-  transition: border-color 0.15s, background 0.15s, opacity 0.15s;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: var(--font-m);
+  font-weight: 500;
+  color: #333;
+  cursor: grab;
+  user-select: none;
+  transition: border-color 0.15s, background 0.15s, color 0.15s, opacity 0.15s;
 }
-.dnd-chip:hover { border-color: var(--primary); color: var(--primary); }
+.dnd-chip:hover:not(.correct):not(.wrong) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
 .dnd-chip.dragging { opacity: 0.4; }
-.dnd-chip.correct { border-color: var(--success-border); background: var(--success-bg); color: var(--success-text); cursor: default; }
-.dnd-chip.wrong   { border-color: var(--error-border); background: var(--error-bg); color: var(--error-text); cursor: default; }
+.dnd-chip.correct {
+  border-color: var(--success-border);
+  background: var(--success-bg);
+  color: var(--success-text);
+  cursor: default;
+}
+.dnd-chip.wrong {
+  border-color: var(--error-border);
+  background: var(--error-bg);
+  color: var(--error-text);
+  cursor: default;
+}
 
-/* ================================================================
-   MCQ — adapted from .match-opt pattern in three-flow-statements.html
-================================================================ */
-.mcq-list { display: flex; flex-direction: column; gap: 10px; margin: 16px 0 4px; }
-.mcq-opt {
-  border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 13px 16px;
-  cursor: pointer; background: white; transition: all 0.15s;
-  display: flex; align-items: center; gap: 12px;
-  font-family: Inter, sans-serif; font-size: var(--font-m); color: #333;
-}
-.mcq-opt:hover:not(.locked) { border-color: var(--primary); background: var(--primary-faint); color: var(--primary); }
-.mcq-opt.selected:not(.locked) { border-color: var(--primary); background: var(--primary-faint); color: var(--primary); }
-.mcq-opt.correct  { border-color: var(--success-border) !important; background: var(--success-bg) !important; color: var(--success-text) !important; cursor: default; }
-.mcq-opt.wrong    { border-color: var(--error-border) !important; background: var(--error-bg) !important; color: var(--error-text) !important; cursor: default; }
-.mcq-opt.locked   { cursor: default; }
-.mcq-letter { font-weight: 700; font-size: 14px; flex-shrink: 0; min-width: 18px; }
-.mcq-fb {
-  font-family: 'Open Sans', sans-serif;
-  font-size: var(--font-m); line-height: 1.65; margin-top: 10px; display: none;
-  padding: 10px 14px; border-radius: 6px;
-}
-.mcq-fb.show { display: block; }
-.mcq-fb.ok  { background: var(--success-bg); color: var(--success-text); border: 1px solid var(--success-border); }
-.mcq-fb.inf { background: var(--primary-faint); color: var(--primary); border: 1px solid #bfdbfe; }
-.mcq-fb.err { background: var(--error-bg); color: var(--error-text); border: 1px solid var(--error-border); }
+/* Activity 2 MCQ spacing (options styled in shared.css) */
+#mcq1.mcq-list { margin: 16px 0 4px; }
 
-/* ================================================================
-   ACCORDION — pattern from two-snapshots3.html
-================================================================ */
-.accordion { border: 1px solid #e2e8f0; border-radius: 10px; overflow: hidden; }
-.acc-item { border-bottom: 1px solid #e2e8f0; }
-.acc-item:last-child { border-bottom: none; }
-.acc-trigger {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 16px 20px; cursor: pointer; background: white;
-  transition: background 0.15s; user-select: none; width: 100%; border: none;
+/* Longer accordion bodies on this page */
+.page .acc-body.open { max-height: 500px; }
+button.acc-trigger {
+  width: 100%;
+  border: none;
+  font: inherit;
+  text-align: left;
 }
-.acc-trigger:hover { background: #f8fafc; }
-.acc-trigger-left { display: flex; align-items: center; gap: 12px; }
-.acc-term { font-family: Inter, sans-serif; font-size: var(--font-m); font-weight: 700; color: var(--primary); }
-.acc-tag  { font-family: Inter, sans-serif; font-size: var(--font-s); color: #888; font-weight: 400; }
-.acc-icon {
-  width: 22px; height: 22px; border-radius: 50%;
-  border: 1.5px solid #d1d5db;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px; color: #888; transition: all 0.2s; flex-shrink: 0;
-}
-.acc-trigger[aria-expanded="true"] .acc-icon {
-  background: var(--primary); border-color: var(--primary); color: white; transform: rotate(45deg);
-}
-.acc-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 20px; background: #f8fafc; }
-.acc-body.open { max-height: 500px; padding: 16px 20px; }
-.acc-body p { font-family: 'Open Sans', sans-serif; font-size: var(--font-m); color: #333; line-height: 1.75; margin-bottom: 10px; }
-.acc-body p:last-child { margin-bottom: 0; }
 
-/* ================================================================
-   RABBIT HOLE — exact pattern from how-fit-together.html
-================================================================ */
-.rabbit-hole {
-  margin-top: 20px; background: #fffbf5;
-  border: 1px solid #f0dcc8; border-radius: 6px; overflow: hidden;
-}
-.rh-toggle {
-  display: flex; align-items: center; gap: 8px;
-  width: 100%; padding: 14px 18px;
-  background: none; border: none; cursor: pointer;
-  font-family: Inter, sans-serif; font-size: 14px; font-weight: 600;
-  color: var(--accent); text-align: left; transition: background 0.15s;
-}
-.rh-toggle:hover { background: #fff5eb; }
-.rh-icon  { font-size: 16px; flex-shrink: 0; }
-.rh-label { flex: 1; line-height: 1.4; }
-.rh-chevron { margin-left: auto; font-size: 11px; color: #caa; transition: transform 0.2s; }
-.rh-toggle.open .rh-chevron { transform: rotate(180deg); }
-.rh-body { display: none; padding: 0 18px; }
-.rh-body.open { display: block; padding: 0 18px 18px; }
-.rh-body .prose p { font-family: 'Open Sans', sans-serif; font-size: 14px; color: #444; line-height: 1.75; margin-bottom: 14px; }
-.rh-body .prose p:last-child { margin-bottom: 0; }
-
-/* Tighter spacing: post-activity wrap-up through rabbit-hole */
+/* Post-activity wrap-up spacing */
 .close-section { padding: 0 0 8px; }
-.close-section .close-lead {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1rem; color: #333; line-height: 1.8;
-  margin: 0 0 12px;
-}
 .close-section .callout { margin-top: 0; margin-bottom: 14px; }
 .close-section .section-title { margin-top: 0; margin-bottom: 4px; }
 .close-section .section-sub { margin-bottom: 10px; }
@@ -240,37 +204,26 @@
 @media (prefers-color-scheme: dark) {
   .scenario { background: #2a2318; border-left-color: var(--accent); }
   .scenario p { color: #b8afa4; }
-  .flip-card-front { background: #32303c; border-color: #4a4858; }
-  .flip-card-front p { color: #c8ccd8; }
-  .flip-card-front .flip-hint { color: #8a8898; }
+
+  .flip-grid .flip-card-front { background: #32303c; border-color: #4a4858; }
+  .flip-grid .flip-card-front h4 { color: var(--primary); }
+  .flip-grid .flip-card-front p { color: #c8ccd8; }
+  .flip-grid .flip-card-front .flip-hint { color: #8a8898; }
+  .flip-grid .flip-card-back { background: var(--primary); }
+  .flip-grid .flip-card-back p { color: #1b191f; }
+
   .dnd-pool { background: #32303c; border-color: #4a4858; }
+  .dnd-bins { border-color: var(--border); }
   .dnd-bin { background: #2a2838; }
-  .dnd-bin.drag-over { background: #1a2540 !important; }
+  .dnd-bin.drag-over { background: var(--primary-faint); }
   .dnd-divider { background: #4a4858; }
   .dnd-bin-label { color: #8a8898; }
   .dnd-chip { background: #3e3c48; border-color: #4a4858; color: #c8ccd8; }
-  .dnd-chip:hover { border-color: var(--primary); color: var(--primary); }
-
-  .mcq-opt { background: #3e3c48; border-color: #4a4858; color: #c8ccd8; }
-  .mcq-fb.inf { background: var(--primary-faint); color: var(--primary); }
-  .accordion { border-color: #2a2830; }
-  .acc-item { border-bottom-color: #2a2830; }
-  .acc-trigger { background: #32303c; }
-  .acc-trigger:hover { background: #3a3846; }
-  .acc-term { color: var(--primary); }
-  .acc-tag { color: #8a8898; }
-  .acc-icon { border-color: #4a4858; color: #b0aec0; }
-  .acc-trigger[aria-expanded="true"] .acc-icon { background: var(--primary); border-color: var(--primary); color: #1b191f; }
-  .acc-body { background: #3e3c48; border-top: 1px solid #4a4858; }
-  .acc-body p { color: #c8ccd8; }
-  .rabbit-hole { background: #2a2318; border-color: #3a2e22; }
-  .rh-toggle { color: #e07840; }
-  .rh-toggle:hover { background: #221a10; }
-  .rh-chevron { color: #6b5540; }
-  .rh-body { color: #b8afa4; }
-  .rh-body .prose p { color: #b8afa4; }
+  .dnd-chip:hover:not(.correct):not(.wrong) {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
 }
-
 </style>
 </head>
 <body>
@@ -403,30 +356,18 @@
     <div class="prose">
       <p>The line you drew is called the <strong>entity boundary</strong>. It decides what goes into the accounting records and what stays out. Every time an accountant records something, they have already made a judgment: does this belong to the entity (the shop) or not?</p>
       <p>The boundary isn&rsquo;t always obvious. If you use your personal car to pick up parts for the shop, did the car cross the boundary for that trip? Accounting systems handle this with rules &mdash; but those rules are built on top of the same idea you just discovered by sorting ten things into two bins.</p>
-
-    </div>
-  </div>
-
-
-  <div class="text-block">
-    <div class="prose">
-      <p>The line you drew is called the <strong>entity boundary</strong>. It decides what goes into the accounting records and what stays out. Every time an accountant records something, they have already made a judgment: does this belong to the entity (the shop) or not?</p>
-      <p>The boundary isn&rsquo;t always obvious. If you use your personal car to pick up parts for the shop, did the car cross the boundary for that trip? Accounting systems handle this with rules &mdash; but those rules are built on top of the same idea you just discovered by sorting ten things into two bins.</p>
-
     </div>
   </div>
 
   <div class="rabbit-hole">
-    <button class="rh-toggle" id="rh1Toggle" onclick="toggleRh('rh1')">
+    <button class="rabbit-hole-trigger" onclick="toggleRabbitHole(this)">
       <span class="rh-icon">&#128007;</span>
-      <span class="rh-label">Notice what isn&rsquo;t on the list.</span>
-      <span class="rh-chevron">&#9660;</span>
+      Notice what isn&rsquo;t on the list.
+      <span class="rh-chevron">&#9654;</span>
     </button>
-    <div class="rh-body" id="rh1Body">
-      <div class="prose">
-        <p>Look at the list you made. The stand, the wrenches, the parts &mdash; all things related to your shop work. But none of it becomes shop work without <em>you</em>. You know how to true a wheel, when a frame is worth fixing, which wrench to grab. Your knowledge is what makes the shop possible.</p>
-        <p>Should you list it? It&rsquo;s arguably the most important &ldquo;thing&rdquo; about the shop. But it isn&rsquo;t a thing you can drag into a bin &mdash; and you, the person who has it, aren&rsquo;t a thing at all. Where do you and what you know fit in the picture? We&rsquo;ll come back to that question later.</p>
-      </div>
+    <div class="rabbit-hole-body">
+      <p>Look at the list you made. The stand, the wrenches, the parts &mdash; all things related to your shop work. But none of it becomes shop work without <em>you</em>. You know how to true a wheel, when a frame is worth fixing, which wrench to grab. Your knowledge is what makes the shop possible.</p>
+      <p>Should you list it? It&rsquo;s arguably the most important &ldquo;thing&rdquo; about the shop. But it isn&rsquo;t a thing you can drag into a bin &mdash; and you, the person who has it, aren&rsquo;t a thing at all. Where do you and what you know fit in the picture? We&rsquo;ll come back to that question later.</p>
     </div>
   </div>
 
@@ -584,22 +525,24 @@
   </div><!-- /close-section -->
 
   <div class="rabbit-hole">
-    <button class="rh-toggle" id="rh2Toggle" onclick="toggleRh('rh2')">
+    <button class="rabbit-hole-trigger" onclick="toggleRabbitHole(this)">
       <span class="rh-icon">&#128007;</span>
-      <span class="rh-label">What happens when what you have is worth less than what you owe?</span>
-      <span class="rh-chevron">&#9660;</span>
+      What happens when what you have is worth less than what you owe?
+      <span class="rh-chevron">&#9654;</span>
     </button>
-    <div class="rh-body" id="rh2Body">
-      <div class="prose">
-        <p>When an entity owes more than it has, the difference is called <strong>negative equity</strong> &mdash; or, informally, being &ldquo;underwater.&rdquo; This doesn&rsquo;t necessarily mean the business will fail immediately, but it is a warning sign that the entity&rsquo;s resources are not sufficient to cover its obligations.</p>
-        <p>Understanding this gap is one of the core reasons financial statements exist. A lender, a partner, or a potential buyer all want to know the same thing: does this entity have more than it owes &mdash; and by how much? The two lists you just made are the beginning of that answer.</p>
-      </div>
+    <div class="rabbit-hole-body">
+      <p>When an entity owes more than it has, the difference is called <strong>negative equity</strong> &mdash; or, informally, being &ldquo;underwater.&rdquo; This doesn&rsquo;t necessarily mean the business will fail immediately, but it is a warning sign that the entity&rsquo;s resources are not sufficient to cover its obligations.</p>
+      <p>Understanding this gap is one of the core reasons financial statements exist. A lender, a partner, or a potential buyer all want to know the same thing: does this entity have more than it owes &mdash; and by how much? The two lists you just made are the beginning of that answer.</p>
     </div>
   </div>
 
 </div><!-- /page -->
 
+<script src="../config.js"></script>
+<script src="../shared.js"></script>
 <script>
+applyConfig();
+
 /* ================================================================
    ACTIVITY 1 — SORT GRID: SHOP OR PERSONAL?
    Pattern: two-snapshots1.html renderSort() approach
@@ -813,16 +756,6 @@ function toggleAcc(trigger) {
 }
 
 
-/* ================================================================
-   RABBIT HOLES — exact pattern from how-fit-together.html
-================================================================ */
-function toggleRh(id) {
-  var toggle = document.getElementById(id + 'Toggle');
-  var body   = document.getElementById(id + 'Body');
-  var open   = body.classList.contains('open');
-  body.classList.toggle('open', !open);
-  toggle.classList.toggle('open', !open);
-}
 </script>
 </body>
 </html>
